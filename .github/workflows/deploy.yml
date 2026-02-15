@@ -1,0 +1,48 @@
+name: Deploy Site
+
+on:
+  # collect ワークフローからの呼び出し
+  workflow_run:
+    workflows: ["Collect Data"]
+    types: [completed]
+    branches: [main]
+  # main への push 時
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "data/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # workflow_run の場合は成功時のみ実行
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # workflow_run 経由の場合、最新コミットを取得
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Build site
+        working-directory: site
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/ --project-name=kiryu-public-log
+          workingDirectory: site
