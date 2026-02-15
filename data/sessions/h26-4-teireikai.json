@@ -1,0 +1,112 @@
+{
+  "session": "平成26年第4回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003843.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003842.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003844.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:54.547Z",
+  "dates": [
+    "平成26年11月28日",
+    "平成26年12月16日"
+  ],
+  "bills": [
+    {
+      "number": "報告第4号",
+      "title": "専決処分（平成26年度桐生市一般会計補正予算（第6号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第69号",
+      "title": "一般職の職員の給与に関する条例等の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第70号",
+      "title": "特別職の職員で常勤のものの給与に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第71号",
+      "title": "桐生市教育委員会教育長の給与に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第72号",
+      "title": "議会の議員の議員報酬及び費用弁償等に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第73号",
+      "title": "桐生市市営住宅条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第74号",
+      "title": "桐生市店舗併用住宅条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第75号",
+      "title": "指定管理者の指定について（桐生市新里温水プール）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第76号",
+      "title": "桐生市国民健康保険条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第77号",
+      "title": "平成26年度桐生市一般会計補正予算（第7号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第78号",
+      "title": "平成26年度桐生市学校給食中央共同調理場事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第79号",
+      "title": "平成26年度桐生市国民健康保険事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第80号",
+      "title": "平成26年度桐生市下水道事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第81号",
+      "title": "平成26年度桐生市介護保険事業特別会計補正予算（第2号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "諮問第2号",
+      "title": "人権擁護委員候補者の推薦につき意見を求めることについて",
+      "result": "異議ない旨回答することに決定",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議第6号議案",
+      "title": "年金積立金の被保険者の利益のための安全かつ確実な運用に関する意見書案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

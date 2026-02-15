@@ -1,0 +1,55 @@
+{
+  "session": "令和7年第1回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1024883/1024885.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:15.681Z",
+  "dates": [
+    "令和7年3月17日"
+  ],
+  "bills": [
+    {
+      "number": "請願第2号",
+      "title": "健康保険証をマイナンバーカードに一体化させ保険証を廃止する事の中止を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第4号",
+      "title": "「健康保険証の廃止をしないよう求める意見書」を政府に送付することを求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第6号",
+      "title": "日本政府に核兵器禁止条約の批准・署名を求める意見書採択の請願",
+      "result": "取り下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "請願第8号",
+      "title": "生活保護行政の改善を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第9号",
+      "title": "「イスラエル政府に対して、直ちに戦闘をやめるよう要請する」意見書を日本政府に上げることを求める請願",
+      "result": "取り下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "請願第10号",
+      "title": "桐生市の小中学校給食費の無償化を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第12号",
+      "title": "日本政府に核兵器禁止条約の批准・署名を求める意見書採択の請願",
+      "result": "継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/024/885/r7t1giantokekka.pdf"
+}

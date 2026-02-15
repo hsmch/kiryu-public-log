@@ -1,0 +1,21 @@
+{
+  "session": "平成25年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1006701.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1006702.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1006708.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:58.988Z",
+  "dates": [
+    "平成25年1月18日"
+  ],
+  "bills": [
+    {
+      "number": "議案第1号",
+      "title": "財産取得（高規格救急自動車及び高度救急救命資機材）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

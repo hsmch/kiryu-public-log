@@ -1,0 +1,52 @@
+{
+  "session": "平成27年第4回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1006340.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1006342.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1006727.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:36.280Z",
+  "dates": [
+    "議案議決結果一覧表",
+    "平成27年12月16日"
+  ],
+  "bills": [
+    {
+      "number": "第1号",
+      "title": "戦争につながる安全保障関連2法案（国際平和支援法案、平和安全法制整備法案）の廃案を求める意見書採択についての請願",
+      "result": "取下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第2号",
+      "title": "「平和安全法制整備法」「国際平和支援法」案の廃止を求める意見書の送付を求める請願",
+      "result": "取下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第3号",
+      "title": "「平和安全法制整備法」「国際平和支援法」案の廃止を求める意見書の送付を求める請願",
+      "result": "取下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第4号",
+      "title": "憲法の平和原則に反する「安全保障法案」に反対の意見書送付を求める請願",
+      "result": "取下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第5号",
+      "title": "憲法違反である「平和安全保障関連法」の廃止を求める意見書の送付を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "第6号",
+      "title": "「平和安全保障関連法」の廃止を求める意見書の送付を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

@@ -1,0 +1,147 @@
+{
+  "session": "平成26年第3回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003839.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003838.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003840.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:51.163Z",
+  "dates": [
+    "平成26年9月17日"
+  ],
+  "bills": [
+    {
+      "number": "議案第51号",
+      "title": "特別職の非常勤職員の報酬費用弁償に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第52号",
+      "title": "桐生市市税条例等の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第53号",
+      "title": "桐生市火災予防条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第54号",
+      "title": "新市建設計画の一部変更について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第55号",
+      "title": "桐生市鳥獣被害対策実施隊の設置に関する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第56号",
+      "title": "権利（鉱業権）の放棄について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第57号",
+      "title": "桐生市特定教育・保育施設及び特定地域型保育事業の運営に関する基準を定める条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第58号",
+      "title": "桐生市家庭的保育事業等の設備及び運営に関する基準を定める条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第59号",
+      "title": "桐生市放課後児童健全育成事業の設備及び運営に関する基準を定める条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第60号",
+      "title": "桐生市福祉事務所設置条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第61号",
+      "title": "桐生市福祉医療費助成条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第62号",
+      "title": "平成26年度桐生市一般会計補正予算（第4号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第63号",
+      "title": "平成26年度桐生市介護保険事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第64号",
+      "title": "平成25年度桐生市歳入歳出決算の認定について",
+      "result": "認定",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第65号",
+      "title": "平成25年桐生市水道事業会計未処分利益剰余金の処分について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第66号",
+      "title": "平成25年度桐生市水道事業会計決算の認定について",
+      "result": "認定",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第67号",
+      "title": "和解について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第68号",
+      "title": "平成26年度桐生市一般会計補正予算（第5号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議第5号議案",
+      "title": "子宮頸がん予防ワクチンの副反応被害者に対する救済に関する意見書案",
+      "result": "否決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "第19号",
+      "title": "子ども・子育て支援新制度の導入に関する意見書提出を求める請願",
+      "result": "取り下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第23号",
+      "title": "「全国一斉学力テスト」学校別結果公表反対を求める請願",
+      "result": "取り下げ承認",
+      "category": "請願"
+    },
+    {
+      "number": "第25号",
+      "title": "労働者保護ルール緩和阻止を求める求める請願",
+      "result": "取り下げ承認",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

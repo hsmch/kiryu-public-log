@@ -1,0 +1,49 @@
+{
+  "session": "令和2年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1016572/1017038.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:50.319Z",
+  "dates": [
+    "令和元年5月22月"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（桐生市市税条例等の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（桐生市都市計画税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（桐生市地方活力向上地域における固定資産税の課税の特例に関する条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第4号",
+      "title": "専決処分（桐生市国民健康保険税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第5号",
+      "title": "専決処分（令和2年度桐生市一般会計補正予算（第1号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第33号",
+      "title": "令和2年度桐生市一般会計補正予算（第2号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/017/038/giankekkar2r1.pdf"
+}

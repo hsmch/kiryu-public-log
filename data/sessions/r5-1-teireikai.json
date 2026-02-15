@@ -1,0 +1,67 @@
+{
+  "session": "令和5年第1回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1022419/1022441.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:28.201Z",
+  "dates": [
+    "令和5年3月15日"
+  ],
+  "bills": [
+    {
+      "number": "議第1号議案",
+      "title": "桐生市議会会議規則の一部を改正する規則案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第2号議案",
+      "title": "桐生市議会の個人情報の保護に関する条例案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "請願第12号",
+      "title": "日本政府に核兵器禁止条約の批准を求める意見書採択の請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第14号",
+      "title": "日本政府に核兵器禁止条約の批准を求める意見書採択の請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第15号",
+      "title": "「消費税インボイス制度の実施中止を求める意見書」を政府に送付することを求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第17号",
+      "title": "学校給食費無料化を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第18号",
+      "title": "安全・安心の医療・介護実現のため人員増と処遇改善を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第19号",
+      "title": "「消費税インボイス制度の実施中止を求める意見書」を政府に送付することを求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第20号",
+      "title": "子どものために保育士配置基準の引き上げによる保育士増員を求める意見書の提出を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/022/441/r5t1giantokekka.pdf"
+}

@@ -1,0 +1,45 @@
+{
+  "session": "平成25年第2回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003811.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003810.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003812.html"
+  ],
+  "scrapedAt": "2026-02-15T07:38:06.004Z",
+  "dates": [
+    "平成25年5月10日"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（桐生市市税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（桐生市都市計画税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（桐生市国民健康保険税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第4号",
+      "title": "専決処分（平成24年度桐生市一般会計補正予算（第7号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第43号",
+      "title": "固定資産評価員の選任につき同意を求めることについて",
+      "result": "同意",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

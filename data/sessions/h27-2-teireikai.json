@@ -1,0 +1,106 @@
+{
+  "session": "平成27年第2回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003860.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003859.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003861.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:28.890Z",
+  "dates": [
+    "平成27年6月29日",
+    "平成27年6月12日"
+  ],
+  "bills": [
+    {
+      "number": "議案第44号",
+      "title": "桐生市手数料条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第45号",
+      "title": "財産取得（小型ノンステップバス）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第46号",
+      "title": "財産取得（水槽付消防ポンプ自動車）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第47号",
+      "title": "財産取得（高規格救急自動車及び高度救命処置用資機材）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第48号",
+      "title": "桐生市いじめ問題専門委員会及び桐生市いじめ問題再調査委員会条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第49号",
+      "title": "平成27年度桐生市一般会計補正予算（第2号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第50号",
+      "title": "桐生市名誉市民の推挙につき同意を求めることについて",
+      "result": "同意",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第51号",
+      "title": "平成27年度桐生市一般会計補正予算（第3号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第52号",
+      "title": "監査委員の選任につき同意を求めることについて",
+      "result": "同意",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議第3号議案",
+      "title": "水質調査特別委員会設置に関する決議案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第4号議案",
+      "title": "合併及び地域政策調査特別委員会設置に関する決議案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "第1号",
+      "title": "戦争につながる安全保障関連2法案（国際平和支援法案、平和安全法制整備法案）の廃案を求める意見書採択についての請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "第2号",
+      "title": "「平和安全法制整備法」「国際平和支援法」案の廃止を求める意見書の送付を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "第3号",
+      "title": "「平和安全法制整備法」「国際平和支援法」案の廃止を求める意見書の送付を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "第4号",
+      "title": "憲法の平和原則に反する「安全保障法案」に反対の意見書送付を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

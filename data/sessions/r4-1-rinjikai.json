@@ -1,0 +1,25 @@
+{
+  "session": "令和4年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1020253/1021224.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:39.019Z",
+  "dates": [
+    "令和4年10月27日"
+  ],
+  "bills": [
+    {
+      "number": "報告第8号",
+      "title": "専決処分（令和4年度桐生市一般会計補正予算（第6号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第60号",
+      "title": "令和4年度桐生市一般会計補正予算（第7号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

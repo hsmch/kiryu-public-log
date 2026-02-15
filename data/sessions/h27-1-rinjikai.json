@@ -1,0 +1,52 @@
+{
+  "session": "平成27年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003856.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003855.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h27/1003857.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:25.502Z",
+  "dates": [
+    "平成27年5月20日",
+    "平成27年5月19日"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（桐生市市税条例等の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（桐生市都市計画税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（桐生市国民健康保険税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第4号",
+      "title": "専決処分（桐生市介護保険条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第43号",
+      "title": "平成27年度桐生市一般会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議第2号議案",
+      "title": "桐生市議会委員会条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

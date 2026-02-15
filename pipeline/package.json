@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "scrape:members": "tsx src/scrape-council-members.ts"
+    "scrape:members": "tsx src/scrape-council-members.ts",
+    "scrape:sessions": "tsx src/scrape-session-bills.ts"
   },
   "devDependencies": {
     "tsx": "^4.0.0",

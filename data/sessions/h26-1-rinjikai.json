@@ -1,0 +1,21 @@
+{
+  "session": "平成26年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003831.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003830.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h26/1003832.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:47.950Z",
+  "dates": [
+    "平成26年8月18日"
+  ],
+  "bills": [
+    {
+      "number": "議案第50号",
+      "title": "桐生市境野水処理センター脱水機更新工事請負契約の締結について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

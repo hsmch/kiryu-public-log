@@ -1,0 +1,117 @@
+{
+  "session": "平成25年第2回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003806.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003805.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h25/1003807.html"
+  ],
+  "scrapedAt": "2026-02-15T07:38:09.281Z",
+  "dates": [
+    "平成25年6月24日"
+  ],
+  "bills": [
+    {
+      "number": "議案第44号",
+      "title": "公益的法人等への職員の派遣等に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第45号",
+      "title": "財産取得（消防ポンプ自動車）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第46号",
+      "title": "財産取得（消防ポンプ自動車（四輪駆動））について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第47号",
+      "title": "財産取得（分団用消防ポンプ自動車）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第48号",
+      "title": "財産取得（高規格救急自動車及び高度救命処置用資機材）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第49号",
+      "title": "桐生市消防救急無線デジタル化整備工事請負契約の締結について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第50号",
+      "title": "平成25年度桐生市一般会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第51号",
+      "title": "市長、副市長及び教育長の給料の臨時特例に関する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第52号",
+      "title": "一般職の職員の給料の臨時特例に関する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第53号",
+      "title": "監査委員の選任につき同意を求めることについて",
+      "result": "同意",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議第1号議案",
+      "title": "議会の議員の議員報酬の臨時特例に関する条例案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第2号議案",
+      "title": "水質調査特別委員会設置に関する決議の一部を変更する決議案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第3号議案",
+      "title": "地域政策調査特別委員会設置に関する決議案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第4号議案",
+      "title": "衆議院小選挙区の選挙区割りの更なる見直しを求める意見書案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第5号議案",
+      "title": "「こころの健康を守り推進する基本法（仮称）」の法制化を求める意見書案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "第18号",
+      "title": "「最低賃金の改善と中小企業支援策の拡充を求める意見書」提出についての請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "第19号",
+      "title": "子ども・子育て支援新制度の導入に関する意見書提出を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

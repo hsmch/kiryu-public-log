@@ -1,0 +1,86 @@
+{
+  "session": "平成24年第4回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h24/1003790.html",
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/h24/1003791.html"
+  ],
+  "scrapedAt": "2026-02-15T07:38:32.267Z",
+  "dates": [
+    "平成24年12月19日"
+  ],
+  "bills": [
+    {
+      "number": "議第9号議案",
+      "title": "桐生市議会政務調査費の交付に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第10号議案",
+      "title": "桐生市議会委員会条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第11号議案",
+      "title": "桐生市議会会議規則の一部を改正する規則案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第12号議案",
+      "title": "原子力発電所事故による農畜産物損害賠償に関する意見書案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "議第13号議案",
+      "title": "放射性物質によるきのこ栽培被害について支援を求める意見書案",
+      "result": "原案可決",
+      "category": "委員会・議員提出議案"
+    },
+    {
+      "number": "第1号",
+      "title": "公契約で働く人の「ディーセント・ワーク（働きがいのある人間らしい仕事）」を実現し、経済成長につなげる「公契約基本法」の制定を求める意見書採択についての請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第5号",
+      "title": "全額国庫負担による最低保障年金制度の創設を求める請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第6号",
+      "title": "0.4％の年金引き下げをもとに戻すことを求める請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第7号",
+      "title": "年金受給資格期間の10年への短縮を求める請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第11号",
+      "title": "消費税増税に反対する意見書の提出を求める請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第16号",
+      "title": "「子ども・子育て新システム」に基づく保育制度改革に反対する意見書提出を求める請願",
+      "result": "取り下げを承認",
+      "category": "請願"
+    },
+    {
+      "number": "第17号",
+      "title": "介護保険の改善を求める請願",
+      "result": "閉会中の継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": null
+}

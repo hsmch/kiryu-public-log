@@ -1,0 +1,49 @@
+{
+  "session": "令和6年第1回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1023680/1023682.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:22.534Z",
+  "dates": [
+    "令和6年3月15日"
+  ],
+  "bills": [
+    {
+      "number": "請願第1号",
+      "title": "学校給食費無料化を求める請願",
+      "result": "不採択",
+      "category": "請願"
+    },
+    {
+      "number": "請願第2号",
+      "title": "健康保険証をマイナンバーカードに一体化させ保険証を廃止する事の中止を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第4号",
+      "title": "「健康保険証の廃止をしないよう求める意見書」を政府に送付することを求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第6号",
+      "title": "日本政府に核兵器禁止条約の批准・署名を求める意見書採択の請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第7号",
+      "title": "「イスラエル政府に対して、直ちに戦闘をやめるよう要請すると同時に、UNRWAへの資金拠出の再開を求める意見書」採択の請願",
+      "result": "継続審査",
+      "category": "請願"
+    },
+    {
+      "number": "請願第8号",
+      "title": "生活保護行政の改善を求める請願",
+      "result": "継続審査",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/023/682/r6t1gianntokekka.pdf"
+}

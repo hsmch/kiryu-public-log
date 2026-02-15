@@ -1,0 +1,68 @@
+{
+  "session": "令和3年第2回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1018421/1019104.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:44.653Z",
+  "dates": [
+    "令和3年6月4日",
+    "令和3年6月23日"
+  ],
+  "bills": [
+    {
+      "number": "議案第52号",
+      "title": "令和3年度桐生市一般会計補正予算（第2号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第46号",
+      "title": "行政手続における押印見直しに伴う関係条例の整理に関する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第47号",
+      "title": "桐生市手数料条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第48号",
+      "title": "財産取得（水槽付消防ポンプ自動車）について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第49号",
+      "title": "桐生市市営住宅錦町三丁目団地耐震及び各所改修工事請負契約の締結について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第50号",
+      "title": "桐生市学校給食共同調理場の設置及び運営に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第51号",
+      "title": "桐生市介護保険条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第53号",
+      "title": "令和3年度桐生市一般会計補正予算（第3号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第54号",
+      "title": "令和3年度桐生市一般会計補正予算（第4号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/019/104/kokosannpi32.pdf"
+}

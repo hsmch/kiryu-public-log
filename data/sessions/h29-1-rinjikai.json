@@ -1,0 +1,50 @@
+{
+  "session": "平成29年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1011176/1011370.html"
+  ],
+  "scrapedAt": "2026-02-15T07:37:10.707Z",
+  "dates": [
+    "平成29年5月11日",
+    "平成29年5月10日"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（桐生市市税条例等の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（桐生市都市計画税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（桐生市国民健康保険税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第35号",
+      "title": "桐生市立公民館の設置及び管理に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "第10号",
+      "title": "国保税の引き下げを求める請願",
+      "result": "審査未了",
+      "category": "請願"
+    },
+    {
+      "number": "第11号",
+      "title": "介護保険料の引き下げを求める請願",
+      "result": "審査未了",
+      "category": "請願"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/011/370/h29r1.pdf"
+}

@@ -1,0 +1,19 @@
+{
+  "session": "令和2年第2回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1016572/1017248.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:52.441Z",
+  "dates": [
+    "令和2年7月10月"
+  ],
+  "bills": [
+    {
+      "number": "議案第66号",
+      "title": "令和2年度桐生市一般会計補正予算（第5号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/017/248/r2r22gikatukekka.pdf"
+}

@@ -1,0 +1,99 @@
+{
+  "session": "令和3年第4回定例会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1018421/1019895.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:46.907Z",
+  "dates": [
+    "令和3年11月29日",
+    "令和3年12月15日",
+    "令和3年12月16日"
+  ],
+  "bills": [
+    {
+      "number": "議案第85号",
+      "title": "令和3年度桐生市一般会計補正予算（第7号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第78号",
+      "title": "桐生市手数料条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第79号",
+      "title": "桐生市都市計画法に基づく開発許可等の基準に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第80号",
+      "title": "農業経営基盤の強化の促進に関する基本的な構想の変更について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第81号",
+      "title": "指定管理者の指定について（桐生市南公園）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第82号",
+      "title": "桐生市国民健康保険条例の一部を改正する条例案",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第83号",
+      "title": "指定管理者の指定について（桐生市総合福祉センター）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第84号",
+      "title": "指定管理者の指定について（桐生市立点字図書館）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第86号",
+      "title": "令和3年度桐生市一般会計補正予算（第8号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第87号",
+      "title": "令和3年度桐生市学校給食共同調理場事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第88号",
+      "title": "令和3年度桐生市国民健康保険事業特別会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第89号",
+      "title": "令和3年度桐生市介護保険事業特別会計補正予算（第2号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第90号",
+      "title": "令和3年度桐生市下水道事業会計補正予算（第1号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第91号",
+      "title": "令和3年度桐生市一般会計補正予算（第9号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/019/895/kokonosannpi3.4.pdf"
+}

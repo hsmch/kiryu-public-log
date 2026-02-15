@@ -1,0 +1,43 @@
+{
+  "session": "令和3年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1018421/1018947.html"
+  ],
+  "scrapedAt": "2026-02-15T07:36:43.576Z",
+  "dates": [
+    "令和3年5月12日"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（桐生市市税条例等の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（桐生市都市計画税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（令和3年度桐生市一般会計補正予算（第1号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第44号",
+      "title": "財産取得（タブレットPC（1,314台））について",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第45号",
+      "title": "固定資産評価員の選任につき同意を求めることについて",
+      "result": "同意",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/018/947/giankekkar3r1.pdf"
+}
