@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCouncilMembers } from '../lib/data';
+
+export const prerender = true;
+
+const { officers, members, sourceUrl } = getCouncilMembers();
+
+const factions = [...new Set(members.map((m) => m.faction))].filter(Boolean).sort();
+const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean).sort();
+---
+
+<Layout title="議員一覧 - Kiryu Public Log">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="text-2xl font-bold text-gray-900">議員一覧</h1>
+    <p class="mt-2 text-sm text-gray-500">
+      <a href={sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+        桐生市議会公式サイト
+      </a>
+      より取得
+    </p>
+
+    <!-- 議長・副議長 -->
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">議長・副議長</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        {officers.map((o) => (
+          <div class="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4">
+            {o.photoUrl ? (
+              <img src={o.photoUrl} alt={o.name} class="h-16 w-14 rounded object-cover" loading="lazy" />
+            ) : (
+              <div class="flex h-16 w-14 items-center justify-center rounded bg-gray-100 text-xs text-gray-400">
+                No Photo
+              </div>
+            )}
+            <div>
+              <p class="font-semibold text-gray-900">{o.name}</p>
+              <p class="text-sm text-gray-500">{o.nameReading}</p>
+              <span class="mt-1 inline-block rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800">
+                {o.role}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- フィルタ -->
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">議員名簿</h2>
+
+      <div class="mt-4 flex flex-wrap gap-3" id="filters">
+        <select id="filter-faction" class="rounded border border-gray-300 px-3 py-1.5 text-sm">
+          <option value="">全会派</option>
+          {factions.map((f) => <option value={f}>{f}</option>)}
+        </select>
+        <select id="filter-committee" class="rounded border border-gray-300 px-3 py-1.5 text-sm">
+          <option value="">全委員会</option>
+          {committees.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      <!-- 議員カード -->
+      <div class="mt-6 grid gap-4 sm:grid-cols-2" id="members-grid">
+        {members
+          .sort((a, b) => (a.seatNumber ?? 99) - (b.seatNumber ?? 99))
+          .map((m) => (
+            <div
+              class="member-card flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-4"
+              data-faction={m.faction}
+              data-committee={m.committee}
+            >
+              {m.photoUrl ? (
+                <img src={m.photoUrl} alt={m.name} class="h-20 w-16 shrink-0 rounded object-cover" loading="lazy" />
+              ) : (
+                <div class="flex h-20 w-16 shrink-0 items-center justify-center rounded bg-gray-100 text-xs text-gray-400">
+                  No Photo
+                </div>
+              )}
+              <div class="min-w-0">
+                <p class="font-semibold text-gray-900">
+                  <span class="mr-2 text-sm text-gray-400">#{m.seatNumber}</span>
+                  {m.name}
+                </p>
+                <p class="text-sm text-gray-500">{m.nameReading}</p>
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-700">{m.faction}</span>
+                  <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-700">
+                    {m.committee}
+                    {m.committeeRole && <span class="ml-1 text-blue-600">({m.committeeRole})</span>}
+                  </span>
+                  {m.electionCount && (
+                    <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-700">
+                      当選{m.electionCount}回
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const factionSelect = document.getElementById('filter-faction') as HTMLSelectElement;
+    const committeeSelect = document.getElementById('filter-committee') as HTMLSelectElement;
+    const cards = document.querySelectorAll('.member-card') as NodeListOf<HTMLElement>;
+
+    function applyFilters() {
+      const faction = factionSelect.value;
+      const committee = committeeSelect.value;
+
+      cards.forEach((card) => {
+        const matchFaction = !faction || card.dataset.faction === faction;
+        const matchCommittee = !committee || card.dataset.committee === committee;
+        card.style.display = matchFaction && matchCommittee ? '' : 'none';
+      });
+    }
+
+    factionSelect.addEventListener('change', applyFilters);
+    committeeSelect.addEventListener('change', applyFilters);
+  </script>
+</Layout>

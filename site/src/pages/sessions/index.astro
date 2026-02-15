@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllSessions } from '../../lib/data';
+
+export const prerender = true;
+
+const sessions = getAllSessions();
+
+// 年度ごとにグループ化
+const byYear = new Map<string, typeof sessions>();
+for (const s of sessions) {
+  // slug から年度を抽出: "r7-2-teireikai" → "r7"
+  const yearKey = s.slug.replace(/-\d+-\w+$/, '');
+  const existing = byYear.get(yearKey) ?? [];
+  existing.push(s);
+  byYear.set(yearKey, existing);
+}
+
+function yearKeyToLabel(key: string): string {
+  const match = key.match(/^(r|h)(\d+)$/);
+  if (!match) return key;
+  const era = match[1] === 'r' ? '令和' : '平成';
+  return `${era}${match[2]}年`;
+}
+
+function sessionTypeLabel(slug: string): string {
+  if (slug.includes('rinjikai')) return '臨時会';
+  return '定例会';
+}
+
+function sessionNumLabel(slug: string): string {
+  const match = slug.match(/-(\d+)-/);
+  return match ? `第${match[1]}回` : '';
+}
+---
+
+<Layout title="議案・採決結果 - Kiryu Public Log">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="text-2xl font-bold text-gray-900">議案・採決結果</h1>
+    <p class="mt-2 text-sm text-gray-500">
+      平成24年〜令和7年の定例会・臨時会の議案議決結果
+    </p>
+
+    {[...byYear.entries()].map(([yearKey, yearSessions]) => (
+      <section class="mt-8">
+        <h2 class="text-lg font-semibold text-gray-800">{yearKeyToLabel(yearKey)}</h2>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+          {yearSessions.map((s) => (
+            <a
+              href={`/sessions/${s.slug}`}
+              class="block rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              <p class="font-semibold text-gray-900">
+                {sessionNumLabel(s.slug)}{sessionTypeLabel(s.slug)}
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                {s.data.bills.length}件の議案
+              </p>
+              {s.data.dates.length > 0 && (
+                <p class="mt-1 text-xs text-gray-400">{s.data.dates[0]}</p>
+              )}
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

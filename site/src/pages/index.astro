@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCouncilMembers, getAllSessions } from '../lib/data';
+
+export const prerender = true;
+
+const council = getCouncilMembers();
+const sessions = getAllSessions();
+const totalMembers = council.officers.length + council.members.length;
+const totalBills = sessions.reduce((sum, s) => sum + s.data.bills.length, 0);
+const recentSessions = sessions.slice(0, 5);
 ---
 
 <Layout>
@@ -13,38 +22,49 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </div>
 
-    <div class="mt-12 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-      <h2 class="text-center text-xl font-semibold text-gray-800">
-        現在準備中です
-      </h2>
-      <p class="mt-4 text-center text-gray-600">
-        桐生市議会の議案・採決結果・議員情報などの公開情報を自動収集し、
-        市民のみなさんが簡単にアクセスできるかたちで公開予定です。
-      </p>
-
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-md bg-gray-50 p-4">
-          <h3 class="font-semibold text-gray-800">議員一覧</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            会派・委員会ごとに整理された議員情報
-          </p>
-        </div>
-        <div class="rounded-md bg-gray-50 p-4">
-          <h3 class="font-semibold text-gray-800">議案・採決結果</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            定例会ごとの議案と賛否の一覧
-          </p>
-        </div>
-        <div class="rounded-md bg-gray-50 p-4">
-          <h3 class="font-semibold text-gray-800">新着情報</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            議会関連の最新更新をタイムラインで
-          </p>
-        </div>
-      </div>
+    <!-- 数字サマリ -->
+    <div class="mt-12 grid gap-4 sm:grid-cols-3">
+      <a href="/council" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
+        <p class="text-3xl font-bold text-gray-900">{totalMembers}</p>
+        <p class="mt-1 text-sm text-gray-600">議員</p>
+      </a>
+      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
+        <p class="text-3xl font-bold text-gray-900">{sessions.length}</p>
+        <p class="mt-1 text-sm text-gray-600">定例会・臨時会</p>
+      </a>
+      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
+        <p class="text-3xl font-bold text-gray-900">{totalBills.toLocaleString()}</p>
+        <p class="mt-1 text-sm text-gray-600">議案・請願</p>
+      </a>
     </div>
 
-    <p class="mt-8 text-center text-sm text-gray-500">
+    <!-- 最近のセッション -->
+    <div class="mt-12">
+      <h2 class="text-lg font-semibold text-gray-800">最近の定例会・臨時会</h2>
+      <div class="mt-4 space-y-3">
+        {recentSessions.map((s) => (
+          <a
+            href={`/sessions/${s.slug}`}
+            class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+          >
+            <div class="flex items-center justify-between">
+              <p class="font-medium text-gray-900">{s.data.session}</p>
+              <span class="text-sm text-gray-500">{s.data.bills.length}件</span>
+            </div>
+            {s.data.dates.length > 0 && (
+              <p class="mt-0.5 text-xs text-gray-400">{s.data.dates[0]}</p>
+            )}
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-center">
+        <a href="/sessions" class="text-sm text-blue-600 underline hover:text-blue-800">
+          すべての定例会・臨時会を見る
+        </a>
+      </p>
+    </div>
+
+    <p class="mt-12 text-center text-sm text-gray-500">
       公式情報は
       <a
         href="https://www.city.kiryu.lg.jp/shigikai/index.html"

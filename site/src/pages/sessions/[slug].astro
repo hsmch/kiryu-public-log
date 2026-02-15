@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllSessions, getSession } from '../../lib/data';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const sessions = getAllSessions();
+  return sessions.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const { slug } = Astro.params;
+const session = getSession(slug!);
+
+if (!session) {
+  return Astro.redirect('/sessions');
+}
+
+const categories = [...new Set(session.bills.map((b) => b.category))];
+
+function resultColor(result: string): string {
+  if (result.includes('可決') || result.includes('採択') || result.includes('承認') || result.includes('同意') || result.includes('認定')) return 'bg-green-100 text-green-800';
+  if (result.includes('否決') || result.includes('不採択')) return 'bg-red-100 text-red-800';
+  if (result.includes('継続')) return 'bg-yellow-100 text-yellow-800';
+  return 'bg-gray-100 text-gray-800';
+}
+---
+
+<Layout title={`${session.session} - Kiryu Public Log`}>
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <nav class="text-sm text-gray-500">
+      <a href="/sessions" class="text-blue-600 hover:text-blue-800">議案・採決結果</a>
+      <span class="mx-1">/</span>
+    </nav>
+
+    <h1 class="mt-2 text-2xl font-bold text-gray-900">{session.session}</h1>
+
+    {session.dates.length > 0 && (
+      <p class="mt-1 text-sm text-gray-500">
+        議決日: {session.dates.join('、')}
+      </p>
+    )}
+
+    <div class="mt-2 flex flex-wrap gap-2 text-sm text-gray-500">
+      {session.sourceUrls.map((url) => (
+        <a href={url} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+          公式サイト原文
+        </a>
+      ))}
+      {session.votingRecordPdfUrl && (
+        <a href={session.votingRecordPdfUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+          議員個々の賛否 (PDF)
+        </a>
+      )}
+    </div>
+
+    <p class="mt-4 text-sm text-gray-600">
+      合計 <span class="font-semibold">{session.bills.length}</span> 件
+    </p>
+
+    {categories.map((cat) => {
+      const bills = session.bills.filter((b) => b.category === cat);
+      return (
+        <section class="mt-8">
+          <h2 class="text-lg font-semibold text-gray-800">{cat}</h2>
+          <div class="mt-3 overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-gray-200 text-left">
+                  <th class="whitespace-nowrap py-2 pr-4 font-medium text-gray-600">番号</th>
+                  <th class="py-2 pr-4 font-medium text-gray-600">件名</th>
+                  <th class="whitespace-nowrap py-2 font-medium text-gray-600">結果</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bills.map((bill) => (
+                  <tr class="border-b border-gray-100">
+                    <td class="whitespace-nowrap py-2 pr-4 text-gray-700">{bill.number}</td>
+                    <td class="py-2 pr-4 text-gray-900">{bill.title}</td>
+                    <td class="whitespace-nowrap py-2">
+                      <span class={`rounded px-2 py-0.5 text-xs font-medium ${resultColor(bill.result)}`}>
+                        {bill.result}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</Layout>
