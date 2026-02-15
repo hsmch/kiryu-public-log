@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "scrape:members": "tsx src/scrape-council-members.ts",
-    "scrape:sessions": "tsx src/scrape-session-bills.ts"
+    "scrape:sessions": "tsx src/scrape-session-bills.ts",
+    "scrape:updates": "tsx src/scrape-updates.ts"
   },
   "devDependencies": {
     "tsx": "^4.0.0",

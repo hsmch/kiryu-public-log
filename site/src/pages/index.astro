@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCouncilMembers, getAllSessions } from '../lib/data';
+import { getCouncilMembers, getAllSessions, getUpdates } from '../lib/data';
 
 export const prerender = true;
 
 const council = getCouncilMembers();
 const sessions = getAllSessions();
+const updates = getUpdates();
 const totalMembers = council.officers.length + council.members.length;
 const totalBills = sessions.reduce((sum, s) => sum + s.data.bills.length, 0);
 const recentSessions = sessions.slice(0, 5);
+const recentUpdates = updates?.entries.slice(0, 10) ?? [];
 ---
 
 <Layout>
@@ -37,6 +39,31 @@ const recentSessions = sessions.slice(0, 5);
         <p class="mt-1 text-sm text-gray-600">議案・請願</p>
       </a>
     </div>
+
+    <!-- 新着更新情報 -->
+    {recentUpdates.length > 0 && (
+      <div class="mt-12">
+        <h2 class="text-lg font-semibold text-gray-800">新着更新情報</h2>
+        <div class="mt-4 space-y-2">
+          {recentUpdates.map((entry) => (
+            <a
+              href={entry.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              <div class="flex items-start gap-3">
+                <span class="shrink-0 text-sm text-gray-400">{entry.date}</span>
+                <span class={`shrink-0 rounded px-1.5 py-0.5 text-xs font-medium ${entry.label === '新規' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                  {entry.label}
+                </span>
+                <span class="text-sm text-gray-900">{entry.title}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
 
     <!-- 最近のセッション -->
     <div class="mt-12">

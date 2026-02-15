@@ -58,6 +58,29 @@ export function getAllSessions(): { slug: string; data: SessionData }[] {
     .sort((a, b) => b.slug.localeCompare(a.slug));
 }
 
+export interface UpdateEntry {
+  date: string;
+  label: string;
+  title: string;
+  url: string;
+  firstSeenAt: string;
+}
+
+export interface UpdatesData {
+  sourceUrl: string;
+  lastCheckedAt: string;
+  entries: UpdateEntry[];
+}
+
+export function getUpdates(): UpdatesData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "updates.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 export function getSession(slug: string): SessionData | null {
   try {
     const raw = readFileSync(
