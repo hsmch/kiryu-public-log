@@ -1,0 +1,51 @@
+name: Collect Data
+
+on:
+  schedule:
+    # 毎日 6:00 JST (21:00 UTC 前日) に実行
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install pipeline dependencies
+        working-directory: pipeline
+        run: npm ci
+
+      # サーバーへの負荷を避けるため順番に実行
+      - name: Scrape council members
+        working-directory: pipeline
+        run: npm run scrape:members
+
+      - name: Scrape session bills
+        working-directory: pipeline
+        run: npm run scrape:sessions
+
+      - name: Scrape updates
+        working-directory: pipeline
+        run: npm run scrape:updates
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/ && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "chore: データ自動更新 $(date -u +%Y-%m-%d)"
+          git push
