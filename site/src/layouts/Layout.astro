@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Kiryu Public Log',
+  description = '桐生市の市政・議会の公開情報をわかりやすく整理してお届けするアーカイブサイト',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
+    <header class="border-b border-gray-200 bg-white">
+      <div class="mx-auto max-w-4xl px-4 py-4">
+        <a href="/" class="text-lg font-bold tracking-tight text-gray-900 no-underline">
+          Kiryu Public Log
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="mt-auto border-t border-gray-200 bg-white">
+      <div class="mx-auto max-w-4xl px-4 py-6 text-center text-sm text-gray-500">
+        <p>
+          このサイトは桐生市の公開情報を整理・提供する非公式のアーカイブです。
+          桐生市および桐生市議会とは一切関係ありません。
+        </p>
+        <p class="mt-2">
+          情報の正確性については
+          <a
+            href="https://www.city.kiryu.lg.jp/shigikai/index.html"
+            class="text-blue-600 underline hover:text-blue-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            桐生市議会公式サイト
+          </a>
+          をご確認ください。
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
