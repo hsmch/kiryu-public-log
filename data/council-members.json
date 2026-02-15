@@ -1,0 +1,250 @@
+{
+  "sourceUrl": "https://www.city.kiryu.lg.jp/shigikai/about/1003765.html",
+  "scrapedAt": "2026-02-15T07:16:13.504Z",
+  "officers": [
+    {
+      "seatNumber": null,
+      "name": "人見　武男",
+      "nameReading": "ひとみ　たけお",
+      "faction": "",
+      "committee": "",
+      "committeeRole": null,
+      "role": "議長",
+      "electionCount": null,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262hitomi.jpg"
+    },
+    {
+      "seatNumber": null,
+      "name": "山之内　肇",
+      "nameReading": "やまのうち　はじめ",
+      "faction": "",
+      "committee": "",
+      "committeeRole": null,
+      "role": "副議長",
+      "electionCount": null,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263yamanouchi.jpg"
+    }
+  ],
+  "members": [
+    {
+      "seatNumber": 3,
+      "name": "飯島　英規",
+      "nameReading": "いいじま　ひでき",
+      "faction": "無会派",
+      "committee": "経済建設委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 6,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262iijima.jpg"
+    },
+    {
+      "seatNumber": 4,
+      "name": "歌代　公司",
+      "nameReading": "うたしろ　こうじ",
+      "faction": "無会派",
+      "committee": "総務委員会",
+      "committeeRole": "副委員長",
+      "role": null,
+      "electionCount": 2,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263utasiro.jpg"
+    },
+    {
+      "seatNumber": 5,
+      "name": "渡辺　恒",
+      "nameReading": "わたなべ　ひとし",
+      "faction": "日本共産党議員団",
+      "committee": "総務委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 3,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262watanabe.jpg"
+    },
+    {
+      "seatNumber": 6,
+      "name": "関口　直久",
+      "nameReading": "せきぐち　なおひさ",
+      "faction": "日本共産党議員団",
+      "committee": "教育民生委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 8,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262sekiguti.jpg"
+    },
+    {
+      "seatNumber": 7,
+      "name": "小島　強",
+      "nameReading": "こじま　つよし",
+      "faction": "一心会",
+      "committee": "教育民生委員会",
+      "committeeRole": "副委員長",
+      "role": null,
+      "electionCount": 1,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262kojima.jpg"
+    },
+    {
+      "seatNumber": 8,
+      "name": "園田　基博",
+      "nameReading": "そのだ　もとひろ",
+      "faction": "一心会",
+      "committee": "総務委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 3,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262sonoda.jpg"
+    },
+    {
+      "seatNumber": 9,
+      "name": "北川　久人",
+      "nameReading": "きたがわ　ひさと",
+      "faction": "一心会",
+      "committee": "教育民生委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 4,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263kitagawa.jpg"
+    },
+    {
+      "seatNumber": 10,
+      "name": "久保田　裕一",
+      "nameReading": "くぼた　ゆういち",
+      "faction": "そうぞう未来",
+      "committee": "経済建設委員会",
+      "committeeRole": "副委員長",
+      "role": null,
+      "electionCount": 3,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262kubota.jpg"
+    },
+    {
+      "seatNumber": 11,
+      "name": "近藤　芽衣",
+      "nameReading": "こんどう　めい",
+      "faction": "そうぞう未来",
+      "committee": "総務委員会",
+      "committeeRole": "委員長",
+      "role": null,
+      "electionCount": 2,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263kondo.jpg"
+    },
+    {
+      "seatNumber": 12,
+      "name": "工藤　英人",
+      "nameReading": "くどう　ひでひと",
+      "faction": "政策研究会",
+      "committee": "総務委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 3,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262kudo.jpg"
+    },
+    {
+      "seatNumber": 13,
+      "name": "丹羽　孝志",
+      "nameReading": "にわ　たかし",
+      "faction": "公明クラブ",
+      "committee": "経済建設委員会",
+      "committeeRole": "委員長",
+      "role": null,
+      "electionCount": 2,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262niwa.jpg"
+    },
+    {
+      "seatNumber": 14,
+      "name": "山之内　肇",
+      "nameReading": "やまのうち　はじめ",
+      "faction": "公明クラブ",
+      "committee": "教育民生委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 4,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263yamanouchi.jpg"
+    },
+    {
+      "seatNumber": 15,
+      "name": "人見　武男",
+      "nameReading": "ひとみ　たけお",
+      "faction": "一心会",
+      "committee": "経済建設委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 4,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262hitomi.jpg"
+    },
+    {
+      "seatNumber": 16,
+      "name": "辻　正男",
+      "nameReading": "つじ　まさお",
+      "faction": "そうぞう未来",
+      "committee": "教育民生委員会",
+      "committeeRole": "委員長",
+      "role": null,
+      "electionCount": 3,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262tsuji.jpg"
+    },
+    {
+      "seatNumber": 17,
+      "name": "新井　達夫",
+      "nameReading": "あらい　たつお",
+      "faction": "そうぞう未来",
+      "committee": "総務委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 5,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263arai.jpg"
+    },
+    {
+      "seatNumber": 18,
+      "name": "岡部　純朗",
+      "nameReading": "おかべ　すみお",
+      "faction": "そうぞう未来",
+      "committee": "経済建設委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 7,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262okabe.jpg"
+    },
+    {
+      "seatNumber": 19,
+      "name": "福島　賢一",
+      "nameReading": "ふくしま　けんいち",
+      "faction": "政策研究会",
+      "committee": "総務委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 5,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263hukushima.jpg"
+    },
+    {
+      "seatNumber": 20,
+      "name": "佐藤　光好",
+      "nameReading": "さとう　みつよし",
+      "faction": "政策研究会",
+      "committee": "教育民生委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 10,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262sato.jpg"
+    },
+    {
+      "seatNumber": 21,
+      "name": "河原井　始",
+      "nameReading": "かわらい　はじめ",
+      "faction": "クラブ21",
+      "committee": "教育民生委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 5,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263kawarai.jpg"
+    },
+    {
+      "seatNumber": 22,
+      "name": "周藤　雅彦",
+      "nameReading": "しゅうとう　まさひこ",
+      "faction": "クラブ21",
+      "committee": "経済建設委員会",
+      "committeeRole": null,
+      "role": null,
+      "electionCount": 6,
+      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263shuto.jpg"
+    }
+  ]
+}
