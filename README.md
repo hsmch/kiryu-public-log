@@ -42,7 +42,21 @@ npm run dev
 # データ収集パイプラインの実行
 cd pipeline
 npm install
-npm run collect
+npm run scrape:members
+npm run scrape:sessions
+npm run scrape:updates
+npm run scrape:questions
+npm run scrape:finance
+```
+
+### Git Workflow
+
+main への直接 push は行わず、feature ブランチから PR を作成してマージします。
+データの定期収集も GitHub Actions が PR を自動作成します。
+
+```
+main ← PR ← feature/xxx   （手動の開発）
+main ← PR ← auto/data-update （GitHub Actions による自動データ更新）
 ```
 
 ## Data Sources
