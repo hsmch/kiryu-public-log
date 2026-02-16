@@ -96,6 +96,18 @@ hsmch/kiryu-public-log/
 - **テーマ別**: 継続的なトピックの経緯まとめ
 - **about**: サイトの趣旨・中立性の方針・運営者情報
 
+## Git ワークフロー
+
+- **main**: 本番ブランチ。直接 push しない。変更は必ず PR 経由でマージする
+- **feature/xxx**: main から作成する作業ブランチ。PR で main にマージ
+- **auto/data-update**: GitHub Actions がデータ更新 PR を自動作成するブランチ
+
+### ブランチ命名規則
+
+- `feature/xxx` — 新機能・改善
+- `fix/xxx` — バグ修正
+- `auto/xxx` — GitHub Actions 自動生成
+
 ## 運用コスト見積もり
 
 - ホスティング（Cloudflare Pages）: 無料
