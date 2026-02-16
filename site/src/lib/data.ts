@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { nameToSlug } from "./romaji";
 
 const DATA_DIR = resolve(process.cwd(), "../data");
 
@@ -79,6 +80,121 @@ export function getUpdates(): UpdatesData | null {
   } catch {
     return null;
   }
+}
+
+// --- Finance ---
+
+export interface Fund {
+  name: string;
+  balance: number;
+  category: "一般会計" | "特別会計等";
+}
+
+export interface FundsData {
+  sourceUrl: string;
+  scrapedAt: string;
+  asOf: string;
+  funds: Fund[];
+  generalTotal: number;
+  specialTotal: number;
+  grandTotal: number;
+}
+
+export function getFunds(): FundsData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "finance", "funds.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+// --- Questions ---
+
+export interface QuestionItem {
+  title: string;
+  details: string[];
+}
+
+export interface MemberQuestion {
+  memberName: string;
+  order: number;
+  items: QuestionItem[];
+}
+
+export interface QuestionsData {
+  session: string;
+  sessionSlug: string;
+  sourceUrl: string;
+  pdfUrl: string;
+  scrapedAt: string;
+  questions: MemberQuestion[];
+}
+
+export function getQuestionsForSession(slug: string): QuestionsData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "questions", `${slug}.json`),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getAllQuestionSlugs(): string[] {
+  try {
+    const dir = resolve(DATA_DIR, "questions");
+    return readdirSync(dir)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(".json", ""));
+  } catch {
+    return [];
+  }
+}
+
+export function getQuestionsForMember(
+  memberName: string,
+): { session: string; slug: string; questions: MemberQuestion }[] {
+  const results: { session: string; slug: string; questions: MemberQuestion }[] = [];
+  const slugs = getAllQuestionSlugs();
+
+  for (const slug of slugs) {
+    const data = getQuestionsForSession(slug);
+    if (!data) continue;
+
+    // 名前の空白を除去して比較
+    const normalizedName = memberName.replace(/\s+/g, "");
+    const match = data.questions.find(
+      (q) => q.memberName.replace(/\s+/g, "") === normalizedName,
+    );
+    if (match) {
+      results.push({ session: data.session, slug, questions: match });
+    }
+  }
+
+  return results.sort((a, b) => b.slug.localeCompare(a.slug));
+}
+
+export { nameToSlug } from "./romaji";
+
+export function getAllMembersWithSlugs(): { member: CouncilMember; slug: string }[] {
+  const data = getCouncilMembers();
+  const all = [...data.officers, ...data.members];
+  return all.map((m) => ({
+    member: m,
+    slug: nameToSlug(m.nameReading),
+  }));
+}
+
+export function getMemberBySlug(slug: string): CouncilMember | null {
+  const all = getAllMembersWithSlugs();
+  const found = all.find((m) => m.slug === slug);
+  return found?.member ?? null;
 }
 
 export function getSession(slug: string): SessionData | null {

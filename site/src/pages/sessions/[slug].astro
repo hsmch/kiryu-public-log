@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllSessions, getSession } from '../../lib/data';
+import { getAllSessions, getSession, getQuestionsForSession } from '../../lib/data';
 
 export const prerender = true;
 
@@ -17,6 +17,7 @@ if (!session) {
 }
 
 const categories = [...new Set(session.bills.map((b) => b.category))];
+const questions = getQuestionsForSession(slug!);
 
 function resultColor(result: string): string {
   if (result.includes('可決') || result.includes('採択') || result.includes('承認') || result.includes('同意') || result.includes('認定')) return 'bg-green-100 text-green-800';
@@ -90,5 +91,46 @@ function resultColor(result: string): string {
         </section>
       );
     })}
+
+    {/* 一般質問セクション */}
+    {questions && questions.questions.length > 0 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
+        <p class="mt-1 text-sm text-gray-500">
+          {questions.questions.length}名が質問 ―
+          <a href={questions.pdfUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            通告一覧表 (PDF)
+          </a>
+        </p>
+
+        <div class="mt-4 space-y-3">
+          {questions.questions.map((mq) => (
+            <details class="rounded-lg border border-gray-200 bg-white">
+              <summary class="cursor-pointer px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50">
+                <span class="mr-2 text-gray-400">{mq.order}.</span>
+                {mq.memberName}
+                <span class="ml-2 text-xs text-gray-500">({mq.items.length}件)</span>
+              </summary>
+              <div class="border-t border-gray-100 px-4 py-3">
+                <ul class="space-y-2 text-sm">
+                  {mq.items.map((item) => (
+                    <li>
+                      <p class="font-medium text-gray-800">{item.title}</p>
+                      {item.details.length > 0 && (
+                        <ul class="mt-1 ml-4 list-disc space-y-0.5 text-gray-600">
+                          {item.details.map((d) => (
+                            <li>{d}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
 </Layout>

@@ -6,14 +6,17 @@
   "scripts": {
     "scrape:members": "tsx src/scrape-council-members.ts",
     "scrape:sessions": "tsx src/scrape-session-bills.ts",
-    "scrape:updates": "tsx src/scrape-updates.ts"
+    "scrape:updates": "tsx src/scrape-updates.ts",
+    "scrape:finance": "tsx src/scrape-finance.ts",
+    "scrape:questions": "tsx src/scrape-questions.ts"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0",
-    "@types/node": "^22.0.0"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "pdf-parse": "^1.1.4"
   }
 }

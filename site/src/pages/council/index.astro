@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCouncilMembers } from '../lib/data';
+import Layout from '../../layouts/Layout.astro';
+import { getCouncilMembers, nameToSlug } from '../../lib/data';
 
 export const prerender = true;
 
@@ -25,7 +25,7 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
       <h2 class="text-lg font-semibold text-gray-800">議長・副議長</h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2">
         {officers.map((o) => (
-          <div class="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4">
+          <a href={`/council/${nameToSlug(o.nameReading)}`} class="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 no-underline hover:border-blue-300 hover:shadow-sm transition-colors">
             {o.photoUrl ? (
               <img src={o.photoUrl} alt={o.name} class="h-16 w-14 rounded object-cover" loading="lazy" />
             ) : (
@@ -40,7 +40,7 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
                 {o.role}
               </span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
@@ -65,8 +65,9 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
         {members
           .sort((a, b) => (a.seatNumber ?? 99) - (b.seatNumber ?? 99))
           .map((m) => (
-            <div
-              class="member-card flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-4"
+            <a
+              href={`/council/${nameToSlug(m.nameReading)}`}
+              class="member-card flex items-start gap-4 rounded-lg border border-gray-200 bg-white p-4 no-underline hover:border-blue-300 hover:shadow-sm transition-colors"
               data-faction={m.faction}
               data-committee={m.committee}
             >
@@ -96,7 +97,7 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
                   )}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
       </div>
     </section>

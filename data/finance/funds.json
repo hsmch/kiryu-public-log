@@ -1,0 +1,155 @@
+{
+  "sourceUrl": "https://www.city.kiryu.lg.jp/shisei/zaisei/1007004.html",
+  "scrapedAt": "2026-02-15T22:47:49.842Z",
+  "asOf": "令和7年3月31日",
+  "funds": [
+    {
+      "name": "財政調整基金",
+      "balance": 4507054762,
+      "category": "一般会計"
+    },
+    {
+      "name": "減債基金",
+      "balance": 978834399,
+      "category": "一般会計"
+    },
+    {
+      "name": "社会福祉施設等運営基金",
+      "balance": 1201828048,
+      "category": "一般会計"
+    },
+    {
+      "name": "庁舎整備基金",
+      "balance": 255572979,
+      "category": "一般会計"
+    },
+    {
+      "name": "まちづくり基金",
+      "balance": 1329808137,
+      "category": "一般会計"
+    },
+    {
+      "name": "福祉基金",
+      "balance": 108392619,
+      "category": "一般会計"
+    },
+    {
+      "name": "桐生厚生総合病院の管理運営に係る基金",
+      "balance": 6411933,
+      "category": "一般会計"
+    },
+    {
+      "name": "清掃センター管理運営基金",
+      "balance": 1100873640,
+      "category": "一般会計"
+    },
+    {
+      "name": "産業振興基金",
+      "balance": 26395464,
+      "category": "一般会計"
+    },
+    {
+      "name": "緑化推進基金",
+      "balance": 7937383,
+      "category": "一般会計"
+    },
+    {
+      "name": "文化振興基金",
+      "balance": 8949978,
+      "category": "一般会計"
+    },
+    {
+      "name": "新里町ふるさとづくり基金",
+      "balance": 11371303,
+      "category": "一般会計"
+    },
+    {
+      "name": "新里町道路整備基金",
+      "balance": 59346367,
+      "category": "一般会計"
+    },
+    {
+      "name": "新里町教育賞基金",
+      "balance": 5546439,
+      "category": "一般会計"
+    },
+    {
+      "name": "新里町今泉文庫基金",
+      "balance": 20275719,
+      "category": "一般会計"
+    },
+    {
+      "name": "黒保根町ふるさとづくり基金",
+      "balance": 110597494,
+      "category": "一般会計"
+    },
+    {
+      "name": "黒保根町ふるさと水と土保全対策基金",
+      "balance": 10090297,
+      "category": "一般会計"
+    },
+    {
+      "name": "子ども基金",
+      "balance": 223637434,
+      "category": "一般会計"
+    },
+    {
+      "name": "森林環境整備基金",
+      "balance": 122189522,
+      "category": "一般会計"
+    },
+    {
+      "name": "まち・ひと・しごと創生基金",
+      "balance": 50705896,
+      "category": "一般会計"
+    },
+    {
+      "name": "トシオシルバー就学援助基金",
+      "balance": 34805977,
+      "category": "一般会計"
+    },
+    {
+      "name": "電子地域通貨基金",
+      "balance": 80385447,
+      "category": "一般会計"
+    },
+    {
+      "name": "地域振興基金",
+      "balance": 2640195000,
+      "category": "一般会計"
+    },
+    {
+      "name": "川村奨学基金",
+      "balance": 20450000,
+      "category": "特別会計等"
+    },
+    {
+      "name": "浄化槽設置資金貸付基金",
+      "balance": 10000000,
+      "category": "特別会計等"
+    },
+    {
+      "name": "土地開発基金",
+      "balance": 400000000,
+      "category": "特別会計等"
+    },
+    {
+      "name": "国民健康保険基金",
+      "balance": 696952376,
+      "category": "特別会計等"
+    },
+    {
+      "name": "介護保険給付準備基金",
+      "balance": 2084604394,
+      "category": "特別会計等"
+    },
+    {
+      "name": "新里温水プール事業基金",
+      "balance": 23315022,
+      "category": "特別会計等"
+    }
+  ],
+  "generalTotal": 12901206237,
+  "specialTotal": 3235321792,
+  "grandTotal": 16136528029
+}

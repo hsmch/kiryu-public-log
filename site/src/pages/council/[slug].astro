@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {
+  getAllMembersWithSlugs,
+  getMemberBySlug,
+  getQuestionsForMember,
+  getAllSessions,
+} from '../../lib/data';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const members = getAllMembersWithSlugs();
+  return members.map((m) => ({ params: { slug: m.slug } }));
+}
+
+const { slug } = Astro.params;
+const member = getMemberBySlug(slug!);
+
+if (!member) {
+  return Astro.redirect('/council');
+}
+
+const memberQuestions = getQuestionsForMember(member.name);
+
+// 採決態度PDFがあるセッション
+const allSessions = getAllSessions();
+const sessionsWithVotingPdf = allSessions.filter(
+  (s) => s.data.votingRecordPdfUrl,
+);
+---
+
+<Layout title={`${member.name} - Kiryu Public Log`}>
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <nav class="text-sm text-gray-500">
+      <a href="/council" class="text-blue-600 hover:text-blue-800">議員一覧</a>
+      <span class="mx-1">/</span>
+    </nav>
+
+    {/* プロフィール */}
+    <div class="mt-4 flex items-start gap-6">
+      {member.photoUrl ? (
+        <img
+          src={member.photoUrl}
+          alt={member.name}
+          class="h-32 w-24 shrink-0 rounded-lg object-cover"
+          loading="lazy"
+        />
+      ) : (
+        <div class="flex h-32 w-24 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-sm text-gray-400">
+          No Photo
+        </div>
+      )}
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">
+          {member.seatNumber && <span class="mr-2 text-lg text-gray-400">#{member.seatNumber}</span>}
+          {member.name}
+        </h1>
+        <p class="mt-1 text-sm text-gray-500">{member.nameReading}</p>
+
+        {member.role && (
+          <span class="mt-2 inline-block rounded bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800">
+            {member.role}
+          </span>
+        )}
+
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-700">{member.faction}</span>
+          <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-700">
+            {member.committee}
+            {member.committeeRole && <span class="ml-1 text-blue-600">({member.committeeRole})</span>}
+          </span>
+          {member.electionCount && (
+            <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-700">
+              当選{member.electionCount}回
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* 一般質問一覧 */}
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
+      {memberQuestions.length > 0 ? (
+        <div class="mt-4 space-y-4">
+          {memberQuestions.map((mq) => (
+            <div class="rounded-lg border border-gray-200 bg-white">
+              <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">
+                <a href={`/sessions/${mq.slug}`} class="text-sm font-medium text-blue-600 hover:text-blue-800">
+                  {mq.session}
+                </a>
+                <span class="text-xs text-gray-400">{mq.questions.items.length}件</span>
+              </div>
+              <div class="px-4 py-3">
+                <ul class="space-y-2 text-sm">
+                  {mq.questions.items.map((item) => (
+                    <li>
+                      <p class="font-medium text-gray-800">{item.title}</p>
+                      {item.details.length > 0 && (
+                        <ul class="mt-1 ml-4 list-disc space-y-0.5 text-gray-600">
+                          {item.details.map((d) => (
+                            <li>{d}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="mt-4 text-sm text-gray-500">一般質問のデータはありません。</p>
+      )}
+    </section>
+
+    {/* 議案採決態度 */}
+    {sessionsWithVotingPdf.length > 0 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">議案採決 賛否記録</h2>
+        <p class="mt-1 text-sm text-gray-500">各定例会での議員個々の賛否記録（PDF）</p>
+        <div class="mt-4 space-y-2">
+          {sessionsWithVotingPdf.map((s) => (
+            <div class="flex items-center justify-between rounded border border-gray-200 bg-white px-4 py-2 text-sm">
+              <a href={`/sessions/${s.slug}`} class="text-blue-600 hover:text-blue-800">
+                {s.data.session}
+              </a>
+              <a
+                href={s.data.votingRecordPdfUrl!}
+                class="text-xs text-gray-500 underline hover:text-gray-700"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                賛否 PDF
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>
