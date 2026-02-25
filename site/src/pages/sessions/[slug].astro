@@ -151,9 +151,12 @@ function resultColor(result: string): string {
             <tbody>
               {voting.records.map((record) => (
                 <tr class={`border-t border-gray-100 ${isSplitVote(record.votes) ? 'bg-amber-50' : ''}`}>
-                  <td class="sticky left-0 z-10 bg-inherit whitespace-nowrap px-3 py-2 font-medium text-gray-800">
-                    {record.billNumber}
-                    {isSplitVote(record.votes) && <span class="ml-1 text-amber-600">*</span>}
+                  <td class="sticky left-0 z-10 bg-inherit px-3 py-2 min-w-[200px] max-w-[320px]">
+                    <div class="text-xs font-medium text-gray-800 leading-tight">
+                      {record.billTitle}
+                      {isSplitVote(record.votes) && <span class="ml-1 text-amber-600">*</span>}
+                    </div>
+                    <div class="text-[10px] text-gray-400 mt-0.5">{record.billNumber}</div>
                   </td>
                   <td class="whitespace-nowrap px-2 py-2 text-gray-600">{record.result}</td>
                   {record.votes.map((v) => (
