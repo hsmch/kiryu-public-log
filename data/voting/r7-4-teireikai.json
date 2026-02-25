@@ -1,0 +1,90 @@
+{
+  "session": "令和7年第4回定例会",
+  "sessionSlug": "r7-4-teireikai",
+  "sourceUrl": "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/",
+  "scrapedAt": "2026-02-25T00:00:00.000Z",
+  "note": "賛否が割れた議案のみ記録。全会一致の議案は省略。",
+  "records": [
+    {
+      "billNumber": "議案第95号",
+      "billTitle": "令和7年度桐生市一般会計補正予算（第5号）",
+      "result": "原案可決",
+      "votes": [
+        { "memberName": "人見　武男", "vote": "議長" },
+        { "memberName": "飯島　英規", "vote": "反対" },
+        { "memberName": "歌代　公司", "vote": "賛成" },
+        { "memberName": "渡辺　恒", "vote": "反対" },
+        { "memberName": "関口　直久", "vote": "反対" },
+        { "memberName": "小島　強", "vote": "賛成" },
+        { "memberName": "園田　基博", "vote": "賛成" },
+        { "memberName": "北川　久人", "vote": "賛成" },
+        { "memberName": "久保田　裕一", "vote": "賛成" },
+        { "memberName": "近藤　芽衣", "vote": "賛成" },
+        { "memberName": "工藤　英人", "vote": "賛成" },
+        { "memberName": "丹羽　孝志", "vote": "賛成" },
+        { "memberName": "山之内　肇", "vote": "賛成" },
+        { "memberName": "辻　正男", "vote": "賛成" },
+        { "memberName": "新井　達夫", "vote": "賛成" },
+        { "memberName": "岡部　純朗", "vote": "賛成" },
+        { "memberName": "福島　賢一", "vote": "賛成" },
+        { "memberName": "佐藤　光好", "vote": "賛成" },
+        { "memberName": "河原井　始", "vote": "賛成" },
+        { "memberName": "周藤　雅彦", "vote": "賛成" }
+      ]
+    },
+    {
+      "billNumber": "議案第100号",
+      "billTitle": "令和7年度桐生市一般会計補正予算（第6号）",
+      "result": "原案可決",
+      "votes": [
+        { "memberName": "人見　武男", "vote": "議長" },
+        { "memberName": "飯島　英規", "vote": "賛成" },
+        { "memberName": "歌代　公司", "vote": "賛成" },
+        { "memberName": "渡辺　恒", "vote": "反対" },
+        { "memberName": "関口　直久", "vote": "反対" },
+        { "memberName": "小島　強", "vote": "賛成" },
+        { "memberName": "園田　基博", "vote": "賛成" },
+        { "memberName": "北川　久人", "vote": "賛成" },
+        { "memberName": "久保田　裕一", "vote": "賛成" },
+        { "memberName": "近藤　芽衣", "vote": "賛成" },
+        { "memberName": "工藤　英人", "vote": "賛成" },
+        { "memberName": "丹羽　孝志", "vote": "賛成" },
+        { "memberName": "山之内　肇", "vote": "賛成" },
+        { "memberName": "辻　正男", "vote": "賛成" },
+        { "memberName": "新井　達夫", "vote": "賛成" },
+        { "memberName": "岡部　純朗", "vote": "欠席" },
+        { "memberName": "福島　賢一", "vote": "賛成" },
+        { "memberName": "佐藤　光好", "vote": "賛成" },
+        { "memberName": "河原井　始", "vote": "賛成" },
+        { "memberName": "周藤　雅彦", "vote": "賛成" }
+      ]
+    },
+    {
+      "billNumber": "請願第15号",
+      "billTitle": "消費税率5%への引き下げを求める意見書採択の請願",
+      "result": "不採択",
+      "votes": [
+        { "memberName": "人見　武男", "vote": "議長" },
+        { "memberName": "飯島　英規", "vote": "賛成" },
+        { "memberName": "歌代　公司", "vote": "反対" },
+        { "memberName": "渡辺　恒", "vote": "賛成" },
+        { "memberName": "関口　直久", "vote": "賛成" },
+        { "memberName": "小島　強", "vote": "反対" },
+        { "memberName": "園田　基博", "vote": "反対" },
+        { "memberName": "北川　久人", "vote": "反対" },
+        { "memberName": "久保田　裕一", "vote": "反対" },
+        { "memberName": "近藤　芽衣", "vote": "反対" },
+        { "memberName": "工藤　英人", "vote": "反対" },
+        { "memberName": "丹羽　孝志", "vote": "反対" },
+        { "memberName": "山之内　肇", "vote": "反対" },
+        { "memberName": "辻　正男", "vote": "反対" },
+        { "memberName": "新井　達夫", "vote": "反対" },
+        { "memberName": "岡部　純朗", "vote": "反対" },
+        { "memberName": "福島　賢一", "vote": "反対" },
+        { "memberName": "佐藤　光好", "vote": "反対" },
+        { "memberName": "河原井　始", "vote": "反対" },
+        { "memberName": "周藤　雅彦", "vote": "反対" }
+      ]
+    }
+  ]
+}

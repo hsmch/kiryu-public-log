@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllSessions, getSession, getQuestionsForSession } from '../../lib/data';
+import { getAllSessions, getSession, getQuestionsForSession, getVotingForSession } from '../../lib/data';
 
 export const prerender = true;
 
@@ -18,6 +18,34 @@ if (!session) {
 
 const categories = [...new Set(session.bills.map((b) => b.category))];
 const questions = getQuestionsForSession(slug!);
+const voting = getVotingForSession(slug!);
+
+function voteColor(vote: string): string {
+  if (vote === '賛成') return 'bg-green-500 text-white';
+  if (vote === '反対') return 'bg-red-500 text-white';
+  if (vote === '欠席') return 'bg-gray-300 text-gray-700';
+  if (vote === '議長') return 'bg-blue-500 text-white';
+  if (vote === '退席') return 'bg-yellow-400 text-gray-800';
+  return 'bg-gray-100 text-gray-600';
+}
+
+function voteLabel(vote: string): string {
+  if (vote === '賛成') return '○';
+  if (vote === '反対') return '×';
+  if (vote === '欠席') return '欠';
+  if (vote === '議長') return '長';
+  if (vote === '退席') return '退';
+  return '?';
+}
+
+function isSplitVote(votes: { vote: string }[]): boolean {
+  const actual = votes.filter((v) => v.vote !== '議長');
+  return actual.some((v) => v.vote === '賛成') && actual.some((v) => v.vote === '反対');
+}
+
+function shortName(name: string): string {
+  return name.replace(/[\s\u3000]+/g, '');
+}
 
 function resultColor(result: string): string {
   if (result.includes('可決') || result.includes('採択') || result.includes('承認') || result.includes('同意') || result.includes('認定')) return 'bg-green-100 text-green-800';
@@ -91,6 +119,69 @@ function resultColor(result: string): string {
         </section>
       );
     })}
+
+    {/* 議員別賛否マトリクス */}
+    {voting && voting.records.length > 0 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">議員別 賛否一覧</h2>
+        <p class="mt-1 text-sm text-gray-500">
+          賛否が記録された議案: {voting.records.length}件
+        </p>
+
+        <div class="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
+          <span class="flex items-center gap-1"><span class="inline-block h-4 w-4 rounded bg-green-500"></span>賛成</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-4 w-4 rounded bg-red-500"></span>反対</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-4 w-4 rounded bg-gray-300"></span>欠席</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-4 w-4 rounded bg-blue-500"></span>議長</span>
+        </div>
+
+        <div class="mt-4 overflow-x-auto rounded-lg border border-gray-200">
+          <table class="min-w-full text-xs">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="sticky left-0 z-10 bg-gray-50 px-3 py-2 text-left font-medium text-gray-600">議案</th>
+                <th class="px-2 py-2 text-left font-medium text-gray-600">結果</th>
+                {voting.records[0].votes.map((v) => (
+                  <th class="px-1 py-2 text-center font-medium text-gray-600" style="writing-mode: vertical-rl; min-width: 28px;">
+                    {shortName(v.memberName)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {voting.records.map((record) => (
+                <tr class={`border-t border-gray-100 ${isSplitVote(record.votes) ? 'bg-amber-50' : ''}`}>
+                  <td class="sticky left-0 z-10 bg-inherit whitespace-nowrap px-3 py-2 font-medium text-gray-800">
+                    {record.billNumber}
+                    {isSplitVote(record.votes) && <span class="ml-1 text-amber-600">*</span>}
+                  </td>
+                  <td class="whitespace-nowrap px-2 py-2 text-gray-600">{record.result}</td>
+                  {record.votes.map((v) => (
+                    <td class="px-1 py-1 text-center">
+                      <span
+                        class={`inline-flex h-6 w-6 items-center justify-center rounded text-xs font-bold ${voteColor(v.vote)}`}
+                        title={`${v.memberName}: ${v.vote}`}
+                      >
+                        {voteLabel(v.vote)}
+                      </span>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-2 text-xs text-gray-400">
+          * 賛否が割れた議案は背景色で強調。
+          {voting.sourceUrl && (
+            <a href={voting.sourceUrl} class="text-blue-500 underline hover:text-blue-700" target="_blank" rel="noopener noreferrer">
+              原文PDF
+            </a>
+          )}
+        </p>
+      </section>
+    )}
 
     {/* 一般質問セクション */}
     {questions && questions.questions.length > 0 && (
