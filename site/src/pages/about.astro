@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout title="このサイトについて - Kiryu Public Log">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <h1 class="text-2xl font-bold text-gray-900">このサイトについて</h1>
+
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">Kiryu Public Log とは</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          Kiryu Public Log は、桐生市の市政・議会に関する公開情報を自動収集・構造化し、
+          市民にわかりやすく公開する<strong>中立的なアーカイブサイト</strong>です。
+        </p>
+        <p class="mt-3">
+          桐生市および桐生市議会とは一切関係のない<strong>非公式サイト</strong>であり、
+          個人事業主（細道）が運営しています。
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">サイトの方針</h2>
+      <div class="mt-3 space-y-3">
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-800">中立的なアーカイブ</p>
+          <p class="mt-1 text-sm text-gray-600">情報の加工は最小限にとどめ、意見や評価は加えません。</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-800">公式情報への入り口</p>
+          <p class="mt-1 text-sm text-gray-600">サイト内で完結させず、必ず公式サイトの原文にリンクします。</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-800">AI利用の透明性</p>
+          <p class="mt-1 text-sm text-gray-600">AI要約・自動分類にはその旨を明示し、原文リンクを必ず併記します。</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-800">自動化による継続運用</p>
+          <p class="mt-1 text-sm text-gray-600">更新はなるべく自動化し、持続可能な運営を目指しています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">データの出典</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <ul class="space-y-2">
+          <li>
+            <a href="https://www.city.kiryu.lg.jp/shigikai/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">桐生市議会公式サイト</a>
+            （議案・採決結果、議員情報、一般質問、議会日程）
+          </li>
+          <li>
+            <a href="https://www.city.kiryu.lg.jp/shisei/1018369/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">桐生市統計情報</a>
+            （人口・世帯数）
+          </li>
+          <li>桐生市財政関連ページ（基金残高、予算・決算概要）</li>
+        </ul>
+        <p class="mt-3 text-gray-500">
+          すべてのデータは公式サイトの公開情報に基づいています。
+          情報の正確性については必ず公式サイトをご確認ください。
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">技術について</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <ul class="space-y-2">
+          <li>オープンソースで開発（<a href="https://github.com/hsmch/kiryu-public-log" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">GitHub</a>）</li>
+          <li>静的サイト生成（Astro + Cloudflare Pages）</li>
+          <li>データは定期的に自動収集・更新（GitHub Actions）</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">お問い合わせ</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          誤りの指摘・改善提案は
+          <a href="https://github.com/hsmch/kiryu-public-log/issues" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">GitHub Issues</a>
+          にてお寄せください。
+        </p>
+      </div>
+    </section>
+
+    <p class="mt-8 text-center">
+      <a href="/guide" class="text-sm text-blue-600 underline hover:text-blue-800">
+        議会の仕組みガイドを見る
+      </a>
+    </p>
+  </div>
+</Layout>

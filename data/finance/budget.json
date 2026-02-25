@@ -1,0 +1,117 @@
+{
+  "fiscalYear": "令和7年度",
+  "sourceUrl": "https://www.city.kiryu.lg.jp/shisei/zaisei/1006758/1024448/1024733.html",
+  "scrapedAt": "2026-02-25T00:00:00.000Z",
+  "generalAccount": {
+    "total": 50800000000,
+    "revenue": [
+      {
+        "category": "市税",
+        "amount": 12750000000,
+        "ratio": 25.1
+      },
+      {
+        "category": "地方交付税",
+        "amount": 9650000000,
+        "ratio": 19
+      },
+      {
+        "category": "国庫支出金",
+        "amount": 8130000000,
+        "ratio": 16
+      },
+      {
+        "category": "県支出金",
+        "amount": 3560000000,
+        "ratio": 7
+      },
+      {
+        "category": "市債",
+        "amount": 4570000000,
+        "ratio": 9
+      },
+      {
+        "category": "地方消費税交付金",
+        "amount": 2790000000,
+        "ratio": 5.5
+      },
+      {
+        "category": "繰入金",
+        "amount": 2030000000,
+        "ratio": 4
+      },
+      {
+        "category": "使用料及び手数料",
+        "amount": 1020000000,
+        "ratio": 2
+      },
+      {
+        "category": "繰越金",
+        "amount": 1020000000,
+        "ratio": 2
+      },
+      {
+        "category": "その他",
+        "amount": 5280000000,
+        "ratio": 10.4
+      }
+    ],
+    "expenditure": [
+      {
+        "category": "民生費",
+        "amount": 17780000000,
+        "ratio": 35
+      },
+      {
+        "category": "総務費",
+        "amount": 6100000000,
+        "ratio": 12
+      },
+      {
+        "category": "公債費",
+        "amount": 5590000000,
+        "ratio": 11
+      },
+      {
+        "category": "土木費",
+        "amount": 4570000000,
+        "ratio": 9
+      },
+      {
+        "category": "教育費",
+        "amount": 4060000000,
+        "ratio": 8
+      },
+      {
+        "category": "衛生費",
+        "amount": 4570000000,
+        "ratio": 9
+      },
+      {
+        "category": "消防費",
+        "amount": 2540000000,
+        "ratio": 5
+      },
+      {
+        "category": "商工費",
+        "amount": 2030000000,
+        "ratio": 4
+      },
+      {
+        "category": "農林水産業費",
+        "amount": 1020000000,
+        "ratio": 2
+      },
+      {
+        "category": "議会費",
+        "amount": 510000000,
+        "ratio": 1
+      },
+      {
+        "category": "その他",
+        "amount": 2030000000,
+        "ratio": 4
+      }
+    ]
+  }
+}
