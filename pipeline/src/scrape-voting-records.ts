@@ -1,4 +1,10 @@
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  readdirSync,
+  existsSync,
+} from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -165,8 +171,16 @@ async function main() {
   let successCount = 0;
   let errorCount = 0;
 
+  let skipCount = 0;
+
   for (const entry of sessionsWithPdf) {
     const filePath = resolve(OUTPUT_DIR, `${entry.slug}.json`);
+
+    if (existsSync(filePath)) {
+      log(`Skip ${entry.slug} (already exists)`);
+      skipCount++;
+      continue;
+    }
 
     log(`Processing: ${entry.session} (${entry.slug})`);
     await sleep(1000);
@@ -209,7 +223,9 @@ async function main() {
     successCount++;
   }
 
-  log(`Done: ${successCount} succeeded, ${errorCount} failed`);
+  log(
+    `Done: ${successCount} succeeded, ${errorCount} failed, ${skipCount} skipped`,
+  );
 }
 
 main().catch((err) => {

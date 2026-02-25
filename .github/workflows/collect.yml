@@ -45,6 +45,22 @@ jobs:
         working-directory: pipeline
         run: npm run scrape:finance
 
+      - name: Scrape voting records
+        working-directory: pipeline
+        run: npm run scrape:voting
+
+      - name: Scrape schedule
+        working-directory: pipeline
+        run: npm run scrape:schedule
+
+      - name: Scrape population
+        working-directory: pipeline
+        run: npm run scrape:population
+
+      - name: Generate tags
+        working-directory: pipeline
+        run: npm run generate:tags
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
