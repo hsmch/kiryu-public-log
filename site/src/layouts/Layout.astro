@@ -4,12 +4,18 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  path?: string;
 }
+
+const SITE_URL = 'https://kiryu.co';
 
 const {
   title = 'Kiryu Public Log',
   description = '桐生市の市政・議会の公開情報をわかりやすく整理してお届けするアーカイブサイト',
+  path = '',
 } = Astro.props;
+
+const canonicalUrl = `${SITE_URL}${path}`;
 ---
 
 <!doctype html>
@@ -21,6 +27,22 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <!-- canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kiryu Public Log" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <header class="border-b border-gray-200 bg-white">

@@ -10,7 +10,7 @@ const factions = [...new Set(members.map((m) => m.faction))].filter(Boolean).sor
 const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean).sort();
 ---
 
-<Layout title="議員一覧 - Kiryu Public Log">
+<Layout title="議員一覧 - Kiryu Public Log" description="桐生市議会の議員一覧。会派・委員会・当選回数などの情報を掲載" path="/council">
   <div class="mx-auto max-w-4xl px-4 py-8">
     <h1 class="text-2xl font-bold text-gray-900">議員一覧</h1>
     <p class="mt-2 text-sm text-gray-500">
