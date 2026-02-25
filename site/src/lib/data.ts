@@ -259,6 +259,112 @@ export function getMemberBySlug(slug: string): CouncilMember | null {
   return found?.member ?? null;
 }
 
+// --- Voting Records ---
+
+export interface VoteRecord {
+  billNumber: string;
+  billTitle: string;
+  result: string;
+  votes: {
+    memberName: string;
+    vote: "賛成" | "反対" | "欠席" | "議長" | "退席";
+  }[];
+}
+
+export interface VotingData {
+  session: string;
+  sessionSlug: string;
+  sourceUrl: string;
+  scrapedAt: string;
+  records: VoteRecord[];
+}
+
+export function getVotingForSession(slug: string): VotingData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "voting", `${slug}.json`),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getAllVotingSlugs(): string[] {
+  try {
+    const dir = resolve(DATA_DIR, "voting");
+    return readdirSync(dir)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => f.replace(".json", ""));
+  } catch {
+    return [];
+  }
+}
+
+export interface MemberVotingSummary {
+  session: string;
+  sessionSlug: string;
+  billNumber: string;
+  billTitle: string;
+  result: string;
+  vote: "賛成" | "反対" | "欠席" | "議長" | "退席";
+}
+
+export function getVotingForMember(memberName: string): {
+  records: MemberVotingSummary[];
+  summary: {
+    total: number;
+    yes: number;
+    no: number;
+    absent: number;
+    speaker: number;
+  };
+} {
+  const results: MemberVotingSummary[] = [];
+  const slugs = getAllVotingSlugs();
+  const normalizedName = memberName.replace(/\s+/g, "");
+
+  for (const slug of slugs) {
+    const data = getVotingForSession(slug);
+    if (!data) continue;
+
+    for (const record of data.records) {
+      const memberVote = record.votes.find(
+        (v) => v.memberName.replace(/\s+/g, "") === normalizedName,
+      );
+      if (memberVote) {
+        results.push({
+          session: data.session,
+          sessionSlug: data.sessionSlug,
+          billNumber: record.billNumber,
+          billTitle: record.billTitle,
+          result: record.result,
+          vote: memberVote.vote,
+        });
+      }
+    }
+  }
+
+  const sorted = results.sort((a, b) =>
+    b.sessionSlug.localeCompare(a.sessionSlug),
+  );
+  const votable = sorted.filter((r) => r.vote !== "議長");
+
+  return {
+    records: sorted,
+    summary: {
+      total: votable.length,
+      yes: votable.filter((r) => r.vote === "賛成").length,
+      no: votable.filter((r) => r.vote === "反対").length,
+      absent: votable.filter(
+        (r) => r.vote === "欠席" || r.vote === "退席",
+      ).length,
+      speaker: sorted.filter((r) => r.vote === "議長").length,
+    },
+  };
+}
+
 // --- Tags ---
 
 export interface TagEntry {
