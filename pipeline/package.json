@@ -9,7 +9,8 @@
     "scrape:updates": "tsx src/scrape-updates.ts",
     "scrape:finance": "tsx src/scrape-finance.ts",
     "scrape:questions": "tsx src/scrape-questions.ts",
-    "scrape:schedule": "tsx src/scrape-schedule.ts"
+    "scrape:schedule": "tsx src/scrape-schedule.ts",
+    "scrape:population": "tsx src/scrape-population.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

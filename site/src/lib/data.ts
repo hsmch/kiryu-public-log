@@ -180,6 +180,68 @@ export function getQuestionsForMember(
   return results.sort((a, b) => b.slug.localeCompare(a.slug));
 }
 
+// --- Population ---
+
+export interface PopulationEntry {
+  year: number;
+  month?: number;
+  population: number;
+  households: number;
+  source: string;
+}
+
+export interface PopulationData {
+  city: "桐生市";
+  sourceUrl: string;
+  scrapedAt: string;
+  current: {
+    population: number;
+    households: number;
+    asOf: string;
+  };
+  history: PopulationEntry[];
+}
+
+export function getPopulation(): PopulationData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "population.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+// --- Budget ---
+
+export interface BudgetItem {
+  category: string;
+  amount: number;
+  ratio?: number;
+}
+
+export interface BudgetData {
+  fiscalYear: string;
+  sourceUrl: string;
+  scrapedAt: string;
+  generalAccount: {
+    total: number;
+    revenue: BudgetItem[];
+    expenditure: BudgetItem[];
+  };
+}
+
+export function getBudget(): BudgetData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "finance", "budget.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 export { nameToSlug } from "./romaji";
 
 export function getAllMembersWithSlugs(): { member: CouncilMember; slug: string }[] {
