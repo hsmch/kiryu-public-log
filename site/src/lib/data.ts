@@ -197,6 +197,65 @@ export function getMemberBySlug(slug: string): CouncilMember | null {
   return found?.member ?? null;
 }
 
+// --- Tags ---
+
+export interface TagEntry {
+  type: "bill" | "question";
+  sessionSlug: string;
+  session: string;
+  billNumber?: string;
+  billTitle?: string;
+  memberName?: string;
+  itemTitle?: string;
+  tags: string[];
+}
+
+export interface TagsData {
+  generatedAt: string;
+  method: "claude-api" | "rule-based";
+  model?: string;
+  entries: TagEntry[];
+}
+
+export function getTags(): TagsData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "tags.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getAllTagNames(): string[] {
+  const tags = getTags();
+  if (!tags) return [];
+  const set = new Set<string>();
+  for (const e of tags.entries) {
+    for (const t of e.tags) set.add(t);
+  }
+  return [...set].sort();
+}
+
+export function getEntriesByTag(tag: string): TagEntry[] {
+  const tags = getTags();
+  if (!tags) return [];
+  return tags.entries.filter((e) => e.tags.includes(tag));
+}
+
+export function getTagCounts(): { tag: string; count: number }[] {
+  const tags = getTags();
+  if (!tags) return [];
+  const counts = new Map<string, number>();
+  for (const e of tags.entries) {
+    for (const t of e.tags) {
+      counts.set(t, (counts.get(t) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
 export function getSession(slug: string): SessionData | null {
   try {
     const raw = readFileSync(

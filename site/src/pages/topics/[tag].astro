@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllTagNames, getEntriesByTag } from '../../lib/data';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const tags = getAllTagNames();
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const entries = getEntriesByTag(tag!);
+
+const bills = entries.filter((e) => e.type === 'bill');
+const questions = entries.filter((e) => e.type === 'question');
+
+// セッション別にグループ化
+const billsBySession = new Map<string, typeof bills>();
+for (const b of bills) {
+  const group = billsBySession.get(b.session) ?? [];
+  group.push(b);
+  billsBySession.set(b.session, group);
+}
+const billGroups = [...billsBySession.entries()].sort((a, b) =>
+  (b[1][0]?.sessionSlug ?? '').localeCompare(a[1][0]?.sessionSlug ?? '')
+);
+
+const questionsBySession = new Map<string, typeof questions>();
+for (const q of questions) {
+  const group = questionsBySession.get(q.session) ?? [];
+  group.push(q);
+  questionsBySession.set(q.session, group);
+}
+const questionGroups = [...questionsBySession.entries()].sort((a, b) =>
+  (b[1][0]?.sessionSlug ?? '').localeCompare(a[1][0]?.sessionSlug ?? '')
+);
+---
+
+<Layout title={`${tag} - テーマ別 - Kiryu Public Log`}>
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <nav class="text-sm text-gray-500">
+      <a href="/topics" class="text-blue-600 hover:text-blue-800">テーマ別</a>
+      <span class="mx-1">/</span>
+    </nav>
+
+    <h1 class="mt-2 text-2xl font-bold text-gray-900">{tag}</h1>
+    <p class="mt-1 text-sm text-gray-500">
+      議案 {bills.length}件 / 一般質問 {questions.length}件
+    </p>
+
+    <div class="mt-2 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
+      キーワードによる自動分類です。原文は各定例会ページからご確認ください。
+    </div>
+
+    {/* 議案 */}
+    {billGroups.length > 0 && (
+      <section class="mt-8">
+        <h2 class="text-lg font-semibold text-gray-800">関連する議案</h2>
+        <div class="mt-4 space-y-6">
+          {billGroups.map(([session, sessionBills]) => (
+            <div>
+              <h3 class="text-sm font-medium text-gray-500">
+                <a href={`/sessions/${sessionBills[0].sessionSlug}`} class="text-blue-600 hover:text-blue-800">
+                  {session}
+                </a>
+              </h3>
+              <div class="mt-2 space-y-1">
+                {sessionBills.map((b) => (
+                  <div class="rounded border border-gray-100 bg-white px-3 py-2 text-sm">
+                    <span class="text-gray-500">{b.billNumber}</span>
+                    <span class="ml-2 text-gray-900">{b.billTitle}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* 一般質問 */}
+    {questionGroups.length > 0 && (
+      <section class="mt-8">
+        <h2 class="text-lg font-semibold text-gray-800">関連する一般質問</h2>
+        <div class="mt-4 space-y-6">
+          {questionGroups.map(([session, sessionQuestions]) => (
+            <div>
+              <h3 class="text-sm font-medium text-gray-500">
+                <a href={`/sessions/${sessionQuestions[0].sessionSlug}`} class="text-blue-600 hover:text-blue-800">
+                  {session}
+                </a>
+              </h3>
+              <div class="mt-2 space-y-1">
+                {sessionQuestions.map((q) => (
+                  <div class="rounded border border-gray-100 bg-white px-3 py-2 text-sm">
+                    <span class="text-gray-500">{q.memberName}</span>
+                    <span class="ml-2 text-gray-900">{q.itemTitle}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>
