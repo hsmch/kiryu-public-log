@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getSchedule } from '../lib/data';
+
+export const prerender = true;
+
+const schedule = getSchedule();
+const entries = schedule?.entries ?? [];
+const today = new Date().toISOString().slice(0, 10);
+
+// 定例会ごとにグループ化
+const sessionGroups = new Map<string, typeof entries>();
+for (const entry of entries) {
+  const group = sessionGroups.get(entry.session) ?? [];
+  group.push(entry);
+  sessionGroups.set(entry.session, group);
+}
+const groups = [...sessionGroups.entries()].reverse();
+
+function typeColor(type: string): string {
+  if (type === '本会議') return 'bg-blue-100 text-blue-800';
+  if (type === '委員会') return 'bg-green-100 text-green-800';
+  if (type === '全員協議会') return 'bg-purple-100 text-purple-800';
+  return 'bg-gray-100 text-gray-800';
+}
+
+function isPast(date: string): boolean {
+  return date < today;
+}
+
+function formatDate(date: string): string {
+  const d = new Date(date + 'T00:00:00');
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+  return `${d.getMonth() + 1}/${d.getDate()}（${days[d.getDay()]}）`;
+}
+---
+
+<Layout title="議会カレンダー - Kiryu Public Log">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="text-2xl font-bold text-gray-900">議会カレンダー</h1>
+    <p class="mt-2 text-sm text-gray-500">
+      桐生市議会の日程一覧 ―
+      <a href={schedule?.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+        公式サイト原文
+      </a>
+    </p>
+
+    <div class="mt-3 flex flex-wrap gap-3 text-xs">
+      <span class="flex items-center gap-1">
+        <span class="inline-block h-3 w-3 rounded bg-blue-100 border border-blue-300"></span>本会議
+      </span>
+      <span class="flex items-center gap-1">
+        <span class="inline-block h-3 w-3 rounded bg-green-100 border border-green-300"></span>委員会
+      </span>
+    </div>
+
+    {groups.length > 0 ? (
+      <div class="mt-6 space-y-8">
+        {groups.map(([session, sessionEntries]) => {
+          const hasUpcoming = sessionEntries.some(e => !isPast(e.date));
+          return (
+            <section>
+              <h2 class={`text-base font-semibold ${hasUpcoming ? 'text-gray-900' : 'text-gray-400'}`}>
+                {session}
+                {hasUpcoming && (
+                  <span class="ml-2 rounded bg-blue-600 px-2 py-0.5 text-xs text-white">次回</span>
+                )}
+              </h2>
+              <div class="mt-3 space-y-1">
+                {sessionEntries.map((entry) => (
+                  <div class={`flex items-center gap-3 rounded px-3 py-2 text-sm ${isPast(entry.date) ? 'text-gray-400' : 'bg-white border border-gray-200'}`}>
+                    <span class={`shrink-0 w-20 tabular-nums ${isPast(entry.date) ? '' : 'font-medium text-gray-900'}`}>
+                      {formatDate(entry.date)}
+                    </span>
+                    <span class={`shrink-0 rounded px-2 py-0.5 text-xs font-medium ${isPast(entry.date) ? 'bg-gray-50 text-gray-400' : typeColor(entry.type)}`}>
+                      {entry.type}
+                    </span>
+                    <span class={isPast(entry.date) ? '' : 'text-gray-700'}>{entry.description}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    ) : (
+      <p class="mt-8 text-gray-500">日程データが見つかりませんでした。</p>
+    )}
+  </div>
+</Layout>
