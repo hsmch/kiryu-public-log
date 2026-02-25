@@ -83,43 +83,6 @@ function voteColor(vote: string): string {
       </div>
     </div>
 
-    {/* 一般質問一覧 */}
-    <section class="mt-10">
-      <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
-      {memberQuestions.length > 0 ? (
-        <div class="mt-4 space-y-4">
-          {memberQuestions.map((mq) => (
-            <div class="rounded-lg border border-gray-200 bg-white">
-              <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">
-                <a href={`/sessions/${mq.slug}`} class="text-sm font-medium text-blue-600 hover:text-blue-800">
-                  {mq.session}
-                </a>
-                <span class="text-xs text-gray-400">{mq.questions.items.length}件</span>
-              </div>
-              <div class="px-4 py-3">
-                <ul class="space-y-2 text-sm">
-                  {mq.questions.items.map((item) => (
-                    <li>
-                      <p class="font-medium text-gray-800">{item.title}</p>
-                      {item.details.length > 0 && (
-                        <ul class="mt-1 ml-4 list-disc space-y-0.5 text-gray-600">
-                          {item.details.map((d) => (
-                            <li>{d}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p class="mt-4 text-sm text-gray-500">一般質問のデータはありません。</p>
-      )}
-    </section>
-
     {/* 投票行動 */}
     {memberVoting.records.length > 0 && (
       <section class="mt-10">
@@ -173,5 +136,57 @@ function voteColor(vote: string): string {
         )}
       </section>
     )}
+
+    {/* 一般質問一覧 */}
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
+      {memberQuestions.length > 0 ? (
+        <div class="mt-4 space-y-4">
+          {memberQuestions.map((mq) => (
+            <div class="rounded-lg border border-gray-200 bg-white">
+              <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">
+                <a href={`/sessions/${mq.slug}`} class="text-sm font-medium text-blue-600 hover:text-blue-800">
+                  {mq.session}
+                </a>
+                <span class="text-xs text-gray-400">{mq.questions.items.length}件</span>
+              </div>
+              <div class="px-4 py-3">
+                <ul class="space-y-3 text-sm">
+                  {mq.questions.items.map((item) => (
+                    <li>
+                      <p class="font-medium text-gray-800">{item.title}</p>
+                      {item.details.length === 1 && (
+                        <ul class="mt-1 ml-4 list-disc text-gray-600">
+                          <li>{item.details[0]}</li>
+                        </ul>
+                      )}
+                      {item.details.length > 1 && (
+                        <div class="mt-1 ml-4">
+                          <ul class="list-disc text-gray-600">
+                            <li>{item.details[0]}</li>
+                          </ul>
+                          <details class="mt-1">
+                            <summary class="cursor-pointer text-xs text-blue-600 hover:text-blue-800">
+                              他{item.details.length - 1}件の質問を表示
+                            </summary>
+                            <ul class="mt-1 list-disc space-y-0.5 text-gray-600">
+                              {item.details.slice(1).map((d) => (
+                                <li>{d}</li>
+                              ))}
+                            </ul>
+                          </details>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="mt-4 text-sm text-gray-500">一般質問のデータはありません。</p>
+      )}
+    </section>
   </div>
 </Layout>
