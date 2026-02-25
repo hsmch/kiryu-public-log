@@ -1,0 +1,1922 @@
+{
+  "session": "平成31年第1回定例会",
+  "sessionSlug": "h31-1-teireikai",
+  "sourceUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/014/966/kokosannpi30.3.pdf",
+  "scrapedAt": "2026-02-25T15:50:29.969Z",
+  "records": [
+    {
+      "billNumber": "議案第1号",
+      "billTitle": "桐生市特別職報酬等審議会条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第2号",
+      "billTitle": "桐生市職員の勤務時間、休暇等に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第3号",
+      "billTitle": "群馬県市町村総合事務組合規約の変更に関する協議について",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第4号",
+      "billTitle": "桐生市小口資金融資促進条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第5号",
+      "billTitle": "桐生市ふるさと探訪ふれあい館の設置及び管理に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第6号",
+      "billTitle": "桐生市水道の布設工事監督者の配置基準及び資格基準並びに水道技術管理者の資格基準に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第7号",
+      "billTitle": "財産の無償貸付(地方卸売市場)について",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第8号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第9号",
+      "billTitle": "桐生市廃棄物の処理及び清掃に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第15号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第18号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第19号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第23号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第25号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第26号",
+      "billTitle": "",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "反対"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "反対"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議案第27号",
+      "billTitle": "を求めることについて",
+      "result": "同意",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "諮問第1号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについてすることに決定",
+      "result": "異議ない旨回答することに決定",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "諮問第2号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについてすることに決定",
+      "result": "異議ない旨回答することに決定",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議第1号議案",
+      "billTitle": "持続可能な開発目標(ＳＤＧｓ)を桐生市のまちづくりに生かす条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議第2号議案",
+      "billTitle": "桐生市議会基本条例の一部を改正する条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議第3号議案",
+      "billTitle": "桐生市議会の議決すべき事件を定める条例案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    },
+    {
+      "billNumber": "議第4号議案",
+      "billTitle": "桐生市議会会議規則の一部を改正する規則案",
+      "result": "原案可決",
+      "votes": [
+        {
+          "memberName": "関口　直久",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "工藤　英人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "園田　基博",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "飯島　英規",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "人見　武男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "北川　久人",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "新井　達夫",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "久保田　裕一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "辻　正男",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "山之内　肇",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周藤　雅彦",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "小滝　芳江",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "福島　賢一",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "岡部　純朗",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "河原井　始",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　光好",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "佐藤　幸雄",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "森山　享大",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "周東　照二",
+          "vote": "賛成"
+        },
+        {
+          "memberName": "田島　忠一",
+          "vote": "賛成"
+        }
+      ]
+    }
+  ]
+}
