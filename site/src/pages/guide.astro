@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout title="議会の仕組みガイド - Kiryu Public Log">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <nav class="text-sm text-gray-500">
+      <a href="/about" class="text-blue-600 hover:text-blue-800">このサイトについて</a>
+      <span class="mx-1">/</span>
+    </nav>
+
+    <h1 class="mt-2 text-2xl font-bold text-gray-900">議会の仕組みガイド</h1>
+    <p class="mt-2 text-sm text-gray-500">桐生市議会の基本的な仕組みをわかりやすく解説します</p>
+
+    {/* 基本情報 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">桐生市議会の基本情報</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full text-sm">
+          <tbody>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">議員定数</th>
+              <td class="py-3 text-gray-900">22名</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">任期</th>
+              <td class="py-3 text-gray-900">4年</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">定例会</th>
+              <td class="py-3 text-gray-900">年4回（3月・6月・9月・12月）</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">臨時会</th>
+              <td class="py-3 text-gray-900">必要に応じて開催</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">会派</th>
+              <td class="py-3 text-gray-900">一心会、そうぞう未来、政策研究会、公明クラブ、クラブ21、日本共産党議員団、無会派</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">常任委員会</th>
+              <td class="py-3 text-gray-900">総務委員会、教育民生委員会、経済建設委員会</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <th class="whitespace-nowrap py-3 pr-4 text-left font-medium text-gray-600">議長の役割</th>
+              <td class="py-3 text-gray-900">議事の整理・秩序維持を担う。採決には参加せず、可否同数の場合のみ裁決権を行使</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {/* 定例会の流れ */}
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">定例会の流れ</h2>
+      <p class="mt-1 text-sm text-gray-500">定例会はおよそ3〜4週間にわたって行われます</p>
+
+      <div class="mt-4 space-y-0">
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">1</div>
+            <div class="w-0.5 flex-1 bg-blue-200"></div>
+          </div>
+          <div class="pb-6">
+            <p class="font-medium text-gray-900">開会・議案の上程</p>
+            <p class="mt-1 text-sm text-gray-600">市長から議案が提出され、提案理由の説明が行われます。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">2</div>
+            <div class="w-0.5 flex-1 bg-blue-200"></div>
+          </div>
+          <div class="pb-6">
+            <p class="font-medium text-gray-900">議案質疑</p>
+            <p class="mt-1 text-sm text-gray-600">議員が提出された議案の内容について質問します。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">3</div>
+            <div class="w-0.5 flex-1 bg-blue-200"></div>
+          </div>
+          <div class="pb-6">
+            <p class="font-medium text-gray-900">一般質問</p>
+            <p class="mt-1 text-sm text-gray-600">議員が市政全般について市長や担当部長に質問します。通常2〜3日間にわたります。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">4</div>
+            <div class="w-0.5 flex-1 bg-blue-200"></div>
+          </div>
+          <div class="pb-6">
+            <p class="font-medium text-gray-900">常任委員会への付託・審査</p>
+            <p class="mt-1 text-sm text-gray-600">議案が専門の常任委員会に振り分けられ、詳細に審査されます。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">5</div>
+            <div class="w-0.5 flex-1 bg-blue-200"></div>
+          </div>
+          <div class="pb-6">
+            <p class="font-medium text-gray-900">委員長報告・討論・採決</p>
+            <p class="mt-1 text-sm text-gray-600">委員会の審査結果が報告され、賛成・反対の討論の後、議員の投票により議案の可否が決まります。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">6</div>
+          </div>
+          <div class="pb-2">
+            <p class="font-medium text-gray-900">閉会</p>
+            <p class="mt-1 text-sm text-gray-600">すべての議案の処理が終わり、定例会が閉じられます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 用語集 */}
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">用語集</h2>
+      <p class="mt-1 text-sm text-gray-500">議会で使われる主な用語を五十音順で解説します</p>
+
+      <div class="mt-4 space-y-0 divide-y divide-gray-100 rounded-lg border border-gray-200 bg-white">
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">一般質問<span class="ml-2 text-xs text-gray-400">いっぱんしつもん</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">議員が市政全般について市長等に質問すること。議案に限らず、幅広いテーマで行われる。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">可決<span class="ml-2 text-xs text-gray-400">かけつ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">議会で賛成多数により議案が成立すること。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">会派<span class="ml-2 text-xs text-gray-400">かいは</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">政策や理念を共有する議員のグループ。議会運営に関する協議の単位となる。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">議案<span class="ml-2 text-xs text-gray-400">ぎあん</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">市長や議員が議会に提出する案件。条例の制定・改廃、予算、人事案件などがある。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">継続審査<span class="ml-2 text-xs text-gray-400">けいぞくしんさ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">結論を出さず、次回以降の定例会に審査を持ち越すこと。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">原案可決<span class="ml-2 text-xs text-gray-400">げんあんかけつ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">修正なく、提出されたとおりの内容で可決されること。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">採択<span class="ml-2 text-xs text-gray-400">さいたく</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">請願・陳情を議会が受け入れること。趣旨を妥当と認めた場合に行われる。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">賛否割れ<span class="ml-2 text-xs text-gray-400">さんぴわれ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">採決で賛成と反対に分かれること。全会一致でない議案を指す。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">常任委員会<span class="ml-2 text-xs text-gray-400">じょうにんいいんかい</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">議案や請願を専門分野ごとに審査する常設の委員会。桐生市には総務・教育民生・経済建設の3委員会がある。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">陳情<span class="ml-2 text-xs text-gray-400">ちんじょう</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">市民が議会に対して意見・要望を提出すること。請願と異なり紹介議員は不要。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">否決<span class="ml-2 text-xs text-gray-400">ひけつ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">議会で反対多数により議案が不成立となること。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">不採択<span class="ml-2 text-xs text-gray-400">ふさいたく</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">請願・陳情を議会が受け入れないこと。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">付託<span class="ml-2 text-xs text-gray-400">ふたく</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">議案の審査を担当の委員会に委ねること。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">全会一致<span class="ml-2 text-xs text-gray-400">ぜんかいいっち</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">出席議員全員が賛成すること。異議なしで可決される。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">修正可決<span class="ml-2 text-xs text-gray-400">しゅうせいかけつ</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">原案の一部を修正したうえで可決されること。</dd>
+        </div>
+        <div class="px-4 py-3">
+          <dt class="font-medium text-gray-900">請願<span class="ml-2 text-xs text-gray-400">せいがん</span></dt>
+          <dd class="mt-1 text-sm text-gray-600">市民が議会に対して要望を提出すること。紹介議員（1名以上の議員の署名）が必要。</dd>
+        </div>
+      </div>
+    </section>
+
+    {/* データの見方 */}
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">このサイトのデータの見方</h2>
+      <div class="mt-3 space-y-4 text-sm text-gray-700">
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-900">議案・採決結果ページ</p>
+          <p class="mt-1 text-gray-600">
+            定例会ごとに提出されたすべての議案と採決結果を一覧できます。
+            「原案可決」「否決」「継続審査」などの結果が色分けで表示されます。
+          </p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-4">
+          <p class="font-medium text-gray-900">議員ページ</p>
+          <p class="mt-1 text-gray-600">
+            各議員のプロフィール（会派・委員会・当選回数）と、過去の一般質問の一覧を確認できます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <p class="mt-8 text-center text-sm text-gray-500">
+      詳しくは
+      <a href="https://www.city.kiryu.lg.jp/shigikai/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+        桐生市議会公式サイト
+      </a>
+      をご覧ください。
+    </p>
+  </div>
+</Layout>

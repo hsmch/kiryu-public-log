@@ -180,6 +180,68 @@ export function getQuestionsForMember(
   return results.sort((a, b) => b.slug.localeCompare(a.slug));
 }
 
+// --- Population ---
+
+export interface PopulationEntry {
+  year: number;
+  month?: number;
+  population: number;
+  households: number;
+  source: string;
+}
+
+export interface PopulationData {
+  city: "桐生市";
+  sourceUrl: string;
+  scrapedAt: string;
+  current: {
+    population: number;
+    households: number;
+    asOf: string;
+  };
+  history: PopulationEntry[];
+}
+
+export function getPopulation(): PopulationData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "population.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+// --- Budget ---
+
+export interface BudgetItem {
+  category: string;
+  amount: number;
+  ratio?: number;
+}
+
+export interface BudgetData {
+  fiscalYear: string;
+  sourceUrl: string;
+  scrapedAt: string;
+  generalAccount: {
+    total: number;
+    revenue: BudgetItem[];
+    expenditure: BudgetItem[];
+  };
+}
+
+export function getBudget(): BudgetData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "finance", "budget.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 export { nameToSlug } from "./romaji";
 
 export function getAllMembersWithSlugs(): { member: CouncilMember; slug: string }[] {
@@ -254,6 +316,39 @@ export function getTagCounts(): { tag: string; count: number }[] {
   return [...counts.entries()]
     .map(([tag, count]) => ({ tag, count }))
     .sort((a, b) => b.count - a.count);
+}
+
+// --- Schedule ---
+
+export interface ScheduleEntry {
+  date: string;
+  type: "本会議" | "委員会" | "全員協議会" | "その他";
+  session: string;
+  description: string;
+}
+
+export interface ScheduleData {
+  sourceUrl: string;
+  scrapedAt: string;
+  entries: ScheduleEntry[];
+}
+
+export function getSchedule(): ScheduleData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "schedule.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getUpcomingEntries(limit = 5): ScheduleEntry[] {
+  const schedule = getSchedule();
+  if (!schedule) return [];
+  const today = new Date().toISOString().slice(0, 10);
+  return schedule.entries
+    .filter((e) => e.date >= today)
+    .slice(0, limit);
 }
 
 export function getSession(slug: string): SessionData | null {
