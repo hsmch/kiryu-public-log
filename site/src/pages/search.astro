@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="検索 - Kiryu Public Log" description="桐生市議会の議案・議員・一般質問をキーワードで検索" path="/search">
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    <h1 class="text-2xl font-bold text-gray-900">検索</h1>
+    <div id="search" class="mt-4"></div>
+  </div>
+</Layout>
+
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", async () => {
+    const { PagefindUI } = await import("/_pagefind/pagefind-ui.js");
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      translations: {
+        placeholder: "議案、議員名、キーワードで検索...",
+        zero_results: "「[SEARCH_TERM]」に一致する結果はありません",
+      },
+    });
+  });
+</script>
+
+<style is:global>
+  .pagefind-ui__search-input {
+    border-radius: 0.5rem !important;
+    border-color: #d1d5db !important;
+  }
+</style>
