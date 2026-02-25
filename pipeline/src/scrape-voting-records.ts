@@ -995,6 +995,8 @@ async function main() {
   let skipCount = 0;
   let errorCount = 0;
 
+  let skipCount = 0;
+
   for (const entry of sessionsWithPdf) {
     const filePath = resolve(OUTPUT_DIR, `${entry.slug}.json`);
 
