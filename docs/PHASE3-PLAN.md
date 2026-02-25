@@ -159,14 +159,14 @@ SNS でシェアされた際にプレビュー画像・説明文が表示され�
 
 ## 実装順序
 
-| 順序 | 機能 | 状態 | 詳細ドキュメント |
-|------|------|------|----------------|
-| 1 | A. 投票データ全件スクレイプ | 未着手 | [docs/phase3/A-voting-data-backfill.md](phase3/A-voting-data-backfill.md) |
-| 2 | B. CI ワークフロー整備 | 未着手 | [docs/phase3/B-ci-workflow.md](phase3/B-ci-workflow.md) |
-| 3 | C. タグ付け Claude API 化 | 未着手 | [docs/phase3/C-claude-api-tags.md](phase3/C-claude-api-tags.md) |
-| 4 | D. サイト内検索 | 未着手 | [docs/phase3/D-site-search.md](phase3/D-site-search.md) |
-| 5 | E. OGP / SEO 対応 | 未着手 | [docs/phase3/E-ogp-seo.md](phase3/E-ogp-seo.md) |
-| 6 | F. 予算の経年比較 | 未着手 | [docs/phase3/F-budget-comparison.md](phase3/F-budget-comparison.md) |
+| 順序 | 機能 | 状態 | PR | 詳細ドキュメント |
+|------|------|------|-----|----------------|
+| 1 | A. 投票データ全件スクレイプ | ✅ 完了 | #12 | [docs/phase3/A-voting-data-backfill.md](phase3/A-voting-data-backfill.md) |
+| 2 | B. CI ワークフロー整備 | ✅ 完了 | #9 | [docs/phase3/B-ci-workflow.md](phase3/B-ci-workflow.md) |
+| 3 | C. タグ付け Claude API 化 | 未着手 | | [docs/phase3/C-claude-api-tags.md](phase3/C-claude-api-tags.md) |
+| 4 | D. サイト内検索 | ✅ 完了 | #10 | [docs/phase3/D-site-search.md](phase3/D-site-search.md) |
+| 5 | E. OGP / SEO 対応 | ✅ 完了 | #11 | [docs/phase3/E-ogp-seo.md](phase3/E-ogp-seo.md) |
+| 6 | F. 予算の経年比較 | 未着手 | | [docs/phase3/F-budget-comparison.md](phase3/F-budget-comparison.md) |
 
 ---
 
