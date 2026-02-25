@@ -259,6 +259,39 @@ export function getMemberBySlug(slug: string): CouncilMember | null {
   return found?.member ?? null;
 }
 
+// --- Schedule ---
+
+export interface ScheduleEntry {
+  date: string;
+  type: "本会議" | "委員会" | "全員協議会" | "その他";
+  session: string;
+  description: string;
+}
+
+export interface ScheduleData {
+  sourceUrl: string;
+  scrapedAt: string;
+  entries: ScheduleEntry[];
+}
+
+export function getSchedule(): ScheduleData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "schedule.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getUpcomingEntries(limit = 5): ScheduleEntry[] {
+  const schedule = getSchedule();
+  if (!schedule) return [];
+  const today = new Date().toISOString().slice(0, 10);
+  return schedule.entries
+    .filter((e) => e.date >= today)
+    .slice(0, limit);
+}
+
 export function getSession(slug: string): SessionData | null {
   try {
     const raw = readFileSync(
