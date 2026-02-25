@@ -34,7 +34,7 @@ function voteColor(vote: string): string {
 }
 ---
 
-<Layout title={`${member.name} - Kiryu Public Log`}>
+<Layout title={`${member.name} - Kiryu Public Log`} description={`${member.name}（${member.faction}）の投票行動・一般質問 | 桐生市議会`} path={`/council/${slug}`}>
   <div class="mx-auto max-w-4xl px-4 py-8">
     <nav class="text-sm text-gray-500">
       <a href="/council" class="text-blue-600 hover:text-blue-800">議員一覧</a>
