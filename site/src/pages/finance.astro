@@ -1,117 +1,228 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getFunds } from '../lib/data';
+import { getFunds, getPopulation, getBudget } from '../lib/data';
 
 export const prerender = true;
 
 const funds = getFunds();
+const population = getPopulation();
+const budget = getBudget();
+
+const recentHistory = population?.history.filter(h => h.year >= 2000) ?? [];
+const popChartWidth = 700;
+const popChartHeight = 300;
+const popPadLeft = 60;
+const popPadRight = 30;
+const popPadTop = 20;
+const popPadBottom = 40;
+const popPlotW = popChartWidth - popPadLeft - popPadRight;
+const popPlotH = popChartHeight - popPadTop - popPadBottom;
+const popValues = recentHistory.map(h => h.population);
+const popMin = popValues.length > 0 ? Math.floor((Math.min(...popValues) - 5000) / 10000) * 10000 : 0;
+const popMax = popValues.length > 0 ? Math.ceil((Math.max(...popValues) + 5000) / 10000) * 10000 : 1;
+const popXScale = (i: number) => popPadLeft + (i / Math.max(recentHistory.length - 1, 1)) * popPlotW;
+const popYScale = (v: number) => popPadTop + popPlotH - ((v - popMin) / (popMax - popMin)) * popPlotH;
+const popPoints = recentHistory.map((h, i) => [popXScale(i), popYScale(h.population)].join(",")).join(" ");
+const popYTicks: number[] = [];
+for (let v = popMin; v <= popMax; v += 10000) { popYTicks.push(v); }
+function formatOku(amount: number): string { return (amount / 100_000_000).toFixed(0); }
+const perCapita = (population && budget) ? Math.round(budget.generalAccount.total / population.current.population) : null;
+const revenueColors = ["#3b82f6","#60a5fa","#93c5fd","#bfdbfe","#2563eb","#818cf8","#a5b4fc","#c7d2fe","#6366f1","#dbeafe"];
+const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f59e0b","#fbbf24","#fcd34d","#fde68a","#fef3c7","#d97706"];
 ---
+
 
 <Layout title="まちの数字 - Kiryu Public Log">
   <div class="mx-auto max-w-4xl px-4 py-8">
     <h1 class="text-2xl font-bold text-gray-900">まちの数字</h1>
-    <p class="mt-2 text-sm text-gray-500">桐生市の財政に関する公開データ</p>
+    <p class="mt-2 text-sm text-gray-500">桐生市の人口・財政に関する公開データ</p>
 
-    {funds ? (
-      <>
-        <section class="mt-8">
-          <h2 class="text-lg font-semibold text-gray-800">基金の状況</h2>
-          <p class="mt-1 text-sm text-gray-500">
-            {funds.asOf}現在 ―
-            <a href={funds.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
-              公式サイト原文
-            </a>
-          </p>
+    <div class="mt-6 grid gap-4 sm:grid-cols-3">
+      {population && (
+        <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
+          <p class="text-sm text-gray-500">人口</p>
+          <p class="mt-1 text-2xl font-bold text-gray-900">{population.current.population.toLocaleString()}人</p>
+          <p class="mt-1 text-xs text-gray-400">{population.current.asOf}現在</p>
+        </div>
+      )}
+      {budget && (
+        <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
+          <p class="text-sm text-gray-500">一般会計予算</p>
+          <p class="mt-1 text-2xl font-bold text-gray-900">約{formatOku(budget.generalAccount.total)}億円</p>
+          <p class="mt-1 text-xs text-gray-400">{budget.fiscalYear}当初予算</p>
+        </div>
+      )}
+      {perCapita && (
+        <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
+          <p class="text-sm text-gray-500">市民1人あたり予算</p>
+          <p class="mt-1 text-2xl font-bold text-gray-900">約{Math.round(perCapita / 10000)}万円</p>
+          <p class="mt-1 text-xs text-gray-400">{perCapita.toLocaleString()}円</p>
+        </div>
+      )}
+    </div>
 
-          {/* サマリカード */}
-          <div class="mt-4 grid gap-4 sm:grid-cols-3">
-            <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
-              <p class="text-sm text-gray-500">基金残高合計</p>
-              <p class="mt-1 text-2xl font-bold text-gray-900">
-                約{Math.round(funds.grandTotal / 100_000_000)}億円
-              </p>
-              <p class="mt-1 text-xs text-gray-400">{funds.grandTotal.toLocaleString()}円</p>
+    {population && recentHistory.length >= 1 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">人口推移</h2>
+        <p class="mt-1 text-sm text-gray-500">国勢調査データ（2000年〜） ― <a href={population.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">公式サイト原文</a></p>
+        <div class="mt-4 overflow-x-auto"><svg viewBox={["0 0",popChartWidth,popChartHeight].join(" ")} class="w-full max-w-2xl" role="img">
+            {popYTicks.map(v => (<line x1={popPadLeft} y1={popYScale(v)} x2={popChartWidth-popPadRight} y2={popYScale(v)} stroke="#e5e7eb" stroke-width="1" />))}
+            {popYTicks.map(v => (<text x={popPadLeft-8} y={popYScale(v)+4} text-anchor="end" fill="#6b7280" font-size="11">{(v/10000).toFixed(0)}万</text>))}
+            {recentHistory.map((h,i) => (<text x={popXScale(i)} y={popChartHeight-8} text-anchor="middle" fill="#6b7280" font-size="11">{h.year}</text>))}
+            <polyline points={popPoints} fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round" />
+            {recentHistory.map((h,i) => (<g><circle cx={popXScale(i)} cy={popYScale(h.population)} r="4" fill="#3b82f6" /><text x={popXScale(i)} y={popYScale(h.population)-10} text-anchor="middle" fill="#1f2937" font-size="10" font-weight="600">{(h.population/10000).toFixed(1)}万</text></g>))}
+            </svg></div>
+        <p class="mt-2 text-xs text-gray-400">※2005年に新里村・黒保根村との合併により人口が増加しています</p>
+      </section>
+    )}
+
+    {budget && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">予算の内訳</h2>
+        <p class="mt-1 text-sm text-gray-500">
+          {budget.fiscalYear}一般会計当初予算（約{formatOku(budget.generalAccount.total)}億円） ―
+          <a href={budget.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">公式サイト原文</a>
+        </p>
+        <div class="mt-6 grid gap-8 lg:grid-cols-2">
+          <div>
+            <h3 class="text-base font-semibold text-gray-700">歳入（どこからお金が入るか）</h3>
+            <div class="mt-3 flex justify-center">
+              <canvas id="revenue-chart" width="320" height="320"></canvas>
             </div>
-            <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
-              <p class="text-sm text-gray-500">一般会計</p>
-              <p class="mt-1 text-xl font-bold text-gray-900">
-                約{Math.round(funds.generalTotal / 100_000_000)}億円
-              </p>
-              <p class="mt-1 text-xs text-gray-400">{funds.generalTotal.toLocaleString()}円</p>
-            </div>
-            <div class="rounded-lg border border-gray-200 bg-white p-4 text-center">
-              <p class="text-sm text-gray-500">特別会計等</p>
-              <p class="mt-1 text-xl font-bold text-gray-900">
-                約{Math.round(funds.specialTotal / 100_000_000)}億円
-              </p>
-              <p class="mt-1 text-xs text-gray-400">{funds.specialTotal.toLocaleString()}円</p>
-            </div>
+            <ul class="mt-4 space-y-1 text-sm">
+              {budget.generalAccount.revenue.map((item, i) => (
+                <li class="flex items-center gap-2">
+                  <span class="inline-block h-3 w-3 shrink-0 rounded-sm" style={`background:${revenueColors[i % revenueColors.length]}`}></span>
+                  <span class="text-gray-700">{item.category}</span>
+                  <span class="ml-auto text-xs text-gray-500">{formatOku(item.amount)}億円{item.ratio ? ` (${item.ratio}%)` : ""}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          {/* 一般会計テーブル */}
-          <div class="mt-8">
-            <h3 class="text-base font-semibold text-gray-700">一般会計の基金</h3>
-            <div class="mt-3 overflow-x-auto">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="border-b border-gray-200 text-left">
-                    <th class="py-2 pr-4 font-medium text-gray-600">基金名称</th>
-                    <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">残高</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {funds.funds.filter(f => f.category === '一般会計').map(fund => (
-                    <tr class="border-b border-gray-100">
-                      <td class="py-2 pr-4 text-gray-900">{fund.name}</td>
-                      <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">
-                        {fund.balance.toLocaleString()}円
-                      </td>
-                    </tr>
-                  ))}
-                  <tr class="border-t-2 border-gray-300 font-semibold">
-                    <td class="py-2 pr-4 text-gray-900">合計</td>
-                    <td class="whitespace-nowrap py-2 text-right text-gray-900 tabular-nums">
-                      {funds.generalTotal.toLocaleString()}円
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          <div>
+            <h3 class="text-base font-semibold text-gray-700">歳出（何にお金を使うか）</h3>
+            <div class="mt-3 flex justify-center">
+              <canvas id="expenditure-chart" width="320" height="320"></canvas>
             </div>
+            <ul class="mt-4 space-y-1 text-sm">
+              {budget.generalAccount.expenditure.map((item, i) => (
+                <li class="flex items-center gap-2">
+                  <span class="inline-block h-3 w-3 shrink-0 rounded-sm" style={`background:${expenditureColors[i % expenditureColors.length]}`}></span>
+                  <span class="text-gray-700">{item.category}</span>
+                  <span class="ml-auto text-xs text-gray-500">{formatOku(item.amount)}億円{item.ratio ? ` (${item.ratio}%)` : ""}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+        <script
+          id="budget-data"
+          type="application/json"
+          set:html={JSON.stringify({
+            revenue: budget.generalAccount.revenue.map((item, i) => ({
+              label: item.category,
+              value: item.amount,
+              color: revenueColors[i % revenueColors.length],
+            })),
+            expenditure: budget.generalAccount.expenditure.map((item, i) => ({
+              label: item.category,
+              value: item.amount,
+              color: expenditureColors[i % expenditureColors.length],
+            })),
+            totalLabel: `約${formatOku(budget.generalAccount.total)}億円`,
+          })}
+        />
+        <script>
+          import { Chart, DoughnutController, ArcElement, Tooltip } from 'chart.js';
+          Chart.register(DoughnutController, ArcElement, Tooltip);
 
-          {/* 特別会計テーブル */}
-          <div class="mt-8">
-            <h3 class="text-base font-semibold text-gray-700">特別会計及び定額運用の基金</h3>
-            <div class="mt-3 overflow-x-auto">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="border-b border-gray-200 text-left">
-                    <th class="py-2 pr-4 font-medium text-gray-600">基金名称</th>
-                    <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">残高</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {funds.funds.filter(f => f.category === '特別会計等').map(fund => (
-                    <tr class="border-b border-gray-100">
-                      <td class="py-2 pr-4 text-gray-900">{fund.name}</td>
-                      <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">
-                        {fund.balance.toLocaleString()}円
-                      </td>
-                    </tr>
-                  ))}
-                  <tr class="border-t-2 border-gray-300 font-semibold">
-                    <td class="py-2 pr-4 text-gray-900">合計</td>
-                    <td class="whitespace-nowrap py-2 text-right text-gray-900 tabular-nums">
-                      {funds.specialTotal.toLocaleString()}円
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          const data = JSON.parse(document.getElementById('budget-data')!.textContent!);
+
+          function createDonut(canvasId: string, items: { label: string; value: number; color: string }[], totalLabel: string) {
+            const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+            if (!canvas) return;
+            new Chart(canvas, {
+              type: 'doughnut',
+              data: {
+                labels: items.map(i => i.label),
+                datasets: [{
+                  data: items.map(i => i.value),
+                  backgroundColor: items.map(i => i.color),
+                  borderWidth: 1,
+                  borderColor: '#fff',
+                }],
+              },
+              options: {
+                responsive: false,
+                cutout: '55%',
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    callbacks: {
+                      label: (ctx) => {
+                        const v = ctx.parsed;
+                        const oku = (v / 100_000_000).toFixed(0);
+                        return ` ${ctx.label}: ${oku}億円`;
+                      },
+                    },
+                  },
+                },
+              },
+              plugins: [{
+                id: 'centerText',
+                afterDraw(chart) {
+                  const { ctx, chartArea: { left, right, top, bottom } } = chart;
+                  const cx = (left + right) / 2;
+                  const cy = (top + bottom) / 2;
+                  ctx.save();
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'middle';
+                  ctx.fillStyle = '#374151';
+                  ctx.font = 'bold 16px sans-serif';
+                  ctx.fillText(totalLabel, cx, cy);
+                  ctx.restore();
+                },
+              }],
+            });
+          }
+
+          createDonut('revenue-chart', data.revenue, data.totalLabel);
+          createDonut('expenditure-chart', data.expenditure, data.totalLabel);
+        </script>
+      </section>
+    )}
+
+    {funds && (
+          <section class="mt-10">
+            <h2 class="text-lg font-semibold text-gray-800">基金の状況</h2>
+            <p class="mt-1 text-sm text-gray-500">{funds.asOf}現在 ― <a href={funds.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">公式サイト原文</a></p>
+            <div class="mt-4 grid gap-4 sm:grid-cols-3">
+              <div class="rounded-lg border border-gray-200 bg-white p-4 text-center"><p class="text-sm text-gray-500">基金残高合計</p><p class="mt-1 text-2xl font-bold text-gray-900">約{Math.round(funds.grandTotal / 100_000_000)}億円</p><p class="mt-1 text-xs text-gray-400">{funds.grandTotal.toLocaleString()}円</p></div>
+              <div class="rounded-lg border border-gray-200 bg-white p-4 text-center"><p class="text-sm text-gray-500">一般会計</p><p class="mt-1 text-xl font-bold text-gray-900">約{Math.round(funds.generalTotal / 100_000_000)}億円</p><p class="mt-1 text-xs text-gray-400">{funds.generalTotal.toLocaleString()}円</p></div>
+              <div class="rounded-lg border border-gray-200 bg-white p-4 text-center"><p class="text-sm text-gray-500">特別会計等</p><p class="mt-1 text-xl font-bold text-gray-900">約{Math.round(funds.specialTotal / 100_000_000)}億円</p><p class="mt-1 text-xs text-gray-400">{funds.specialTotal.toLocaleString()}円</p></div>
             </div>
-          </div>
-        </section>
-      </>
-    ) : (
+            <div class="mt-8">
+                  <h3 class="text-base font-semibold text-gray-700">一般会計の基金</h3>
+                  <div class="mt-3 overflow-x-auto">
+                    <table class="w-full text-sm">
+                      <thead><tr class="border-b border-gray-200 text-left"><th class="py-2 pr-4 font-medium text-gray-600">基金名称</th><th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">残高</th></tr></thead>
+                      <tbody>{funds.funds.filter(f => f.category === "一般会計").map(fund => (<tr class="border-b border-gray-100"><td class="py-2 pr-4 text-gray-900">{fund.name}</td><td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{fund.balance.toLocaleString()}円</td></tr>))}<tr class="border-t-2 border-gray-300 font-semibold"><td class="py-2 pr-4 text-gray-900">合計</td><td class="whitespace-nowrap py-2 text-right text-gray-900 tabular-nums">{funds.generalTotal.toLocaleString()}円</td></tr></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="mt-8">
+                  <h3 class="text-base font-semibold text-gray-700">特別会計及び定額運用の基金</h3>
+                  <div class="mt-3 overflow-x-auto">
+                    <table class="w-full text-sm">
+                      <thead><tr class="border-b border-gray-200 text-left"><th class="py-2 pr-4 font-medium text-gray-600">基金名称</th><th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">残高</th></tr></thead>
+                      <tbody>{funds.funds.filter(f => f.category === "特別会計等").map(fund => (<tr class="border-b border-gray-100"><td class="py-2 pr-4 text-gray-900">{fund.name}</td><td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{fund.balance.toLocaleString()}円</td></tr>))}<tr class="border-t-2 border-gray-300 font-semibold"><td class="py-2 pr-4 text-gray-900">合計</td><td class="whitespace-nowrap py-2 text-right text-gray-900 tabular-nums">{funds.specialTotal.toLocaleString()}円</td></tr></tbody>
+                    </table>
+                  </div>
+                </div>
+          </section>
+        )}
+
+    {!funds && !population && !budget && (
       <p class="mt-8 text-gray-500">データが見つかりませんでした。</p>
     )}
   </div>

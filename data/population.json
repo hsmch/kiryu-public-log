@@ -1,0 +1,138 @@
+{
+  "city": "桐生市",
+  "sourceUrl": "https://www.city.kiryu.lg.jp/shisei/1018369/toukei/1003178.html",
+  "scrapedAt": "2026-02-25T00:00:00.000Z",
+  "current": {
+    "population": 99203,
+    "households": 49044,
+    "asOf": "2026年1月末"
+  },
+  "history": [
+    {
+      "year": 1920,
+      "population": 37674,
+      "households": 7162,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1925,
+      "population": 42553,
+      "households": 8374,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1930,
+      "population": 52906,
+      "households": 10255,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1935,
+      "population": 76145,
+      "households": 13478,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1940,
+      "population": 86086,
+      "households": 15819,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1947,
+      "population": 91482,
+      "households": 19309,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1950,
+      "population": 95533,
+      "households": 19524,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1955,
+      "population": 116935,
+      "households": 23647,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1960,
+      "population": 123010,
+      "households": 26870,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1965,
+      "population": 127880,
+      "households": 30674,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1970,
+      "population": 133141,
+      "households": 34534,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1975,
+      "population": 134239,
+      "households": 37112,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1980,
+      "population": 132889,
+      "households": 38755,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1985,
+      "population": 131267,
+      "households": 39903,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1990,
+      "population": 126446,
+      "households": 40968,
+      "source": "国勢調査"
+    },
+    {
+      "year": 1995,
+      "population": 120377,
+      "households": 41496,
+      "source": "国勢調査"
+    },
+    {
+      "year": 2000,
+      "population": 115434,
+      "households": 41868,
+      "source": "国勢調査"
+    },
+    {
+      "year": 2005,
+      "population": 128037,
+      "households": 46647,
+      "source": "国勢調査"
+    },
+    {
+      "year": 2010,
+      "population": 121704,
+      "households": 46688,
+      "source": "国勢調査"
+    },
+    {
+      "year": 2015,
+      "population": 114714,
+      "households": 46034,
+      "source": "国勢調査"
+    },
+    {
+      "year": 2020,
+      "population": 106445,
+      "households": 44971,
+      "source": "国勢調査"
+    }
+  ]
+}
