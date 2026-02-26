@@ -1,11 +1,59 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getTagCounts, getTags } from '../../lib/data';
+import { getTagCounts, getTags, getEntriesByTag } from '../../lib/data';
 
 export const prerender = true;
 
 const tagCounts = getTagCounts();
 const tags = getTags();
+
+// 各タグの詳細情報を計算
+function fiscalYearFromSlug(slug: string): string {
+  const m = slug.match(/^(r|h)(\d+)/);
+  if (!m) return '';
+  const era = m[1] === 'r' ? '令和' : '平成';
+  return `${era}${m[2]}年度`;
+}
+
+function fiscalYearSortKey(slug: string): number {
+  const m = slug.match(/^(r|h)(\d+)/);
+  if (!m) return 0;
+  const base = m[1] === 'r' ? 2000 : 1000;
+  return base + parseInt(m[2]);
+}
+
+interface TagInfo {
+  tag: string;
+  count: number;
+  lastSession: string;
+  sparkline: number[];  // 直近5年度のエントリ数
+}
+
+const tagInfos: TagInfo[] = tagCounts.map(({ tag, count }) => {
+  const entries = getEntriesByTag(tag);
+
+  // 最新セッションを取得
+  const sorted = [...entries].sort((a, b) => b.sessionSlug.localeCompare(a.sessionSlug));
+  const lastSession = sorted.length > 0 ? sorted[0].session : '';
+
+  // 年度別にカウント
+  const yearCounts = new Map<number, number>();
+  for (const e of entries) {
+    const key = fiscalYearSortKey(e.sessionSlug);
+    yearCounts.set(key, (yearCounts.get(key) ?? 0) + 1);
+  }
+
+  // 直近5年度のスパークライン
+  const allKeys = [...yearCounts.keys()].sort();
+  const recentKeys = allKeys.slice(-5);
+  const sparkline = recentKeys.map((k) => yearCounts.get(k) ?? 0);
+
+  return { tag, count, lastSession, sparkline };
+});
+
+// スパークラインSVG生成パラメータ
+const sparkW = 60;
+const sparkH = 20;
 ---
 
 <Layout title="テーマ別 - Kiryu Public Log" description="桐生市議会の議案・一般質問をテーマごとに分類" path="/topics">
@@ -18,20 +66,48 @@ const tags = getTags();
     <div class="mt-2 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
       {tags?.method === 'claude-api'
         ? 'AI（Claude）による自動分類です。実際の内容と異なる場合があります。'
-        : 'キーワードによる自動分類です。分類の正確性には限界があります。ルールベースのキーワードマッチングで分類しています。'}
+        : 'キーワードによる自動分類です。分類の正確性には限界があります。'}
     </div>
 
-    {tagCounts.length > 0 ? (
+    {tagInfos.length > 0 ? (
       <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {tagCounts.map(({ tag, count }) => (
-          <a
-            href={`/topics/${encodeURIComponent(tag)}`}
-            class="rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
-          >
-            <p class="font-medium text-gray-900">{tag}</p>
-            <p class="mt-1 text-sm text-gray-500">{count}件</p>
-          </a>
-        ))}
+        {tagInfos.map(({ tag, count, lastSession, sparkline }) => {
+          const sparkMax = Math.max(...sparkline, 1);
+          const points = sparkline.map((v, i) => {
+            const x = (i / Math.max(sparkline.length - 1, 1)) * sparkW;
+            const y = sparkH - (v / sparkMax) * (sparkH - 2) - 1;
+            return `${x},${y}`;
+          }).join(' ');
+          return (
+            <a
+              href={`/topics/${encodeURIComponent(tag)}`}
+              class="rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">{tag}</p>
+                  <p class="mt-1 text-sm text-gray-500">{count}件</p>
+                </div>
+                {sparkline.length >= 2 && (
+                  <svg width={sparkW} height={sparkH} class="shrink-0 mt-1">
+                    <polyline
+                      points={points}
+                      fill="none"
+                      stroke="#93c5fd"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
+              </div>
+              {lastSession && (
+                <p class="mt-1.5 text-xs text-gray-400 truncate">
+                  最新: {lastSession}
+                </p>
+              )}
+            </a>
+          );
+        })}
       </div>
     ) : (
       <p class="mt-8 text-gray-500">タグデータが見つかりませんでした。</p>

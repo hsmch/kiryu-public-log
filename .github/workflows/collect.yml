@@ -63,6 +63,10 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
+      - name: Analyze voting patterns
+        working-directory: pipeline
+        run: npm run analyze:voting
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:

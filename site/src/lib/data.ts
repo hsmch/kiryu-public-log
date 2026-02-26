@@ -456,6 +456,74 @@ export function getTagCounts(): { tag: string; count: number }[] {
     .sort((a, b) => b.count - a.count);
 }
 
+// --- Voting Analysis ---
+
+export interface VotingAnalysis {
+  meta: {
+    generatedAt: string;
+    totalBills: number;
+    splitBills: number;
+    sessionRange: string;
+  };
+  agreementMatrix: {
+    members: string[];
+    factions: string[];
+    matrix: number[][];
+  };
+  factionCohesion: {
+    faction: string;
+    memberCount: number;
+    cohesionRate: number;
+    splitBillCount: number;
+    totalBillCount: number;
+  }[];
+  dissenterProfiles: {
+    memberName: string;
+    faction: string;
+    totalVotes: number;
+    oppositionCount: number;
+    oppositionRate: number;
+    themeDistribution: { tag: string; count: number }[];
+  }[];
+}
+
+export function getVotingAnalysis(): VotingAnalysis | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "voting-analysis.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+// --- Bill result lookup ---
+
+export function getBillResult(sessionSlug: string, billNumber: string): string | null {
+  const session = getSession(sessionSlug);
+  if (!session) return null;
+  const bill = session.bills.find((b) => b.number === billNumber);
+  return bill?.result ?? null;
+}
+
+// --- Related tags lookup ---
+
+export function getRelatedTags(
+  sessionSlug: string,
+  billNumber?: string,
+  memberName?: string,
+  itemTitle?: string,
+): string[] {
+  const tags = getTags();
+  if (!tags) return [];
+  const entry = tags.entries.find((e) => {
+    if (e.sessionSlug !== sessionSlug) return false;
+    if (billNumber && e.billNumber === billNumber) return true;
+    if (memberName && itemTitle && e.memberName === memberName && e.itemTitle === itemTitle) return true;
+    return false;
+  });
+  return entry?.tags ?? [];
+}
+
 // --- Schedule ---
 
 export interface ScheduleEntry {

@@ -88,7 +88,7 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
           <div>
             <h3 class="text-base font-semibold text-gray-700">歳入（どこからお金が入るか）</h3>
             <div class="mt-3 flex justify-center">
-              <canvas id="revenue-chart" width="320" height="320"></canvas>
+              <canvas id="revenue-chart"></canvas>
             </div>
             <ul class="mt-4 space-y-1 text-sm">
               {budget.generalAccount.revenue.map((item, i) => (
@@ -103,7 +103,7 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
           <div>
             <h3 class="text-base font-semibold text-gray-700">歳出（何にお金を使うか）</h3>
             <div class="mt-3 flex justify-center">
-              <canvas id="expenditure-chart" width="320" height="320"></canvas>
+              <canvas id="expenditure-chart"></canvas>
             </div>
             <ul class="mt-4 space-y-1 text-sm">
               {budget.generalAccount.expenditure.map((item, i) => (
@@ -154,7 +154,8 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
                 }],
               },
               options: {
-                responsive: false,
+                responsive: true,
+                maintainAspectRatio: true,
                 cutout: '55%',
                 plugins: {
                   legend: { display: false },
@@ -205,13 +206,13 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
           <div>
             <h3 class="text-base font-semibold text-gray-700">歳入・歳出の推移</h3>
             <div class="mt-3">
-              <canvas id="history-chart" width="400" height="280"></canvas>
+              <canvas id="history-chart"></canvas>
             </div>
           </div>
           <div>
             <h3 class="text-base font-semibold text-gray-700">財政指標の推移</h3>
             <div class="mt-3">
-              <canvas id="ratio-chart" width="400" height="280"></canvas>
+              <canvas id="ratio-chart"></canvas>
             </div>
           </div>
         </div>
@@ -278,7 +279,8 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
                 ],
               },
               options: {
-                responsive: false,
+                responsive: true,
+                maintainAspectRatio: true,
                 scales: {
                   y: { beginAtZero: false, title: { display: true, text: '百万円' } },
                 },
@@ -325,7 +327,8 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
                 ],
               },
               options: {
-                responsive: false,
+                responsive: true,
+                maintainAspectRatio: true,
                 scales: {
                   y: { position: 'left', title: { display: true, text: '%' }, min: 0 },
                   y1: { position: 'right', title: { display: true, text: '指数' }, min: 0, max: 1, grid: { drawOnChartArea: false } },

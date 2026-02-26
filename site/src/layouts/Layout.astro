@@ -43,6 +43,9 @@ const canonicalUrl = `${SITE_URL}${path}`;
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Kiryu Public Log" href="/rss.xml" />
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <header class="border-b border-gray-200 bg-white">
@@ -50,15 +53,53 @@ const canonicalUrl = `${SITE_URL}${path}`;
         <a href="/" class="text-lg font-bold tracking-tight text-gray-900 no-underline">
           Kiryu Public Log
         </a>
-        <nav class="flex gap-4 text-sm">
+        <nav class="hidden md:flex gap-4 text-sm">
           <a href="/council" class="text-gray-600 hover:text-gray-900">議員一覧</a>
           <a href="/sessions" class="text-gray-600 hover:text-gray-900">議案・採決</a>
+          <a href="/analysis" class="text-gray-600 hover:text-gray-900">分析</a>
           <a href="/finance" class="text-gray-600 hover:text-gray-900">まちの数字</a>
           <a href="/search" class="text-gray-600 hover:text-gray-900">検索</a>
           <a href="/about" class="text-gray-600 hover:text-gray-900">about</a>
         </nav>
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="メニューを開く"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
+      <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
+        <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-3 text-sm">
+          <a href="/council" class="text-gray-600 hover:text-gray-900 py-1">議員一覧</a>
+          <a href="/sessions" class="text-gray-600 hover:text-gray-900 py-1">議案・採決</a>
+          <a href="/analysis" class="text-gray-600 hover:text-gray-900 py-1">分析</a>
+          <a href="/finance" class="text-gray-600 hover:text-gray-900 py-1">まちの数字</a>
+          <a href="/search" class="text-gray-600 hover:text-gray-900 py-1">検索</a>
+          <a href="/about" class="text-gray-600 hover:text-gray-900 py-1">about</a>
+        </div>
+      </nav>
     </header>
+    <script>
+      const toggle = document.getElementById('menu-toggle')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const iconOpen = document.getElementById('menu-icon-open')!;
+      const iconClose = document.getElementById('menu-icon-close')!;
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        toggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+    </script>
 
     <main data-pagefind-body>
       <slot />
@@ -86,6 +127,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
           <a href="/about" class="text-blue-600 underline hover:text-blue-800">このサイトについて</a>
           <a href="/guide" class="text-blue-600 underline hover:text-blue-800">議会の仕組みガイド</a>
           <a href="https://github.com/hsmch/kiryu-public-log" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="/rss.xml" class="text-blue-600 underline hover:text-blue-800">RSS</a>
         </p>
       </div>
     </footer>
