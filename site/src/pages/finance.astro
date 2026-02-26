@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getFunds, getPopulation, getBudget } from '../lib/data';
+import { getFunds, getPopulation, getBudget, getBudgetHistory } from '../lib/data';
 
 export const prerender = true;
 
 const funds = getFunds();
 const population = getPopulation();
 const budget = getBudget();
+const budgetHistory = getBudgetHistory();
 
 const recentHistory = population?.history.filter(h => h.year >= 2000) ?? [];
 const popChartWidth = 700;
@@ -188,6 +189,151 @@ const expenditureColors = ["#f97316","#fb923c","#fdba74","#fed7aa","#ea580c","#f
 
           createDonut('revenue-chart', data.revenue, data.totalLabel);
           createDonut('expenditure-chart', data.expenditure, data.totalLabel);
+        </script>
+      </section>
+    )}
+
+    {budgetHistory && budgetHistory.entries.length >= 2 && (
+      <section class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-800">財政の推移</h2>
+        <p class="mt-1 text-sm text-gray-500">
+          群馬県「市町村財政状況資料集」（決算ベース） ―
+          <a href={budgetHistory.sourceUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">データソース</a>
+        </p>
+
+        <div class="mt-6 grid gap-8 lg:grid-cols-2">
+          <div>
+            <h3 class="text-base font-semibold text-gray-700">歳入・歳出の推移</h3>
+            <div class="mt-3">
+              <canvas id="history-chart" width="400" height="280"></canvas>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-700">財政指標の推移</h3>
+            <div class="mt-3">
+              <canvas id="ratio-chart" width="400" height="280"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-gray-200 text-left">
+                <th class="py-2 pr-4 font-medium text-gray-600">年度</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">歳入（億円）</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">歳出（億円）</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">経常収支比率</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">財政力指数</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">実質公債費比率</th>
+                <th class="whitespace-nowrap py-2 text-right font-medium text-gray-600">基金残高（億円）</th>
+              </tr>
+            </thead>
+            <tbody>
+              {budgetHistory.entries.map(e => (
+                <tr class="border-b border-gray-100">
+                  <td class="py-2 pr-4 text-gray-900">{e.fiscalYearLabel}</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{(e.revenue / 1_000_000).toFixed(0)}</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{(e.expenditure / 1_000_000).toFixed(0)}</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{e.ordinaryBalanceRatio}%</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{e.fiscalStrengthIndex}</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{e.debtServiceRatio}%</td>
+                  <td class="whitespace-nowrap py-2 text-right text-gray-700 tabular-nums">{e.fundBalance > 0 ? (e.fundBalance / 10).toFixed(0) : '-'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-2 text-xs text-gray-400">※金額は決算額（千円単位を百万円に丸め）。基金残高は財政調整基金・減債基金・その他特定目的基金の合計。</p>
+
+        <script
+          id="budget-history-data"
+          type="application/json"
+          set:html={JSON.stringify(budgetHistory.entries.map(e => ({
+            label: e.fiscalYearLabel.replace('年度', ''),
+            revenue: Math.round(e.revenue / 1_000_000),
+            expenditure: Math.round(e.expenditure / 1_000_000),
+            ordinaryBalanceRatio: e.ordinaryBalanceRatio,
+            fiscalStrengthIndex: e.fiscalStrengthIndex,
+            debtServiceRatio: e.debtServiceRatio,
+          })))}
+        />
+        <script>
+          import { Chart, BarController, BarElement, LineController, LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+          Chart.register(BarController, BarElement, LineController, LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+          const historyData = JSON.parse(document.getElementById('budget-history-data')!.textContent!);
+          const labels = historyData.map((d: any) => d.label);
+
+          // Revenue/Expenditure bar chart
+          const histCanvas = document.getElementById('history-chart') as HTMLCanvasElement;
+          if (histCanvas) {
+            new Chart(histCanvas, {
+              type: 'bar',
+              data: {
+                labels,
+                datasets: [
+                  { label: '歳入', data: historyData.map((d: any) => d.revenue), backgroundColor: '#3b82f6' },
+                  { label: '歳出', data: historyData.map((d: any) => d.expenditure), backgroundColor: '#f97316' },
+                ],
+              },
+              options: {
+                responsive: false,
+                scales: {
+                  y: { beginAtZero: false, title: { display: true, text: '百万円' } },
+                },
+                plugins: {
+                  legend: { position: 'top' },
+                  tooltip: { callbacks: { label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()}百万円` } },
+                },
+              },
+            });
+          }
+
+          // Ratio line chart
+          const ratioCanvas = document.getElementById('ratio-chart') as HTMLCanvasElement;
+          if (ratioCanvas) {
+            new Chart(ratioCanvas, {
+              type: 'line',
+              data: {
+                labels,
+                datasets: [
+                  {
+                    label: '経常収支比率（%）',
+                    data: historyData.map((d: any) => d.ordinaryBalanceRatio),
+                    borderColor: '#ef4444',
+                    backgroundColor: '#ef444433',
+                    yAxisID: 'y',
+                    tension: 0.3,
+                  },
+                  {
+                    label: '実質公債費比率（%）',
+                    data: historyData.map((d: any) => d.debtServiceRatio),
+                    borderColor: '#8b5cf6',
+                    backgroundColor: '#8b5cf633',
+                    yAxisID: 'y',
+                    tension: 0.3,
+                  },
+                  {
+                    label: '財政力指数',
+                    data: historyData.map((d: any) => d.fiscalStrengthIndex),
+                    borderColor: '#10b981',
+                    backgroundColor: '#10b98133',
+                    yAxisID: 'y1',
+                    tension: 0.3,
+                  },
+                ],
+              },
+              options: {
+                responsive: false,
+                scales: {
+                  y: { position: 'left', title: { display: true, text: '%' }, min: 0 },
+                  y1: { position: 'right', title: { display: true, text: '指数' }, min: 0, max: 1, grid: { drawOnChartArea: false } },
+                },
+                plugins: { legend: { position: 'top' } },
+              },
+            });
+          }
         </script>
       </section>
     )}

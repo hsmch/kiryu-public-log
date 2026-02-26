@@ -242,6 +242,38 @@ export function getBudget(): BudgetData | null {
   }
 }
 
+// --- Budget History ---
+
+export interface BudgetHistoryEntry {
+  fiscalYear: string;
+  fiscalYearLabel: string;
+  revenue: number;
+  expenditure: number;
+  ordinaryBalanceRatio: number;
+  fiscalStrengthIndex: number;
+  debtServiceRatio: number;
+  fundBalance: number;
+}
+
+export interface BudgetHistoryData {
+  sourceUrl: string;
+  scrapedAt: string;
+  note: string;
+  entries: BudgetHistoryEntry[];
+}
+
+export function getBudgetHistory(): BudgetHistoryData | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "finance", "budget-history.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 export { nameToSlug } from "./romaji";
 
 export function getAllMembersWithSlugs(): { member: CouncilMember; slug: string }[] {
