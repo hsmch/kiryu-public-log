@@ -13,7 +13,8 @@
     "generate:tags": "tsx src/generate-tags.ts",
     "scrape:schedule": "tsx src/scrape-schedule.ts",
     "scrape:population": "tsx src/scrape-population.ts",
-    "scrape:budget-history": "tsx src/scrape-budget-history.ts"
+    "scrape:budget-history": "tsx src/scrape-budget-history.ts",
+    "analyze:voting": "tsx src/analyze-voting-patterns.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllTagNames, getEntriesByTag } from '../../lib/data';
+import { getAllTagNames, getEntriesByTag, getBillResult, getRelatedTags, getTags, getVotingForSession } from '../../lib/data';
+import type { TagEntry } from '../../lib/data';
 
 export const prerender = true;
 
@@ -15,26 +16,126 @@ const entries = getEntriesByTag(tag!);
 const bills = entries.filter((e) => e.type === 'bill');
 const questions = entries.filter((e) => e.type === 'question');
 
-// セッション別にグループ化
-const billsBySession = new Map<string, typeof bills>();
-for (const b of bills) {
-  const group = billsBySession.get(b.session) ?? [];
-  group.push(b);
-  billsBySession.set(b.session, group);
+// sessionSlug から年度を抽出 (r6-1-teireikai → "令和6年度", h28-3-teireikai → "平成28年度")
+function fiscalYearFromSlug(slug: string): string {
+  const m = slug.match(/^(r|h)(\d+)/);
+  if (!m) return '不明';
+  const era = m[1] === 'r' ? '令和' : '平成';
+  return `${era}${m[2]}年度`;
 }
-const billGroups = [...billsBySession.entries()].sort((a, b) =>
-  (b[1][0]?.sessionSlug ?? '').localeCompare(a[1][0]?.sessionSlug ?? '')
-);
 
-const questionsBySession = new Map<string, typeof questions>();
-for (const q of questions) {
-  const group = questionsBySession.get(q.session) ?? [];
-  group.push(q);
-  questionsBySession.set(q.session, group);
+function fiscalYearSortKey(slug: string): string {
+  const m = slug.match(/^(r|h)(\d+)/);
+  if (!m) return '0000';
+  const era = m[1] === 'r' ? '2' : '1';
+  return `${era}${m[2].padStart(3, '0')}`;
 }
-const questionGroups = [...questionsBySession.entries()].sort((a, b) =>
-  (b[1][0]?.sessionSlug ?? '').localeCompare(a[1][0]?.sessionSlug ?? '')
-);
+
+// 全エントリを年度でグルーピング
+interface TimelineEntry {
+  type: 'bill' | 'question';
+  entry: TagEntry;
+  result?: string | null;
+  isSplit?: boolean;
+  relatedTags: string[];
+}
+
+const timelineByYear = new Map<string, { year: string; sortKey: string; sessionSlug: string; entries: TimelineEntry[] }[]>();
+
+// まず年度→セッション→エントリの3レベルでまとめる
+const allEntries = [...bills, ...questions];
+const sessionGroups = new Map<string, TagEntry[]>();
+for (const e of allEntries) {
+  const group = sessionGroups.get(e.sessionSlug) ?? [];
+  group.push(e);
+  sessionGroups.set(e.sessionSlug, group);
+}
+
+// 投票データをキャッシュ
+const votingCache = new Map<string, Set<string>>();
+function isSplitVoteBill(sessionSlug: string, billNumber: string): boolean {
+  if (!votingCache.has(sessionSlug)) {
+    const voting = getVotingForSession(sessionSlug);
+    const splitBills = new Set<string>();
+    if (voting) {
+      for (const record of voting.records) {
+        const actual = record.votes.filter((v) => v.vote !== '議長');
+        if (actual.some((v) => v.vote === '賛成') && actual.some((v) => v.vote === '反対')) {
+          splitBills.add(record.billNumber);
+        }
+      }
+    }
+    votingCache.set(sessionSlug, splitBills);
+  }
+  return votingCache.get(sessionSlug)!.has(billNumber);
+}
+
+// 年度ごとにグループ化
+const yearSessionMap = new Map<string, { session: string; sessionSlug: string; entries: TimelineEntry[] }[]>();
+
+for (const [sessionSlug, sessionEntries] of sessionGroups) {
+  const year = fiscalYearFromSlug(sessionSlug);
+  const sortKey = fiscalYearSortKey(sessionSlug);
+
+  const timelineEntries: TimelineEntry[] = sessionEntries.map((e) => {
+    const result = e.type === 'bill' && e.billNumber ? getBillResult(e.sessionSlug, e.billNumber) : null;
+    const isSplit = e.type === 'bill' && e.billNumber ? isSplitVoteBill(e.sessionSlug, e.billNumber) : false;
+    const related = e.type === 'bill' && e.billNumber
+      ? getRelatedTags(e.sessionSlug, e.billNumber)
+      : e.type === 'question' && e.memberName && e.itemTitle
+        ? getRelatedTags(e.sessionSlug, undefined, e.memberName, e.itemTitle)
+        : [];
+    return {
+      type: e.type,
+      entry: e,
+      result,
+      isSplit,
+      relatedTags: related.filter((t) => t !== tag),
+    };
+  });
+
+  if (!yearSessionMap.has(year)) {
+    yearSessionMap.set(year, []);
+  }
+  yearSessionMap.get(year)!.push({
+    session: sessionEntries[0].session,
+    sessionSlug,
+    entries: timelineEntries,
+  });
+}
+
+// 年度を降順ソート
+const yearGroups = [...yearSessionMap.entries()]
+  .map(([year, sessions]) => ({
+    year,
+    sortKey: fiscalYearSortKey(sessions[0].sessionSlug),
+    sessions: sessions.sort((a, b) => b.sessionSlug.localeCompare(a.sessionSlug)),
+  }))
+  .sort((a, b) => b.sortKey.localeCompare(a.sortKey));
+
+// 年度別エントリ数（棒グラフ用）
+const yearCounts = yearGroups.map((y) => ({
+  year: y.year.replace('年度', ''),
+  count: y.sessions.reduce((sum, s) => sum + s.entries.length, 0),
+})).reverse();
+const maxCount = Math.max(...yearCounts.map((y) => y.count), 1);
+const barChartWidth = 400;
+const barChartHeight = 120;
+const barPadLeft = 50;
+const barPadRight = 10;
+const barPadTop = 10;
+const barPadBottom = 30;
+const barPlotW = barChartWidth - barPadLeft - barPadRight;
+const barPlotH = barChartHeight - barPadTop - barPadBottom;
+const barWidth = Math.min(30, barPlotW / yearCounts.length * 0.7);
+const barGap = barPlotW / Math.max(yearCounts.length, 1);
+
+function resultColor(result: string): string {
+  if (result.includes('可決') || result.includes('採択') || result.includes('承認') || result.includes('同意') || result.includes('認定')) return 'bg-green-100 text-green-800';
+  if (result.includes('否決') || result.includes('不採択')) return 'bg-red-100 text-red-800';
+  if (result.includes('継続')) return 'bg-yellow-100 text-yellow-800';
+  return 'bg-gray-100 text-gray-800';
+}
 ---
 
 <Layout title={`${tag} - テーマ別 - Kiryu Public Log`} description={`桐生市議会における「${tag}」に関する議案・一般質問の一覧`} path={`/topics/${tag}`}>
@@ -50,59 +151,141 @@ const questionGroups = [...questionsBySession.entries()].sort((a, b) =>
     </p>
 
     <div class="mt-2 rounded border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
-      キーワードによる自動分類です。原文は各定例会ページからご確認ください。
+      AI による自動分類です。原文は各定例会ページからご確認ください。
     </div>
 
-    {/* 議案 */}
-    {billGroups.length > 0 && (
-      <section class="mt-8">
-        <h2 class="text-lg font-semibold text-gray-800">関連する議案</h2>
-        <div class="mt-4 space-y-6">
-          {billGroups.map(([session, sessionBills]) => (
-            <div>
-              <h3 class="text-sm font-medium text-gray-500">
-                <a href={`/sessions/${sessionBills[0].sessionSlug}`} class="text-blue-600 hover:text-blue-800">
-                  {session}
-                </a>
-              </h3>
-              <div class="mt-2 space-y-1">
-                {sessionBills.map((b) => (
-                  <div class="rounded border border-gray-100 bg-white px-3 py-2 text-sm">
-                    <span class="text-gray-500">{b.billNumber}</span>
-                    <span class="ml-2 text-gray-900">{b.billTitle}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+    {/* 年度別エントリ数グラフ */}
+    {yearCounts.length >= 2 && (
+      <div class="mt-6">
+        <h2 class="text-sm font-medium text-gray-600">年度別エントリ数</h2>
+        <div class="mt-2 overflow-x-auto">
+          <svg viewBox={`0 0 ${barChartWidth} ${barChartHeight}`} class="w-full max-w-md" role="img">
+            {/* Y軸グリッド */}
+            {[0, Math.ceil(maxCount / 2), maxCount].map((v) => (
+              <line
+                x1={barPadLeft}
+                y1={barPadTop + barPlotH - (v / maxCount) * barPlotH}
+                x2={barChartWidth - barPadRight}
+                y2={barPadTop + barPlotH - (v / maxCount) * barPlotH}
+                stroke="#e5e7eb"
+                stroke-width="1"
+              />
+            ))}
+            {[0, Math.ceil(maxCount / 2), maxCount].map((v) => (
+              <text
+                x={barPadLeft - 6}
+                y={barPadTop + barPlotH - (v / maxCount) * barPlotH + 4}
+                text-anchor="end"
+                fill="#9ca3af"
+                font-size="10"
+              >{v}</text>
+            ))}
+            {/* 棒 */}
+            {yearCounts.map((y, i) => {
+              const x = barPadLeft + i * barGap + (barGap - barWidth) / 2;
+              const h = (y.count / maxCount) * barPlotH;
+              return (
+                <g>
+                  <rect
+                    x={x}
+                    y={barPadTop + barPlotH - h}
+                    width={barWidth}
+                    height={h}
+                    fill="#3b82f6"
+                    rx="2"
+                  />
+                  <text
+                    x={x + barWidth / 2}
+                    y={barChartHeight - 8}
+                    text-anchor="middle"
+                    fill="#6b7280"
+                    font-size="9"
+                  >{y.year}</text>
+                  {y.count > 0 && (
+                    <text
+                      x={x + barWidth / 2}
+                      y={barPadTop + barPlotH - h - 4}
+                      text-anchor="middle"
+                      fill="#374151"
+                      font-size="9"
+                      font-weight="600"
+                    >{y.count}</text>
+                  )}
+                </g>
+              );
+            })}
+          </svg>
         </div>
-      </section>
+      </div>
     )}
 
-    {/* 一般質問 */}
-    {questionGroups.length > 0 && (
-      <section class="mt-8">
-        <h2 class="text-lg font-semibold text-gray-800">関連する一般質問</h2>
-        <div class="mt-4 space-y-6">
-          {questionGroups.map(([session, sessionQuestions]) => (
-            <div>
-              <h3 class="text-sm font-medium text-gray-500">
-                <a href={`/sessions/${sessionQuestions[0].sessionSlug}`} class="text-blue-600 hover:text-blue-800">
-                  {session}
-                </a>
-              </h3>
-              <div class="mt-2 space-y-1">
-                {sessionQuestions.map((q) => (
-                  <div class="rounded border border-gray-100 bg-white px-3 py-2 text-sm">
-                    <span class="text-gray-500">{q.memberName}</span>
-                    <span class="ml-2 text-gray-900">{q.itemTitle}</span>
-                  </div>
-                ))}
+    {/* タイムライン */}
+    <div class="mt-8">
+      {yearGroups.map((yearGroup) => (
+        <div class="relative pl-6 pb-8 border-l-2 border-gray-200 last:pb-0">
+          {/* 年度マーカー */}
+          <div class="absolute -left-3 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 text-white text-xs font-bold">
+            <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" /></svg>
+          </div>
+          <h2 class="text-base font-bold text-gray-900 mb-4">{yearGroup.year}</h2>
+
+          <div class="space-y-4">
+            {yearGroup.sessions.map((sessionGroup) => (
+              <div>
+                <h3 class="text-sm font-medium text-gray-500 mb-2">
+                  <a href={`/sessions/${sessionGroup.sessionSlug}`} class="text-blue-600 hover:text-blue-800">
+                    {sessionGroup.session}
+                  </a>
+                </h3>
+                <div class="space-y-1.5">
+                  {sessionGroup.entries.map((item) => (
+                    <div class={`rounded border bg-white px-3 py-2 text-sm ${item.isSplit ? 'border-amber-300 bg-amber-50' : 'border-gray-100'}`}>
+                      <div class="flex items-start gap-2">
+                        <span class={`mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${item.type === 'bill' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'}`}>
+                          {item.type === 'bill' ? '議案' : '質問'}
+                        </span>
+                        <div class="min-w-0 flex-1">
+                          <div class="flex items-center gap-2">
+                            {item.type === 'bill' && (
+                              <span class="text-gray-400 text-xs shrink-0">{item.entry.billNumber}</span>
+                            )}
+                            {item.type === 'question' && (
+                              <span class="text-gray-400 text-xs shrink-0">{item.entry.memberName}</span>
+                            )}
+                            <span class="text-gray-900">
+                              {item.type === 'bill' ? item.entry.billTitle : item.entry.itemTitle}
+                            </span>
+                          </div>
+                          <div class="mt-1 flex flex-wrap items-center gap-1.5">
+                            {item.result && (
+                              <span class={`rounded px-1.5 py-0.5 text-[10px] font-medium ${resultColor(item.result)}`}>
+                                {item.result}
+                              </span>
+                            )}
+                            {item.isSplit && (
+                              <span class="rounded px-1.5 py-0.5 text-[10px] font-medium bg-amber-200 text-amber-800">賛否分裂</span>
+                            )}
+                            {item.relatedTags.length > 0 && (
+                              <span class="text-[10px] text-gray-400">
+                                関連:
+                                {item.relatedTags.map((t, i) => (
+                                  <a href={`/topics/${encodeURIComponent(t)}`} class="text-blue-500 hover:text-blue-700 ml-0.5">
+                                    {t}{i < item.relatedTags.length - 1 ? ',' : ''}
+                                  </a>
+                                ))}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </section>
-    )}
+      ))}
+    </div>
   </div>
 </Layout>

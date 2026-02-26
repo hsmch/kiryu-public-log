@@ -135,7 +135,8 @@ function resultColor(result: string): string {
           <span class="flex items-center gap-1"><span class="inline-block h-4 w-4 rounded bg-blue-500"></span>議長</span>
         </div>
 
-        <div class="mt-4 overflow-x-auto rounded-lg border border-gray-200">
+        <p class="mt-4 text-xs text-gray-400 md:hidden">← 横にスクロールできます →</p>
+        <div class="mt-1 overflow-x-auto rounded-lg border border-gray-200 md:mt-4">
           <table class="min-w-full text-xs">
             <thead>
               <tr class="bg-gray-50">
@@ -151,7 +152,7 @@ function resultColor(result: string): string {
             <tbody>
               {voting.records.map((record) => (
                 <tr class={`border-t border-gray-100 ${isSplitVote(record.votes) ? 'bg-amber-50' : ''}`}>
-                  <td class="sticky left-0 z-10 bg-inherit px-3 py-2 min-w-[200px] max-w-[320px]">
+                  <td class="sticky left-0 z-10 bg-inherit px-3 py-2 min-w-[140px] max-w-[200px] md:min-w-[200px] md:max-w-[320px]">
                     <div class="text-xs font-medium text-gray-800 leading-tight">
                       {record.billTitle}
                       {isSplitVote(record.votes) && <span class="ml-1 text-amber-600">*</span>}

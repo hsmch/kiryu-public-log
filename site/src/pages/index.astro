@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCouncilMembers, getAllSessions, getUpdates, getUpcomingEntries } from '../lib/data';
+import { getCouncilMembers, getAllSessions, getUpdates, getUpcomingEntries, getVotingAnalysis } from '../lib/data';
 
 export const prerender = true;
 
@@ -13,6 +13,7 @@ const recentSessions = sessions.slice(0, 5);
 const recentUpdates = updates?.entries.slice(0, 10) ?? [];
 const upcoming = getUpcomingEntries(5);
 const nextSession = upcoming.length > 0 ? upcoming[0].session : null;
+const votingAnalysis = getVotingAnalysis();
 ---
 
 <Layout path="/">
@@ -41,6 +42,23 @@ const nextSession = upcoming.length > 0 ? upcoming[0].session : null;
         <p class="mt-1 text-sm text-gray-600">議案・請願</p>
       </a>
     </div>
+
+    <!-- 分析への導線 -->
+    {votingAnalysis && (
+      <div class="mt-8">
+        <a href="/analysis" class="block rounded-lg border border-gray-200 bg-white px-6 py-4 transition hover:border-blue-300 hover:shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-semibold text-gray-900">投票パターン分析</p>
+              <p class="mt-1 text-sm text-gray-500">
+                {votingAnalysis.meta.totalBills}件の議案から議員間の投票一致率・会派結束度を分析
+              </p>
+            </div>
+            <span class="text-blue-600 text-sm shrink-0 ml-4">詳しく見る →</span>
+          </div>
+        </a>
+      </div>
+    )}
 
     <!-- 議会の予定 -->
     {upcoming.length > 0 && (
