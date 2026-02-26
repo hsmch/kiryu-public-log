@@ -1,0 +1,37 @@
+{
+  "sourceUrl": "https://www.pref.gunma.jp/site/shichousonzai/636041.html",
+  "scrapedAt": "2026-02-26T00:07:36.057Z",
+  "note": "群馬県「市町村財政状況資料集」より。金額は千円単位、基金残高は百万円単位。",
+  "entries": [
+    {
+      "fiscalYear": "R03",
+      "fiscalYearLabel": "令和3年度",
+      "revenue": 51218488,
+      "expenditure": 47621236,
+      "ordinaryBalanceRatio": 90.9,
+      "fiscalStrengthIndex": 0.57,
+      "debtServiceRatio": 4.5,
+      "fundBalance": 9440
+    },
+    {
+      "fiscalYear": "R04",
+      "fiscalYearLabel": "令和4年度",
+      "revenue": 52243844,
+      "expenditure": 49211880,
+      "ordinaryBalanceRatio": 94.9,
+      "fiscalStrengthIndex": 0.56,
+      "debtServiceRatio": 4.4,
+      "fundBalance": 11352
+    },
+    {
+      "fiscalYear": "R05",
+      "fiscalYearLabel": "令和5年度",
+      "revenue": 50749184,
+      "expenditure": 47025035,
+      "ordinaryBalanceRatio": 95.1,
+      "fiscalStrengthIndex": 0.55,
+      "debtServiceRatio": 4.4,
+      "fundBalance": 11178
+    }
+  ]
+}

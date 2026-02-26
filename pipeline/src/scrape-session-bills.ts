@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -287,6 +287,7 @@ async function main() {
 
   let totalSessions = 0;
   let totalBills = 0;
+  let skipCount = 0;
 
   for (const year of years) {
     log(`Fetching sessions for: ${year.label}`);
@@ -303,6 +304,23 @@ async function main() {
     }
 
     for (const [sessionKey, sessionLinks] of grouped) {
+      const filename = sessionKeyToFilename(sessionKey);
+      const filePath = resolve(DATA_DIR, `${filename}.json`);
+
+      // Skip if already scraped with bills
+      if (existsSync(filePath)) {
+        try {
+          const existing = JSON.parse(readFileSync(filePath, "utf-8"));
+          if (existing.bills && existing.bills.length > 0) {
+            log(`  Skip: ${sessionKey} (${filename}.json already has ${existing.bills.length} bills)`);
+            skipCount++;
+            continue;
+          }
+        } catch {
+          // file is corrupt, re-scrape
+        }
+      }
+
       const sessionData: SessionData = {
         session: sessionKey,
         sourceUrls: [],
@@ -339,8 +357,6 @@ async function main() {
         }
       }
 
-      const filename = sessionKeyToFilename(sessionKey);
-      const filePath = resolve(DATA_DIR, `${filename}.json`);
       writeFileSync(
         filePath,
         JSON.stringify(sessionData, null, 2) + "\n",
@@ -355,7 +371,7 @@ async function main() {
     }
   }
 
-  log(`Done: ${totalSessions} sessions, ${totalBills} bills total`);
+  log(`Done: ${totalSessions} new, ${skipCount} skipped, ${totalBills} bills total`);
 }
 
 main().catch((err) => {
