@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCouncilMembers, getAllSessions, getUpdates, getUpcomingEntries, getVotingAnalysis } from '../lib/data';
+import { getCouncilMembers, getAllSessions, getUpdates, getUpcomingEntries, getVotingAnalysis, getPopulation, getBudget, getTagCounts } from '../lib/data';
 
 export const prerender = true;
 
@@ -14,6 +14,24 @@ const recentUpdates = updates?.entries.slice(0, 10) ?? [];
 const upcoming = getUpcomingEntries(5);
 const nextSession = upcoming.length > 0 ? upcoming[0].session : null;
 const votingAnalysis = getVotingAnalysis();
+const population = getPopulation();
+const budget = getBudget();
+const tagCounts = getTagCounts();
+
+// Compute facts from data
+const pop2020 = population?.history.find(h => h.year === 2020)?.population;
+const pop2015 = population?.history.find(h => h.year === 2015)?.population;
+const popChangePercent = pop2020 && pop2015 ? ((pop2020 - pop2015) / pop2015 * 100).toFixed(1) : null;
+
+const unanimousPercent = votingAnalysis
+  ? (((votingAnalysis.meta.totalBills - votingAnalysis.meta.splitBills) / votingAnalysis.meta.totalBills) * 100).toFixed(0)
+  : null;
+
+const topTag = tagCounts.length > 0 ? tagCounts[0] : null;
+
+const perCapitaMan = population && budget
+  ? Math.round(budget.generalAccount.total / population.current.population / 10000)
+  : null;
 ---
 
 <Layout path="/">
@@ -25,6 +43,108 @@ const votingAnalysis = getVotingAnalysis();
       <p class="mt-4 text-lg text-gray-600 sm:text-xl">
         桐生市の市政・議会情報を、わかりやすく
       </p>
+    </div>
+
+    <!-- はじめての方へ -->
+    <div id="onboarding-banner" class="mt-8 hidden rounded-lg border border-blue-200 bg-blue-50 p-4">
+      <div class="flex items-start justify-between">
+        <div>
+          <p class="text-sm font-semibold text-blue-900">はじめての方へ</p>
+          <p class="mt-1 text-sm text-blue-800">
+            このサイトは桐生市の議会・市政情報を自動収集し、わかりやすく公開しています。
+            公式情報への入り口として、ぜひご活用ください。
+          </p>
+          <div class="mt-2 flex gap-3">
+            <a href="/about" class="text-sm font-medium text-blue-700 underline hover:text-blue-900">もっと詳しく</a>
+            <a href="/guide" class="text-sm font-medium text-blue-700 underline hover:text-blue-900">議会の仕組みガイド</a>
+          </div>
+        </div>
+        <button
+          id="onboarding-close"
+          type="button"
+          class="ml-4 shrink-0 text-blue-400 hover:text-blue-600"
+          aria-label="閉じる"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const banner = document.getElementById('onboarding-banner')!;
+      const closeBtn = document.getElementById('onboarding-close')!;
+      if (!localStorage.getItem('kpl-visited')) {
+        banner.classList.remove('hidden');
+      }
+      closeBtn.addEventListener('click', () => {
+        banner.classList.add('hidden');
+        localStorage.setItem('kpl-visited', '1');
+      });
+    </script>
+
+    <!-- 問いかけ型ナビゲーション -->
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">税金は何に使われている？</p>
+        <p class="mt-1 text-sm text-gray-500">予算の内訳と市民1人あたりの金額</p>
+      </a>
+      <a href="/sessions" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">最近の議会で何が決まった？</p>
+        <p class="mt-1 text-sm text-gray-500">定例会ごとの議案と採決結果</p>
+      </a>
+      <a href="/council" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">議員はどんな活動をしている？</p>
+        <p class="mt-1 text-sm text-gray-500">投票行動と一般質問の記録</p>
+      </a>
+      <a href="/analysis" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">議会の投票パターンは？</p>
+        <p class="mt-1 text-sm text-gray-500">議員間の一致率と会派結束度</p>
+      </a>
+      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">桐生市の人口や財政は？</p>
+        <p class="mt-1 text-sm text-gray-500">人口推移と財政指標の変化</p>
+      </a>
+      <a href="/topics" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700">どんなテーマが議論されている？</p>
+        <p class="mt-1 text-sm text-gray-500">議案・質問をテーマで横断整理</p>
+      </a>
+    </div>
+
+    <!-- データで見る桐生市の今 -->
+    <div class="mt-10">
+      <h2 class="text-lg font-semibold text-gray-800">データで見る桐生市の今</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        {popChangePercent && (
+          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+            <p class="text-sm text-gray-500">人口の変化</p>
+            <p class="mt-1 text-base font-semibold text-gray-900">直近5年で約{Math.abs(Number(popChangePercent))}%減少</p>
+            <p class="mt-1 text-xs text-gray-400">国勢調査（2015年→2020年）の比較</p>
+          </a>
+        )}
+        {unanimousPercent && (
+          <a href="/analysis" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+            <p class="text-sm text-gray-500">議案の採決</p>
+            <p class="mt-1 text-base font-semibold text-gray-900">約{unanimousPercent}%の議案が全会一致</p>
+            <p class="mt-1 text-xs text-gray-400">{votingAnalysis!.meta.totalBills}件中{votingAnalysis!.meta.totalBills - votingAnalysis!.meta.splitBills}件</p>
+          </a>
+        )}
+        {topTag && (
+          <a href={`/topics/${encodeURIComponent(topTag.tag)}`} class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+            <p class="text-sm text-gray-500">最多テーマ</p>
+            <p class="mt-1 text-base font-semibold text-gray-900">「{topTag.tag}」が{topTag.count}件</p>
+            <p class="mt-1 text-xs text-gray-400">議案・一般質問のAI分類による集計</p>
+          </a>
+        )}
+        {perCapitaMan && (
+          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+            <p class="text-sm text-gray-500">市民1人あたり予算</p>
+            <p class="mt-1 text-base font-semibold text-gray-900">年間約{perCapitaMan}万円</p>
+            <p class="mt-1 text-xs text-gray-400">{budget!.fiscalYear}一般会計当初予算</p>
+          </a>
+        )}
+      </div>
     </div>
 
     <!-- 数字サマリ -->
