@@ -1,0 +1,43 @@
+{
+  "source": "総務省「地方財政状況調査」（令和4年度決算）",
+  "indicators": {
+    "ordinaryBalanceRatio": {
+      "name": "経常収支比率",
+      "unit": "%",
+      "description": "毎年必ず入ってくるお金のうち、毎年必ず出ていくお金の割合。家計に例えると、給料のうち固定費（家賃・光熱費・ローン）が占める割合",
+      "household": "月収30万円のうち、固定費が28.5万円なら経常収支比率は95%。自由に使えるお金は1.5万円",
+      "nationalAverage": 93.0,
+      "thresholds": [
+        { "value": 80, "label": "健全", "color": "green" },
+        { "value": 90, "label": "やや硬直", "color": "yellow" },
+        { "value": 95, "label": "要注意", "color": "orange" },
+        { "value": 100, "label": "危険", "color": "red" }
+      ]
+    },
+    "fiscalStrengthIndex": {
+      "name": "財政力指数",
+      "unit": "",
+      "description": "自治体の財政的な体力を示す指標。1.0以上なら自前の収入だけでやりくりでき、低いほど国からの交付税に頼っている",
+      "household": "家計に例えると、本業の収入だけで生活費をまかなえる度合い。0.55なら生活費の約半分を本業で、残りを仕送り（交付税）で補っている状態",
+      "nationalAverage": 0.51,
+      "thresholds": [
+        { "value": 1.0, "label": "自立", "color": "green" },
+        { "value": 0.7, "label": "平均以上", "color": "yellow" },
+        { "value": 0.5, "label": "平均的", "color": "orange" },
+        { "value": 0.3, "label": "依存度高", "color": "red" }
+      ]
+    },
+    "debtServiceRatio": {
+      "name": "実質公債費比率",
+      "unit": "%",
+      "description": "収入に対する借金返済の負担割合。18%以上になると新たな借入に国の許可が必要になる",
+      "household": "月収のうちローン返済に充てる割合。4.4%なら月収30万円中、ローン返済は約1.3万円でかなり軽い負担",
+      "nationalAverage": 5.8,
+      "thresholds": [
+        { "value": 10, "label": "健全", "color": "green" },
+        { "value": 18, "label": "許可制ライン", "color": "orange" },
+        { "value": 25, "label": "制限ライン", "color": "red" }
+      ]
+    }
+  }
+}

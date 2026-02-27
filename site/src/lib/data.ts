@@ -274,6 +274,24 @@ export function getBudgetHistory(): BudgetHistoryData | null {
   }
 }
 
+export function getBudgetAnnotations(): any | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "finance", "budget-annotations.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getBenchmarks(): any | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "finance", "benchmarks.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
 export { nameToSlug } from "./romaji";
 
 export function getAllMembersWithSlugs(): { member: CouncilMember; slug: string }[] {

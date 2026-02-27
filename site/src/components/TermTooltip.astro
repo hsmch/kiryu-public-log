@@ -1,0 +1,29 @@
+---
+interface Props {
+  term: string;
+  description: string;
+}
+
+const { term, description } = Astro.props;
+---
+
+<span class="term-tooltip-wrapper relative inline-flex items-center gap-0.5">
+  <span>{term}</span>
+  <button
+    type="button"
+    class="term-tooltip-trigger inline-flex h-4 w-4 items-center justify-center rounded-full bg-gray-200 text-[10px] font-bold text-gray-500 hover:bg-blue-100 hover:text-blue-600 cursor-help"
+    aria-label={`${term}の説明を表示`}
+  >?</button>
+  <span class="term-tooltip-content absolute bottom-full left-1/2 z-50 mb-2 hidden w-64 -translate-x-1/2 rounded-lg border border-gray-200 bg-white p-3 text-sm font-normal text-gray-700 shadow-lg">
+    <span class="block text-xs font-medium text-gray-900 mb-1">{term}</span>
+    {description}
+    <span class="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-white"></span>
+  </span>
+</span>
+
+<style>
+  .term-tooltip-wrapper:hover .term-tooltip-content,
+  .term-tooltip-wrapper:focus-within .term-tooltip-content {
+    display: block;
+  }
+</style>
