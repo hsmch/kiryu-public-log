@@ -56,9 +56,11 @@ const canonicalUrl = `${SITE_URL}${path}`;
         <nav class="hidden md:flex gap-4 text-sm">
           <a href="/council" class="text-gray-600 hover:text-gray-900">議員一覧</a>
           <a href="/sessions" class="text-gray-600 hover:text-gray-900">議案・採決</a>
-          <a href="/analysis" class="text-gray-600 hover:text-gray-900">分析</a>
+          <a href="/analysis" class="text-gray-600 hover:text-gray-900">投票分析</a>
           <a href="/finance" class="text-gray-600 hover:text-gray-900">まちの数字</a>
+          <a href="/topics" class="text-gray-600 hover:text-gray-900">テーマ別</a>
           <a href="/search" class="text-gray-600 hover:text-gray-900">検索</a>
+          <a href="/guide" class="text-gray-600 hover:text-gray-900">ガイド</a>
           <a href="/about" class="text-gray-600 hover:text-gray-900">about</a>
         </nav>
         <button
@@ -76,13 +78,39 @@ const canonicalUrl = `${SITE_URL}${path}`;
         </button>
       </div>
       <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
-        <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-3 text-sm">
-          <a href="/council" class="text-gray-600 hover:text-gray-900 py-1">議員一覧</a>
-          <a href="/sessions" class="text-gray-600 hover:text-gray-900 py-1">議案・採決</a>
-          <a href="/analysis" class="text-gray-600 hover:text-gray-900 py-1">分析</a>
-          <a href="/finance" class="text-gray-600 hover:text-gray-900 py-1">まちの数字</a>
-          <a href="/search" class="text-gray-600 hover:text-gray-900 py-1">検索</a>
-          <a href="/about" class="text-gray-600 hover:text-gray-900 py-1">about</a>
+        <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-1 text-sm">
+          <a href="/council" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">議員一覧</span>
+            <span class="block text-xs text-gray-400">桐生市議会22名の活動記録</span>
+          </a>
+          <a href="/sessions" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">議案・採決</span>
+            <span class="block text-xs text-gray-400">定例会ごとの議案と採決結果</span>
+          </a>
+          <a href="/analysis" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">投票分析</span>
+            <span class="block text-xs text-gray-400">議員間の投票一致率・会派結束度</span>
+          </a>
+          <a href="/finance" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">まちの数字</span>
+            <span class="block text-xs text-gray-400">人口・財政・予算データ</span>
+          </a>
+          <a href="/topics" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">テーマ別</span>
+            <span class="block text-xs text-gray-400">議案・質問をテーマで横断整理</span>
+          </a>
+          <a href="/search" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">検索</span>
+            <span class="block text-xs text-gray-400">サイト内全文検索</span>
+          </a>
+          <a href="/guide" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">ガイド</span>
+            <span class="block text-xs text-gray-400">議会の仕組み・用語解説</span>
+          </a>
+          <a href="/about" class="text-gray-600 hover:text-gray-900 py-2">
+            <span class="font-medium">about</span>
+            <span class="block text-xs text-gray-400">このサイトについて</span>
+          </a>
         </div>
       </nav>
     </header>
