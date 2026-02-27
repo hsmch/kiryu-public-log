@@ -53,6 +53,27 @@ function resultColor(result: string): string {
   if (result.includes('継続')) return 'bg-yellow-100 text-yellow-800';
   return 'bg-gray-100 text-gray-800';
 }
+
+// Compute session summary from voting data
+const totalBills = session.bills.length;
+let unanimousBills = 0;
+let splitBills: { title: string; billNumber: string; yes: number; no: number }[] = [];
+
+if (voting && voting.records.length > 0) {
+  for (const record of voting.records) {
+    const actual = record.votes.filter(v => v.vote !== '議長');
+    const hasYes = actual.some(v => v.vote === '賛成');
+    const hasNo = actual.some(v => v.vote === '反対');
+    if (hasYes && hasNo) {
+      const yesCount = actual.filter(v => v.vote === '賛成').length;
+      const noCount = actual.filter(v => v.vote === '反対').length;
+      splitBills.push({ title: record.billTitle, billNumber: record.billNumber, yes: yesCount, no: noCount });
+    } else {
+      unanimousBills++;
+    }
+  }
+}
+const hasVotingSummary = voting && voting.records.length > 0;
 ---
 
 <Layout title={`${session.session} - Kiryu Public Log`} description={`${session.session}の議案${session.bills.length}件の採決結果・一般質問 | 桐生市議会`} path={`/sessions/${slug}`}>
@@ -82,6 +103,42 @@ function resultColor(result: string): string {
         </a>
       )}
     </div>
+
+    {hasVotingSummary && (
+      <div class="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
+        <h2 class="text-sm font-semibold text-blue-900">この定例会のポイント</h2>
+        <div class="mt-2 grid gap-3 sm:grid-cols-3">
+          <div class="text-center">
+            <p class="text-2xl font-bold text-gray-900">{voting!.records.length}</p>
+            <p class="text-xs text-gray-500">採決された議案</p>
+          </div>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-green-700">{unanimousBills}</p>
+            <p class="text-xs text-gray-500">全会一致</p>
+          </div>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-amber-600">{splitBills.length}</p>
+            <p class="text-xs text-gray-500">賛否が分かれた議案</p>
+          </div>
+        </div>
+        {splitBills.length > 0 && (
+          <div class="mt-3 border-t border-blue-200 pt-3">
+            <p class="text-xs font-medium text-blue-800 mb-2">賛否が分かれた議案:</p>
+            <ul class="space-y-1 text-sm">
+              {splitBills.map(b => (
+                <li class="flex items-start gap-2 text-blue-900">
+                  <span class="shrink-0 text-xs text-blue-600">{b.billNumber}</span>
+                  <span class="flex-1">{b.title}</span>
+                  <span class="shrink-0 text-xs">
+                    <span class="text-green-700">賛成{b.yes}</span>:<span class="text-red-700">反対{b.no}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
 
     <p class="mt-4 text-sm text-gray-600">
       合計 <span class="font-semibold">{session.bills.length}</span> 件
