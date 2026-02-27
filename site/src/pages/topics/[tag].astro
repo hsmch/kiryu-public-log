@@ -130,6 +130,57 @@ const barPlotH = barChartHeight - barPadTop - barPadBottom;
 const barWidth = Math.min(30, barPlotW / yearCounts.length * 0.7);
 const barGap = barPlotW / Math.max(yearCounts.length, 1);
 
+// Compute overview stats
+const billEntries = yearGroups.flatMap(y => y.sessions.flatMap(s => s.entries.filter(e => e.type === 'bill')));
+const questionEntries = yearGroups.flatMap(y => y.sessions.flatMap(s => s.entries.filter(e => e.type === 'question')));
+
+// Vote result distribution for bills
+const resultDistribution: Record<string, number> = {};
+for (const entry of billEntries) {
+  if (entry.result) {
+    const key = entry.result.includes('可決') || entry.result.includes('採択') || entry.result.includes('承認') || entry.result.includes('認定') || entry.result.includes('同意')
+      ? '可決・採択' : entry.result.includes('否決') || entry.result.includes('不採択')
+      ? '否決・不採択' : entry.result.includes('継続')
+      ? '継続審査' : 'その他';
+    resultDistribution[key] = (resultDistribution[key] || 0) + 1;
+  }
+}
+
+// Split vote count
+const splitVoteCount = billEntries.filter(e => e.isSplit).length;
+const splitVotePercent = billEntries.length > 0 ? ((splitVoteCount / billEntries.length) * 100).toFixed(1) : null;
+
+// Trend detection
+function detectTrend(): string {
+  if (yearCounts.length < 3) return '判定不可';
+  const recent = yearCounts.slice(-3);
+  const recentAvg = recent.reduce((sum, y) => sum + y.count, 0) / recent.length;
+
+  if (yearCounts.length <= 3) {
+    // Only 3 years, compare first half to second half
+    const first = yearCounts[0].count;
+    const last = yearCounts[yearCounts.length - 1].count;
+    if (last > first * 1.3) return '増加傾向';
+    if (last < first * 0.7) return '減少傾向';
+    return '横ばい';
+  }
+
+  const older = yearCounts.slice(0, -3);
+  const olderAvg = older.reduce((sum, y) => sum + y.count, 0) / older.length;
+
+  if (recentAvg > olderAvg * 1.3) return '増加傾向';
+  if (recentAvg < olderAvg * 0.7) return '減少傾向';
+  return '横ばい';
+}
+
+const trend = detectTrend();
+
+function trendColor(t: string): string {
+  if (t === '増加傾向') return 'text-blue-700 bg-blue-50 border-blue-200';
+  if (t === '減少傾向') return 'text-orange-700 bg-orange-50 border-orange-200';
+  return 'text-gray-700 bg-gray-50 border-gray-200';
+}
+
 function resultColor(result: string): string {
   if (result.includes('可決') || result.includes('採択') || result.includes('承認') || result.includes('同意') || result.includes('認定')) return 'bg-green-100 text-green-800';
   if (result.includes('否決') || result.includes('不採択')) return 'bg-red-100 text-red-800';
@@ -154,10 +205,45 @@ function resultColor(result: string): string {
       AI による自動分類です。原文は各定例会ページからご確認ください。
     </div>
 
+    {/* 概況 */}
+    <div class="mt-6 grid gap-3 sm:grid-cols-3">
+      <div class={`rounded-lg border p-3 text-center ${trendColor(trend)}`}>
+        <p class="text-xs font-medium opacity-70">トレンド</p>
+        <p class="mt-1 text-base font-bold">{trend}</p>
+        <p class="mt-0.5 text-xs opacity-60">直近の推移から判定</p>
+      </div>
+      {billEntries.length > 0 && (
+        <div class="rounded-lg border border-gray-200 bg-white p-3 text-center">
+          <p class="text-xs font-medium text-gray-500">議決結果</p>
+          <div class="mt-1 text-sm font-medium text-gray-900">
+            {Object.entries(resultDistribution).map(([key, count]) => (
+              <span class="inline-block mr-2">{key} {count}件</span>
+            ))}
+          </div>
+        </div>
+      )}
+      {splitVotePercent && billEntries.length > 0 && (
+        <div class="rounded-lg border border-gray-200 bg-white p-3 text-center">
+          <p class="text-xs font-medium text-gray-500">賛否割れ率</p>
+          <p class="mt-1 text-base font-bold text-amber-600">{splitVotePercent}%</p>
+          <p class="mt-0.5 text-xs text-gray-400">{billEntries.length}件中{splitVoteCount}件</p>
+        </div>
+      )}
+    </div>
+
     {/* 年度別エントリ数グラフ */}
     {yearCounts.length >= 2 && (
       <div class="mt-6">
-        <h2 class="text-sm font-medium text-gray-600">年度別エントリ数</h2>
+        <h2 class="text-sm font-medium text-gray-600">
+          年度別エントリ数
+          {trend !== '判定不可' && (
+            <span class={`ml-2 rounded px-1.5 py-0.5 text-xs font-medium ${
+              trend === '増加傾向' ? 'bg-blue-100 text-blue-700' :
+              trend === '減少傾向' ? 'bg-orange-100 text-orange-700' :
+              'bg-gray-100 text-gray-600'
+            }`}>{trend}</span>
+          )}
+        </h2>
         <div class="mt-2 overflow-x-auto">
           <svg viewBox={`0 0 ${barChartWidth} ${barChartHeight}`} class="w-full max-w-md" role="img">
             {/* Y軸グリッド */}
