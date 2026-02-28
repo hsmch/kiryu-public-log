@@ -29,3 +29,7 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Implement the changes described in the issue.
+            After making changes, always create a pull request using `gh pr create`.
+            The PR title should be concise and the body should reference the issue number with "Closes #<number>".
