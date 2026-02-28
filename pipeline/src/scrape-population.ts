@@ -149,7 +149,8 @@ async function fetchHistoricalPopulation(): Promise<PopulationEntry[]> {
           let population: number;
           let households: number;
           if (cellTexts.length >= 5) {
-            population = parseNumber(cellTexts[3]!);
+            // Table format: [年次, 人口計, 男, 女, 世帯数]
+            population = parseNumber(cellTexts[1]!);
             households = parseNumber(cellTexts[4]!);
           } else if (cellTexts.length >= 3) {
             population = parseNumber(cellTexts[1]!);
