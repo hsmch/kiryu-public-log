@@ -31,5 +31,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
             Implement the changes described in the issue.
-            After making changes, always create a pull request using `gh pr create`.
-            The PR title should be concise and the body should reference the issue number with "Closes #<number>".
+            Do NOT create a pull request yourself. A separate workflow will automatically create the PR from your branch.
+            Instead, write a clear final commit message:
+            - First line: concise PR title (e.g. "fix: 人口データの誤りを修正")
+            - Body: description of changes and "Closes #<issue number>"
