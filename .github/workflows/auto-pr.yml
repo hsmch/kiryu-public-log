@@ -1,0 +1,63 @@
+name: Auto PR
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'fix/**'
+      - 'claude/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # 既に PR が存在する場合はスキップ
+          EXISTING=$(gh pr list --head "${{ github.ref_name }}" --json number --jq length)
+          if [ "$EXISTING" -gt 0 ]; then
+            echo "PR already exists for ${{ github.ref_name }}, skipping."
+            exit 0
+          fi
+
+          # 最終コミットメッセージを取得
+          COMMIT_SUBJECT=$(git log -1 --format='%s')
+          COMMIT_BODY=$(git log -1 --format='%b')
+
+          BRANCH="${{ github.ref_name }}"
+
+          # コミットメッセージがあればそれを使用、なければブランチ名から生成
+          if [ -n "$COMMIT_SUBJECT" ]; then
+            PR_TITLE="$COMMIT_SUBJECT"
+          else
+            TYPE=$(echo "$BRANCH" | cut -d/ -f1)
+            TITLE=$(echo "$BRANCH" | cut -d/ -f2- | tr '-' ' ')
+            if [ "$TYPE" = "fix" ]; then
+              PR_TITLE="fix: ${TITLE}"
+            else
+              PR_TITLE="feat: ${TITLE}"
+            fi
+          fi
+
+          # ボディ: コミットボディがあればそれを使用
+          if [ -n "$COMMIT_BODY" ]; then
+            PR_BODY="$COMMIT_BODY"
+          else
+            PR_BODY="Auto-generated PR from branch \`${BRANCH}\`."
+          fi
+
+          gh pr create \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY" \
+            --head "$BRANCH" \
+            --base main
