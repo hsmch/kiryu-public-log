@@ -44,5 +44,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/ --project-name=kiryu-public-log
+          command: pages deploy dist/ --project-name=kiryu-public-log --commit-message="deploy ${{ github.sha }}"
           workingDirectory: site
