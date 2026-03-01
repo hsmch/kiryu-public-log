@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  # data/ に変更がある場合: バリデーションを実行
+  validate-data:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.pull_request.head.ref == 'auto/data-update' ||
+      contains(github.event.pull_request.labels.*.name, 'automated')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install pipeline dependencies
+        working-directory: pipeline
+        run: npm ci
+
+      - name: Validate data quality
+        working-directory: pipeline
+        run: npm run validate
+
+  # サイトをビルドしてスモークテスト
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install site dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Install Playwright
+        working-directory: site
+        run: npx playwright install chromium
+
+      - name: Build site
+        working-directory: site
+        run: npm run build
+
+      - name: Run smoke tests
+        working-directory: site
+        run: npx playwright test
