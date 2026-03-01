@@ -15,7 +15,7 @@
     "scrape:population": "tsx src/scrape-population.ts",
     "scrape:budget-history": "tsx src/scrape-budget-history.ts",
     "analyze:voting": "tsx src/analyze-voting-patterns.ts",
-    "validate:data": "tsx src/validate-data.ts"
+    "validate": "tsx src/validate-data.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
