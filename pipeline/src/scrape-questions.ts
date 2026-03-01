@@ -3,6 +3,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { questionsSchema } from "./schemas";
 
 const require = createRequire(import.meta.url);
 const pdfParse = require("pdf-parse");
@@ -510,7 +511,8 @@ async function main() {
         questions,
       };
 
-      writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n", "utf-8");
+      const parsedQuestions = questionsSchema.parse(data);
+      writeFileSync(filePath, JSON.stringify(parsedQuestions, null, 2) + "\n", "utf-8");
       log(`    → ${questions.length} members, saved to ${slug}.json`);
 
       totalFiles++;

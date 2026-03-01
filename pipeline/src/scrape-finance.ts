@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { fundsSchema } from "./schemas";
 
 const SOURCE_URL =
   "https://www.city.kiryu.lg.jp/shisei/zaisei/1007004.html";
@@ -173,7 +174,8 @@ async function main() {
 
   mkdirSync(DATA_DIR, { recursive: true });
   const filePath = resolve(DATA_DIR, "funds.json");
-  writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n", "utf-8");
+  const parsed = fundsSchema.parse(data);
+  writeFileSync(filePath, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
   log(`Saved to ${filePath}`);
   log(
     `Summary: ${funds.length} funds, general=${generalTotal.toLocaleString()}円, special=${specialTotal.toLocaleString()}円, total=${grandTotal.toLocaleString()}円`,

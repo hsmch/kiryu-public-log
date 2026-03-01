@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { populationSchema } from "./schemas";
 
 const CURRENT_URL =
   "https://www.city.kiryu.lg.jp/shisei/1018369/toukei/index.html";
@@ -188,7 +189,8 @@ async function main() {
   };
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
-  writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2) + "\n", "utf-8");
+  const parsed = populationSchema.parse(data);
+  writeFileSync(OUTPUT_PATH, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
   log(`Saved to ${OUTPUT_PATH}`);
   log(
     `Summary: current=${data.current.population.toLocaleString()}, history=${history.length} entries`,

@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { updatesSchema } from "./schemas";
 
 const TARGET_URL = "https://www.city.kiryu.lg.jp/shigikai/index.html";
 const USER_AGENT = "KiryuPublicLog/1.0 (+https://kiryu.co)";
@@ -182,7 +183,8 @@ async function main() {
   };
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
-  writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n", "utf-8");
+  const parsed = updatesSchema.parse(output);
+  writeFileSync(OUTPUT_PATH, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
   log(`Saved ${mergedEntries.length} entries (${newEntries.length} new) to ${OUTPUT_PATH}`);
 }
 

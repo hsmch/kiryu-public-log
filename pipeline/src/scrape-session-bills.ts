@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { sessionSchema } from "./schemas";
 
 const GIKETSU_INDEX_URL =
   "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/index.html";
@@ -357,9 +358,10 @@ async function main() {
         }
       }
 
+      const parsedSession = sessionSchema.parse(sessionData);
       writeFileSync(
         filePath,
-        JSON.stringify(sessionData, null, 2) + "\n",
+        JSON.stringify(parsedSession, null, 2) + "\n",
         "utf-8",
       );
       log(

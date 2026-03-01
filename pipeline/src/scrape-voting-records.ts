@@ -7,6 +7,7 @@ import {
 } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { votingSchema } from "./schemas";
 
 const USER_AGENT = "KiryuPublicLog/1.0 (+https://kiryu.co)";
 const SESSIONS_DIR = resolve(
@@ -1040,9 +1041,10 @@ async function main() {
       records,
     };
 
+    const parsedVoting = votingSchema.parse(votingData);
     writeFileSync(
       filePath,
-      JSON.stringify(votingData, null, 2) + "\n",
+      JSON.stringify(parsedVoting, null, 2) + "\n",
       "utf-8",
     );
     log(`  => ${records.length} records saved to ${entry.slug}.json`);

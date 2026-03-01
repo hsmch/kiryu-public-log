@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
+import { tagsSchema } from "./schemas";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -284,7 +285,8 @@ async function main() {
     entries,
   };
 
-  writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n", "utf-8");
+  const parsedTags = tagsSchema.parse(output);
+  writeFileSync(OUTPUT_PATH, JSON.stringify(parsedTags, null, 2) + "\n", "utf-8");
   log(`Generated ${entries.length} tag entries (method: ${method}), saved to ${OUTPUT_PATH}`);
 
   // Print tag summary
