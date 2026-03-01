@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { votingAnalysisSchema } from "./schemas";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -383,7 +384,8 @@ function main() {
     dissenterProfiles,
   };
 
-  writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), "utf-8");
+  const parsed = votingAnalysisSchema.parse(output);
+  writeFileSync(OUTPUT_PATH, JSON.stringify(parsed, null, 2), "utf-8");
   console.log(`\n出力: ${OUTPUT_PATH}`);
   console.log(`議案総数: ${allRecords.length}, 分裂: ${splitBillCount}, 議員数: ${memberNames.length}`);
 }

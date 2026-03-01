@@ -14,7 +14,8 @@
     "scrape:schedule": "tsx src/scrape-schedule.ts",
     "scrape:population": "tsx src/scrape-population.ts",
     "scrape:budget-history": "tsx src/scrape-budget-history.ts",
-    "analyze:voting": "tsx src/analyze-voting-patterns.ts"
+    "analyze:voting": "tsx src/analyze-voting-patterns.ts",
+    "validate:data": "tsx src/validate-data.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -25,6 +26,7 @@
     "@anthropic-ai/sdk": "^0.78.0",
     "cheerio": "^1.0.0",
     "pdf-parse": "^1.1.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
   }
 }

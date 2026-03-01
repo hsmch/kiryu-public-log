@@ -17,6 +17,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as XLSX from "xlsx";
+import { budgetHistorySchema } from "./schemas";
 
 const DATA_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "../../data");
 const OUTPUT_PATH = resolve(DATA_DIR, "finance", "budget-history.json");
@@ -228,9 +229,10 @@ async function main() {
   };
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
+  const parsed = budgetHistorySchema.parse(output);
   writeFileSync(
     OUTPUT_PATH,
-    JSON.stringify(output, null, 2) + "\n",
+    JSON.stringify(parsed, null, 2) + "\n",
     "utf-8",
   );
   log(`Saved ${entries.length} entries to ${OUTPUT_PATH}`);
