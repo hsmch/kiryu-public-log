@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
@@ -19,6 +20,8 @@
   },
   "devDependencies": {
     "@pagefind/default-ui": "^1.4.0",
-    "pagefind": "^1.4.0"
+    "@playwright/test": "^1.58.2",
+    "pagefind": "^1.4.0",
+    "serve": "^14.2.5"
   }
 }
