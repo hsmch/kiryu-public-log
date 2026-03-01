@@ -47,6 +47,12 @@ npm run scrape:sessions
 npm run scrape:updates
 npm run scrape:questions
 npm run scrape:finance
+npm run validate          # データ品質チェック
+
+# スモークテスト
+cd site
+npm run build
+npx playwright test
 ```
 
 ### Git Workflow
