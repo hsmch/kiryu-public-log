@@ -67,6 +67,10 @@ jobs:
         working-directory: pipeline
         run: npm run analyze:voting
 
+      - name: Validate data quality
+        working-directory: pipeline
+        run: npm run validate
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
