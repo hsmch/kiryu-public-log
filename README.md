@@ -86,6 +86,7 @@ npm run validate
 |---|---|---|
 | `collect.yml` | 毎日 6:00 JST | 全スクレイパー実行 → バリデーション → 自動 PR 作成 |
 | `ci.yml` | PR 作成時 | サイトビルド + スモークテスト / データバリデーション |
+| Copilot code review | PR 作成時 | GitHub Copilot による自動コードレビュー（Ruleset） |
 | `deploy.yml` | main push 時 | サイトビルド → Cloudflare Pages デプロイ |
 
 ### Git Workflow
