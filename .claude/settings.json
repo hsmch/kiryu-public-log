@@ -38,6 +38,20 @@
       "Bash(kill *)",
       "Bash(pkill *)",
       "Bash(lsof *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(echo *)",
+      "Bash(which *)",
+      "Bash(touch *)",
+      "Bash(sed *)",
+      "Bash(xargs *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(diff *)",
       "WebSearch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:docs.github.com)",
@@ -50,7 +64,13 @@
       "mcp__context7__*"
     ],
     "deny": [
-      "Bash(rm -rf *)"
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)",
+      "Bash(sudo *)",
+      "Bash(npm publish *)"
     ]
   }
 }
