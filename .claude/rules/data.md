@@ -36,7 +36,7 @@ data/
 - `sourceUrl` / `sourceUrls`: 全ファイル必須。データの出典 URL
 - `scrapedAt`: スクレイプ実行時刻（ISO 8601）
 - 日付: `YYYY-MM-DD` 形式
-- 金額: 整数（円）。budget-history のみ千円単位
+- 金額: 原則として整数（円）。`finance/budget-history.json` の金額は千円単位、`fundBalance` は百万円単位
 
 ## tags.json
 

@@ -49,5 +49,5 @@ paths:
 ## 金額単位
 
 - **基金** (`funds.json`): 円（整数そのまま）
-- **予算経年** (`budget-history.json`): 千円単位（表示時に変換が必要）
+- **予算経年** (`budget-history.json`): 歳入・歳出 = 千円単位 / `fundBalance` = 百万円単位
 - **解析時の共通パターン**: カンマ・「円」「人」「世帯」等の単位文字を除去 → parseInt
