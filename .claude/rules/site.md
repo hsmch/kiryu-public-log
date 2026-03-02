@@ -13,7 +13,7 @@ paths:
 
 ## データ読み込み
 
-- `src/lib/data.ts` が全データ読み込みの中心（30+ 関数）
+- `src/lib/data.ts` が全データ読み込みの中心（20+ 関数）
 - `../data/` の JSON を `resolve(process.cwd(), "../data")` で読む
 - ビルド時に data/ の JSON を読むため、**ファイル不在だとビルド失敗**する
 - `getFunds()`, `getBudgetHistory()` 等は **null を返す可能性あり**（必ず null チェック）
@@ -40,4 +40,5 @@ paths:
 | `/analysis` | `analysis.astro` | 投票パターン分析（SVG ヒートマップ） |
 | `/topics/[tag]` | `topics/[tag].astro` | テーマ別タイムライン |
 | `/search` | `search.astro` | pagefind 検索 |
+| `/schedule` | `schedule.astro` | 議会カレンダー |
 | `/rss.xml` | `rss.xml.ts` | RSS フィード |

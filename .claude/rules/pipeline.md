@@ -41,7 +41,7 @@ paths:
 
 ## セッションスラグ形式
 
-`{era}{year}-{number}-{type}` — 例: `r7-1-teireikai`, `r5-0-rinjikai`
+`{era}{year}-{number}-{type}` — 例: `r7-1-teireikai`, `r5-1-rinjikai`
 - era: `r`（令和）/ `h`（平成）、元年 = 1
 - number: `第N回` → N、なし → 0
 - type: `teireikai`（定例会）/ `rinjikai`（臨時会）
