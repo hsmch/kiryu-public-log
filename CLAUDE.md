@@ -64,6 +64,7 @@ hsmch/kiryu-public-log/
 | `/search` | サイト内検索（pagefind） |
 | `/about` | サイト趣旨・運営者情報 |
 | `/guide` | ガイド |
+| `/schedule` | 議会カレンダー |
 | `/rss.xml` | RSS フィード |
 
 ## Git ワークフロー

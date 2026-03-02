@@ -9,7 +9,7 @@ paths:
 
 - Astro 5 + Cloudflare Pages（ほぼ全ページを `export const prerender = true` で静的生成し、`/search` は SSR）
 - Tailwind CSS v4（`@tailwindcss/vite` プラグイン経由、`global.css` は `@import "tailwindcss"` のみ）
-- pagefind: ビルド後に `npx pagefind --site dist` で自動インデックス生成
+- pagefind: ビルド後に `npx pagefind --site dist --glob '**/*.html'` で自動インデックス生成
 
 ## データ読み込み
 
