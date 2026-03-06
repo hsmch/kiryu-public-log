@@ -514,6 +514,58 @@ export function getVotingAnalysis(): VotingAnalysis | null {
   }
 }
 
+// --- Split (non-unanimous) bills ---
+
+export interface SplitBill {
+  sessionSlug: string;
+  session: string;
+  billNumber: string;
+  billTitle: string;
+  result: string;
+  yesCount: number;
+  noCount: number;
+}
+
+export function getSplitBillsForSession(slug: string): SplitBill[] {
+  const voting = getVotingForSession(slug);
+  if (!voting) return [];
+  const session = getSession(slug);
+  const sessionName = session?.session ?? voting.session;
+
+  return voting.records
+    .filter((r) => {
+      const votable = r.votes.filter((v) => v.vote !== "議長");
+      const hasOpposition = votable.some((v) => v.vote === "反対");
+      return hasOpposition;
+    })
+    .map((r) => {
+      const votable = r.votes.filter((v) => v.vote !== "議長");
+      return {
+        sessionSlug: slug,
+        session: sessionName,
+        billNumber: r.billNumber,
+        billTitle: r.billTitle,
+        result: r.result,
+        yesCount: votable.filter((v) => v.vote === "賛成").length,
+        noCount: votable.filter((v) => v.vote === "反対").length,
+      };
+    });
+}
+
+export function getRecentSplitBills(limit = 10): SplitBill[] {
+  const slugs = getAllVotingSlugs().sort((a, b) => b.localeCompare(a));
+  const results: SplitBill[] = [];
+  for (const slug of slugs) {
+    results.push(...getSplitBillsForSession(slug));
+    if (results.length >= limit) break;
+  }
+  return results.slice(0, limit);
+}
+
+export function getSplitBillCountForSession(slug: string): number {
+  return getSplitBillsForSession(slug).length;
+}
+
 // --- Bill result lookup ---
 
 export function getBillResult(sessionSlug: string, billNumber: string): string | null {
