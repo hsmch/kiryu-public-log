@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllSessions } from '../../lib/data';
+import { getAllSessions, getSplitBillCountForSession } from '../../lib/data';
 
 export const prerender = true;
 
@@ -55,6 +55,14 @@ function sessionNumLabel(slug: string): string {
               </p>
               <p class="mt-1 text-sm text-gray-500">
                 {s.data.bills.length}件の議案
+                {(() => {
+                  const splitCount = getSplitBillCountForSession(s.slug);
+                  return splitCount > 0 ? (
+                    <span class="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-800">
+                      賛否分裂 {splitCount}件
+                    </span>
+                  ) : null;
+                })()}
               </p>
               {s.data.dates.length > 0 && (
                 <p class="mt-1 text-xs text-gray-400">{s.data.dates[0]}</p>
