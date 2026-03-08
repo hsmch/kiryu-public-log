@@ -55,7 +55,7 @@ function resultColor(result: string): string {
   return 'bg-gray-100 text-gray-800';
 }
 
-const hasVotingSummary = voting && voting.records.length > 0;
+const hasVotingSummary = summary != null && (summary.unanimousCount + summary.splitCount > 0);
 ---
 
 <Layout title={`${session.session} - Kiryu Public Log`} description={`${session.session}の議案${session.bills.length}件の採決結果・一般質問 | 桐生市議会`} path={`/sessions/${slug}`}>
