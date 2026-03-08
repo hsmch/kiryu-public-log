@@ -176,16 +176,22 @@ function generateSummary(
 
   if (voting) {
     for (const record of voting.records) {
+      // sessions データに存在しない投票記録は splitCount に含めない
+      const matchingBill = bills.find((b) => b.number === record.billNumber);
+      if (!matchingBill) {
+        console.warn(`  [warn] ${slug}: 投票記録の議案 ${record.billNumber} が sessions データに存在しません（splitCount から除外）`);
+        continue;
+      }
+
       const votable = record.votes.filter((v) => v.vote !== "議長");
       const hasYes = votable.some((v) => v.vote === "賛成");
       const hasNo = votable.some((v) => v.vote === "反対");
       if (hasYes && hasNo) {
         splitCount++;
-        const billResult = bills.find((b) => b.number === record.billNumber)?.result ?? record.result;
         splitBills.push({
           number: record.billNumber,
-          title: record.billTitle || bills.find((b) => b.number === record.billNumber)?.title || record.billNumber,
-          result: billResult,
+          title: record.billTitle || matchingBill.title || record.billNumber,
+          result: matchingBill.result ?? record.result,
           yesCount: votable.filter((v) => v.vote === "賛成").length,
           noCount: votable.filter((v) => v.vote === "反対").length,
         });

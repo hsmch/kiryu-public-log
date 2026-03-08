@@ -1,7 +1,7 @@
 {
   "sessionId": "r5-1-teireikai",
   "sessionName": "令和5年第1回定例会",
-  "generatedAt": "2026-03-08T12:28:21.976Z",
+  "generatedAt": "2026-03-08T12:54:49.388Z",
   "totalBills": 9,
   "billsByCategory": {
     "委員会・議員提出議案": 2,
@@ -11,59 +11,9 @@
     "可決等": 2,
     "継続審査": 7
   },
-  "unanimousCount": 0,
-  "splitCount": 7,
-  "splitBills": [
-    {
-      "number": "議案第1号",
-      "title": "桐生市議会政務活動費の交付に関する条例の一部を改正する条例案",
-      "result": "原案可決",
-      "yesCount": 20,
-      "noCount": 1
-    },
-    {
-      "number": "議案第10号",
-      "title": "桐生市立公民館の設置及び管理に関する条例の一部を改正する条例案",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第21号",
-      "title": "議案第21号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第23号",
-      "title": "議案第23号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第24号",
-      "title": "議案第24号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第28号",
-      "title": "議案第28号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第29号",
-      "title": "議案第29号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    }
-  ],
+  "unanimousCount": 2,
+  "splitCount": 0,
+  "splitBills": [],
   "topThemes": [
     "都市基盤",
     "福祉・医療",

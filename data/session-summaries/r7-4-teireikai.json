@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-4-teireikai",
   "sessionName": "令和7年第4回定例会",
-  "generatedAt": "2026-03-08T12:28:21.993Z",
+  "generatedAt": "2026-03-08T12:54:49.402Z",
   "totalBills": 34,
   "billsByCategory": {
     "市長提出議案": 32,
@@ -11,8 +11,8 @@
     "可決等": 32,
     "継続審査": 2
   },
-  "unanimousCount": 29,
-  "splitCount": 3,
+  "unanimousCount": 30,
+  "splitCount": 2,
   "splitBills": [
     {
       "number": "議案第95号",
@@ -27,13 +27,6 @@
       "result": "原案可決",
       "yesCount": 16,
       "noCount": 2
-    },
-    {
-      "number": "請願第15号",
-      "title": "消費税率5%への引き下げを求める意見書採択の請願",
-      "result": "不採択",
-      "yesCount": 3,
-      "noCount": 16
     }
   ],
   "topThemes": [
