@@ -16,6 +16,7 @@
     "scrape:budget-history": "tsx src/scrape-budget-history.ts",
     "analyze:voting": "tsx src/analyze-voting-patterns.ts",
     "generate:summaries": "tsx src/generate-session-summaries.ts",
+    "scrape:minutes": "tsx src/scrape-minutes.ts",
     "validate": "tsx src/validate-data.ts"
   },
   "devDependencies": {
