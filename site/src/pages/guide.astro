@@ -4,7 +4,7 @@ import { getGlossary } from '../lib/data';
 
 export const prerender = true;
 
-const glossary = getGlossary().sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+const glossary = getGlossary().slice().sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
 ---
 
 <Layout title="議会の仕組みガイド - Kiryu Public Log" description="桐生市議会の仕組み・定例会の流れ・用語集をわかりやすく解説" path="/guide">

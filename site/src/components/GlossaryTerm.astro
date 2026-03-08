@@ -12,7 +12,7 @@ const glossary = getGlossaryMap();
 const entry = glossary.get(term);
 const desc = descOverride ?? entry?.description ?? '';
 const reading = entry?.reading ?? '';
-const tooltipId = `glossary-${term.replace(/\s+/g, '-')}`;
+const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${crypto.randomUUID().slice(0, 8)}`;
 ---
 
 {desc ? (
@@ -37,38 +37,38 @@ const tooltipId = `glossary-${term.replace(/\s+/g, '-')}`;
 )}
 
 <script>
-  // Mobile tap support for glossary tooltips
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    const trigger = target.closest('.glossary-trigger');
-    const tooltip = target.closest('.glossary-tooltip');
+  if (!(window as any).__glossaryClickHandlerInstalled) {
+    (window as any).__glossaryClickHandlerInstalled = true;
 
-    if (tooltip) {
-      // Click inside tooltip: do nothing (allow text selection / link clicks)
-      return;
-    }
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const trigger = target.closest('.glossary-trigger');
+      const tooltip = target.closest('.glossary-tooltip');
 
-    if (trigger) {
-      const term = trigger.closest('.glossary-term');
-      if (!term) return;
-      const tip = term.querySelector('.glossary-tooltip') as HTMLElement;
-      if (tip) {
-        const isVisible = tip.style.display === 'block';
-        // Hide all other tooltips first
+      if (tooltip) {
+        return;
+      }
+
+      if (trigger) {
+        const term = trigger.closest('.glossary-term');
+        if (!term) return;
+        const tip = term.querySelector('.glossary-tooltip') as HTMLElement;
+        if (tip) {
+          const isVisible = tip.style.display === 'block';
+          document.querySelectorAll('.glossary-tooltip').forEach((t) => {
+            (t as HTMLElement).style.display = '';
+          });
+          if (!isVisible) {
+            tip.style.display = 'block';
+            tip.style.pointerEvents = 'auto';
+          }
+          e.preventDefault();
+        }
+      } else {
         document.querySelectorAll('.glossary-tooltip').forEach((t) => {
           (t as HTMLElement).style.display = '';
         });
-        if (!isVisible) {
-          tip.style.display = 'block';
-          tip.style.pointerEvents = 'auto';
-        }
-        e.preventDefault();
       }
-    } else {
-      // Clicked outside: hide all tooltips
-      document.querySelectorAll('.glossary-tooltip').forEach((t) => {
-        (t as HTMLElement).style.display = '';
-      });
-    }
-  });
+    });
+  }
 </script>
