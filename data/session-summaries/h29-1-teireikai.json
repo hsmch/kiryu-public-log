@@ -1,7 +1,7 @@
 {
   "sessionId": "h29-1-teireikai",
   "sessionName": "平成29年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.779Z",
+  "generatedAt": "2026-03-08T12:28:21.957Z",
   "totalBills": 43,
   "billsByCategory": {
     "市長提出議案": 35,
@@ -13,7 +13,7 @@
     "その他": 1,
     "継続審査": 2
   },
-  "unanimousCount": 23,
+  "unanimousCount": 39,
   "splitCount": 1,
   "splitBills": [
     {

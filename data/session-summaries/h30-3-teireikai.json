@@ -1,7 +1,7 @@
 {
   "sessionId": "h30-3-teireikai",
   "sessionName": "平成30年第3回定例会",
-  "generatedAt": "2026-03-08T02:33:06.783Z",
+  "generatedAt": "2026-03-08T12:28:21.960Z",
   "totalBills": 21,
   "billsByCategory": {
     "市長提出議案": 15,
@@ -13,7 +13,7 @@
     "その他": 2,
     "継続審査": 4
   },
-  "unanimousCount": 0,
+  "unanimousCount": 15,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

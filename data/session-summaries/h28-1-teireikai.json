@@ -1,7 +1,7 @@
 {
   "sessionId": "h28-1-teireikai",
   "sessionName": "平成28年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.776Z",
+  "generatedAt": "2026-03-08T12:28:21.954Z",
   "totalBills": 52,
   "billsByCategory": {
     "市長提出議案": 47,
@@ -13,68 +13,68 @@
     "その他": 2,
     "継続審査": 3
   },
-  "unanimousCount": 40,
+  "unanimousCount": 38,
   "splitCount": 9,
   "splitBills": [
     {
       "number": "議案第6号",
-      "title": "",
+      "title": "一般職の職員の給与に関する条例等の一部を改正する条例案",
       "result": "原案可決",
       "yesCount": 20,
       "noCount": 1
     },
     {
       "number": "議案第7号",
-      "title": "",
+      "title": "特別職の職員で常勤のものの給与に関する条例の一部を改正する条例案",
       "result": "原案可決",
       "yesCount": 15,
       "noCount": 6
     },
     {
       "number": "議案第8号",
-      "title": "",
+      "title": "議会の議員の議員報酬及び費用弁償等に関する条例の一部を改正する条例案",
       "result": "原案可決",
       "yesCount": 14,
       "noCount": 7
     },
     {
       "number": "議案第9号",
-      "title": "",
+      "title": "桐生市職員退職手当支給条例の一部を改正する条例案",
       "result": "原案可決",
       "yesCount": 20,
       "noCount": 1
     },
     {
       "number": "議案第25号",
-      "title": "",
+      "title": "平成27年度桐生市一般会計補正予算（第7号）",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第32号",
-      "title": "",
+      "title": "平成28年度桐生市一般会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第34号",
-      "title": "",
+      "title": "平成28年度桐生市国民健康保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第36号",
-      "title": "",
+      "title": "平成28年度桐生市介護保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第43号",
-      "title": "",
+      "title": "平成28年度桐生市水道事業会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2

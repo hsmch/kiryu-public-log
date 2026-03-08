@@ -1,7 +1,7 @@
 {
   "sessionId": "r2-2-rinjikai",
   "sessionName": "令和2年第2回臨時会",
-  "generatedAt": "2026-03-08T02:33:06.790Z",
+  "generatedAt": "2026-03-08T12:28:21.965Z",
   "totalBills": 1,
   "billsByCategory": {
     "市長提出議案": 1
@@ -9,7 +9,7 @@
   "results": {
     "可決等": 1
   },
-  "unanimousCount": 0,
+  "unanimousCount": 1,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

@@ -1,7 +1,7 @@
 {
   "sessionId": "r6-1-teireikai",
   "sessionName": "令和6年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.807Z",
+  "generatedAt": "2026-03-08T12:28:21.981Z",
   "totalBills": 6,
   "billsByCategory": {
     "請願": 6
@@ -10,7 +10,7 @@
     "可決等": 1,
     "継続審査": 5
   },
-  "unanimousCount": 30,
+  "unanimousCount": 0,
   "splitCount": 7,
   "splitBills": [
     {
@@ -43,21 +43,21 @@
     },
     {
       "number": "議案第30号",
-      "title": "",
+      "title": "議案第30号",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第37号",
-      "title": "",
+      "title": "議案第37号",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第38号",
-      "title": "",
+      "title": "議案第38号",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2

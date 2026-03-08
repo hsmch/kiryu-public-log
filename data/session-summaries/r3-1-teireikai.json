@@ -1,7 +1,7 @@
 {
   "sessionId": "r3-1-teireikai",
   "sessionName": "令和3年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.795Z",
+  "generatedAt": "2026-03-08T12:28:21.969Z",
   "totalBills": 53,
   "billsByCategory": {
     "市長提出議案": 45,
@@ -12,40 +12,40 @@
     "可決等": 51,
     "その他": 2
   },
-  "unanimousCount": 40,
+  "unanimousCount": 46,
   "splitCount": 5,
   "splitBills": [
     {
       "number": "議案第29号",
-      "title": "",
+      "title": "令和3年度桐生市一般会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第31号",
-      "title": "",
+      "title": "令和3年度桐生市国民健康保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第32号",
-      "title": "",
+      "title": "令和3年度桐生市介護保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第36号",
-      "title": "",
+      "title": "令和3年度桐生市後期高齢者医療事業特別会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2
     },
     {
       "number": "議案第37号",
-      "title": "",
+      "title": "令和3年度桐生市水道事業会計予算",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2

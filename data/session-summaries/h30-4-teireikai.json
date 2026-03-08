@@ -1,7 +1,7 @@
 {
   "sessionId": "h30-4-teireikai",
   "sessionName": "平成30年第4回定例会",
-  "generatedAt": "2026-03-08T02:33:06.784Z",
+  "generatedAt": "2026-03-08T12:28:21.960Z",
   "totalBills": 28,
   "billsByCategory": {
     "市長提出議案": 19,
@@ -12,7 +12,7 @@
     "可決等": 22,
     "継続審査": 6
   },
-  "unanimousCount": 0,
+  "unanimousCount": 22,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

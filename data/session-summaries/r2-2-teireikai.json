@@ -1,7 +1,7 @@
 {
   "sessionId": "r2-2-teireikai",
   "sessionName": "令和2年第2回定例会",
-  "generatedAt": "2026-03-08T02:33:06.791Z",
+  "generatedAt": "2026-03-08T12:28:21.965Z",
   "totalBills": 37,
   "billsByCategory": {
     "市長提出議案": 32,
@@ -11,7 +11,7 @@
     "可決等": 33,
     "継続審査": 4
   },
-  "unanimousCount": 16,
+  "unanimousCount": 33,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

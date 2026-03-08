@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-1-teireikai",
   "sessionName": "令和7年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.812Z",
+  "generatedAt": "2026-03-08T12:28:21.988Z",
   "totalBills": 7,
   "billsByCategory": {
     "請願": 7
@@ -10,7 +10,7 @@
     "継続審査": 5,
     "可決等": 2
   },
-  "unanimousCount": 39,
+  "unanimousCount": 0,
   "splitCount": 8,
   "splitBills": [
     {
@@ -29,35 +29,35 @@
     },
     {
       "number": "議案第38号",
-      "title": "",
+      "title": "議案第38号",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第39号",
-      "title": "",
+      "title": "議案第39号",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第40号",
-      "title": "",
+      "title": "議案第40号",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第44号",
-      "title": "",
+      "title": "議案第44号",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第45号",
-      "title": "",
+      "title": "議案第45号",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2

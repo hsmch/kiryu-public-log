@@ -1,7 +1,7 @@
 {
   "sessionId": "r4-1-teireikai",
   "sessionName": "令和4年第1回定例会",
-  "generatedAt": "2026-03-08T02:33:06.798Z",
+  "generatedAt": "2026-03-08T12:28:21.972Z",
   "totalBills": 43,
   "billsByCategory": {
     "市長提出議案": 39,
@@ -13,7 +13,7 @@
     "その他": 2,
     "継続審査": 1
   },
-  "unanimousCount": 31,
+  "unanimousCount": 32,
   "splitCount": 8,
   "splitBills": [
     {
@@ -39,35 +39,35 @@
     },
     {
       "number": "議案第23号",
-      "title": "",
+      "title": "令和4年度桐生市一般会計予算",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第25号",
-      "title": "",
+      "title": "令和4年度桐生市国民健康保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第26号",
-      "title": "",
+      "title": "令和4年度桐生市介護保険事業特別会計予算",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第30号",
-      "title": "",
+      "title": "令和4年度桐生市後期高齢者医療事業特別会計予算",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2
     },
     {
       "number": "議案第31号",
-      "title": "",
+      "title": "令和4年度桐生市水道事業会計予算",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2

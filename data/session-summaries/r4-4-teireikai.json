@@ -1,7 +1,7 @@
 {
   "sessionId": "r4-4-teireikai",
   "sessionName": "令和4年第4回定例会",
-  "generatedAt": "2026-03-08T02:33:06.802Z",
+  "generatedAt": "2026-03-08T12:28:21.974Z",
   "totalBills": 34,
   "billsByCategory": {
     "市長提出議案": 28,
@@ -12,7 +12,7 @@
     "可決等": 29,
     "継続審査": 5
   },
-  "unanimousCount": 17,
+  "unanimousCount": 21,
   "splitCount": 8,
   "splitBills": [
     {
@@ -66,7 +66,7 @@
     },
     {
       "number": "議案第78号",
-      "title": "",
+      "title": "令和4年度桐生市一般会計補正予算（第9号）",
       "result": "原案可決",
       "yesCount": 19,
       "noCount": 2

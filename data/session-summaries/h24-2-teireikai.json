@@ -1,7 +1,7 @@
 {
   "sessionId": "h24-2-teireikai",
   "sessionName": "平成24年第2回定例会",
-  "generatedAt": "2026-03-08T02:33:06.763Z",
+  "generatedAt": "2026-03-08T12:28:21.947Z",
   "totalBills": 25,
   "billsByCategory": {
     "市長提出議案": 14,
@@ -13,7 +13,7 @@
     "その他": 1,
     "継続審査": 6
   },
-  "unanimousCount": 0,
+  "unanimousCount": 18,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

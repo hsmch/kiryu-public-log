@@ -1,7 +1,7 @@
 {
   "sessionId": "r6-4-teireikai",
   "sessionName": "令和6年第4回定例会",
-  "generatedAt": "2026-03-08T02:33:06.810Z",
+  "generatedAt": "2026-03-08T12:28:21.986Z",
   "totalBills": 33,
   "billsByCategory": {
     "市長提出議案": 27,
@@ -11,7 +11,7 @@
     "可決等": 27,
     "継続審査": 6
   },
-  "unanimousCount": 16,
+  "unanimousCount": 23,
   "splitCount": 4,
   "splitBills": [
     {
@@ -37,7 +37,7 @@
     },
     {
       "number": "議案第89号",
-      "title": "",
+      "title": "令和6年度桐生市一般会計補正予算（第5号）",
       "result": "原案可決",
       "yesCount": 18,
       "noCount": 2

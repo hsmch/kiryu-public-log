@@ -1,7 +1,7 @@
 {
   "sessionId": "r2-3-teireikai",
   "sessionName": "令和2年第3回定例会",
-  "generatedAt": "2026-03-08T02:33:06.792Z",
+  "generatedAt": "2026-03-08T12:28:21.967Z",
   "totalBills": 23,
   "billsByCategory": {
     "市長提出議案": 15,
@@ -12,12 +12,12 @@
     "可決等": 19,
     "継続審査": 4
   },
-  "unanimousCount": 13,
+  "unanimousCount": 16,
   "splitCount": 3,
   "splitBills": [
     {
       "number": "議案第74号",
-      "title": "",
+      "title": "令和元年度桐生市歳入歳出決算の認定について",
       "result": "認定",
       "yesCount": 19,
       "noCount": 2

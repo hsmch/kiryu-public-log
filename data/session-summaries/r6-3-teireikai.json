@@ -1,7 +1,7 @@
 {
   "sessionId": "r6-3-teireikai",
   "sessionName": "令和6年第3回定例会",
-  "generatedAt": "2026-03-08T02:33:06.808Z",
+  "generatedAt": "2026-03-08T12:28:21.984Z",
   "totalBills": 27,
   "billsByCategory": {
     "市長提出議案": 17,
@@ -13,7 +13,7 @@
     "その他": 2,
     "継続審査": 6
   },
-  "unanimousCount": 10,
+  "unanimousCount": 15,
   "splitCount": 4,
   "splitBills": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "number": "議案第64号",
-      "title": "",
+      "title": "令和5年度桐生市歳入歳出決算の認定について",
       "result": "認定",
       "yesCount": 18,
       "noCount": 2

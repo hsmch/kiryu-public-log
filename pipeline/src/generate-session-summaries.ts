@@ -169,7 +169,8 @@ function generateSummary(
   }
 
   // --- 全会一致・賛否分裂の集計 ---
-  let unanimousCount = 0;
+  // 投票記録には「賛否が割れた議案のみ」記録されている。
+  // 投票記録にない議案は全会一致として扱う。
   let splitCount = 0;
   const splitBills: { number: string; title: string; result: string; yesCount: number; noCount: number }[] = [];
 
@@ -180,20 +181,24 @@ function generateSummary(
       const hasNo = votable.some((v) => v.vote === "反対");
       if (hasYes && hasNo) {
         splitCount++;
-        // 議案の結果を sessions データから取得（voting の result が空の場合があるため）
         const billResult = bills.find((b) => b.number === record.billNumber)?.result ?? record.result;
         splitBills.push({
           number: record.billNumber,
-          title: record.billTitle,
+          title: record.billTitle || bills.find((b) => b.number === record.billNumber)?.title || record.billNumber,
           result: billResult,
           yesCount: votable.filter((v) => v.vote === "賛成").length,
           noCount: votable.filter((v) => v.vote === "反対").length,
         });
-      } else {
-        unanimousCount++;
       }
     }
   }
+
+  // 継続審査・取り下げ等は採決が行われていないため全会一致にも含めない
+  const votedBillCount = bills.filter((b) => {
+    const cls = classifyResult(b.result);
+    return cls === "可決等" || cls === "否決等";
+  }).length;
+  const unanimousCount = Math.max(0, votedBillCount - splitCount);
 
   // --- 主要テーマ（タグ頻度分析） ---
   const tagCounts = new Map<string, number>();
