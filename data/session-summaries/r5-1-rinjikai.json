@@ -1,0 +1,38 @@
+{
+  "sessionId": "r5-1-rinjikai",
+  "sessionName": "令和5年第1回臨時会",
+  "generatedAt": "2026-03-08T02:33:06.803Z",
+  "totalBills": 9,
+  "billsByCategory": {
+    "市長提出議案": 9
+  },
+  "results": {
+    "可決等": 9
+  },
+  "unanimousCount": 7,
+  "splitCount": 2,
+  "splitBills": [
+    {
+      "number": "報告第4号",
+      "title": "専決処分（桐生市国民健康保険税条例の一部改正）の承認を求めるについて",
+      "result": "承認",
+      "yesCount": 18,
+      "noCount": 3
+    },
+    {
+      "number": "議案第33号",
+      "title": "",
+      "result": "原案可決",
+      "yesCount": 19,
+      "noCount": 2
+    }
+  ],
+  "topThemes": [
+    "財政",
+    "条例",
+    "産業・観光",
+    "都市基盤",
+    "人事・組織"
+  ],
+  "questions": []
+}
