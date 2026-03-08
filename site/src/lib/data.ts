@@ -638,3 +638,29 @@ export function getSession(slug: string): SessionData | null {
     return null;
   }
 }
+
+// --- Glossary ---
+
+export interface GlossaryEntry {
+  term: string;
+  reading: string;
+  description: string;
+}
+
+export function getGlossary(): GlossaryEntry[] {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "glossary.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function getGlossaryMap(): Map<string, GlossaryEntry> {
+  const entries = getGlossary();
+  const map = new Map<string, GlossaryEntry>();
+  for (const entry of entries) {
+    map.set(entry.term, entry);
+  }
+  return map;
+}
