@@ -36,7 +36,7 @@ const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${crypto.randomUUID().s
   <span>{term}</span>
 )}
 
-<script>
+<script lang="ts">
   if (!(window as any).__glossaryClickHandlerInstalled) {
     (window as any).__glossaryClickHandlerInstalled = true;
 
