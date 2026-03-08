@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-1-teireikai",
   "sessionName": "令和7年第1回定例会",
-  "generatedAt": "2026-03-08T15:59:28.091Z",
+  "generatedAt": "2026-03-08T16:09:05.826Z",
   "totalBills": 7,
   "billsByCategory": {
     "請願": 7
@@ -11,8 +11,65 @@
     "可決等": 2
   },
   "unanimousCount": 2,
-  "splitCount": 0,
-  "splitBills": [],
+  "splitCount": 8,
+  "splitBills": [
+    {
+      "number": "議案第25号",
+      "title": "桐生市体育施設の設置及び管理に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "yesCount": 17,
+      "noCount": 3
+    },
+    {
+      "number": "議案第26号",
+      "title": "桐生市国民健康保険税条例の一部を改正する条例",
+      "result": "原案可決",
+      "yesCount": 17,
+      "noCount": 3
+    },
+    {
+      "number": "議案第38号",
+      "title": "議案第38号",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 2
+    },
+    {
+      "number": "議案第39号",
+      "title": "議案第39号",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 2
+    },
+    {
+      "number": "議案第40号",
+      "title": "議案第40号",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 2
+    },
+    {
+      "number": "議案第44号",
+      "title": "議案第44号",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 2
+    },
+    {
+      "number": "議案第45号",
+      "title": "議案第45号",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 2
+    },
+    {
+      "number": "議第2号議案",
+      "title": "厚生年金への地方議会議員の加入を求める意見書案",
+      "result": "原案可決",
+      "yesCount": 19,
+      "noCount": 1
+    }
+  ],
   "topThemes": [
     "福祉・医療",
     "防災・安全",
