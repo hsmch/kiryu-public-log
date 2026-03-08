@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout title="市政に関わるには - Kiryu Public Log" description="議会傍聴・パブリックコメント・情報公開請求など、桐生市の市政に関わるための公式情報をまとめています" path="/participate">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <nav class="text-sm text-gray-500">
+      <a href="/guide" class="text-blue-600 hover:text-blue-800">議会の仕組みガイド</a>
+      <span class="mx-1">/</span>
+    </nav>
+
+    <h1 class="mt-2 text-2xl font-bold text-gray-900">市政に関わるには</h1>
+    <p class="mt-2 text-sm text-gray-500">桐生市の市政に関わるための方法を、公式情報に基づいてまとめています。</p>
+
+    <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+      <p>
+        このページの内容は桐生市および桐生市議会の公式サイトで公開されている情報の再掲です。
+        最新の情報や詳細については、必ず各リンク先の公式ページをご確認ください。
+      </p>
+    </div>
+
+    {/* 議会傍聴 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">議会を傍聴する</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          桐生市議会の本会議や委員会は、市民であればどなたでも傍聴できます。
+        </p>
+        <div class="mt-4 space-y-3">
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">場所</span>
+            <span>桐生市役所内 議場（本会議）・委員会室</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">手続き</span>
+            <span>当日、議会事務局の窓口で受付を行います。事前予約は不要です。</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">日程</span>
+            <span>
+              定例会は年4回（3月・6月・9月・12月）。
+              <a href="/schedule" class="text-blue-600 underline hover:text-blue-800">議会カレンダー</a>
+              で日程を確認できます。
+            </span>
+          </div>
+        </div>
+        <p class="mt-4">
+          <a href="https://www.city.kiryu.lg.jp/shigikai/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市議会公式サイト
+          </a>
+          で傍聴に関する詳細をご確認ください。
+        </p>
+      </div>
+    </section>
+
+    {/* パブリックコメント */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">パブリックコメント（意見公募）</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          パブリックコメント制度は、市の重要な計画や条例の制定・改正にあたり、
+          事前に案を公表して市民から意見を募る制度です。
+        </p>
+        <div class="mt-4 space-y-3">
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">対象</span>
+            <span>市の基本的な計画、条例の制定・改廃など</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">提出方法</span>
+            <span>郵送、FAX、メール、窓口持参など（案件ごとに指定されます）</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">募集期間</span>
+            <span>通常30日間程度</span>
+          </div>
+        </div>
+        <p class="mt-4">
+          現在募集中の案件は
+          <a href="https://www.city.kiryu.lg.jp/shisei/1018140/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市パブリックコメントのページ
+          </a>
+          でご確認ください。
+        </p>
+      </div>
+    </section>
+
+    {/* 情報公開請求 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">情報公開請求</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          桐生市情報公開条例に基づき、市が保有する公文書の開示を請求できます。
+        </p>
+        <div class="mt-4 space-y-3">
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">対象</span>
+            <span>市の職員が職務上作成・取得した文書、図画、電磁的記録など</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">請求者</span>
+            <span>どなたでも請求できます</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">手続き</span>
+            <span>情報公開請求書を市の担当窓口に提出します。決定は原則15日以内に通知されます。</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">費用</span>
+            <span>閲覧は無料。写しの交付には実費がかかります。</span>
+          </div>
+        </div>
+        <p class="mt-4">
+          詳しくは
+          <a href="https://www.city.kiryu.lg.jp/shisei/1018139/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市の情報公開制度のページ
+          </a>
+          をご確認ください。
+        </p>
+      </div>
+    </section>
+
+    {/* 市民相談窓口 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">市民相談窓口</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          桐生市では、市民の生活に関するさまざまな相談窓口を設けています。
+        </p>
+        <p class="mt-4">
+          相談窓口の一覧や受付時間は
+          <a href="https://www.city.kiryu.lg.jp/kurashi/1002831/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市の市民相談のページ
+          </a>
+          でご確認ください。
+        </p>
+      </div>
+    </section>
+
+    {/* 請願・陳情 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">請願・陳情</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <p>
+          市民が議会に対して意見や要望を伝える手段として、請願と陳情があります。
+        </p>
+        <div class="mt-4 space-y-3">
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">請願</span>
+            <span>紹介議員（1名以上）の署名が必要です。委員会で審査され、本会議で採決されます。</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">陳情</span>
+            <span>紹介議員は不要です。議長に提出し、委員会に送付されます。</span>
+          </div>
+        </div>
+        <p class="mt-4">
+          詳しくは
+          <a href="https://www.city.kiryu.lg.jp/shigikai/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市議会公式サイト
+          </a>
+          をご確認ください。
+        </p>
+      </div>
+    </section>
+
+    {/* 議会事務局 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-semibold text-gray-800">議会事務局の連絡先</h2>
+      <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5 text-sm leading-relaxed text-gray-700">
+        <div class="space-y-3">
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">名称</span>
+            <span>桐生市議会事務局</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">所在地</span>
+            <span>〒376-8501 群馬県桐生市織姫町1番1号（桐生市役所内）</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="shrink-0 font-medium text-gray-800">電話</span>
+            <span>0277-46-1111（代表）</span>
+          </div>
+        </div>
+        <p class="mt-4">
+          <a href="https://www.city.kiryu.lg.jp/shigikai/index.html" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+            桐生市議会公式サイト
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <p class="mt-8 text-center">
+      <a href="/guide" class="text-sm text-blue-600 underline hover:text-blue-800">
+        議会の仕組みガイドを見る
+      </a>
+    </p>
+  </div>
+</Layout>
