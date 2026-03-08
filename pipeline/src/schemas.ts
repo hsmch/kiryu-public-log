@@ -257,3 +257,30 @@ export const tagsSchema = z.object({
 }).passthrough();
 
 export type TagsData = z.infer<typeof tagsSchema>;
+
+// --- minutes/*.json ---
+
+export const minuteSpeechSchema = z.object({
+  id: z.number(),
+  type: z.string(),
+  typeCode: z.number(),
+  speaker: z.string().nullable(),
+  role: z.string().nullable(),
+  body: z.string(),
+}).passthrough();
+
+export const minuteScheduleSchema = z.object({
+  scheduleId: z.number(),
+  name: z.string(),
+  speeches: z.array(minuteSpeechSchema),
+}).passthrough();
+
+export const minutesDataSchema = z.object({
+  session: z.string(),
+  councilId: z.number(),
+  sourceUrl: z.string(),
+  scrapedAt: z.string(),
+  schedules: z.array(minuteScheduleSchema),
+}).passthrough();
+
+export type MinutesData = z.infer<typeof minutesDataSchema>;
