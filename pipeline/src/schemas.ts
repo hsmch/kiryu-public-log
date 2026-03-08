@@ -257,3 +257,34 @@ export const tagsSchema = z.object({
 }).passthrough();
 
 export type TagsData = z.infer<typeof tagsSchema>;
+
+// --- session-summaries/*.json ---
+
+const splitBillSchema = z.object({
+  number: z.string().min(1),
+  title: z.string().min(1),
+  result: z.string(),
+  yesCount: z.number().int().nonnegative(),
+  noCount: z.number().int().nonnegative(),
+}).passthrough();
+
+const questionTopicSchema = z.object({
+  member: z.string().min(1),
+  topics: z.array(z.string()),
+}).passthrough();
+
+export const sessionSummarySchema = z.object({
+  sessionId: z.string().min(1),
+  sessionName: z.string().min(1),
+  generatedAt: z.string(),
+  totalBills: z.number().int().nonnegative(),
+  billsByCategory: z.record(z.string(), z.number().int().nonnegative()),
+  results: z.record(z.string(), z.number().int().nonnegative()),
+  unanimousCount: z.number().int().nonnegative(),
+  splitCount: z.number().int().nonnegative(),
+  splitBills: z.array(splitBillSchema),
+  topThemes: z.array(z.string()),
+  questions: z.array(questionTopicSchema),
+}).passthrough();
+
+export type SessionSummaryData = z.infer<typeof sessionSummarySchema>;

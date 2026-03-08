@@ -1,0 +1,25 @@
+{
+  "sessionId": "h27-1-teireikai",
+  "sessionName": "平成27年第1回定例会",
+  "generatedAt": "2026-03-08T02:33:06.770Z",
+  "totalBills": 45,
+  "billsByCategory": {
+    "市長提出議案": 44,
+    "委員会・議員提出議案": 1
+  },
+  "results": {
+    "可決等": 43,
+    "その他": 2
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "条例",
+    "福祉・医療",
+    "都市基盤",
+    "その他"
+  ],
+  "questions": []
+}

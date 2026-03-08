@@ -1,0 +1,23 @@
+{
+  "sessionId": "r3-1-rinjikai",
+  "sessionName": "令和3年第1回臨時会",
+  "generatedAt": "2026-03-08T02:33:06.793Z",
+  "totalBills": 5,
+  "billsByCategory": {
+    "市長提出議案": 5
+  },
+  "results": {
+    "可決等": 5
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "条例",
+    "教育",
+    "デジタル化",
+    "人事・組織"
+  ],
+  "questions": []
+}

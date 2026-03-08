@@ -1,0 +1,20 @@
+{
+  "sessionId": "h26-1-rinjikai",
+  "sessionName": "平成26年第1回臨時会",
+  "generatedAt": "2026-03-08T02:33:06.768Z",
+  "totalBills": 1,
+  "billsByCategory": {
+    "市長提出議案": 1
+  },
+  "results": {
+    "可決等": 1
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "都市基盤"
+  ],
+  "questions": []
+}

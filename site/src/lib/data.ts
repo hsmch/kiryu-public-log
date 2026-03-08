@@ -638,3 +638,44 @@ export function getSession(slug: string): SessionData | null {
     return null;
   }
 }
+
+// --- Session Summaries ---
+
+export interface SplitBillSummary {
+  number: string;
+  title: string;
+  result: string;
+  yesCount: number;
+  noCount: number;
+}
+
+export interface QuestionTopic {
+  member: string;
+  topics: string[];
+}
+
+export interface SessionSummary {
+  sessionId: string;
+  sessionName: string;
+  generatedAt: string;
+  totalBills: number;
+  billsByCategory: Record<string, number>;
+  results: Record<string, number>;
+  unanimousCount: number;
+  splitCount: number;
+  splitBills: SplitBillSummary[];
+  topThemes: string[];
+  questions: QuestionTopic[];
+}
+
+export function getSessionSummary(slug: string): SessionSummary | null {
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "session-summaries", `${slug}.json`),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}

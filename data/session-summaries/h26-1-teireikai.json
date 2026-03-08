@@ -1,0 +1,27 @@
+{
+  "sessionId": "h26-1-teireikai",
+  "sessionName": "平成26年第1回定例会",
+  "generatedAt": "2026-03-08T02:33:06.768Z",
+  "totalBills": 44,
+  "billsByCategory": {
+    "市長提出議案": 39,
+    "委員会・議員提出議案": 1,
+    "請願": 4
+  },
+  "results": {
+    "可決等": 39,
+    "その他": 1,
+    "継続審査": 4
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "条例",
+    "都市基盤",
+    "福祉・医療",
+    "教育"
+  ],
+  "questions": []
+}

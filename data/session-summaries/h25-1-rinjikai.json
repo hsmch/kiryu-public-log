@@ -1,0 +1,20 @@
+{
+  "sessionId": "h25-1-rinjikai",
+  "sessionName": "平成25年第1回臨時会",
+  "generatedAt": "2026-03-08T02:33:06.765Z",
+  "totalBills": 1,
+  "billsByCategory": {
+    "市長提出議案": 1
+  },
+  "results": {
+    "可決等": 1
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "防災・安全",
+    "財政"
+  ],
+  "questions": []
+}

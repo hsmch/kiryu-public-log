@@ -1,0 +1,21 @@
+{
+  "sessionId": "r1-1-rinjikai",
+  "sessionName": "令和元年第1回臨時会",
+  "generatedAt": "2026-03-08T02:33:06.786Z",
+  "totalBills": 6,
+  "billsByCategory": {
+    "市長提出議案": 6
+  },
+  "results": {
+    "可決等": 6
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "条例",
+    "財政",
+    "福祉・医療"
+  ],
+  "questions": []
+}

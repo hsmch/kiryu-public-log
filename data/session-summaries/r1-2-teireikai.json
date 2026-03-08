@@ -1,0 +1,24 @@
+{
+  "sessionId": "r1-2-teireikai",
+  "sessionName": "令和元年第2回定例会",
+  "generatedAt": "2026-03-08T02:33:06.786Z",
+  "totalBills": 19,
+  "billsByCategory": {
+    "市長提出議案": 16,
+    "委員会・議員提出議案": 3
+  },
+  "results": {
+    "可決等": 19
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "条例",
+    "財政",
+    "防災・安全",
+    "福祉・医療",
+    "人事・組織"
+  ],
+  "questions": []
+}

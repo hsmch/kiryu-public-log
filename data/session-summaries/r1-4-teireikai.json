@@ -1,0 +1,76 @@
+{
+  "sessionId": "r1-4-teireikai",
+  "sessionName": "令和元年第4回定例会",
+  "generatedAt": "2026-03-08T02:33:06.788Z",
+  "totalBills": 42,
+  "billsByCategory": {
+    "市長提出議案": 39,
+    "請願": 3
+  },
+  "results": {
+    "可決等": 35,
+    "その他": 4,
+    "継続審査": 3
+  },
+  "unanimousCount": 32,
+  "splitCount": 7,
+  "splitBills": [
+    {
+      "number": "報告第6号",
+      "title": "専決処分(補正予算)の承認を求めるについて承認",
+      "result": "承認",
+      "yesCount": 19,
+      "noCount": 2
+    },
+    {
+      "number": "議案第63号",
+      "title": "桐生市第六次総合計画の策定について",
+      "result": "原案可決",
+      "yesCount": 19,
+      "noCount": 2
+    },
+    {
+      "number": "議案第67号",
+      "title": "一般職の職員の給与に関する条例及び桐生市一般職の任期付職員の採用等に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "yesCount": 20,
+      "noCount": 1
+    },
+    {
+      "number": "議案第68号",
+      "title": "特別職の職員で常勤のものの給与に関する条例の一部を改正する条例案",
+      "result": "原案可決",
+      "yesCount": 18,
+      "noCount": 3
+    },
+    {
+      "number": "議案第69号",
+      "title": "条例の一部を改正する条例案",
+      "result": "原案可決",
+      "yesCount": 17,
+      "noCount": 4
+    },
+    {
+      "number": "議案第74号",
+      "title": "桐生市下水道事業の設置等に関する条例案",
+      "result": "原案可決",
+      "yesCount": 19,
+      "noCount": 2
+    },
+    {
+      "number": "議案第86号",
+      "title": "令和元年度桐生市一般会計補正予算(第5号)",
+      "result": "原案可決",
+      "yesCount": 19,
+      "noCount": 2
+    }
+  ],
+  "topThemes": [
+    "条例",
+    "人事・組織",
+    "財政",
+    "都市基盤",
+    "教育"
+  ],
+  "questions": []
+}
