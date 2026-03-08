@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import GlossaryTerm from '../../components/GlossaryTerm.astro';
 import { getAllSessions, getSession, getQuestionsForSession, getVotingForSession } from '../../lib/data';
 
 export const prerender = true;
@@ -114,7 +115,7 @@ const hasVotingSummary = voting && voting.records.length > 0;
           </div>
           <div class="text-center">
             <p class="text-2xl font-bold text-green-700">{unanimousBills}</p>
-            <p class="text-xs text-gray-500">全会一致</p>
+            <p class="text-xs text-gray-500"><GlossaryTerm term="全会一致" /></p>
           </div>
           <div class="text-center">
             <p class="text-2xl font-bold text-amber-600">{splitBills.length}</p>
@@ -180,7 +181,7 @@ const hasVotingSummary = voting && voting.records.length > 0;
     {/* 議員別賛否マトリクス */}
     {voting && voting.records.length > 0 && (
       <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">議員別 賛否一覧</h2>
+        <h2 class="text-lg font-semibold text-gray-800">議員別 <GlossaryTerm term="採決" />一覧</h2>
         <p class="mt-1 text-sm text-gray-500">
           賛否が記録された議案: {voting.records.length}件
         </p>
@@ -247,7 +248,7 @@ const hasVotingSummary = voting && voting.records.length > 0;
     {/* 一般質問セクション */}
     {questions && questions.questions.length > 0 && (
       <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
+        <h2 class="text-lg font-semibold text-gray-800"><GlossaryTerm term="一般質問" /></h2>
         <p class="mt-1 text-sm text-gray-500">
           {questions.questions.length}名が質問 ―
           <a href={questions.pdfUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
