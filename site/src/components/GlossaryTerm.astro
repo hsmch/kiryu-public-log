@@ -12,7 +12,10 @@ const glossary = getGlossaryMap();
 const entry = glossary.get(term);
 const desc = descOverride ?? entry?.description ?? '';
 const reading = entry?.reading ?? '';
-const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${crypto.randomUUID().slice(0, 8)}`;
+// Deterministic counter for unique IDs (avoids non-deterministic UUIDs across builds)
+const _counter = (globalThis as any).__glossaryCounter ?? 0;
+(globalThis as any).__glossaryCounter = _counter + 1;
+const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${_counter}`;
 ---
 
 {desc ? (
@@ -36,7 +39,7 @@ const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${crypto.randomUUID().s
   <span>{term}</span>
 )}
 
-<script lang="ts">
+<script>
   if (!(window as any).__glossaryClickHandlerInstalled) {
     (window as any).__glossaryClickHandlerInstalled = true;
 

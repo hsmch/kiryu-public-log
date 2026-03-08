@@ -649,6 +649,7 @@ export interface GlossaryEntry {
 
 let _glossaryCache: GlossaryEntry[] | null = null;
 let _glossaryMapCache: Map<string, GlossaryEntry> | null = null;
+let _glossaryMapSource: GlossaryEntry[] | null = null;
 
 export function getGlossary(): GlossaryEntry[] {
   if (_glossaryCache) return _glossaryCache;
@@ -662,12 +663,14 @@ export function getGlossary(): GlossaryEntry[] {
 }
 
 export function getGlossaryMap(): Map<string, GlossaryEntry> {
-  if (_glossaryMapCache) return _glossaryMapCache;
   const entries = getGlossary();
+  // Invalidate map cache if the underlying glossary data changed
+  if (_glossaryMapCache && _glossaryMapSource === entries) return _glossaryMapCache;
   const map = new Map<string, GlossaryEntry>();
   for (const entry of entries) {
     map.set(entry.term, entry);
   }
+  _glossaryMapSource = entries;
   _glossaryMapCache = map;
   return map;
 }

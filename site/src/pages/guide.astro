@@ -134,14 +134,14 @@ const glossary = getGlossary().slice().sort((a, b) => a.reading.localeCompare(b.
       <h2 class="text-lg font-semibold text-gray-800">用語集</h2>
       <p class="mt-1 text-sm text-gray-500">議会・財政で使われる主な用語を五十音順で解説します（{glossary.length}語）</p>
 
-      <div class="mt-4 space-y-0 divide-y divide-gray-100 rounded-lg border border-gray-200 bg-white">
+      <dl class="mt-4 space-y-0 divide-y divide-gray-100 rounded-lg border border-gray-200 bg-white">
         {glossary.map((entry) => (
           <div class="px-4 py-3">
             <dt class="font-medium text-gray-900">{entry.term}<span class="ml-2 text-xs text-gray-400">{entry.reading}</span></dt>
             <dd class="mt-1 text-sm text-gray-600">{entry.description}</dd>
           </div>
         ))}
-      </div>
+      </dl>
     </section>
 
     {/* データの見方 */}
