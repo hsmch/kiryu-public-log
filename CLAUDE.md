@@ -3,7 +3,7 @@
 ## プロジェクト概要
 
 - **サービス名**: Kiryu Public Log（略称: KPL）
-- **URL**: kiryu.co
+- **URL**: kiryu.co（本番未移行。現在は https://kiryu-public-log.pages.dev/ で仮公開中）
 - **リポジトリ**: hsmch/kiryu-public-log
 - **運営**: 細道（hsmch） - 個人事業主の事業の一つとして運営
 - **目的**: 桐生市の市政・議会の公開情報を自動収集・構造化し、市民にわかりやすく公開する中立的なアーカイブサイト
@@ -79,6 +79,10 @@ hsmch/kiryu-public-log/
 - `fix/xxx` — バグ修正
 - `chore/xxx` — 設定・ドキュメント等
 - `auto/xxx` — GitHub Actions 自動生成
+
+### Git コマンドの実行ルール
+
+- **git コマンドは常にリポジトリルートで実行する**（`cd` でサブディレクトリに移動しない）
 
 ## 運用コスト
 
