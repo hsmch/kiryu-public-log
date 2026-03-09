@@ -1,11 +1,11 @@
 {
   "city": "桐生市",
   "sourceUrl": "https://www.city.kiryu.lg.jp/shisei/1018369/toukei/1003178.html",
-  "scrapedAt": "2026-03-01T21:16:10.941Z",
+  "scrapedAt": "2026-03-09T21:25:22.506Z",
   "current": {
-    "population": 99203,
-    "households": 49044,
-    "asOf": "令和8年1月末"
+    "population": 99054,
+    "households": 49003,
+    "asOf": "令和8年2月末"
   },
   "history": [
     {
