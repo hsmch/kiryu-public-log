@@ -283,10 +283,7 @@ function normalizeSessionName(name: string): string {
   let era: string;
   let year: string;
 
-  if (/平成31年\/令和元年/.test(normalized)) {
-    era = "令和";
-    year = "1";
-  } else if (/令和元年/.test(normalized)) {
+  if (/令和元年/.test(normalized)) {
     era = "令和";
     year = "1";
   } else {
