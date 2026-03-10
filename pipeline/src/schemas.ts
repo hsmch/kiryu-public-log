@@ -307,7 +307,7 @@ export const minuteScheduleSchema = z.object({
 }).passthrough();
 
 export const minutesDataSchema = z.object({
-  session: z.string(),
+  session: z.string().min(1),
   councilId: z.number().int().nonnegative(),
   sourceUrl: z.string(),
   scrapedAt: z.string(),
