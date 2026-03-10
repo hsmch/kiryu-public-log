@@ -90,6 +90,16 @@ test.describe('Finance page (/finance)', () => {
   });
 });
 
+test.describe('Participate page (/participate)', () => {
+  test('returns 200 and has expected heading', async ({ page }) => {
+    const response = await page.goto('/participate');
+    expect(response?.status()).toBe(200);
+
+    const heading = page.locator('h1');
+    await expect(heading).toContainText('市政に関わるには');
+  });
+});
+
 test.describe('RSS feed (/rss.xml)', () => {
   test('returns 200 with XML content', async ({ request }) => {
     const response = await request.get('/rss.xml');
