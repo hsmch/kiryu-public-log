@@ -1,0 +1,32 @@
+#!/bin/bash
+# PostToolUse hook: git push 後に自動で Copilot レビューを依頼する
+# stdin から hook input JSON を受け取る
+
+set -euo pipefail
+
+input=$(cat)
+command=$(echo "$input" | jq -r '.tool_input.command')
+exit_code=$(echo "$input" | jq -r '.tool_response.exitCode')
+
+# git push 以外、または失敗時はスキップ
+if [[ "$command" != git\ push* ]] || [ "$exit_code" != "0" ]; then
+  exit 0
+fi
+
+# main ブランチへの push はスキップ
+if [[ "$command" == *" main"* ]] || [[ "$command" == *" master"* ]]; then
+  exit 0
+fi
+
+# PRが存在するか確認
+PR_NUMBER=$(gh pr view --json number --jq '.number' 2>/dev/null || true)
+
+if [ -z "$PR_NUMBER" ]; then
+  exit 0
+fi
+
+# Copilot レビューを依頼
+gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" >/dev/null 2>&1 || true
+
+# Claude にフィードバック
+echo "{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"PR #${PR_NUMBER} に Copilot レビューを自動依頼しました。\"}}"

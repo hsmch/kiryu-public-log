@@ -9,6 +9,15 @@
             "command": "bash scripts/check-doc-update.sh"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/post-push-copilot-review.sh"
+          }
+        ]
       }
     ]
   }
