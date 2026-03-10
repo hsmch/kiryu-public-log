@@ -2,7 +2,7 @@
   "session": "平成23年第2回定例会",
   "councilId": 63,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=63&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:56:29.224Z",
+  "scrapedAt": "2026-03-10T13:45:35.312Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -2844,9 +2844,9 @@
           "id": 355,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 356,
@@ -3028,9 +3028,9 @@
           "id": 378,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 379,
@@ -3212,9 +3212,9 @@
           "id": 401,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 402,
@@ -3658,9 +3658,9 @@
           "id": 38,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 39,
@@ -5426,9 +5426,9 @@
           "id": 259,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 260,
@@ -6034,9 +6034,9 @@
           "id": 335,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 336,
@@ -6610,9 +6610,9 @@
           "id": 407,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 408,

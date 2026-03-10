@@ -2,7 +2,7 @@
   "session": "平成16年第3回定例会",
   "councilId": 12,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=12&schedule_id=2",
-  "scrapedAt": "2026-03-08T15:05:07.287Z",
+  "scrapedAt": "2026-03-10T13:55:35.766Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -3200,9 +3200,9 @@
           "id": 30,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 31,
@@ -6488,9 +6488,9 @@
           "id": 441,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 442,
@@ -7110,9 +7110,9 @@
           "id": 50,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 51,
@@ -11260,9 +11260,9 @@
           "id": 278,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 279,

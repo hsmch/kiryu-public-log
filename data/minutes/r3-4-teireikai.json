@@ -2,7 +2,7 @@
   "session": "令和3年第4回定例会",
   "councilId": 326,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=326&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:46:14.710Z",
+  "scrapedAt": "2026-03-10T13:34:19.915Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -108,9 +108,9 @@
           "id": 13,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 14,
@@ -252,9 +252,9 @@
           "id": 31,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 32,
@@ -716,9 +716,9 @@
           "id": 89,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 90,
@@ -1084,9 +1084,9 @@
           "id": 135,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 136,
@@ -1300,9 +1300,9 @@
           "id": 162,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 163,
@@ -1404,9 +1404,9 @@
           "id": 175,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 176,
@@ -1660,9 +1660,9 @@
           "id": 207,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 208,
@@ -1772,9 +1772,9 @@
           "id": 221,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 222,
@@ -3248,9 +3248,9 @@
           "id": 6,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 7,
@@ -3296,9 +3296,9 @@
           "id": 12,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 13,

@@ -2,7 +2,7 @@
   "session": "平成25年第1回定例会",
   "councilId": 75,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=75&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:54:42.130Z",
+  "scrapedAt": "2026-03-10T13:43:42.282Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -3890,9 +3890,9 @@
           "id": 11,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "質疑",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△質疑（省略）"
         },
         {
           "id": 12,
@@ -4184,9 +4184,9 @@
           "id": 24,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 25,

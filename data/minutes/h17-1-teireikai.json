@@ -2,7 +2,7 @@
   "session": "平成17年第1回定例会",
   "councilId": 18,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=18&schedule_id=2",
-  "scrapedAt": "2026-03-08T15:04:14.667Z",
+  "scrapedAt": "2026-03-10T13:54:54.492Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -4936,9 +4936,9 @@
           "id": 16,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 17,
@@ -8592,9 +8592,9 @@
           "id": 473,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 474,
@@ -8736,9 +8736,9 @@
           "id": 491,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 492,
@@ -8880,9 +8880,9 @@
           "id": 509,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 510,
@@ -9024,9 +9024,9 @@
           "id": 527,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 528,
@@ -9168,9 +9168,9 @@
           "id": 545,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 546,

@@ -2,7 +2,7 @@
   "session": "令和4年第1回臨時会",
   "councilId": 339,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=339&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:46:03.790Z",
+  "scrapedAt": "2026-03-10T13:34:07.379Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -132,9 +132,9 @@
           "id": 16,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 17,
@@ -244,9 +244,9 @@
           "id": 30,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 31,
@@ -332,9 +332,9 @@
           "id": 41,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "提案理由の説明",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△提案理由の説明（省略）"
         },
         {
           "id": 42,
@@ -612,9 +612,9 @@
           "id": 76,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 77,

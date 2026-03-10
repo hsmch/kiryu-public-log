@@ -2,7 +2,7 @@
   "session": "令和7年第1回臨時会",
   "councilId": 379,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=379&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:43:11.966Z",
+  "scrapedAt": "2026-03-10T13:30:44.724Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -586,9 +586,9 @@
           "id": 253,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 254,
@@ -1154,9 +1154,9 @@
           "id": 324,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 325,
