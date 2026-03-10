@@ -12,10 +12,12 @@ const glossary = getGlossaryMap();
 const entry = glossary.get(term);
 const desc = descOverride ?? entry?.description ?? '';
 const reading = entry?.reading ?? '';
-// Deterministic counter for unique IDs (avoids non-deterministic UUIDs across builds)
-const _counter = (globalThis as any).__glossaryCounter ?? 0;
-(globalThis as any).__glossaryCounter = _counter + 1;
-const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${_counter}`;
+// Deterministic unique ID: page path + term + page-scoped counter
+const _pageCounters: Map<string, number> = (globalThis as any).__glossaryPageCounters ??= new Map();
+const pageKey = Astro.url.pathname;
+const count = _pageCounters.get(pageKey) ?? 0;
+_pageCounters.set(pageKey, count + 1);
+const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${count}`;
 ---
 
 {desc ? (
@@ -60,6 +62,7 @@ const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${_counter}`;
           const isVisible = tip.style.display === 'block';
           document.querySelectorAll('.glossary-tooltip').forEach((t) => {
             (t as HTMLElement).style.display = '';
+            (t as HTMLElement).style.pointerEvents = '';
           });
           if (!isVisible) {
             tip.style.display = 'block';
@@ -70,6 +73,7 @@ const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${_counter}`;
       } else {
         document.querySelectorAll('.glossary-tooltip').forEach((t) => {
           (t as HTMLElement).style.display = '';
+          (t as HTMLElement).style.pointerEvents = '';
         });
       }
     });
