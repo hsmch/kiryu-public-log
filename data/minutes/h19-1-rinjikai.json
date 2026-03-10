@@ -2,7 +2,7 @@
   "session": "平成19年第1回臨時会",
   "councilId": 38,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=38&schedule_id=2",
-  "scrapedAt": "2026-03-08T15:02:09.821Z",
+  "scrapedAt": "2026-03-10T13:52:15.249Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -500,9 +500,9 @@
           "id": 63,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 64,
@@ -914,9 +914,9 @@
           "id": 18,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 19,
@@ -1530,9 +1530,9 @@
           "id": 95,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 96,

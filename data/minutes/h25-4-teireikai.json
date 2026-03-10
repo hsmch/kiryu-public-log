@@ -2,7 +2,7 @@
   "session": "平成25年第4回定例会",
   "councilId": 78,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=78&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:53:59.529Z",
+  "scrapedAt": "2026-03-10T13:42:55.876Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -3274,9 +3274,9 @@
           "id": 30,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 31,

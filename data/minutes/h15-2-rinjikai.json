@@ -2,7 +2,7 @@
   "session": "平成15年第2回臨時会",
   "councilId": 6,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=6&schedule_id=2",
-  "scrapedAt": "2026-03-08T15:07:08.322Z",
+  "scrapedAt": "2026-03-10T13:57:50.190Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -324,9 +324,9 @@
           "id": 40,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 41,

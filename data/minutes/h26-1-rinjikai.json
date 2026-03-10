@@ -2,7 +2,7 @@
   "session": "平成26年第1回臨時会",
   "councilId": 87,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=87&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:53:47.217Z",
+  "scrapedAt": "2026-03-10T13:42:47.099Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -316,9 +316,9 @@
           "id": 39,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 40,

@@ -2,7 +2,7 @@
   "session": "平成21年第3回臨時会",
   "councilId": 53,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=53&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:59:33.251Z",
+  "scrapedAt": "2026-03-10T13:48:33.844Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -1892,9 +1892,9 @@
           "id": 236,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 237,

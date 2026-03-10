@@ -2,7 +2,7 @@
   "session": "平成28年第2回定例会",
   "councilId": 98,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=98&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:51:33.587Z",
+  "scrapedAt": "2026-03-10T13:39:50.581Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -428,9 +428,9 @@
           "id": 53,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 54,
@@ -1738,9 +1738,9 @@
           "id": 20,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 21,
@@ -9550,9 +9550,9 @@
           "id": 415,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 416,

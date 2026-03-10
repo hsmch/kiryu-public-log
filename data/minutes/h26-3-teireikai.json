@@ -2,7 +2,7 @@
   "session": "平成26年第3回定例会",
   "councilId": 85,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=85&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:53:18.602Z",
+  "scrapedAt": "2026-03-10T13:42:09.813Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -2212,9 +2212,9 @@
           "id": 276,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "質疑",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△質疑（省略）"
         },
         {
           "id": 277,
@@ -4618,9 +4618,9 @@
           "id": 288,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 289,
@@ -5178,9 +5178,9 @@
           "id": 358,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 359,

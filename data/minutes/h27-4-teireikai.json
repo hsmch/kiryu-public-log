@@ -2,7 +2,7 @@
   "session": "平成27年第4回定例会",
   "councilId": 93,
   "sourceUrl": "https://ssp.kaigiroku.net/tenant/kiryu/MinuteView.html?council_id=93&schedule_id=2",
-  "scrapedAt": "2026-03-08T14:52:01.770Z",
+  "scrapedAt": "2026-03-10T13:40:28.260Z",
   "schedules": [
     {
       "scheduleId": 2,
@@ -212,9 +212,9 @@
           "id": 26,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 27,
@@ -3298,9 +3298,9 @@
           "id": 22,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 23,
@@ -6122,9 +6122,9 @@
           "id": 375,
           "type": "議題",
           "typeCode": 3,
-          "speaker": "省略",
-          "role": "委員会付託",
-          "body": ""
+          "speaker": null,
+          "role": null,
+          "body": "△委員会付託（省略）"
         },
         {
           "id": 376,

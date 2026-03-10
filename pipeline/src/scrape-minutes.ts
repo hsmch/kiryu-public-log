@@ -192,7 +192,7 @@ function parseSpeaker(title: string): { speaker: string | null; role: string | n
     const speaker = match[2].trim();
     // 「省略」は発言者ではないので null として扱う
     if (speaker === "省略") {
-      return { speaker: null, role };
+      return { speaker: null, role: null };
     }
     return { speaker, role };
   }
