@@ -20,20 +20,26 @@ if [[ "$current_branch" == "main" ]] || [[ "$current_branch" == "master" ]]; the
 fi
 
 # push 先が main/master の場合もスキップ（refspec: "HEAD:main", 引数: "git push origin main"）
-push_dest=""
-if [[ "$command" =~ :([^\ ]+)$ ]]; then
-  push_dest="${BASH_REMATCH[1]}"
-elif [[ "$command" =~ git\ push\ [^\ ]+\ ([^\ ]+)$ ]]; then
-  push_dest="${BASH_REMATCH[1]}"
-fi
-if [[ "$push_dest" == "main" ]] || [[ "$push_dest" == "master" ]]; then
-  exit 0
-fi
+read -r -a push_tokens <<< "$command"
+for token in "${push_tokens[@]}"; do
+  [[ "$token" == -* || "$token" == "git" || "$token" == "push" ]] && continue
+  if [[ "$token" == "main" || "$token" == "master" || "$token" == *":main" || "$token" == *":master" ]]; then
+    exit 0
+  fi
+done
 
 # PRが存在するか確認
 PR_NUMBER=$(gh pr view --json number --jq '.number' 2>/dev/null || true)
 
 if [ -z "$PR_NUMBER" ]; then
+  exit 0
+fi
+
+# 既に Copilot レビュー依頼済みならスキップ
+COPILOT_REVIEWER="copilot-pull-request-reviewer[bot]"
+existing=$(gh pr view "$PR_NUMBER" --json reviewRequests \
+  --jq '[.reviewRequests[].login] | join("\n")' 2>/dev/null || true)
+if echo "$existing" | grep -qF "$COPILOT_REVIEWER"; then
   exit 0
 fi
 
