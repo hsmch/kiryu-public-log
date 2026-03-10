@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://www.city.kiryu.lg.jp/shigikai/about/1003765.html",
-  "scrapedAt": "2026-03-01T21:13:46.183Z",
+  "scrapedAt": "2026-03-09T21:22:42.438Z",
   "officers": [
     {
       "seatNumber": null,
@@ -179,17 +179,6 @@
       "role": null,
       "electionCount": 3,
       "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/262tsuji.jpg"
-    },
-    {
-      "seatNumber": 17,
-      "name": "新井　達夫",
-      "nameReading": "あらい　たつお",
-      "faction": "そうぞう未来",
-      "committee": "総務委員会",
-      "committeeRole": null,
-      "role": null,
-      "electionCount": 5,
-      "photoUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/003/765/263arai.jpg"
     },
     {
       "seatNumber": 18,
