@@ -13,9 +13,20 @@ if [[ "$command" != git\ push* ]] || [ "$exit_code" != "0" ]; then
   exit 0
 fi
 
-# main ブランチへの push はスキップ
+# main/master ブランチへの push はスキップ
 current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 if [[ "$current_branch" == "main" ]] || [[ "$current_branch" == "master" ]]; then
+  exit 0
+fi
+
+# push 先が main/master の場合もスキップ（refspec: "HEAD:main", 引数: "git push origin main"）
+push_dest=""
+if [[ "$command" =~ :([^\ ]+)$ ]]; then
+  push_dest="${BASH_REMATCH[1]}"
+elif [[ "$command" =~ git\ push\ [^\ ]+\ ([^\ ]+)$ ]]; then
+  push_dest="${BASH_REMATCH[1]}"
+fi
+if [[ "$push_dest" == "main" ]] || [[ "$push_dest" == "master" ]]; then
   exit 0
 fi
 
