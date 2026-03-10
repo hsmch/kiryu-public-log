@@ -638,3 +638,39 @@ export function getSession(slug: string): SessionData | null {
     return null;
   }
 }
+
+// --- Glossary ---
+
+export interface GlossaryEntry {
+  term: string;
+  reading: string;
+  description: string;
+}
+
+let _glossaryCache: GlossaryEntry[] | null = null;
+let _glossaryMapCache: Map<string, GlossaryEntry> | null = null;
+let _glossaryMapSource: GlossaryEntry[] | null = null;
+
+export function getGlossary(): GlossaryEntry[] {
+  if (_glossaryCache) return _glossaryCache;
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "glossary.json"), "utf-8");
+    _glossaryCache = JSON.parse(raw);
+    return _glossaryCache!;
+  } catch {
+    return [];
+  }
+}
+
+export function getGlossaryMap(): Map<string, GlossaryEntry> {
+  const entries = getGlossary();
+  // Invalidate map cache if the underlying glossary data changed
+  if (_glossaryMapCache && _glossaryMapSource === entries) return _glossaryMapCache;
+  const map = new Map<string, GlossaryEntry>();
+  for (const entry of entries) {
+    map.set(entry.term, entry);
+  }
+  _glossaryMapSource = entries;
+  _glossaryMapCache = map;
+  return map;
+}
