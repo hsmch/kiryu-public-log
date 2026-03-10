@@ -535,8 +535,9 @@ export function getSplitBillsForSession(slug: string): SplitBill[] {
   return voting.records
     .filter((r) => {
       const votable = r.votes.filter((v) => v.vote !== "議長");
-      const hasOpposition = votable.some((v) => v.vote === "反対");
-      return hasOpposition;
+      const hasYes = votable.some((v) => v.vote === "賛成");
+      const hasNo = votable.some((v) => v.vote === "反対");
+      return hasYes && hasNo;
     })
     .map((r) => {
       const votable = r.votes.filter((v) => v.vote !== "議長");

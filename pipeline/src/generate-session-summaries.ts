@@ -9,7 +9,7 @@
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { z } from "zod";
+import type { z } from "zod";
 import { sessionSummarySchema } from "./schemas";
 
 const DATA_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "../../data");
@@ -169,8 +169,7 @@ function generateSummary(
   }
 
   // --- 全会一致・賛否分裂の集計 ---
-  // 投票記録には「賛否が割れた議案のみ」記録されている。
-  // 投票記録にない議案は全会一致として扱う。
+  // 投票記録から賛否が分かれた議案を抽出する。
   // splitCount/splitBills は sessions データに存在する議案のみを対象とし、
   // totalBills と母集団を揃える。
   const splitBills: { number: string; title: string; result: string; yesCount: number; noCount: number }[] = [];
@@ -285,6 +284,21 @@ function main() {
     const validated = sessionSummarySchema.parse(summary);
 
     const outputPath = resolve(OUTPUT_DIR, `${slug}.json`);
+
+    // generatedAt 以外の内容が変わっていなければ既存の generatedAt を維持する
+    if (existsSync(outputPath)) {
+      try {
+        const existing = JSON.parse(readFileSync(outputPath, "utf-8"));
+        const { generatedAt: _newGen, ...newRest } = validated;
+        const { generatedAt: existingGen, ...existingRest } = existing;
+        if (JSON.stringify(newRest) === JSON.stringify(existingRest)) {
+          validated.generatedAt = existingGen;
+        }
+      } catch {
+        // 既存ファイルのパースに失敗した場合はそのまま上書き
+      }
+    }
+
     writeFileSync(outputPath, JSON.stringify(validated, null, 2) + "\n");
     generated++;
   }
