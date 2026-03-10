@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GlossaryTerm from '../components/GlossaryTerm.astro';
 import { getVotingAnalysis, getAllMembersWithSlugs } from '../lib/data';
 
 export const prerender = true;
@@ -227,7 +228,7 @@ const unanimousPercent = analysis
             <div class="mt-4 grid gap-3 sm:grid-cols-2">
               {unanimousPercent && (
                 <div class="rounded-lg border border-gray-200 bg-white p-4">
-                  <p class="text-xs font-medium text-gray-500">全会一致率</p>
+                  <p class="text-xs font-medium text-gray-500"><GlossaryTerm term="全会一致" />率</p>
                   <p class="mt-1 text-lg font-bold text-gray-900">{unanimousPercent}%</p>
                   <p class="mt-1 text-xs text-gray-500">
                     {analysis.meta.totalBills}件中{analysis.meta.totalBills - analysis.meta.splitBills}件が全会一致で議決
@@ -281,7 +282,7 @@ const unanimousPercent = analysis
 
         {/* 会派結束度 */}
         <section class="mt-10">
-          <h2 class="text-lg font-semibold text-gray-800">会派結束度</h2>
+          <h2 class="text-lg font-semibold text-gray-800"><GlossaryTerm term="会派" />結束度</h2>
           <p class="mt-1 text-sm text-gray-500">
             会派内の全員が同じ投票をした割合（賛成・反対のいずれかに統一）
           </p>

@@ -1,7 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getGlossary } from '../lib/data';
 
 export const prerender = true;
+
+const glossary = getGlossary().slice().sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
 ---
 
 <Layout title="議会の仕組みガイド - Kiryu Public Log" description="桐生市議会の仕組み・定例会の流れ・用語集をわかりやすく解説" path="/guide">
@@ -129,74 +132,16 @@ export const prerender = true;
     {/* 用語集 */}
     <section class="mt-10">
       <h2 class="text-lg font-semibold text-gray-800">用語集</h2>
-      <p class="mt-1 text-sm text-gray-500">議会で使われる主な用語を五十音順で解説します</p>
+      <p class="mt-1 text-sm text-gray-500">議会・財政で使われる主な用語を五十音順で解説します（{glossary.length}語）</p>
 
-      <div class="mt-4 space-y-0 divide-y divide-gray-100 rounded-lg border border-gray-200 bg-white">
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">一般質問<span class="ml-2 text-xs text-gray-400">いっぱんしつもん</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">議員が市政全般について市長等に質問すること。議案に限らず、幅広いテーマで行われる。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">可決<span class="ml-2 text-xs text-gray-400">かけつ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">議会で賛成多数により議案が成立すること。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">会派<span class="ml-2 text-xs text-gray-400">かいは</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">政策や理念を共有する議員のグループ。議会運営に関する協議の単位となる。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">議案<span class="ml-2 text-xs text-gray-400">ぎあん</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">市長や議員が議会に提出する案件。条例の制定・改廃、予算、人事案件などがある。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">継続審査<span class="ml-2 text-xs text-gray-400">けいぞくしんさ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">結論を出さず、次回以降の定例会に審査を持ち越すこと。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">原案可決<span class="ml-2 text-xs text-gray-400">げんあんかけつ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">修正なく、提出されたとおりの内容で可決されること。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">採択<span class="ml-2 text-xs text-gray-400">さいたく</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">請願・陳情を議会が受け入れること。趣旨を妥当と認めた場合に行われる。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">賛否割れ<span class="ml-2 text-xs text-gray-400">さんぴわれ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">採決で賛成と反対に分かれること。全会一致でない議案を指す。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">常任委員会<span class="ml-2 text-xs text-gray-400">じょうにんいいんかい</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">議案や請願を専門分野ごとに審査する常設の委員会。桐生市には総務・教育民生・経済建設の3委員会がある。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">陳情<span class="ml-2 text-xs text-gray-400">ちんじょう</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">市民が議会に対して意見・要望を提出すること。請願と異なり紹介議員は不要。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">否決<span class="ml-2 text-xs text-gray-400">ひけつ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">議会で反対多数により議案が不成立となること。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">不採択<span class="ml-2 text-xs text-gray-400">ふさいたく</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">請願・陳情を議会が受け入れないこと。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">付託<span class="ml-2 text-xs text-gray-400">ふたく</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">議案の審査を担当の委員会に委ねること。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">全会一致<span class="ml-2 text-xs text-gray-400">ぜんかいいっち</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">出席議員全員が賛成すること。異議なしで可決される。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">修正可決<span class="ml-2 text-xs text-gray-400">しゅうせいかけつ</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">原案の一部を修正したうえで可決されること。</dd>
-        </div>
-        <div class="px-4 py-3">
-          <dt class="font-medium text-gray-900">請願<span class="ml-2 text-xs text-gray-400">せいがん</span></dt>
-          <dd class="mt-1 text-sm text-gray-600">市民が議会に対して要望を提出すること。紹介議員（1名以上の議員の署名）が必要。</dd>
-        </div>
-      </div>
+      <dl class="mt-4 space-y-0 divide-y divide-gray-100 rounded-lg border border-gray-200 bg-white">
+        {glossary.map((entry) => (
+          <div class="px-4 py-3">
+            <dt class="font-medium text-gray-900">{entry.term}<span class="ml-2 text-xs text-gray-400">{entry.reading}</span></dt>
+            <dd class="mt-1 text-sm text-gray-600">{entry.description}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
 
     {/* データの見方 */}

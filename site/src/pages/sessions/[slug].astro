@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import GlossaryTerm from '../../components/GlossaryTerm.astro';
 import { getAllSessions, getSession, getQuestionsForSession, getVotingForSession, getSessionSummary } from '../../lib/data';
 
 export const prerender = true;
@@ -55,7 +56,25 @@ function resultColor(result: string): string {
   return 'bg-gray-100 text-gray-800';
 }
 
-const hasVotingSummary = summary != null && (summary.unanimousCount + summary.splitCount > 0);
+// Compute session summary from voting data
+let unanimousBills = 0;
+let splitBills: { title: string; billNumber: string; yes: number; no: number }[] = [];
+
+if (voting && voting.records.length > 0) {
+  for (const record of voting.records) {
+    const actual = record.votes.filter(v => v.vote !== '議長');
+    const hasYes = actual.some(v => v.vote === '賛成');
+    const hasNo = actual.some(v => v.vote === '反対');
+    if (hasYes && hasNo) {
+      const yesCount = actual.filter(v => v.vote === '賛成').length;
+      const noCount = actual.filter(v => v.vote === '反対').length;
+      splitBills.push({ title: record.billTitle, billNumber: record.billNumber, yes: yesCount, no: noCount });
+    } else {
+      unanimousBills++;
+    }
+  }
+}
+const hasVotingSummary = voting && voting.records.length > 0;
 ---
 
 <Layout title={`${session.session} - Kiryu Public Log`} description={`${session.session}の議案${session.bills.length}件の採決結果・一般質問 | 桐生市議会`} path={`/sessions/${slug}`}>
@@ -86,30 +105,42 @@ const hasVotingSummary = summary != null && (summary.unanimousCount + summary.sp
       )}
     </div>
 
-    {summary && (
+    {hasVotingSummary && (
       <div class="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
         <h2 class="text-sm font-semibold text-blue-900">この定例会のポイント</h2>
         <div class="mt-2 grid gap-3 sm:grid-cols-3">
           <div class="text-center">
-            <p class="text-2xl font-bold text-gray-900">{summary.totalBills}</p>
-            <p class="text-xs text-gray-500">議案数</p>
+            <p class="text-2xl font-bold text-gray-900">{voting!.records.length}</p>
+            <p class="text-xs text-gray-500">採決された議案</p>
           </div>
-          {hasVotingSummary && (
-            <div class="text-center">
-              <p class="text-2xl font-bold text-green-700">{summary.unanimousCount}</p>
-              <p class="text-xs text-gray-500">全会一致</p>
-            </div>
-          )}
-          {hasVotingSummary && (
-            <div class="text-center">
-              <p class="text-2xl font-bold text-amber-600">{summary.splitCount}</p>
-              <p class="text-xs text-gray-500">賛否が分かれた議案</p>
-            </div>
-          )}
+          <div class="text-center">
+            <p class="text-2xl font-bold text-green-700">{unanimousBills}</p>
+            <p class="text-xs text-gray-500"><GlossaryTerm term="全会一致" /></p>
+          </div>
+          <div class="text-center">
+            <p class="text-2xl font-bold text-amber-600">{splitBills.length}</p>
+            <p class="text-xs text-gray-500">賛否が分かれた議案</p>
+          </div>
         </div>
 
-        {/* 分類別内訳 */}
-        {Object.keys(summary.billsByCategory).length > 1 && (
+        {splitBills.length > 0 && (
+          <div class="mt-3 border-t border-blue-200 pt-3">
+            <p class="text-xs font-medium text-blue-800 mb-2">賛否が分かれた議案:</p>
+            <ul class="space-y-1 text-sm">
+              {splitBills.map(b => (
+                <li class="flex items-start gap-2 text-blue-900">
+                  <span class="shrink-0 text-xs text-blue-600">{b.billNumber}</span>
+                  <span class="flex-1">{b.title}</span>
+                  <span class="shrink-0 text-xs">
+                    <span class="text-green-700">賛成{b.yes}</span>:<span class="text-red-700">反対{b.no}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {summary && Object.keys(summary.billsByCategory).length > 1 && (
           <div class="mt-3 border-t border-blue-200 pt-3">
             <p class="text-xs font-medium text-blue-800 mb-1">分類別内訳:</p>
             <div class="flex flex-wrap gap-2">
@@ -122,8 +153,7 @@ const hasVotingSummary = summary != null && (summary.unanimousCount + summary.sp
           </div>
         )}
 
-        {/* 主要テーマ */}
-        {summary.topThemes.length > 0 && (
+        {summary && summary.topThemes.length > 0 && (
           <div class="mt-3 border-t border-blue-200 pt-3">
             <p class="text-xs font-medium text-blue-800 mb-1">主要テーマ:</p>
             <div class="flex flex-wrap gap-2">
@@ -136,26 +166,7 @@ const hasVotingSummary = summary != null && (summary.unanimousCount + summary.sp
           </div>
         )}
 
-        {/* 賛否が分かれた議案 */}
-        {summary.splitBills.length > 0 && (
-          <div class="mt-3 border-t border-blue-200 pt-3">
-            <p class="text-xs font-medium text-blue-800 mb-2">賛否が分かれた議案:</p>
-            <ul class="space-y-1 text-sm">
-              {summary.splitBills.map(b => (
-                <li class="flex items-start gap-2 text-blue-900">
-                  <span class="shrink-0 text-xs text-blue-600">{b.number}</span>
-                  <span class="flex-1">{b.title}</span>
-                  <span class="shrink-0 text-xs">
-                    <span class="text-green-700">賛成{b.yesCount}</span>:<span class="text-red-700">反対{b.noCount}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* 一般質問 */}
-        {summary.questions.length > 0 && (
+        {summary && summary.questions.length > 0 && (
           <div class="mt-3 border-t border-blue-200 pt-3">
             <p class="text-xs font-medium text-blue-800">
               一般質問: {summary.questions.length}名が登壇
@@ -205,7 +216,7 @@ const hasVotingSummary = summary != null && (summary.unanimousCount + summary.sp
     {/* 議員別賛否マトリクス */}
     {voting && voting.records.length > 0 && (
       <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">議員別 賛否一覧</h2>
+        <h2 class="text-lg font-semibold text-gray-800">議員別 賛否（<GlossaryTerm term="採決" />）一覧</h2>
         <p class="mt-1 text-sm text-gray-500">
           賛否が記録された議案: {voting.records.length}件
         </p>
@@ -272,7 +283,7 @@ const hasVotingSummary = summary != null && (summary.unanimousCount + summary.sp
     {/* 一般質問セクション */}
     {questions && questions.questions.length > 0 && (
       <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">一般質問</h2>
+        <h2 class="text-lg font-semibold text-gray-800"><GlossaryTerm term="一般質問" /></h2>
         <p class="mt-1 text-sm text-gray-500">
           {questions.questions.length}名が質問 ―
           <a href={questions.pdfUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">

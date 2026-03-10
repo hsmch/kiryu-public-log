@@ -1,0 +1,81 @@
+---
+import { getGlossaryMap } from '../lib/data';
+
+interface Props {
+  term: string;
+  description?: string;
+}
+
+const { term, description: descOverride } = Astro.props;
+
+const glossary = getGlossaryMap();
+const entry = glossary.get(term);
+const desc = descOverride ?? entry?.description ?? '';
+const reading = entry?.reading ?? '';
+// Deterministic unique ID: page path + term + page-scoped counter
+const _pageCounters: Map<string, number> = (globalThis as any).__glossaryPageCounters ??= new Map();
+const pageKey = Astro.url.pathname;
+const count = _pageCounters.get(pageKey) ?? 0;
+_pageCounters.set(pageKey, count + 1);
+const tooltipId = `glossary-${term.replace(/\s+/g, '-')}-${count}`;
+---
+
+{desc ? (
+  <span class="glossary-term group relative inline" tabindex="0" aria-describedby={tooltipId}>
+    <span class="glossary-trigger cursor-help border-b border-dotted border-gray-400">{term}</span>
+    <span
+      id={tooltipId}
+      class="glossary-tooltip pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden w-64 -translate-x-1/2 rounded-lg border border-gray-200 bg-white p-3 text-sm font-normal text-gray-700 shadow-lg group-hover:pointer-events-auto group-hover:block group-focus-within:pointer-events-auto group-focus-within:block"
+      role="tooltip"
+    >
+      <span class="block font-medium text-gray-900">
+        {term}
+        {reading && <span class="ml-1 text-xs font-normal text-gray-400">{reading}</span>}
+      </span>
+      <span class="mt-1 block text-xs leading-relaxed text-gray-600">{desc}</span>
+      <span class="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-white"></span>
+      <span class="absolute left-1/2 top-full -translate-x-1/2 mt-px border-4 border-transparent border-t-gray-200"></span>
+    </span>
+  </span>
+) : (
+  <span>{term}</span>
+)}
+
+<script>
+  if (!(window as any).__glossaryClickHandlerInstalled) {
+    (window as any).__glossaryClickHandlerInstalled = true;
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const trigger = target.closest('.glossary-trigger');
+      const tooltip = target.closest('.glossary-tooltip');
+
+      if (tooltip) {
+        return;
+      }
+
+      if (trigger) {
+        const term = trigger.closest('.glossary-term');
+        if (!term) return;
+        const tip = term.querySelector('.glossary-tooltip') as HTMLElement;
+        if (tip) {
+          const isVisible = tip.style.display === 'block';
+          document.querySelectorAll('.glossary-tooltip').forEach((t) => {
+            (t as HTMLElement).style.display = '';
+            (t as HTMLElement).style.pointerEvents = '';
+          });
+          if (!isVisible) {
+            tip.style.display = 'block';
+            tip.style.pointerEvents = 'auto';
+          }
+          e.preventDefault();
+        }
+      } else {
+        document.querySelectorAll('.glossary-tooltip').forEach((t) => {
+          (t as HTMLElement).style.display = '';
+          (t as HTMLElement).style.pointerEvents = '';
+        });
+      }
+    });
+  }
+</script>
