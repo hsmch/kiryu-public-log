@@ -14,7 +14,8 @@ if [[ "$command" != git\ push* ]] || [ "$exit_code" != "0" ]; then
 fi
 
 # main ブランチへの push はスキップ
-if [[ "$command" == *" main"* ]] || [[ "$command" == *" master"* ]]; then
+current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+if [[ "$current_branch" == "main" ]] || [[ "$current_branch" == "master" ]]; then
   exit 0
 fi
 
@@ -29,4 +30,11 @@ fi
 gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" >/dev/null 2>&1 || true
 
 # Claude にフィードバック
-echo "{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"PR #${PR_NUMBER} に Copilot レビューを自動依頼しました。\"}}"
+jq -n \
+  --arg pr_number "$PR_NUMBER" \
+  '{
+    hookSpecificOutput: {
+      hookEventName: "PostToolUse",
+      additionalContext: ("PR #" + $pr_number + " に Copilot レビューを自動依頼しました。")
+    }
+  }'

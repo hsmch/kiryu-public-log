@@ -14,6 +14,6 @@ fi
 
 # Copilot レビューを依頼
 echo "PR #${PR_NUMBER} に Copilot レビューを依頼しています..."
-gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" 2>&1
+gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]"
 
 echo "Copilot レビューを依頼しました。"
