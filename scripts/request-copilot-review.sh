@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # GitHub Copilot にPRレビューを依頼するスクリプト
 # 使い方: scripts/request-copilot-review.sh
 

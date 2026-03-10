@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # PostToolUse hook: git push 後に自動で Copilot レビューを依頼する
 # stdin から hook input JSON を受け取る
 
@@ -27,14 +27,18 @@ if [ -z "$PR_NUMBER" ]; then
 fi
 
 # Copilot レビューを依頼
-gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" >/dev/null 2>&1 || true
-
-# Claude にフィードバック
-jq -n \
-  --arg pr_number "$PR_NUMBER" \
-  '{
+if gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" >/dev/null 2>&1; then
+  jq -n --arg pr_number "$PR_NUMBER" '{
     hookSpecificOutput: {
       hookEventName: "PostToolUse",
       additionalContext: ("PR #" + $pr_number + " に Copilot レビューを自動依頼しました。")
     }
   }'
+else
+  jq -n --arg pr_number "$PR_NUMBER" '{
+    hookSpecificOutput: {
+      hookEventName: "PostToolUse",
+      additionalContext: ("PR #" + $pr_number + " への Copilot レビュー依頼に失敗しました。")
+    }
+  }'
+fi
