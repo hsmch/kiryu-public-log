@@ -190,6 +190,10 @@ function parseSpeaker(title: string): { speaker: string | null; role: string | n
   if (match) {
     const role = match[1].trim();
     const speaker = match[2].trim();
+    // 「省略」は発言者ではないので null として扱う
+    if (speaker === "省略") {
+      return { speaker: null, role };
+    }
     return { speaker, role };
   }
 
@@ -279,10 +283,10 @@ function normalizeSessionName(name: string): string {
   let era: string;
   let year: string;
 
-  if (/令和元年/.test(normalized)) {
+  if (/平成31年\/令和元年/.test(normalized)) {
     era = "令和";
     year = "1";
-  } else if (/平成31年\/令和元年/.test(normalized)) {
+  } else if (/令和元年/.test(normalized)) {
     era = "令和";
     year = "1";
   } else {
