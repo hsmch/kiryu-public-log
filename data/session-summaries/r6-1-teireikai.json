@@ -1,7 +1,7 @@
 {
   "sessionId": "r6-1-teireikai",
   "sessionName": "令和6年第1回定例会",
-  "generatedAt": "2026-03-08T16:09:05.821Z",
+  "generatedAt": "2026-03-10T02:24:11.821Z",
   "totalBills": 6,
   "billsByCategory": {
     "請願": 6
@@ -11,58 +11,8 @@
     "継続審査": 5
   },
   "unanimousCount": 1,
-  "splitCount": 7,
-  "splitBills": [
-    {
-      "number": "議案第5号",
-      "title": "第2期桐生市まち・ひと・しごと創生総合戦略の変更について",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第6号",
-      "title": "桐生市行政改革方針の変更及び桐生市行政改革方針後期実施計画の策定について",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第8号",
-      "title": "桐生市新里温水プールの設置及び管理に関する条例の一部を改正する条例案",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第21号",
-      "title": "桐生市指定居宅介護支援等の事業の人員及び運営に関する基準を定める条例の一部を改正する条例案",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第30号",
-      "title": "議案第30号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第37号",
-      "title": "議案第37号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    },
-    {
-      "number": "議案第38号",
-      "title": "議案第38号",
-      "result": "原案可決",
-      "yesCount": 19,
-      "noCount": 2
-    }
-  ],
+  "splitCount": 0,
+  "splitBills": [],
   "topThemes": [
     "福祉・医療",
     "都市基盤",

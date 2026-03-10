@@ -171,11 +171,9 @@ function generateSummary(
   // --- 全会一致・賛否分裂の集計 ---
   // 投票記録には「賛否が割れた議案のみ」記録されている。
   // 投票記録にない議案は全会一致として扱う。
-  let splitCount = 0;
+  // splitCount/splitBills は sessions データに存在する議案のみを対象とし、
+  // totalBills と母集団を揃える。
   const splitBills: { number: string; title: string; result: string; yesCount: number; noCount: number }[] = [];
-
-  // sessions に存在する議案のうち、投票記録にも登場する議案番号を追跡
-  const matchedSessionBillNumbers = new Set<string>();
 
   if (voting) {
     for (const record of voting.records) {
@@ -188,22 +186,18 @@ function generateSummary(
         }
       }
       if (!matchingBill) {
-        console.warn(`  [warn] ${slug}: 投票記録の議案 ${record.billNumber} が sessions データに存在しません（投票データのみで集計）`);
-      }
-
-      if (matchingBill) {
-        matchedSessionBillNumbers.add(matchingBill.number);
+        console.warn(`  [warn] ${slug}: 投票記録の議案 ${record.billNumber} が sessions データに存在しません（スキップ）`);
+        continue;
       }
 
       const votable = record.votes.filter((v) => v.vote !== "議長");
       const hasYes = votable.some((v) => v.vote === "賛成");
       const hasNo = votable.some((v) => v.vote === "反対");
       if (hasYes && hasNo) {
-        splitCount++;
         splitBills.push({
-          number: matchingBill?.number ?? record.billNumber,
-          title: record.billTitle || matchingBill?.title || record.billNumber,
-          result: matchingBill?.result ?? record.result,
+          number: matchingBill.number,
+          title: record.billTitle || matchingBill.title,
+          result: matchingBill.result,
           yesCount: votable.filter((v) => v.vote === "賛成").length,
           noCount: votable.filter((v) => v.vote === "反対").length,
         });
@@ -211,16 +205,14 @@ function generateSummary(
     }
   }
 
+  const splitCount = splitBills.length;
+
   // 全会一致の算出: sessions の採決済み議案のうち、賛否分裂でなかったもの
-  // 投票記録にのみ存在する議案（sessions に無い）は splitCount には含むが、
-  // unanimousCount の母集団（votedBillCount）には含めない
   const votedBillCount = bills.filter((b) => {
     const cls = classifyResult(b.result);
     return cls === "可決等" || cls === "否決等";
   }).length;
-  // splitCount のうち sessions に存在する議案数のみ差し引く
-  const splitInSession = splitBills.filter((sb) => bills.some((b) => b.number === sb.number)).length;
-  const unanimousCount = Math.max(0, votedBillCount - splitInSession);
+  const unanimousCount = Math.max(0, votedBillCount - splitCount);
 
   // --- 主要テーマ（タグ頻度分析） ---
   const tagCounts = new Map<string, number>();
