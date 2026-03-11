@@ -15,10 +15,12 @@ fi
 
 # ヘルパー: スキップ理由を出力して終了
 skip_with_reason() {
-  jq -n --arg reason "$1" '{
+  local msg="[copilot-review hook] スキップ: $1"
+  jq -n --arg msg "$msg" '{
+    systemMessage: $msg,
     hookSpecificOutput: {
       hookEventName: "PostToolUse",
-      additionalContext: ("[copilot-review hook] スキップ: " + $reason)
+      additionalContext: $msg
     }
   }'
   exit 0
@@ -56,17 +58,21 @@ fi
 
 # Copilot レビューを依頼
 if gh pr edit "$PR_NUMBER" --add-reviewer "copilot-pull-request-reviewer[bot]" >/dev/null 2>&1; then
-  jq -n --arg pr_number "$PR_NUMBER" '{
+  msg="[copilot-review hook] PR #$PR_NUMBER に Copilot レビューを自動依頼しました。"
+  jq -n --arg msg "$msg" '{
+    systemMessage: $msg,
     hookSpecificOutput: {
       hookEventName: "PostToolUse",
-      additionalContext: ("PR #" + $pr_number + " に Copilot レビューを自動依頼しました。")
+      additionalContext: $msg
     }
   }'
 else
-  jq -n --arg pr_number "$PR_NUMBER" '{
+  msg="[copilot-review hook] PR #$PR_NUMBER への Copilot レビュー依頼に失敗しました。"
+  jq -n --arg msg "$msg" '{
+    systemMessage: $msg,
     hookSpecificOutput: {
       hookEventName: "PostToolUse",
-      additionalContext: ("PR #" + $pr_number + " への Copilot レビュー依頼に失敗しました。")
+      additionalContext: $msg
     }
   }'
 fi
