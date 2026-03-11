@@ -1,0 +1,27 @@
+{
+  "sessionId": "h24-3-teireikai",
+  "sessionName": "平成24年第3回定例会",
+  "generatedAt": "2026-03-11T03:25:17.214Z",
+  "totalBills": 17,
+  "billsByCategory": {
+    "市長提出議案": 8,
+    "委員会・議員提出議案": 3,
+    "請願": 6
+  },
+  "results": {
+    "可決等": 9,
+    "その他": 2,
+    "継続審査": 6
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "福祉・医療",
+    "人事・組織",
+    "産業・観光",
+    "その他"
+  ],
+  "questions": []
+}

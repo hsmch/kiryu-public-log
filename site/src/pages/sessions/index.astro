@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllSessions, getSplitBillCountForSession } from '../../lib/data';
+import { getAllSessions, getSplitBillCountForSession, getSessionSummary } from '../../lib/data';
 
 export const prerender = true;
 
@@ -45,30 +45,47 @@ function sessionNumLabel(slug: string): string {
       <section class="mt-8">
         <h2 class="text-lg font-semibold text-gray-800">{yearKeyToLabel(yearKey)}</h2>
         <div class="mt-3 grid gap-3 sm:grid-cols-2">
-          {yearSessions.map((s) => (
-            <a
-              href={`/sessions/${s.slug}`}
-              class="block rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              <p class="font-semibold text-gray-900">
-                {sessionNumLabel(s.slug)}{sessionTypeLabel(s.slug)}
-              </p>
-              <p class="mt-1 text-sm text-gray-500">
-                {s.data.bills.length}件の議案
-                {(() => {
-                  const splitCount = getSplitBillCountForSession(s.slug);
-                  return splitCount > 0 ? (
-                    <span class="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-800">
-                      賛否分裂 {splitCount}件
+          {yearSessions.map((s) => {
+            const summary = getSessionSummary(s.slug);
+            return (
+              <a
+                href={`/sessions/${s.slug}`}
+                class="block rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm"
+              >
+                <p class="font-semibold text-gray-900">
+                  {sessionNumLabel(s.slug)}{sessionTypeLabel(s.slug)}
+                </p>
+                <p class="mt-1 text-sm text-gray-500">
+                  {s.data.bills.length}件の議案
+                  {(() => {
+                    const splitCount = summary?.splitCount ?? getSplitBillCountForSession(s.slug);
+                    return splitCount > 0 ? (
+                      <span class="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-800">
+                        賛否分裂 {splitCount}件
+                      </span>
+                    ) : null;
+                  })()}
+                  {summary && summary.questions.length > 0 && (
+                    <span class="ml-2 text-xs text-gray-400">
+                      質問{summary.questions.length}名
                     </span>
-                  ) : null;
-                })()}
-              </p>
-              {s.data.dates.length > 0 && (
-                <p class="mt-1 text-xs text-gray-400">{s.data.dates[0]}</p>
-              )}
-            </a>
-          ))}
+                  )}
+                </p>
+                {summary && summary.topThemes.length > 0 && (
+                  <div class="mt-1.5 flex flex-wrap gap-1">
+                    {summary.topThemes.slice(0, 3).map((theme) => (
+                      <span class="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] text-gray-600">
+                        {theme}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {s.data.dates.length > 0 && (
+                  <p class="mt-1 text-xs text-gray-400">{s.data.dates[0]}</p>
+                )}
+              </a>
+            );
+          })}
         </div>
       </section>
     ))}

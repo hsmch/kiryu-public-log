@@ -1,0 +1,27 @@
+{
+  "sessionId": "h24-2-teireikai",
+  "sessionName": "平成24年第2回定例会",
+  "generatedAt": "2026-03-11T03:25:17.213Z",
+  "totalBills": 25,
+  "billsByCategory": {
+    "市長提出議案": 14,
+    "委員会・議員提出議案": 1,
+    "請願": 10
+  },
+  "results": {
+    "可決等": 18,
+    "その他": 1,
+    "継続審査": 6
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "条例",
+    "福祉・医療",
+    "環境",
+    "防災・安全"
+  ],
+  "questions": []
+}

@@ -1,0 +1,26 @@
+{
+  "sessionId": "h25-2-teireikai",
+  "sessionName": "平成25年第2回定例会",
+  "generatedAt": "2026-03-11T03:25:17.215Z",
+  "totalBills": 17,
+  "billsByCategory": {
+    "市長提出議案": 10,
+    "委員会・議員提出議案": 5,
+    "請願": 2
+  },
+  "results": {
+    "可決等": 15,
+    "継続審査": 2
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "防災・安全",
+    "条例",
+    "議会運営",
+    "人事・組織"
+  ],
+  "questions": []
+}

@@ -67,6 +67,10 @@ jobs:
         working-directory: pipeline
         run: npm run analyze:voting
 
+      - name: Generate session summaries
+        working-directory: pipeline
+        run: npm run generate:summaries
+
       - name: Validate data quality
         working-directory: pipeline
         run: npm run validate

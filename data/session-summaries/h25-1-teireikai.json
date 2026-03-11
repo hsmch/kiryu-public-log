@@ -1,0 +1,25 @@
+{
+  "sessionId": "h25-1-teireikai",
+  "sessionName": "平成25年第1回定例会",
+  "generatedAt": "2026-03-11T02:45:20.122Z",
+  "totalBills": 44,
+  "billsByCategory": {
+    "市長提出議案": 43,
+    "請願": 1
+  },
+  "results": {
+    "可決等": 42,
+    "その他": 2
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "条例",
+    "財政",
+    "都市基盤",
+    "人事・組織",
+    "福祉・医療"
+  ],
+  "questions": []
+}

@@ -1,0 +1,25 @@
+{
+  "sessionId": "h24-4-teireikai",
+  "sessionName": "平成24年第4回定例会",
+  "generatedAt": "2026-03-11T02:45:20.121Z",
+  "totalBills": 12,
+  "billsByCategory": {
+    "委員会・議員提出議案": 5,
+    "請願": 7
+  },
+  "results": {
+    "可決等": 11,
+    "継続審査": 1
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "福祉・医療",
+    "議会運営",
+    "産業・観光",
+    "財政",
+    "環境"
+  ],
+  "questions": []
+}

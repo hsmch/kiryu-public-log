@@ -1,0 +1,21 @@
+{
+  "sessionId": "h25-2-rinjikai",
+  "sessionName": "平成25年第2回臨時会",
+  "generatedAt": "2026-03-11T02:45:20.122Z",
+  "totalBills": 5,
+  "billsByCategory": {
+    "市長提出議案": 5
+  },
+  "results": {
+    "可決等": 5
+  },
+  "unanimousCount": 0,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政",
+    "条例",
+    "人事・組織"
+  ],
+  "questions": []
+}

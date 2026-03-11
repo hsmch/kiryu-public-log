@@ -535,8 +535,9 @@ export function getSplitBillsForSession(slug: string): SplitBill[] {
   return voting.records
     .filter((r) => {
       const votable = r.votes.filter((v) => v.vote !== "議長");
-      const hasOpposition = votable.some((v) => v.vote === "反対");
-      return hasOpposition;
+      const hasYes = votable.some((v) => v.vote === "賛成");
+      const hasNo = votable.some((v) => v.vote === "反対");
+      return hasYes && hasNo;
     })
     .map((r) => {
       const votable = r.votes.filter((v) => v.vote !== "議長");
@@ -635,6 +636,53 @@ export function getSession(slug: string): SessionData | null {
     );
     return JSON.parse(raw);
   } catch {
+    return null;
+  }
+}
+
+// --- Session Summaries ---
+
+export interface SplitBillSummary {
+  number: string;
+  title: string;
+  result: string;
+  yesCount: number;
+  noCount: number;
+}
+
+export interface QuestionTopic {
+  member: string;
+  topics: string[];
+}
+
+export interface SessionSummary {
+  sessionId: string;
+  sessionName: string;
+  generatedAt: string;
+  totalBills: number;
+  billsByCategory: Record<string, number>;
+  results: Record<string, number>;
+  unanimousCount: number;
+  splitCount: number;
+  splitBills: SplitBillSummary[];
+  topThemes: string[];
+  questions: QuestionTopic[];
+}
+
+const _summaryCache = new Map<string, SessionSummary | null>();
+
+export function getSessionSummary(slug: string): SessionSummary | null {
+  if (_summaryCache.has(slug)) return _summaryCache.get(slug)!;
+  try {
+    const raw = readFileSync(
+      resolve(DATA_DIR, "session-summaries", `${slug}.json`),
+      "utf-8",
+    );
+    const result = JSON.parse(raw) as SessionSummary;
+    _summaryCache.set(slug, result);
+    return result;
+  } catch {
+    _summaryCache.set(slug, null);
     return null;
   }
 }
