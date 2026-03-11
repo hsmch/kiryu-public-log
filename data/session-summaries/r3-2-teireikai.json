@@ -1,7 +1,7 @@
 {
   "sessionId": "r3-2-teireikai",
   "sessionName": "令和3年第2回定例会",
-  "generatedAt": "2026-03-10T02:24:11.808Z",
+  "generatedAt": "2026-03-11T03:25:17.237Z",
   "totalBills": 9,
   "billsByCategory": {
     "市長提出議案": 9
@@ -16,8 +16,8 @@
     "都市基盤",
     "福祉・医療",
     "防災・安全",
-    "教育",
-    "環境"
+    "環境",
+    "教育"
   ],
   "questions": [
     {

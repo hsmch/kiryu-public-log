@@ -1,7 +1,7 @@
 {
   "sessionId": "h30-2-teireikai",
   "sessionName": "平成30年第2回定例会",
-  "generatedAt": "2026-03-11T02:45:20.140Z",
+  "generatedAt": "2026-03-11T03:25:17.227Z",
   "totalBills": 18,
   "billsByCategory": {
     "市長提出議案": 11,
@@ -18,8 +18,8 @@
   "topThemes": [
     "財政",
     "人事・組織",
-    "福祉・医療",
     "産業・観光",
+    "福祉・医療",
     "条例"
   ],
   "questions": [

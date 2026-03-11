@@ -1,7 +1,7 @@
 {
   "sessionId": "h25-3-teireikai",
   "sessionName": "平成25年第3回定例会",
-  "generatedAt": "2026-03-11T02:45:20.123Z",
+  "generatedAt": "2026-03-11T03:25:17.215Z",
   "totalBills": 22,
   "billsByCategory": {
     "市長提出議案": 14,
@@ -18,8 +18,8 @@
   "topThemes": [
     "財政",
     "条例",
-    "都市基盤",
     "子育て",
+    "都市基盤",
     "福祉・医療"
   ],
   "questions": []

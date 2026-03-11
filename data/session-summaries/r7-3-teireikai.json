@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-3-teireikai",
   "sessionName": "令和7年第3回定例会",
-  "generatedAt": "2026-03-10T02:24:11.828Z",
+  "generatedAt": "2026-03-11T03:25:17.250Z",
   "totalBills": 23,
   "billsByCategory": {
     "市長提出議案": 20,
@@ -40,8 +40,8 @@
   "topThemes": [
     "財政",
     "福祉・医療",
-    "都市基盤",
     "教育",
+    "都市基盤",
     "子育て"
   ],
   "questions": [

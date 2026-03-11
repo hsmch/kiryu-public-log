@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { resolve } from "path";
+import { sessionSummarySchema } from "./schemas";
 
 const DATA_DIR = resolve(process.cwd(), "../data");
 
@@ -184,7 +185,40 @@ if (fileExists("finance/funds.json")) {
 }
 
 // ============================================================
-// D. Referential integrity: voting memberNames vs council members
+// D. Session summaries: existence + schema validation
+// ============================================================
+const summaryFiles = dirJsonFiles("session-summaries");
+if (summaryFiles.length > 0) {
+  pass(`session-summaries/: ${summaryFiles.length} files`);
+} else {
+  warn("session-summaries/: no JSON files found");
+}
+
+for (const f of summaryFiles) {
+  try {
+    const data = readJSON(resolve(DATA_DIR, "session-summaries", f));
+    sessionSummarySchema.parse(data);
+    const summary = data as { totalBills: number; splitCount: number };
+    if (summary.splitCount > summary.totalBills) {
+      error(`session-summaries/${f}: splitCount (${summary.splitCount}) > totalBills (${summary.totalBills})`);
+    } else {
+      pass(`session-summaries/${f}: schema OK`);
+    }
+  } catch (e) {
+    error(`session-summaries/${f}: schema validation failed: ${e instanceof Error ? e.message : String(e)}`);
+  }
+}
+
+// Check that every session has a corresponding summary
+for (const f of sessionFiles) {
+  const slug = f.replace(".json", "");
+  if (!fileExists(`session-summaries/${slug}.json`)) {
+    warn(`session-summaries/${slug}.json missing (session exists)`);
+  }
+}
+
+// ============================================================
+// E. Referential integrity: voting memberNames vs council members
 // ============================================================
 if (fileExists("council-members.json") && votingFiles.length > 0) {
   const cmData = readJSON(resolve(DATA_DIR, "council-members.json")) as {

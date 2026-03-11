@@ -1,7 +1,7 @@
 {
   "sessionId": "r6-4-teireikai",
   "sessionName": "令和6年第4回定例会",
-  "generatedAt": "2026-03-10T02:24:11.824Z",
+  "generatedAt": "2026-03-11T03:25:17.247Z",
   "totalBills": 33,
   "billsByCategory": {
     "市長提出議案": 27,
@@ -47,8 +47,8 @@
     "福祉・医療",
     "財政",
     "条例",
-    "都市基盤",
-    "教育"
+    "教育",
+    "都市基盤"
   ],
   "questions": [
     {

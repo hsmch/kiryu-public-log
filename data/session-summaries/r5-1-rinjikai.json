@@ -1,7 +1,7 @@
 {
   "sessionId": "r5-1-rinjikai",
   "sessionName": "令和5年第1回臨時会",
-  "generatedAt": "2026-03-10T02:24:11.816Z",
+  "generatedAt": "2026-03-11T03:25:17.242Z",
   "totalBills": 9,
   "billsByCategory": {
     "市長提出議案": 9
@@ -31,8 +31,8 @@
     "財政",
     "条例",
     "産業・観光",
-    "都市基盤",
-    "人事・組織"
+    "人事・組織",
+    "都市基盤"
   ],
   "questions": []
 }

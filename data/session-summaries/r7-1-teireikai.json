@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-1-teireikai",
   "sessionName": "令和7年第1回定例会",
-  "generatedAt": "2026-03-10T02:24:11.826Z",
+  "generatedAt": "2026-03-11T03:25:17.248Z",
   "totalBills": 7,
   "billsByCategory": {
     "請願": 7
@@ -16,8 +16,8 @@
   "topThemes": [
     "福祉・医療",
     "防災・安全",
-    "都市基盤",
     "財政",
+    "都市基盤",
     "環境"
   ],
   "questions": [

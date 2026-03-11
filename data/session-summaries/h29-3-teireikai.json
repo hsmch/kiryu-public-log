@@ -1,7 +1,7 @@
 {
   "sessionId": "h29-3-teireikai",
   "sessionName": "平成29年第3回定例会",
-  "generatedAt": "2026-03-11T02:45:20.137Z",
+  "generatedAt": "2026-03-11T03:25:17.225Z",
   "totalBills": 15,
   "billsByCategory": {
     "市長提出議案": 9,
@@ -18,8 +18,8 @@
   "topThemes": [
     "財政",
     "教育",
-    "都市基盤",
     "その他",
+    "都市基盤",
     "産業・観光"
   ],
   "questions": [

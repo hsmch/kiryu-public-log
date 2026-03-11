@@ -1,7 +1,7 @@
 {
   "sessionId": "h28-3-teireikai",
   "sessionName": "平成28年第3回定例会",
-  "generatedAt": "2026-03-11T02:45:20.133Z",
+  "generatedAt": "2026-03-11T03:25:17.223Z",
   "totalBills": 13,
   "billsByCategory": {
     "市長提出議案": 9,
@@ -18,8 +18,8 @@
   "topThemes": [
     "財政",
     "教育",
-    "福祉・医療",
     "産業・観光",
+    "福祉・医療",
     "都市基盤"
   ],
   "questions": [

@@ -225,7 +225,7 @@ function generateSummary(
     }
   }
   const topThemes = [...tagCounts.entries()]
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 5)
     .map(([tag]) => tag);
 

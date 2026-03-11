@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-2-teireikai",
   "sessionName": "令和7年第2回定例会",
-  "generatedAt": "2026-03-10T02:24:11.827Z",
+  "generatedAt": "2026-03-11T03:25:17.249Z",
   "totalBills": 19,
   "billsByCategory": {
     "市長提出議案": 14,
@@ -18,9 +18,9 @@
   "topThemes": [
     "財政",
     "都市基盤",
-    "防災・安全",
     "教育",
-    "福祉・医療"
+    "福祉・医療",
+    "防災・安全"
   ],
   "questions": [
     {
