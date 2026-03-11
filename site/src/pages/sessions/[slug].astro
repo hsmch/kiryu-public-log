@@ -177,6 +177,12 @@ const hasVotingSummary = voting && voting.records.length > 0;
       </div>
     )}
 
+    {!hasVotingSummary && session.bills.length > 0 && (
+      <p class="mt-4 text-sm text-gray-400">
+        この会期の議員別賛否記録は市サイトで公開されていないため、表示できません。
+      </p>
+    )}
+
     <p class="mt-4 text-sm text-gray-600">
       合計 <span class="font-semibold">{session.bills.length}</span> 件
     </p>
