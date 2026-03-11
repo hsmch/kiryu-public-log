@@ -1,7 +1,7 @@
 {
   "sessionId": "h28-2-teireikai",
   "sessionName": "平成28年第2回定例会",
-  "generatedAt": "2026-03-10T02:24:11.783Z",
+  "generatedAt": "2026-03-11T02:45:20.132Z",
   "totalBills": 12,
   "billsByCategory": {
     "市長提出議案": 8,
@@ -12,7 +12,7 @@
     "可決等": 11,
     "継続審査": 1
   },
-  "unanimousCount": 11,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

@@ -206,12 +206,16 @@ function generateSummary(
 
   const splitCount = splitBills.length;
 
-  // 全会一致の算出: sessions の採決済み議案のうち、賛否分裂でなかったもの
-  const votedBillCount = bills.filter((b) => {
-    const cls = classifyResult(b.result);
-    return cls === "可決等" || cls === "否決等";
-  }).length;
-  const unanimousCount = Math.max(0, votedBillCount - splitCount);
+  // 全会一致の算出: 投票データがある場合のみ算出する。
+  // voting=null のときは splitCount=0 だが「全会一致」とは言えないため 0 とする。
+  let unanimousCount = 0;
+  if (voting && voting.records.length > 0) {
+    const votedBillCount = bills.filter((b) => {
+      const cls = classifyResult(b.result);
+      return cls === "可決等" || cls === "否決等";
+    }).length;
+    unanimousCount = Math.max(0, votedBillCount - splitCount);
+  }
 
   // --- 主要テーマ（タグ頻度分析） ---
   const tagCounts = new Map<string, number>();

@@ -1,7 +1,7 @@
 {
   "sessionId": "h27-1-rinjikai",
   "sessionName": "平成27年第1回臨時会",
-  "generatedAt": "2026-03-10T02:24:11.776Z",
+  "generatedAt": "2026-03-11T02:45:20.126Z",
   "totalBills": 6,
   "billsByCategory": {
     "市長提出議案": 5,
@@ -10,7 +10,7 @@
   "results": {
     "可決等": 6
   },
-  "unanimousCount": 6,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

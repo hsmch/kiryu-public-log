@@ -1,7 +1,7 @@
 {
   "sessionId": "h24-4-teireikai",
   "sessionName": "平成24年第4回定例会",
-  "generatedAt": "2026-03-10T02:24:11.771Z",
+  "generatedAt": "2026-03-11T02:45:20.121Z",
   "totalBills": 12,
   "billsByCategory": {
     "委員会・議員提出議案": 5,
@@ -11,7 +11,7 @@
     "可決等": 11,
     "継続審査": 1
   },
-  "unanimousCount": 11,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

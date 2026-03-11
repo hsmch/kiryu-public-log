@@ -1,7 +1,7 @@
 {
   "sessionId": "h29-1-rinjikai",
   "sessionName": "平成29年第1回臨時会",
-  "generatedAt": "2026-03-10T02:24:11.785Z",
+  "generatedAt": "2026-03-11T02:45:20.134Z",
   "totalBills": 6,
   "billsByCategory": {
     "市長提出議案": 4,
@@ -11,7 +11,7 @@
     "可決等": 4,
     "その他": 2
   },
-  "unanimousCount": 4,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

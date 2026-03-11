@@ -1,7 +1,7 @@
 {
   "sessionId": "h29-2-teireikai",
   "sessionName": "平成29年第2回定例会",
-  "generatedAt": "2026-03-10T02:24:11.788Z",
+  "generatedAt": "2026-03-11T02:45:20.137Z",
   "totalBills": 22,
   "billsByCategory": {
     "市長提出議案": 20,
@@ -10,7 +10,7 @@
   "results": {
     "可決等": 22
   },
-  "unanimousCount": 22,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

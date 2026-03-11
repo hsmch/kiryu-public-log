@@ -1,7 +1,7 @@
 {
   "sessionId": "r3-3-teireikai",
   "sessionName": "令和3年第3回定例会",
-  "generatedAt": "2026-03-10T02:24:11.809Z",
+  "generatedAt": "2026-03-11T02:45:20.157Z",
   "totalBills": 22,
   "billsByCategory": {
     "市長提出議案": 21,
@@ -11,7 +11,7 @@
     "可決等": 20,
     "その他": 2
   },
-  "unanimousCount": 20,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

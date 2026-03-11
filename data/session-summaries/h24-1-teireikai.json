@@ -1,7 +1,7 @@
 {
   "sessionId": "h24-1-teireikai",
   "sessionName": "平成24年第1回定例会",
-  "generatedAt": "2026-03-10T02:24:11.768Z",
+  "generatedAt": "2026-03-11T02:45:20.117Z",
   "totalBills": 55,
   "billsByCategory": {
     "市長提出議案": 44,
@@ -14,7 +14,7 @@
     "否決等": 1,
     "継続審査": 4
   },
-  "unanimousCount": 49,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [

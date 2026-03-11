@@ -1,7 +1,7 @@
 {
   "sessionId": "h28-4-teireikai",
   "sessionName": "平成28年第4回定例会",
-  "generatedAt": "2026-03-10T02:24:11.785Z",
+  "generatedAt": "2026-03-11T02:45:20.134Z",
   "totalBills": 29,
   "billsByCategory": {
     "市長提出議案": 26,
@@ -12,7 +12,7 @@
     "可決等": 25,
     "その他": 4
   },
-  "unanimousCount": 25,
+  "unanimousCount": 0,
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [
