@@ -91,7 +91,7 @@ const featuredAnnouncements = getFeaturedAnnouncements();
     {featuredAnnouncements.length > 0 && (
       <div class="mt-8 space-y-2">
         {featuredAnnouncements.map((a) => (
-          <a href="/updates" class="block rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 transition hover:border-blue-300 hover:shadow-sm">
+          <a href={a.url ?? "/updates"} class="block rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 transition hover:border-blue-300 hover:shadow-sm">
             <div class="flex items-start gap-3">
               <span class="shrink-0 mt-0.5 rounded bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-800">お知らせ</span>
               <div class="min-w-0">

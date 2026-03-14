@@ -85,11 +85,14 @@ export function getUpdates(): UpdatesData | null {
 // --- Announcements ---
 
 export interface AnnouncementEntry {
+  id: string;
   date: string;
   title: string;
   content: string;
+  url?: string;
   type: "announcement" | "update";
   featured: boolean;
+  expiresAt?: string;
 }
 
 export interface AnnouncementsData {
@@ -108,7 +111,10 @@ export function getAnnouncements(): AnnouncementsData | null {
 export function getFeaturedAnnouncements(): AnnouncementEntry[] {
   const data = getAnnouncements();
   if (!data) return [];
-  return data.entries.filter((e) => e.featured);
+  const today = new Date().toISOString().slice(0, 10);
+  return data.entries.filter(
+    (e) => e.featured && (!e.expiresAt || e.expiresAt > today),
+  );
 }
 
 // --- Finance ---

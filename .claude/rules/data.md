@@ -15,6 +15,7 @@ data/
 ├── schedule.json           # 議会日程
 ├── tags.json               # AI タグ分類結果（method: claude-api / rule-based）
 ├── voting-analysis.json    # 投票パターン分析（合意マトリクス）
+├── announcements.json     # サイト更新情報・お知らせ（手動 + パイプライン自動生成）
 ├── sessions/{slug}.json    # 定例会・臨時会の議案一覧（68 件）
 ├── voting/{slug}.json      # 議員別投票記録（46 件）
 ├── questions/{slug}.json   # 一般質問（43 件）

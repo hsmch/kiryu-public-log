@@ -1,11 +1,14 @@
 {
   "entries": [
     {
+      "id": "2026-03-14-updates-page",
       "date": "2026-03-14",
       "title": "更新情報・お知らせページを追加しました",
       "content": "サイトの更新情報やデータ修正のお知らせを掲載するページを新設しました。",
+      "url": "/updates",
       "type": "announcement",
-      "featured": true
+      "featured": true,
+      "expiresAt": "2026-04-14"
     }
   ]
 }
