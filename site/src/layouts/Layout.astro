@@ -119,18 +119,32 @@ const canonicalUrl = `${SITE_URL}${path}`;
       </nav>
     </header>
     <script>
-      const toggle = document.getElementById('menu-toggle')!;
-      const menu = document.getElementById('mobile-menu')!;
-      const iconOpen = document.getElementById('menu-icon-open')!;
-      const iconClose = document.getElementById('menu-icon-close')!;
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        toggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
-        menu.classList.toggle('is-open');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
-      });
+      function initMobileMenu() {
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        if (!toggle || !menu || !iconOpen || !iconClose) return;
+        // Reset state after View Transition swap
+        menu.classList.remove('is-open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'メニューを開く');
+        // Use clone to avoid duplicate listeners
+        const newToggle = toggle.cloneNode(true) as HTMLElement;
+        toggle.replaceWith(newToggle);
+        newToggle.addEventListener('click', () => {
+          const expanded = newToggle.getAttribute('aria-expanded') === 'true';
+          newToggle.setAttribute('aria-expanded', String(!expanded));
+          newToggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
+          menu.classList.toggle('is-open');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+      initMobileMenu();
+      document.addEventListener('astro:after-swap', initMobileMenu);
     </script>
 
     <main data-pagefind-body transition:animate="fade">
