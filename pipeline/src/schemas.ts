@@ -289,6 +289,25 @@ export const sessionSummarySchema = z.object({
 
 export type SessionSummaryData = z.infer<typeof sessionSummarySchema>;
 
+// --- announcements.json ---
+
+const announcementEntrySchema = z.object({
+  id: z.string().min(1),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  title: z.string().min(1),
+  content: z.string(),
+  url: z.string().optional(),
+  type: z.enum(["announcement", "update"]),
+  featured: z.boolean(),
+  expiresAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+}).passthrough();
+
+export const announcementsSchema = z.object({
+  entries: z.array(announcementEntrySchema),
+}).passthrough();
+
+export type AnnouncementsData = z.infer<typeof announcementsSchema>;
+
 // --- minutes/*.json ---
 
 export const minuteSpeechSchema = z.object({
