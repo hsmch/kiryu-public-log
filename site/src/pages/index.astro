@@ -89,8 +89,7 @@ const recentSplitBills = getRecentSplitBills(5);
           localStorage.setItem('kpl-visited', '1');
         });
       }
-      initOnboarding();
-      document.addEventListener('astro:after-swap', initOnboarding);
+      document.addEventListener('astro:page-load', initOnboarding);
     </script>
 
     <!-- 問いかけ型ナビゲーション -->
@@ -173,8 +172,12 @@ const recentSplitBills = getRecentSplitBills(5);
     </div>
 
     <script>
+      let countUpObserver: IntersectionObserver | null = null;
       function initCountUp() {
+        countUpObserver?.disconnect();
+        countUpObserver = null;
         const countEls = document.querySelectorAll('.count-up');
+        if (countEls.length === 0) return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           countEls.forEach((el) => {
             const target = parseInt((el as HTMLElement).dataset.target ?? '0', 10);
@@ -182,7 +185,7 @@ const recentSplitBills = getRecentSplitBills(5);
           });
           return;
         }
-        const countObserver = new IntersectionObserver((entries) => {
+        countUpObserver = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const el = entry.target as HTMLElement;
@@ -196,14 +199,13 @@ const recentSplitBills = getRecentSplitBills(5);
                 if (progress < 1) requestAnimationFrame(tick);
               }
               requestAnimationFrame(tick);
-              countObserver.unobserve(el);
+              countUpObserver?.unobserve(el);
             }
           });
         }, { threshold: 0.5 });
-        countEls.forEach((el) => countObserver.observe(el));
+        countEls.forEach((el) => countUpObserver!.observe(el));
       }
-      initCountUp();
-      document.addEventListener('astro:after-swap', initCountUp);
+      document.addEventListener('astro:page-load', initCountUp);
     </script>
 
     <!-- 分析への導線 -->

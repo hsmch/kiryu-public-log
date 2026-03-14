@@ -143,8 +143,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
           iconClose.classList.toggle('hidden');
         });
       }
-      initMobileMenu();
-      document.addEventListener('astro:after-swap', initMobileMenu);
+      document.addEventListener('astro:page-load', initMobileMenu);
     </script>
 
     <main data-pagefind-body transition:animate="fade">
@@ -152,30 +151,32 @@ const canonicalUrl = `${SITE_URL}${path}`;
     </main>
 
     <script>
+      let scrollRevealObserver: IntersectionObserver | null = null;
       function initScrollReveal() {
+        scrollRevealObserver?.disconnect();
+        scrollRevealObserver = null;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
             el.classList.add('is-visible');
           });
           return;
         }
-        const observer = new IntersectionObserver(
+        scrollRevealObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                scrollRevealObserver?.unobserve(entry.target);
               }
             });
           },
           { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
         );
         document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
-          observer.observe(el);
+          scrollRevealObserver!.observe(el);
         });
       }
-      initScrollReveal();
-      document.addEventListener('astro:after-swap', initScrollReveal);
+      document.addEventListener('astro:page-load', initScrollReveal);
     </script>
 
     <footer class="mt-auto border-t border-gray-200 bg-white">
