@@ -9,190 +9,142 @@
  * 手動で追加したエントリ（announcement / featured: true）はそのまま保持。
  */
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execSync } from "node:child_process";
+import type { AnnouncementsData } from "./schemas";
 import { announcementsSchema } from "./schemas";
 
 const DATA_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "../../data");
 const ANNOUNCEMENTS_PATH = resolve(DATA_DIR, "announcements.json");
+const ROOT_DIR = resolve(DATA_DIR, "..");
 
-interface AnnouncementEntry {
-  id: string;
-  date: string;
-  title: string;
-  content: string;
-  url?: string;
-  type: "announcement" | "update";
-  featured: boolean;
-  expiresAt?: string;
-}
+type AnnouncementEntry = AnnouncementsData["entries"][number];
 
 // --- Helpers ---
 
-function today(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
-/**
- * セッションスラグから表示用セッション名を取得する。
- * sessions/{slug}.json の session フィールドを読む。
- */
-function getSessionName(slug: string): string {
+function getSessionName(slug: string, cache: Map<string, string>): string {
+  const cached = cache.get(slug);
+  if (cached) return cached;
   try {
     const raw = readFileSync(resolve(DATA_DIR, "sessions", `${slug}.json`), "utf-8");
-    const data = JSON.parse(raw);
-    return data.session ?? slug;
+    const name = (JSON.parse(raw).session as string) ?? slug;
+    cache.set(slug, name);
+    return name;
   } catch {
+    cache.set(slug, slug);
     return slug;
   }
 }
 
 /**
- * git diff で新規追加されたファイルを検出する。
- * CI 環境では HEAD と前のコミットを比較。
- * ファイルが git 管理下にない場合（初回）は空配列を返す。
+ * git diff で変更されたファイルを検出する。
+ * filter: A=新規追加, M=変更, AM=両方
  */
-function getNewFiles(subdir: string): string[] {
+function getDiffFiles(path: string, filter: string): string[] {
   try {
     const output = execSync(
-      `git diff --name-only --diff-filter=A HEAD -- "data/${subdir}/"`,
-      { encoding: "utf-8", cwd: resolve(DATA_DIR, "..") },
+      `git diff --name-only --diff-filter=${filter} HEAD -- "data/${path}"`,
+      { encoding: "utf-8", cwd: ROOT_DIR },
     ).trim();
     if (!output) return [];
-    return output.split("\n").map((f) => f.replace(`data/${subdir}/`, "").replace(".json", ""));
+    return output.split("\n");
   } catch {
     return [];
   }
 }
 
-/**
- * git diff で内容が変更されたファイルを検出する（新規追加は除く）。
- */
-function getModifiedFiles(subdir: string): string[] {
-  try {
-    const output = execSync(
-      `git diff --name-only --diff-filter=M HEAD -- "data/${subdir}/"`,
-      { encoding: "utf-8", cwd: resolve(DATA_DIR, "..") },
-    ).trim();
-    if (!output) return [];
-    return output.split("\n").map((f) => f.replace(`data/${subdir}/`, "").replace(".json", ""));
-  } catch {
-    return [];
-  }
+function extractSlug(filePath: string, subdir: string): string {
+  return filePath.replace(`data/${subdir}/`, "").replace(".json", "");
 }
 
-/**
- * git diff でルートレベルの変更ファイルを検出する。
- */
-function getChangedRootFiles(): string[] {
-  try {
-    const output = execSync(
-      `git diff --name-only HEAD -- "data/*.json"`,
-      { encoding: "utf-8", cwd: resolve(DATA_DIR, "..") },
-    ).trim();
-    if (!output) return [];
-    return output.split("\n").map((f) => f.replace("data/", "").replace(".json", ""));
-  } catch {
-    return [];
-  }
+// --- Session-based announcement config (table-driven) ---
+
+interface SessionAnnouncementConfig {
+  subdir: string;
+  idPrefix: string;
+  titleTemplate: (name: string) => string;
+  contentTemplate: (name: string) => string;
 }
 
-// --- Announcement generators ---
+const SESSION_CONFIGS: SessionAnnouncementConfig[] = [
+  {
+    subdir: "sessions",
+    idPrefix: "auto-session",
+    titleTemplate: (n) => `${n}の議案データを追加しました`,
+    contentTemplate: (n) => `${n}の議案一覧を公開しました。`,
+  },
+  {
+    subdir: "voting",
+    idPrefix: "auto-voting",
+    titleTemplate: (n) => `${n}の投票記録を追加しました`,
+    contentTemplate: (n) => `${n}の議員別投票記録を公開しました。`,
+  },
+  {
+    subdir: "questions",
+    idPrefix: "auto-questions",
+    titleTemplate: (n) => `${n}の一般質問を追加しました`,
+    contentTemplate: (n) => `${n}の一般質問データを公開しました。`,
+  },
+];
 
-function generateSessionAnnouncements(): AnnouncementEntry[] {
+const FINANCE_LABELS: Record<string, string> = {
+  budget: "予算",
+  "budget-history": "予算経年比較",
+  funds: "基金残高",
+  benchmarks: "財政指標",
+  "budget-annotations": "予算解説",
+};
+
+// --- Generators ---
+
+function generateSessionAnnouncements(
+  dateStr: string,
+  nameCache: Map<string, string>,
+): AnnouncementEntry[] {
   const entries: AnnouncementEntry[] = [];
-  const newSessions = getNewFiles("sessions");
 
-  for (const slug of newSessions) {
-    const name = getSessionName(slug);
-    entries.push({
-      id: `auto-session-${slug}`,
-      date: today(),
-      title: `${name}の議案データを追加しました`,
-      content: `${name}の議案一覧を公開しました。`,
-      url: `/sessions/${slug}`,
+  for (const config of SESSION_CONFIGS) {
+    const newFiles = getDiffFiles(`${config.subdir}/`, "A");
+    for (const file of newFiles) {
+      const slug = extractSlug(file, config.subdir);
+      const name = getSessionName(slug, nameCache);
+      entries.push({
+        id: `${config.idPrefix}-${slug}`,
+        date: dateStr,
+        title: config.titleTemplate(name),
+        content: config.contentTemplate(name),
+        url: `/sessions/${slug}`,
+        type: "update",
+        featured: false,
+      });
+    }
+  }
+
+  return entries;
+}
+
+function generateFinanceAnnouncements(dateStr: string): AnnouncementEntry[] {
+  const changed = getDiffFiles("finance/", "AM").map((f) =>
+    extractSlug(f, "finance"),
+  );
+
+  if (changed.length === 0) return [];
+
+  const labels = changed.map((f) => FINANCE_LABELS[f] ?? f).join("・");
+
+  return [
+    {
+      id: `auto-finance-${dateStr}`,
+      date: dateStr,
+      title: `財政データ（${labels}）を更新しました`,
+      content: "財政ダッシュボードのデータを最新の情報に更新しました。",
+      url: "/finance",
       type: "update",
       featured: false,
-    });
-  }
-
-  return entries;
-}
-
-function generateVotingAnnouncements(): AnnouncementEntry[] {
-  const entries: AnnouncementEntry[] = [];
-  const newVoting = getNewFiles("voting");
-
-  for (const slug of newVoting) {
-    const name = getSessionName(slug);
-    entries.push({
-      id: `auto-voting-${slug}`,
-      date: today(),
-      title: `${name}の投票記録を追加しました`,
-      content: `${name}の議員別投票記録を公開しました。`,
-      url: `/sessions/${slug}`,
-      type: "update",
-      featured: false,
-    });
-  }
-
-  return entries;
-}
-
-function generateQuestionAnnouncements(): AnnouncementEntry[] {
-  const entries: AnnouncementEntry[] = [];
-  const newQuestions = getNewFiles("questions");
-
-  for (const slug of newQuestions) {
-    const name = getSessionName(slug);
-    entries.push({
-      id: `auto-questions-${slug}`,
-      date: today(),
-      title: `${name}の一般質問を追加しました`,
-      content: `${name}の一般質問データを公開しました。`,
-      url: `/sessions/${slug}`,
-      type: "update",
-      featured: false,
-    });
-  }
-
-  return entries;
-}
-
-function generateFinanceAnnouncements(): AnnouncementEntry[] {
-  const entries: AnnouncementEntry[] = [];
-  const newFinance = getNewFiles("finance");
-  const modifiedFinance = getModifiedFiles("finance");
-  const changed = [...new Set([...newFinance, ...modifiedFinance])];
-
-  if (changed.length === 0) return entries;
-
-  // 財政データの変更をまとめて1件のお知らせにする
-  const fileLabels: Record<string, string> = {
-    budget: "予算",
-    "budget-history": "予算経年比較",
-    funds: "基金残高",
-    benchmarks: "財政指標",
-    "budget-annotations": "予算解説",
-  };
-
-  const labels = changed
-    .map((f) => fileLabels[f] ?? f)
-    .join("・");
-
-  entries.push({
-    id: `auto-finance-${today()}`,
-    date: today(),
-    title: `財政データ（${labels}）を更新しました`,
-    content: "財政ダッシュボードのデータを最新の情報に更新しました。",
-    url: "/finance",
-    type: "update",
-    featured: false,
-  });
-
-  return entries;
+    },
+  ];
 }
 
 // --- Main ---
@@ -200,24 +152,23 @@ function generateFinanceAnnouncements(): AnnouncementEntry[] {
 function main() {
   console.log("=== お知らせ自動生成 ===");
 
+  const dateStr = new Date().toISOString().slice(0, 10);
+  const nameCache = new Map<string, string>();
+
   // 既存のお知らせを読み込み
-  let existing: { entries: AnnouncementEntry[] } = { entries: [] };
-  if (existsSync(ANNOUNCEMENTS_PATH)) {
-    try {
-      existing = JSON.parse(readFileSync(ANNOUNCEMENTS_PATH, "utf-8"));
-    } catch {
-      console.warn("  [warn] 既存の announcements.json の読み込みに失敗。新規作成します。");
-    }
+  let existing: AnnouncementsData = { entries: [] };
+  try {
+    existing = JSON.parse(readFileSync(ANNOUNCEMENTS_PATH, "utf-8"));
+  } catch {
+    console.warn("  [warn] 既存の announcements.json の読み込みに失敗。新規作成します。");
   }
 
   const existingIds = new Set(existing.entries.map((e) => e.id));
 
   // 各種お知らせを生成
   const generated = [
-    ...generateSessionAnnouncements(),
-    ...generateVotingAnnouncements(),
-    ...generateQuestionAnnouncements(),
-    ...generateFinanceAnnouncements(),
+    ...generateSessionAnnouncements(dateStr, nameCache),
+    ...generateFinanceAnnouncements(dateStr),
   ];
 
   // 重複除外（id ベース）

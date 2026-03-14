@@ -1,22 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getAnnouncements } from '../lib/data';
+import { getAnnouncements, type AnnouncementEntry } from '../lib/data';
 
 export const prerender = true;
 
 const data = getAnnouncements();
 const entries = data?.entries ?? [];
 
-// タイプ別のラベルとスタイル
-function typeLabel(type: string) {
-  return type === 'announcement' ? 'お知らせ' : '更新';
-}
-
-function typeStyle(type: string) {
-  return type === 'announcement'
-    ? 'bg-blue-100 text-blue-800'
-    : 'bg-gray-100 text-gray-600';
-}
+const TYPE_CONFIG: Record<AnnouncementEntry["type"], { label: string; style: string }> = {
+  announcement: { label: 'お知らせ', style: 'bg-blue-100 text-blue-800' },
+  update: { label: '更新', style: 'bg-gray-100 text-gray-600' },
+};
 ---
 
 <Layout title="更新情報 - Kiryu Public Log" description="Kiryu Public Log の更新情報・お知らせ一覧" path="/updates">
@@ -32,8 +26,8 @@ function typeStyle(type: string) {
           <div class={`rounded-lg border bg-white px-5 py-4 ${entry.featured ? 'border-blue-200' : 'border-gray-200'}`}>
             <div class="flex items-center gap-3">
               <span class="shrink-0 text-sm text-gray-400">{entry.date}</span>
-              <span class={`shrink-0 rounded px-1.5 py-0.5 text-xs font-medium ${typeStyle(entry.type)}`}>
-                {typeLabel(entry.type)}
+              <span class={`shrink-0 rounded px-1.5 py-0.5 text-xs font-medium ${TYPE_CONFIG[entry.type].style}`}>
+                {TYPE_CONFIG[entry.type].label}
               </span>
               {entry.featured && (
                 <span class="shrink-0 rounded px-1.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-800">注目</span>
