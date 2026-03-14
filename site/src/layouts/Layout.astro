@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -46,6 +47,9 @@ const canonicalUrl = `${SITE_URL}${path}`;
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="Kiryu Public Log" href="/rss.xml" />
+
+    <!-- Page transitions -->
+    <ClientRouter />
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <header class="border-b border-gray-200 bg-white">
@@ -54,14 +58,14 @@ const canonicalUrl = `${SITE_URL}${path}`;
           Kiryu Public Log
         </a>
         <nav class="hidden md:flex gap-4 text-sm">
-          <a href="/council" class="text-gray-600 hover:text-gray-900">議員一覧</a>
-          <a href="/sessions" class="text-gray-600 hover:text-gray-900">議案・採決</a>
-          <a href="/analysis" class="text-gray-600 hover:text-gray-900">投票分析</a>
-          <a href="/finance" class="text-gray-600 hover:text-gray-900">まちの数字</a>
-          <a href="/topics" class="text-gray-600 hover:text-gray-900">テーマ別</a>
-          <a href="/search" class="text-gray-600 hover:text-gray-900">検索</a>
-          <a href="/guide" class="text-gray-600 hover:text-gray-900">ガイド</a>
-          <a href="/about" class="text-gray-600 hover:text-gray-900">about</a>
+          <a href="/council" class="nav-link text-gray-600 hover:text-gray-900">議員一覧</a>
+          <a href="/sessions" class="nav-link text-gray-600 hover:text-gray-900">議案・採決</a>
+          <a href="/analysis" class="nav-link text-gray-600 hover:text-gray-900">投票分析</a>
+          <a href="/finance" class="nav-link text-gray-600 hover:text-gray-900">まちの数字</a>
+          <a href="/topics" class="nav-link text-gray-600 hover:text-gray-900">テーマ別</a>
+          <a href="/search" class="nav-link text-gray-600 hover:text-gray-900">検索</a>
+          <a href="/guide" class="nav-link text-gray-600 hover:text-gray-900">ガイド</a>
+          <a href="/about" class="nav-link text-gray-600 hover:text-gray-900">about</a>
         </nav>
         <button
           id="menu-toggle"
@@ -77,7 +81,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
           </svg>
         </button>
       </div>
-      <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
+      <nav id="mobile-menu" class="mobile-menu-enter md:hidden border-t border-gray-100">
         <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-1 text-sm">
           <a href="/council" class="text-gray-600 hover:text-gray-900 py-2">
             <span class="font-medium">議員一覧</span>
@@ -115,23 +119,65 @@ const canonicalUrl = `${SITE_URL}${path}`;
       </nav>
     </header>
     <script>
-      const toggle = document.getElementById('menu-toggle')!;
-      const menu = document.getElementById('mobile-menu')!;
-      const iconOpen = document.getElementById('menu-icon-open')!;
-      const iconClose = document.getElementById('menu-icon-close')!;
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        toggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
-        menu.classList.toggle('hidden');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
-      });
+      function initMobileMenu() {
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        if (!toggle || !menu || !iconOpen || !iconClose) return;
+        // Reset state after View Transition swap
+        menu.classList.remove('is-open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'メニューを開く');
+        // Use clone to avoid duplicate listeners
+        const newToggle = toggle.cloneNode(true) as HTMLElement;
+        toggle.replaceWith(newToggle);
+        newToggle.addEventListener('click', () => {
+          const expanded = newToggle.getAttribute('aria-expanded') === 'true';
+          newToggle.setAttribute('aria-expanded', String(!expanded));
+          newToggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
+          menu.classList.toggle('is-open');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+      document.addEventListener('astro:page-load', initMobileMenu);
     </script>
 
-    <main data-pagefind-body>
+    <main data-pagefind-body transition:animate="fade">
       <slot />
     </main>
+
+    <script>
+      let scrollRevealObserver: IntersectionObserver | null = null;
+      function initScrollReveal() {
+        scrollRevealObserver?.disconnect();
+        scrollRevealObserver = null;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
+            el.classList.add('is-visible');
+          });
+          return;
+        }
+        scrollRevealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                scrollRevealObserver?.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+        document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
+          scrollRevealObserver!.observe(el);
+        });
+      }
+      document.addEventListener('astro:page-load', initScrollReveal);
+    </script>
 
     <footer class="mt-auto border-t border-gray-200 bg-white">
       <div class="mx-auto max-w-4xl px-4 py-6 text-center text-sm text-gray-500">
