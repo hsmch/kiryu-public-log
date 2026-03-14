@@ -1,7 +1,7 @@
 {
   "sessionId": "h26-4-teireikai",
   "sessionName": "平成26年第4回定例会",
-  "generatedAt": "2026-03-11T02:45:20.126Z",
+  "generatedAt": "2026-03-14T21:20:22.973Z",
   "totalBills": 16,
   "billsByCategory": {
     "市長提出議案": 15,
@@ -18,8 +18,8 @@
     "条例",
     "財政",
     "人事・組織",
-    "都市基盤",
-    "福祉・医療"
+    "福祉・医療",
+    "都市基盤"
   ],
   "questions": []
 }

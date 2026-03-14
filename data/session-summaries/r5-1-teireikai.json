@@ -1,7 +1,7 @@
 {
   "sessionId": "r5-1-teireikai",
   "sessionName": "令和5年第1回定例会",
-  "generatedAt": "2026-03-11T03:25:17.243Z",
+  "generatedAt": "2026-03-14T21:20:23.008Z",
   "totalBills": 9,
   "billsByCategory": {
     "委員会・議員提出議案": 2,
@@ -17,8 +17,8 @@
   "topThemes": [
     "都市基盤",
     "福祉・医療",
+    "子育て",
     "環境",
-    "財政",
     "産業・観光"
   ],
   "questions": [

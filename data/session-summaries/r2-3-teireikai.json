@@ -1,7 +1,7 @@
 {
   "sessionId": "r2-3-teireikai",
   "sessionName": "令和2年第3回定例会",
-  "generatedAt": "2026-03-11T03:25:17.234Z",
+  "generatedAt": "2026-03-14T21:20:22.994Z",
   "totalBills": 23,
   "billsByCategory": {
     "市長提出議案": 15,
@@ -41,8 +41,8 @@
     "財政",
     "福祉・医療",
     "まちづくり",
-    "産業・観光",
-    "条例"
+    "条例",
+    "産業・観光"
   ],
   "questions": [
     {

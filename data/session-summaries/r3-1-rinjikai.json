@@ -1,7 +1,7 @@
 {
   "sessionId": "r3-1-rinjikai",
   "sessionName": "令和3年第1回臨時会",
-  "generatedAt": "2026-03-11T03:25:17.235Z",
+  "generatedAt": "2026-03-14T21:20:22.995Z",
   "totalBills": 5,
   "billsByCategory": {
     "市長提出議案": 5
@@ -16,8 +16,8 @@
     "財政",
     "条例",
     "デジタル化",
-    "教育",
-    "人事・組織"
+    "人事・組織",
+    "教育"
   ],
   "questions": []
 }

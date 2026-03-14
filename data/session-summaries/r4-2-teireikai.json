@@ -1,7 +1,7 @@
 {
   "sessionId": "r4-2-teireikai",
   "sessionName": "令和4年第2回定例会",
-  "generatedAt": "2026-03-11T03:25:17.240Z",
+  "generatedAt": "2026-03-14T21:20:23.002Z",
   "totalBills": 16,
   "billsByCategory": {
     "市長提出議案": 12,
@@ -27,7 +27,7 @@
     "財政",
     "防災・安全",
     "都市基盤",
-    "産業・観光"
+    "条例"
   ],
   "questions": [
     {
