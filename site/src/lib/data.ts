@@ -82,6 +82,35 @@ export function getUpdates(): UpdatesData | null {
   }
 }
 
+// --- Announcements ---
+
+export interface AnnouncementEntry {
+  date: string;
+  title: string;
+  content: string;
+  type: "announcement" | "update";
+  featured: boolean;
+}
+
+export interface AnnouncementsData {
+  entries: AnnouncementEntry[];
+}
+
+export function getAnnouncements(): AnnouncementsData | null {
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "announcements.json"), "utf-8");
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+export function getFeaturedAnnouncements(): AnnouncementEntry[] {
+  const data = getAnnouncements();
+  if (!data) return [];
+  return data.entries.filter((e) => e.featured);
+}
+
 // --- Finance ---
 
 export interface Fund {

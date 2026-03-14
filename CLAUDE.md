@@ -61,6 +61,7 @@ hsmch/kiryu-public-log/
 | `/finance` | 予算・財政ダッシュボード |
 | `/analysis` | 投票パターン分析（ヒートマップ） |
 | `/topics/[tag]` | テーマ別タイムライン |
+| `/updates` | 更新情報・お知らせ一覧 |
 | `/search` | サイト内検索（pagefind） |
 | `/about` | サイト趣旨・運営者情報 |
 | `/guide` | ガイド |
