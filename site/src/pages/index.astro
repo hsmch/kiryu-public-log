@@ -38,7 +38,7 @@ const recentSplitBills = getRecentSplitBills(5);
 
 <Layout path="/">
   <section class="mx-auto max-w-4xl px-4 py-16 sm:py-24">
-    <div class="text-center">
+    <div class="text-center animate-fade-in">
       <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Kiryu Public Log
       </h1>
@@ -87,60 +87,60 @@ const recentSplitBills = getRecentSplitBills(5);
     </script>
 
     <!-- 問いかけ型ナビゲーション -->
-    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">税金は何に使われている？</p>
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
+      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">🤔</span>税金は何に使われている？</p>
         <p class="mt-1 text-sm text-gray-500">予算の内訳と市民1人あたりの金額</p>
       </a>
-      <a href="/sessions" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">最近の議会で何が決まった？</p>
+      <a href="/sessions" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">🏛️</span>最近の議会で何が決まった？</p>
         <p class="mt-1 text-sm text-gray-500">定例会ごとの議案と採決結果</p>
       </a>
-      <a href="/council" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">議員はどんな活動をしている？</p>
+      <a href="/council" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">🙋</span>議員はどんな活動をしている？</p>
         <p class="mt-1 text-sm text-gray-500">投票行動と一般質問の記録</p>
       </a>
-      <a href="/analysis" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">議会の投票パターンは？</p>
+      <a href="/analysis" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">🔍</span>議会の投票パターンは？</p>
         <p class="mt-1 text-sm text-gray-500">議員間の一致率と会派結束度</p>
       </a>
-      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">桐生市の人口や財政は？</p>
+      <a href="/finance" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">🌱</span>桐生市の人口や財政は？</p>
         <p class="mt-1 text-sm text-gray-500">人口推移と財政指標の変化</p>
       </a>
-      <a href="/topics" class="group rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
-        <p class="font-medium text-gray-900 group-hover:text-blue-700">どんなテーマが議論されている？</p>
+      <a href="/topics" class="group rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="font-medium text-gray-900 group-hover:text-blue-700"><span class="mr-1.5">💬</span>どんなテーマが議論されている？</p>
         <p class="mt-1 text-sm text-gray-500">議案・質問をテーマで横断整理</p>
       </a>
     </div>
 
     <!-- データで見る桐生市の今 -->
-    <div class="mt-10">
-      <h2 class="text-lg font-semibold text-gray-800">データで見る桐生市の今</h2>
+    <div class="mt-10 scroll-reveal">
+      <h2 class="text-lg font-semibold text-gray-800">📌 データで見る桐生市の今</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
         {popChangePercent && (
-          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
             <p class="text-sm text-gray-500">人口の変化</p>
             <p class="mt-1 text-base font-semibold text-gray-900">直近5年で約{Math.abs(Number(popChangePercent))}%減少</p>
             <p class="mt-1 text-xs text-gray-400">国勢調査（2015年→2020年）の比較</p>
           </a>
         )}
         {unanimousPercent && (
-          <a href="/analysis" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+          <a href="/analysis" class="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
             <p class="text-sm text-gray-500">議案の採決</p>
             <p class="mt-1 text-base font-semibold text-gray-900">約{unanimousPercent}%の議案が全会一致</p>
             <p class="mt-1 text-xs text-gray-400">{votingAnalysis!.meta.totalBills}件中{votingAnalysis!.meta.totalBills - votingAnalysis!.meta.splitBills}件</p>
           </a>
         )}
         {topTag && (
-          <a href={`/topics/${encodeURIComponent(topTag.tag)}`} class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+          <a href={`/topics/${encodeURIComponent(topTag.tag)}`} class="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
             <p class="text-sm text-gray-500">最多テーマ</p>
             <p class="mt-1 text-base font-semibold text-gray-900">「{topTag.tag}」が{topTag.count}件</p>
             <p class="mt-1 text-xs text-gray-400">議案・一般質問のAI分類による集計</p>
           </a>
         )}
         {perCapitaMan && (
-          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition hover:border-blue-300 hover:shadow-sm">
+          <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
             <p class="text-sm text-gray-500">市民1人あたり予算</p>
             <p class="mt-1 text-base font-semibold text-gray-900">年間約{perCapitaMan}万円</p>
             <p class="mt-1 text-xs text-gray-400">{budget!.fiscalYear}一般会計当初予算</p>
@@ -150,25 +150,59 @@ const recentSplitBills = getRecentSplitBills(5);
     </div>
 
     <!-- 数字サマリ -->
-    <div class="mt-12 grid gap-4 sm:grid-cols-3">
-      <a href="/council" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
-        <p class="text-3xl font-bold text-gray-900">{totalMembers}</p>
+    <div class="mt-12 grid gap-4 sm:grid-cols-3 scroll-reveal">
+      <a href="/council" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="text-3xl font-bold text-gray-900 count-up" data-target={totalMembers}>0</p>
         <p class="mt-1 text-sm text-gray-600">議員</p>
       </a>
-      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
-        <p class="text-3xl font-bold text-gray-900">{sessions.length}</p>
+      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="text-3xl font-bold text-gray-900 count-up" data-target={sessions.length}>0</p>
         <p class="mt-1 text-sm text-gray-600">定例会・臨時会</p>
       </a>
-      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition hover:border-blue-300 hover:shadow-sm">
-        <p class="text-3xl font-bold text-gray-900">{totalBills.toLocaleString()}</p>
+      <a href="/sessions" class="rounded-lg border border-gray-200 bg-white p-6 text-center transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
+        <p class="text-3xl font-bold text-gray-900 count-up" data-target={totalBills}>0</p>
         <p class="mt-1 text-sm text-gray-600">議案・請願</p>
       </a>
     </div>
 
+    <script>
+      function initCountUp() {
+        const countEls = document.querySelectorAll('.count-up');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          countEls.forEach((el) => {
+            const target = parseInt((el as HTMLElement).dataset.target ?? '0', 10);
+            el.textContent = target.toLocaleString();
+          });
+          return;
+        }
+        const countObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const target = parseInt(el.dataset.target ?? '0', 10);
+              const duration = 800;
+              const start = performance.now();
+              function tick(now: number) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target).toLocaleString();
+                if (progress < 1) requestAnimationFrame(tick);
+              }
+              requestAnimationFrame(tick);
+              countObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+        countEls.forEach((el) => countObserver.observe(el));
+      }
+      initCountUp();
+      document.addEventListener('astro:after-swap', initCountUp);
+    </script>
+
     <!-- 分析への導線 -->
     {votingAnalysis && (
-      <div class="mt-8">
-        <a href="/analysis" class="block rounded-lg border border-gray-200 bg-white px-6 py-4 transition hover:border-blue-300 hover:shadow-sm">
+      <div class="mt-8 scroll-reveal">
+        <a href="/analysis" class="block rounded-lg border border-gray-200 bg-white px-6 py-4 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5">
           <div class="flex items-center justify-between">
             <div>
               <p class="font-semibold text-gray-900">投票パターン分析</p>
@@ -184,14 +218,14 @@ const recentSplitBills = getRecentSplitBills(5);
 
     <!-- 賛否が分かれた議案 -->
     {recentSplitBills.length > 0 && (
-      <div class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">賛否が分かれた議案</h2>
+      <div class="mt-10 scroll-reveal">
+        <h2 class="text-lg font-semibold text-gray-800">⚖️ 賛否が分かれた議案</h2>
         <p class="mt-1 text-xs text-gray-400">全会一致でなかった議案を自動表示しています</p>
         <div class="mt-3 space-y-2">
           {recentSplitBills.map((bill) => (
             <a
               href={`/sessions/${bill.sessionSlug}`}
-              class="block rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 transition hover:border-amber-300 hover:shadow-sm"
+              class="block rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 transition-all duration-200 hover:border-amber-300 hover:shadow-md hover:-translate-y-0.5"
             >
               <div class="flex items-start justify-between gap-3">
                 <div class="min-w-0">
@@ -211,8 +245,8 @@ const recentSplitBills = getRecentSplitBills(5);
 
     <!-- 議会の予定 -->
     {upcoming.length > 0 && (
-      <div class="mt-12">
-        <h2 class="text-lg font-semibold text-gray-800">議会の予定</h2>
+      <div class="mt-12 scroll-reveal">
+        <h2 class="text-lg font-semibold text-gray-800">📅 議会の予定</h2>
         {nextSession && (
           <p class="mt-1 text-sm text-blue-700 font-medium">{nextSession}</p>
         )}
@@ -239,15 +273,15 @@ const recentSplitBills = getRecentSplitBills(5);
 
     <!-- 新着更新情報 -->
     {recentUpdates.length > 0 && (
-      <div class="mt-12">
-        <h2 class="text-lg font-semibold text-gray-800">新着更新情報</h2>
+      <div class="mt-12 scroll-reveal">
+        <h2 class="text-lg font-semibold text-gray-800">📰 新着更新情報</h2>
         <div class="mt-4 space-y-2">
           {recentUpdates.map((entry) => (
             <a
               href={entry.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+              class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
             >
               <div class="flex items-start gap-3">
                 <span class="shrink-0 text-sm text-gray-400">{entry.date}</span>
@@ -263,13 +297,13 @@ const recentSplitBills = getRecentSplitBills(5);
     )}
 
     <!-- 最近のセッション -->
-    <div class="mt-12">
-      <h2 class="text-lg font-semibold text-gray-800">最近の定例会・臨時会</h2>
+    <div class="mt-12 scroll-reveal">
+      <h2 class="text-lg font-semibold text-gray-800">🗓️ 最近の定例会・臨時会</h2>
       <div class="mt-4 space-y-3">
         {recentSessions.map((s) => (
           <a
             href={`/sessions/${s.slug}`}
-            class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+            class="block rounded-lg border border-gray-200 bg-white px-4 py-3 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
           >
             <div class="flex items-center justify-between">
               <p class="font-medium text-gray-900">{s.data.session}</p>
