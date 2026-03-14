@@ -1,7 +1,7 @@
 {
   "sessionId": "h27-2-teireikai",
   "sessionName": "平成27年第2回定例会",
-  "generatedAt": "2026-03-11T03:25:17.219Z",
+  "generatedAt": "2026-03-14T21:20:22.974Z",
   "totalBills": 15,
   "billsByCategory": {
     "市長提出議案": 9,
@@ -19,8 +19,8 @@
     "その他",
     "都市基盤",
     "教育",
-    "財政",
-    "産業・観光"
+    "産業・観光",
+    "財政"
   ],
   "questions": [
     {

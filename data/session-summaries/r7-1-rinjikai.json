@@ -1,7 +1,7 @@
 {
   "sessionId": "r7-1-rinjikai",
   "sessionName": "令和7年第1回臨時会",
-  "generatedAt": "2026-03-11T02:45:20.173Z",
+  "generatedAt": "2026-03-14T21:20:23.018Z",
   "totalBills": 5,
   "billsByCategory": {
     "市長提出議案": 5
@@ -15,8 +15,8 @@
   "topThemes": [
     "条例",
     "財政",
-    "産業・観光",
-    "人事・組織"
+    "人事・組織",
+    "産業・観光"
   ],
   "questions": []
 }

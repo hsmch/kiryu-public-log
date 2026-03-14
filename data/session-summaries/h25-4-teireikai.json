@@ -1,7 +1,7 @@
 {
   "sessionId": "h25-4-teireikai",
   "sessionName": "平成25年第4回定例会",
-  "generatedAt": "2026-03-11T03:25:17.216Z",
+  "generatedAt": "2026-03-14T21:20:22.971Z",
   "totalBills": 26,
   "billsByCategory": {
     "市長提出議案": 23,
@@ -16,8 +16,8 @@
   "splitCount": 0,
   "splitBills": [],
   "topThemes": [
-    "財政",
     "人事・組織",
+    "財政",
     "まちづくり",
     "条例",
     "都市基盤"
