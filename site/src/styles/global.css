@@ -54,8 +54,9 @@ html:not(.no-js) .stagger-children.is-visible > * {
 
 /* Heading emoji: slightly larger than surrounding text */
 .heading-emoji {
-  font-size: 1.2em;
+  font-size: 1.7em;
   line-height: 1;
+  margin-right: 0.2em;
 }
 
 /* Nav link underline animation */
