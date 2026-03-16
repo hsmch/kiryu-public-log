@@ -66,7 +66,9 @@
 
 /* Card interactive: shared hover effect for all card-like elements */
 .card-interactive {
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-interactive:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
@@ -75,13 +77,16 @@
 
 /* Mobile menu slide-down */
 .mobile-menu-enter {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
+  transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out;
+}
+.mobile-menu-enter > * {
+  overflow: hidden;
 }
 .mobile-menu-enter.is-open {
-  max-height: 500px;
+  grid-template-rows: 1fr;
   opacity: 1;
 }
 
@@ -101,6 +106,12 @@
   }
   .mobile-menu-enter {
     transition: none;
+  }
+  .card-interactive {
+    transition: none;
+  }
+  .card-interactive:hover {
+    transform: none;
   }
   .nav-link::after {
     transition: none;

@@ -104,22 +104,26 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
   </div>
 
   <script>
-    const factionSelect = document.getElementById('filter-faction') as HTMLSelectElement;
-    const committeeSelect = document.getElementById('filter-committee') as HTMLSelectElement;
-    const cards = document.querySelectorAll('.member-card') as NodeListOf<HTMLElement>;
+    document.addEventListener('astro:page-load', () => {
+      const factionSelect = document.getElementById('filter-faction') as HTMLSelectElement | null;
+      const committeeSelect = document.getElementById('filter-committee') as HTMLSelectElement | null;
+      const cards = document.querySelectorAll('.member-card') as NodeListOf<HTMLElement>;
 
-    function applyFilters() {
-      const faction = factionSelect.value;
-      const committee = committeeSelect.value;
+      if (!factionSelect || !committeeSelect) return;
 
-      cards.forEach((card) => {
-        const matchFaction = !faction || card.dataset.faction === faction;
-        const matchCommittee = !committee || card.dataset.committee === committee;
-        card.style.display = matchFaction && matchCommittee ? '' : 'none';
-      });
-    }
+      function applyFilters() {
+        const faction = factionSelect!.value;
+        const committee = committeeSelect!.value;
 
-    factionSelect.addEventListener('change', applyFilters);
-    committeeSelect.addEventListener('change', applyFilters);
+        cards.forEach((card) => {
+          const matchFaction = !faction || card.dataset.faction === faction;
+          const matchCommittee = !committee || card.dataset.committee === committee;
+          card.style.display = matchFaction && matchCommittee ? '' : 'none';
+        });
+      }
+
+      factionSelect.addEventListener('change', applyFilters);
+      committeeSelect.addEventListener('change', applyFilters);
+    });
   </script>
 </Layout>
