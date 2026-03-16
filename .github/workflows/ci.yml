@@ -70,7 +70,15 @@ jobs:
             const { owner, repo } = context.repo;
             const sha = process.env.COMMIT_SHA;
             const marker = '<!-- cf-preview -->';
-            const body = `${marker}\n🔄 **プレビューデプロイ中...**\n\nビルド: \`${sha}\``;
+            const body = [
+              marker,
+              '### 🚀 プレビュー環境を準備しています...',
+              '',
+              '| | |',
+              '|---|---|',
+              `| コミット | \`${sha.slice(0, 7)}\` |`,
+              '| ステータス | 🔄 デプロイ中 |',
+            ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({
               owner, repo,
@@ -82,17 +90,9 @@ jobs:
             const existing = comments.find(c => c.body.includes(marker));
 
             if (existing) {
-              await github.rest.issues.updateComment({
-                owner, repo,
-                comment_id: existing.id,
-                body,
-              });
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
             } else {
-              await github.rest.issues.createComment({
-                owner, repo,
-                issue_number: context.issue.number,
-                body,
-              });
+              await github.rest.issues.createComment({ owner, repo, issue_number: context.issue.number, body });
             }
 
       - name: Deploy preview to Cloudflare Pages
@@ -119,13 +119,23 @@ jobs:
             const { owner, repo } = context.repo;
             const sha = process.env.COMMIT_SHA;
             const marker = '<!-- cf-preview -->';
-            let body;
+            const url = process.env.DEPLOY_URL;
+            const ok = process.env.DEPLOY_OUTCOME === 'success' && url;
 
-            if (process.env.DEPLOY_OUTCOME === 'success' && process.env.DEPLOY_URL) {
-              body = `${marker}\n✅ **プレビューデプロイ**: ${process.env.DEPLOY_URL}\n\nビルド: \`${sha}\``;
-            } else {
-              body = `${marker}\n❌ **プレビューデプロイ失敗**\n\nビルド: \`${sha}\``;
-            }
+            const rows = [
+              '| | |',
+              '|---|---|',
+            ];
+            if (ok) rows.push(`| URL | **[プレビューを開く](${url})** |`);
+            rows.push(`| コミット | \`${sha.slice(0, 7)}\` |`);
+            rows.push(`| ステータス | ${ok ? '✅ デプロイ完了' : '❌ デプロイ失敗'} |`);
+
+            const body = [
+              marker,
+              `### 🚀 プレビュー環境`,
+              '',
+              ...rows,
+            ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({
               owner, repo,
@@ -135,15 +145,7 @@ jobs:
             const existing = comments.find(c => c.body.includes(marker));
 
             if (existing) {
-              await github.rest.issues.updateComment({
-                owner, repo,
-                comment_id: existing.id,
-                body,
-              });
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
             } else {
-              await github.rest.issues.createComment({
-                owner, repo,
-                issue_number: context.issue.number,
-                body,
-              });
+              await github.rest.issues.createComment({ owner, repo, issue_number: context.issue.number, body });
             }
