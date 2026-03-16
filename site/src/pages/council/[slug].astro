@@ -78,7 +78,7 @@ function voteColor(vote: string): string {
       )}
       <div>
         <h1 class="text-4xl font-bold text-gray-900">
-          <span class="heading-emoji">🏛️</span>{member.seatNumber && <span class="mr-2 text-lg text-gray-400">#{member.seatNumber}</span>}
+          {member.seatNumber && <span class="mr-2 text-lg text-gray-400">#{member.seatNumber}</span>}
           {member.name}
         </h1>
         <p class="mt-1 text-sm text-gray-500">{member.nameReading}</p>
