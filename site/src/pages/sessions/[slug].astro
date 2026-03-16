@@ -56,25 +56,15 @@ function resultColor(result: string): string {
   return 'bg-gray-100 text-gray-800';
 }
 
-// Compute session summary from voting data
-let unanimousBills = 0;
-let splitBills: { title: string; billNumber: string; yes: number; no: number }[] = [];
-
-if (voting && voting.records.length > 0) {
-  for (const record of voting.records) {
-    const actual = record.votes.filter(v => v.vote !== '議長');
-    const hasYes = actual.some(v => v.vote === '賛成');
-    const hasNo = actual.some(v => v.vote === '反対');
-    if (hasYes && hasNo) {
-      const yesCount = actual.filter(v => v.vote === '賛成').length;
-      const noCount = actual.filter(v => v.vote === '反対').length;
-      splitBills.push({ title: record.billTitle, billNumber: record.billNumber, yes: yesCount, no: noCount });
-    } else {
-      unanimousBills++;
-    }
-  }
-}
-const hasVotingSummary = voting && voting.records.length > 0;
+// Use summary data (single source of truth from pipeline)
+const hasVotingSummary = !!summary && voting && voting.records.length > 0;
+const unanimousBills = summary?.unanimousCount ?? 0;
+const splitBills = (summary?.splitBills ?? []).map(b => ({
+  title: b.title,
+  billNumber: b.number,
+  yes: b.yesCount,
+  no: b.noCount,
+}));
 ---
 
 <Layout title={`${session.session} - Kiryu Public Log`} description={`${session.session}の議案${session.bills.length}件の採決結果・一般質問 | 桐生市議会`} path={`/sessions/${slug}`}>
