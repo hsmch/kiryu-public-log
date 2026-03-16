@@ -21,7 +21,7 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
     </p>
 
     <!-- 議長・副議長 -->
-    <section class="mt-8">
+    <section class="mt-24">
       <h2 class="text-2xl font-semibold text-gray-800"><span class="heading-emoji">🎓</span>議長・副議長</h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2">
         {officers.map((o) => (
@@ -46,7 +46,7 @@ const committees = [...new Set(members.map((m) => m.committee))].filter(Boolean)
     </section>
 
     <!-- フィルタ -->
-    <section class="mt-10">
+    <section class="mt-28">
       <h2 class="text-2xl font-semibold text-gray-800"><span class="heading-emoji">📝</span>議員名簿</h2>
 
       <div class="mt-4 flex flex-wrap gap-3" id="filters">

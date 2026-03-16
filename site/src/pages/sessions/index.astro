@@ -42,7 +42,7 @@ function sessionNumLabel(slug: string): string {
     </p>
 
     {[...byYear.entries()].map(([yearKey, yearSessions]) => (
-      <section class="mt-8">
+      <section class="mt-24">
         <h2 class="text-2xl font-semibold text-gray-800">{yearKeyToLabel(yearKey)}</h2>
         <div class="mt-3 grid gap-3 sm:grid-cols-2">
           {yearSessions.map((s) => {
