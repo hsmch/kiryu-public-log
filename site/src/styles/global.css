@@ -29,9 +29,10 @@ html:not(.no-js) .scroll-reveal {
   opacity: 0;
   visibility: hidden;
 }
-.scroll-reveal.is-visible {
+html:not(.no-js) .scroll-reveal.is-visible {
   animation: fade-in-up 0.5s ease-out both;
   visibility: visible;
+  opacity: 1;
 }
 
 /* Staggered children: nav card grid items appear in sequence */
@@ -39,9 +40,10 @@ html:not(.no-js) .stagger-children > * {
   opacity: 0;
   visibility: hidden;
 }
-.stagger-children.is-visible > * {
+html:not(.no-js) .stagger-children.is-visible > * {
   animation: fade-in-up 0.4s ease-out both;
   visibility: visible;
+  opacity: 1;
 }
 .stagger-children.is-visible > *:nth-child(1) { animation-delay: 0ms; }
 .stagger-children.is-visible > *:nth-child(2) { animation-delay: 60ms; }
