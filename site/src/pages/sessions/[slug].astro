@@ -57,7 +57,7 @@ function resultColor(result: string): string {
 }
 
 // Use summary data (single source of truth from pipeline)
-const hasVotingSummary = voting && voting.records.length > 0;
+const hasVotingSummary = !!summary && voting && voting.records.length > 0;
 const unanimousBills = summary?.unanimousCount ?? 0;
 const splitBills = (summary?.splitBills ?? []).map(b => ({
   title: b.title,
