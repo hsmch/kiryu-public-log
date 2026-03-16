@@ -74,7 +74,7 @@ const unanimousPercent = analysis
 
 <Layout title="投票パターン分析 - Kiryu Public Log" description="桐生市議会の投票データから議員間の投票一致率、会派結束度、反対票傾向を分析" path="/analysis">
   <div class="mx-auto max-w-5xl px-4 py-8">
-    <h1 class="text-2xl font-bold text-gray-900">📊 投票パターン分析</h1>
+    <h1 class="text-3xl font-bold text-gray-900">📊 投票パターン分析</h1>
     <p class="mt-2 text-sm text-gray-500">
       議員別の投票データから、投票一致率・会派結束度・反対票傾向を分析しています
     </p>
@@ -110,7 +110,7 @@ const unanimousPercent = analysis
 
         {/* 議員間投票一致率ヒートマップ */}
         <section class="mt-10">
-          <h2 class="text-lg font-semibold text-gray-800">🔗 議員間 投票一致率</h2>
+          <h2 class="text-xl font-semibold text-gray-800">🔗 議員間 投票一致率</h2>
           <p class="mt-1 text-sm text-gray-500">
             両者とも賛成または反対を表明した議案における一致率。会派順に並べ、会派境界線を表示しています。
           </p>
@@ -223,7 +223,7 @@ const unanimousPercent = analysis
         {/* 注目ポイント */}
         {analysis && (highestCohesion || topDissenter || unanimousPercent) && (
           <section class="mt-10">
-            <h2 class="text-lg font-semibold text-gray-800">⚡ 注目ポイント</h2>
+            <h2 class="text-xl font-semibold text-gray-800">⚡ 注目ポイント</h2>
             <p class="mt-1 text-sm text-gray-500">データから読み取れる特徴的な傾向</p>
             <div class="mt-4 grid gap-3 sm:grid-cols-2">
               {unanimousPercent && (
@@ -282,7 +282,7 @@ const unanimousPercent = analysis
 
         {/* 会派結束度 */}
         <section class="mt-10">
-          <h2 class="text-lg font-semibold text-gray-800">🤝 <GlossaryTerm term="会派" />結束度</h2>
+          <h2 class="text-xl font-semibold text-gray-800">🤝 <GlossaryTerm term="会派" />結束度</h2>
           <p class="mt-1 text-sm text-gray-500">
             会派内の全員が同じ投票をした割合（賛成・反対のいずれかに統一）
           </p>
@@ -331,7 +331,7 @@ const unanimousPercent = analysis
 
         {/* 反対票傾向 */}
         <section class="mt-10">
-          <h2 class="text-lg font-semibold text-gray-800">🔴 反対票傾向</h2>
+          <h2 class="text-xl font-semibold text-gray-800">🔴 反対票傾向</h2>
           <p class="mt-1 text-sm text-gray-500">
             議員別の反対率と反対した議案のテーマ分布（反対票のある議員のみ表示）
           </p>

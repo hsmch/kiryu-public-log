@@ -122,7 +122,7 @@ const recentSplitBills = getRecentSplitBills(5);
 
     <!-- データで見る桐生市の今 -->
     <div class="mt-10 scroll-reveal">
-      <h2 class="text-lg font-semibold text-gray-800">📌 データで見る桐生市の今</h2>
+      <h2 class="text-xl font-semibold text-gray-800">📌 データで見る桐生市の今</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
         {popChangePercent && (
           <a href="/finance" class="rounded-lg border border-gray-200 bg-white p-4 card-interactive hover:border-blue-300">
@@ -230,7 +230,7 @@ const recentSplitBills = getRecentSplitBills(5);
     <!-- 賛否が分かれた議案 -->
     {recentSplitBills.length > 0 && (
       <div class="mt-10 scroll-reveal">
-        <h2 class="text-lg font-semibold text-gray-800">⚖️ 賛否が分かれた議案</h2>
+        <h2 class="text-xl font-semibold text-gray-800">⚖️ 賛否が分かれた議案</h2>
         <p class="mt-1 text-xs text-gray-400">全会一致でなかった議案を自動表示しています</p>
         <div class="mt-3 space-y-2">
           {recentSplitBills.map((bill) => (
@@ -257,7 +257,7 @@ const recentSplitBills = getRecentSplitBills(5);
     <!-- 議会の予定 -->
     {upcoming.length > 0 && (
       <div class="mt-12 scroll-reveal">
-        <h2 class="text-lg font-semibold text-gray-800">📅 議会の予定</h2>
+        <h2 class="text-xl font-semibold text-gray-800">📅 議会の予定</h2>
         {nextSession && (
           <p class="mt-1 text-sm text-blue-700 font-medium">{nextSession}</p>
         )}
@@ -285,7 +285,7 @@ const recentSplitBills = getRecentSplitBills(5);
     <!-- 新着更新情報 -->
     {recentUpdates.length > 0 && (
       <div class="mt-12 scroll-reveal">
-        <h2 class="text-lg font-semibold text-gray-800">📰 新着更新情報</h2>
+        <h2 class="text-xl font-semibold text-gray-800">📰 新着更新情報</h2>
         <div class="mt-4 space-y-2">
           {recentUpdates.map((entry) => (
             <a
@@ -309,7 +309,7 @@ const recentSplitBills = getRecentSplitBills(5);
 
     <!-- 最近のセッション -->
     <div class="mt-12 scroll-reveal">
-      <h2 class="text-lg font-semibold text-gray-800">🗓️ 最近の定例会・臨時会</h2>
+      <h2 class="text-xl font-semibold text-gray-800">🗓️ 最近の定例会・臨時会</h2>
       <div class="mt-4 space-y-3">
         {recentSessions.map((s) => (
           <a
