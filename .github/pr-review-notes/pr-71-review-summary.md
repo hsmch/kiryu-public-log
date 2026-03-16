@@ -12,6 +12,8 @@
 | ページネーション不足 | `per_page: 100` 追加 | dc6d89a |
 | デプロイ失敗で CI 失敗 | `continue-on-error: true` 追加 | dc6d89a |
 | wrangler の `--branch` 引数が `${{ }}` 直接展開 | `env.BRANCH_NAME` 経由に変更 | 5cdb1c7 |
+| `issues: write` 権限が未設定 | `permissions` に `issues: write` を追加 | (次コミット) |
+| `--branch=$BRANCH_NAME` 未クオート | `--branch="$BRANCH_NAME"` に変更 | (次コミット) |
 
 ## 未対応（対応不要と判断）
 
@@ -23,6 +25,6 @@
 | `per_page: 100` でも足りない場合 | **許容** | 100コメント超のPRは極めてまれ。完全なページネーションは過剰 |
 | `context.issue.number` の非PR時ガード | **不要** | `on: pull_request` トリガーのみなので non-PR イベントは起きない |
 | コメントID永続化（artifact等） | **不要** | マーカーコメント方式で十分実用的 |
-| `issues: write` 権限の追加 | **不要** | `pull-requests: write` で PR コメント API は動作する（issues API 経由でも PR は issue の一種） |
+| concurrency グループに PR 番号を含める | **不要** | fork PR はこのリポジトリでは想定外（個人プロジェクト） |
 | `permissions` をジョブレベルに移動 | **不要** | validate-data は `read` のみで実害なし。ジョブが2つだけなので分割は過剰 |
 | `continue-on-error` 失敗時の通知 | **許容** | プレビューは任意機能。失敗してもビルド結果には影響しない |
