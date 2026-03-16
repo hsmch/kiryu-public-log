@@ -52,6 +52,12 @@ html:not(.no-js) .stagger-children.is-visible > * {
 .stagger-children.is-visible > *:nth-child(5) { animation-delay: 240ms; }
 .stagger-children.is-visible > *:nth-child(6) { animation-delay: 300ms; }
 
+/* Heading emoji: slightly larger than surrounding text */
+.heading-emoji {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
 /* Nav link underline animation */
 .nav-link {
   position: relative;
