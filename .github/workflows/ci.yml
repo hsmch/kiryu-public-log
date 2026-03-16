@@ -64,10 +64,12 @@ jobs:
         id: deploy-preview
         continue-on-error: true
         uses: cloudflare/wrangler-action@v3
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/ --project-name=kiryu-public-log --branch=${{ github.head_ref }}
+          command: pages deploy dist/ --project-name=kiryu-public-log --branch=$BRANCH_NAME
           workingDirectory: site
 
       - name: Comment preview URL on PR
