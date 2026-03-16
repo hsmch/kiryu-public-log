@@ -76,6 +76,8 @@ jobs:
               owner, repo,
               issue_number: context.issue.number,
               per_page: 100,
+              sort: 'created',
+              direction: 'desc',
             });
             const existing = comments.find(c => c.body.includes(marker));
 
