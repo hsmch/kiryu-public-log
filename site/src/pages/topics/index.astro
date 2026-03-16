@@ -58,7 +58,7 @@ const sparkH = 20;
 
 <Layout title="テーマ別 - Kiryu Public Log" description="桐生市議会の議案・一般質問をテーマごとに分類" path="/topics">
   <div class="mx-auto max-w-4xl px-4 py-8">
-    <h1 class="text-2xl font-bold text-gray-900">テーマ別</h1>
+    <h1 class="text-4xl font-bold text-gray-900"><span class="heading-emoji">🏷️</span>テーマ別</h1>
     <p class="mt-2 text-sm text-gray-500">
       議案や一般質問をテーマごとに分類しています
     </p>
@@ -81,7 +81,7 @@ const sparkH = 20;
           return (
             <a
               href={`/topics/${encodeURIComponent(tag)}`}
-              class="rounded-lg border border-gray-200 bg-white px-4 py-3 transition hover:border-blue-300 hover:shadow-sm"
+              class="rounded-lg border border-gray-200 bg-white px-4 py-3 card-interactive hover:border-blue-300"
             >
               <div class="flex items-start justify-between">
                 <div>

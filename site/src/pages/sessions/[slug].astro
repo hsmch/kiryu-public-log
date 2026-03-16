@@ -84,7 +84,7 @@ const hasVotingSummary = voting && voting.records.length > 0;
       <span class="mx-1">/</span>
     </nav>
 
-    <h1 class="mt-2 text-2xl font-bold text-gray-900">{session.session}</h1>
+    <h1 class="mt-2 text-4xl font-bold text-gray-900"><span class="heading-emoji">📋</span>{session.session}</h1>
 
     {session.dates.length > 0 && (
       <p class="mt-1 text-sm text-gray-500">
@@ -107,7 +107,7 @@ const hasVotingSummary = voting && voting.records.length > 0;
 
     {hasVotingSummary && (
       <div class="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-4">
-        <h2 class="text-sm font-semibold text-blue-900">この定例会のポイント</h2>
+        <h2 class="text-sm font-semibold text-blue-900"><span class="heading-emoji">⚡</span>この定例会のポイント</h2>
         <div class="mt-2 grid gap-3 sm:grid-cols-3">
           <div class="text-center">
             <p class="text-2xl font-bold text-gray-900">{voting!.records.length}</p>
@@ -190,8 +190,8 @@ const hasVotingSummary = voting && voting.records.length > 0;
     {categories.map((cat) => {
       const bills = session.bills.filter((b) => b.category === cat);
       return (
-        <section class="mt-8">
-          <h2 class="text-lg font-semibold text-gray-800">{cat}</h2>
+        <section class="mt-24">
+          <h2 class="text-2xl font-semibold text-gray-800">{cat}</h2>
           <div class="mt-3 overflow-x-auto">
             <table class="w-full text-sm">
               <thead>
@@ -222,8 +222,8 @@ const hasVotingSummary = voting && voting.records.length > 0;
 
     {/* 議員別賛否マトリクス */}
     {voting && voting.records.length > 0 && (
-      <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800">議員別 賛否（<GlossaryTerm term="採決" />）一覧</h2>
+      <section class="mt-28">
+        <h2 class="text-2xl font-semibold text-gray-800"><span class="heading-emoji">✅</span>議員別 賛否（<GlossaryTerm term="採決" />）一覧</h2>
         <p class="mt-1 text-sm text-gray-500">
           賛否が記録された議案: {voting.records.length}件
         </p>
@@ -289,8 +289,8 @@ const hasVotingSummary = voting && voting.records.length > 0;
 
     {/* 一般質問セクション */}
     {questions && questions.questions.length > 0 && (
-      <section class="mt-10">
-        <h2 class="text-lg font-semibold text-gray-800"><GlossaryTerm term="一般質問" /></h2>
+      <section class="mt-28">
+        <h2 class="text-2xl font-semibold text-gray-800"><span class="heading-emoji">❓</span><GlossaryTerm term="一般質問" /></h2>
         <p class="mt-1 text-sm text-gray-500">
           {questions.questions.length}名が質問 ―
           <a href={questions.pdfUrl} class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">
