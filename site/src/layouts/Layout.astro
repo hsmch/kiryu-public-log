@@ -20,7 +20,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,6 +50,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
 
     <!-- Page transitions -->
     <ClientRouter />
+    <script is:inline>document.documentElement.classList.remove('no-js');</script>
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <header class="border-b border-gray-200 bg-white">
@@ -81,7 +82,7 @@ const canonicalUrl = `${SITE_URL}${path}`;
           </svg>
         </button>
       </div>
-      <nav id="mobile-menu" class="mobile-menu-enter md:hidden border-t border-gray-100">
+      <nav id="mobile-menu" class="mobile-menu-enter md:hidden border-t border-gray-100" inert>
         <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-1 text-sm">
           <a href="/council" class="text-gray-600 hover:text-gray-900 py-2">
             <span class="font-medium">議員一覧</span>
@@ -122,25 +123,36 @@ const canonicalUrl = `${SITE_URL}${path}`;
       function initMobileMenu() {
         const toggle = document.getElementById('menu-toggle');
         const menu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('menu-icon-open');
-        const iconClose = document.getElementById('menu-icon-close');
-        if (!toggle || !menu || !iconOpen || !iconClose) return;
+        if (!toggle || !menu) return;
         // Reset state after View Transition swap
         menu.classList.remove('is-open');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
+        menu.setAttribute('inert', '');
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-label', 'メニューを開く');
+        // Reset icon state
+        const iconOpen = toggle.querySelector('#menu-icon-open');
+        const iconClose = toggle.querySelector('#menu-icon-close');
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
         // Use clone to avoid duplicate listeners
         const newToggle = toggle.cloneNode(true) as HTMLElement;
         toggle.replaceWith(newToggle);
+        // Re-query icons from the cloned element
+        const newIconOpen = newToggle.querySelector('#menu-icon-open');
+        const newIconClose = newToggle.querySelector('#menu-icon-close');
         newToggle.addEventListener('click', () => {
           const expanded = newToggle.getAttribute('aria-expanded') === 'true';
-          newToggle.setAttribute('aria-expanded', String(!expanded));
-          newToggle.setAttribute('aria-label', expanded ? 'メニューを開く' : 'メニューを閉じる');
+          const isOpen = !expanded;
+          newToggle.setAttribute('aria-expanded', String(isOpen));
+          newToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
           menu.classList.toggle('is-open');
-          iconOpen.classList.toggle('hidden');
-          iconClose.classList.toggle('hidden');
+          if (isOpen) {
+            menu.removeAttribute('inert');
+          } else {
+            menu.setAttribute('inert', '');
+          }
+          newIconOpen?.classList.toggle('hidden');
+          newIconClose?.classList.toggle('hidden');
         });
       }
       document.addEventListener('astro:page-load', initMobileMenu);
