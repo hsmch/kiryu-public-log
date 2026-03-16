@@ -81,14 +81,14 @@ jobs:
           COMMIT_SHA: ${{ github.sha }}
         with:
           script: |
+            const { owner, repo } = context.repo;
             const url = process.env.DEPLOY_URL;
             const sha = process.env.COMMIT_SHA;
             const marker = '<!-- cf-preview -->';
             const body = `${marker}\n**プレビューデプロイ**: ${url}\n\nビルド: \`${sha}\``;
 
             const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              owner, repo,
               issue_number: context.issue.number,
               per_page: 100,
             });
@@ -96,15 +96,13 @@ jobs:
 
             if (existing) {
               await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
+                owner, repo,
                 comment_id: existing.id,
                 body,
               });
             } else {
               await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
+                owner, repo,
                 issue_number: context.issue.number,
                 body,
               });

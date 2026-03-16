@@ -12,8 +12,8 @@
 | ページネーション不足 | `per_page: 100` 追加 | dc6d89a |
 | デプロイ失敗で CI 失敗 | `continue-on-error: true` 追加 | dc6d89a |
 | wrangler の `--branch` 引数が `${{ }}` 直接展開 | `env.BRANCH_NAME` 経由に変更 | 5cdb1c7 |
-| `issues: write` 権限が未設定 | `permissions` に `issues: write` を追加 | (次コミット) |
-| `--branch=$BRANCH_NAME` 未クオート | `--branch="$BRANCH_NAME"` に変更 | (次コミット) |
+| `issues: write` 権限が未設定 | `permissions` に `issues: write` を追加 | f5af03d |
+| `--branch=$BRANCH_NAME` 未クオート | `--branch="$BRANCH_NAME"` に変更 | f5af03d |
 
 ## 未対応（対応不要と判断）
 
