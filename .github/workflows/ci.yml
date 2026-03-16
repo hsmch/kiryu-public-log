@@ -75,9 +75,8 @@ jobs:
               marker,
               '### 🚀 プレビュー環境を準備しています...',
               '',
-              '| | |',
-              '|---|---|',
               `| コミット | \`${sha.slice(0, 7)}\` |`,
+              '|---|---|',
               '| ステータス | 🔄 デプロイ中 |',
             ].join('\n');
 
@@ -123,13 +122,18 @@ jobs:
             const url = process.env.DEPLOY_URL;
             const ok = process.env.DEPLOY_OUTCOME === 'success' && !!url;
 
-            const rows = [
-              '| | |',
-              '|---|---|',
-            ];
-            if (ok) rows.push(`| URL | **[プレビューを開く](${url})** |`);
-            rows.push(`| コミット | \`${sha.slice(0, 7)}\` |`);
-            rows.push(`| ステータス | ${ok ? '✅ デプロイ完了' : '❌ デプロイ失敗'} |`);
+            const rows = ok
+              ? [
+                  `| URL | **[プレビューを開く](${url})** |`,
+                  '|---|---|',
+                  `| コミット | \`${sha.slice(0, 7)}\` |`,
+                  `| ステータス | ✅ デプロイ完了 |`,
+                ]
+              : [
+                  `| コミット | \`${sha.slice(0, 7)}\` |`,
+                  '|---|---|',
+                  `| ステータス | ❌ デプロイ失敗 |`,
+                ];
 
             const body = [
               marker,
