@@ -77,7 +77,7 @@ function voteColor(vote: string): string {
         </div>
       )}
       <div>
-        <h1 class="text-3xl font-bold text-gray-900">
+        <h1 class="text-4xl font-bold text-gray-900">
           🏛️ {member.seatNumber && <span class="mr-2 text-lg text-gray-400">#{member.seatNumber}</span>}
           {member.name}
         </h1>
@@ -107,7 +107,7 @@ function voteColor(vote: string): string {
     {/* よく取り上げるテーマ */}
     {topThemes.length > 0 && (
       <section class="mt-8">
-        <h2 class="text-xl font-semibold text-gray-800">💬 よく取り上げるテーマ</h2>
+        <h2 class="text-2xl font-semibold text-gray-800">💬 よく取り上げるテーマ</h2>
         <p class="mt-1 text-sm text-gray-500">一般質問のテーマをAI分類で集計</p>
         <div class="mt-3 flex flex-wrap gap-2">
           {topThemes.map((theme, i) => (
@@ -127,7 +127,7 @@ function voteColor(vote: string): string {
     {/* 投票行動 */}
     {memberVoting.records.length > 0 && (
       <section class="mt-10">
-        <h2 class="text-xl font-semibold text-gray-800">✅ 投票行動</h2>
+        <h2 class="text-2xl font-semibold text-gray-800">✅ 投票行動</h2>
 
         {memberVoting.summary.total > 0 ? (
           <>
@@ -180,7 +180,7 @@ function voteColor(vote: string): string {
 
     {/* 一般質問一覧 */}
     <section class="mt-10">
-      <h2 class="text-xl font-semibold text-gray-800">❓ 一般質問</h2>
+      <h2 class="text-2xl font-semibold text-gray-800">❓ 一般質問</h2>
       {memberQuestions.length > 0 ? (
         <div class="mt-4 space-y-4">
           {memberQuestions.map((mq) => (
