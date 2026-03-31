@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { resolve } from "path";
-import { sessionSummarySchema } from "./schemas";
+import { sessionSummarySchema, announcementsSchema } from "./schemas";
 
 const DATA_DIR = resolve(process.cwd(), "../data");
 
@@ -185,7 +185,23 @@ if (fileExists("finance/funds.json")) {
 }
 
 // ============================================================
-// D. Session summaries: existence + schema validation
+// D. Announcements: existence + schema validation
+// ============================================================
+if (fileExists("announcements.json")) {
+  try {
+    const data = readJSON(resolve(DATA_DIR, "announcements.json"));
+    announcementsSchema.parse(data);
+    const ann = data as { entries: unknown[] };
+    pass(`announcements.json: schema OK (${ann.entries.length} entries)`);
+  } catch (e) {
+    error(`announcements.json: schema validation failed: ${e instanceof Error ? e.message : String(e)}`);
+  }
+} else {
+  warn("announcements.json is missing");
+}
+
+// ============================================================
+// E. Session summaries: existence + schema validation
 // ============================================================
 const summaryFiles = dirJsonFiles("session-summaries");
 if (summaryFiles.length > 0) {
@@ -218,7 +234,7 @@ for (const f of sessionFiles) {
 }
 
 // ============================================================
-// E. Referential integrity: voting memberNames vs council members
+// F. Referential integrity: voting memberNames vs council members
 // ============================================================
 if (fileExists("council-members.json") && votingFiles.length > 0) {
   const cmData = readJSON(resolve(DATA_DIR, "council-members.json")) as {

@@ -43,16 +43,30 @@ function getSessionName(slug: string, cache: Map<string, string>): string {
  * filter: A=新規追加, M=変更, AM=両方
  */
 function getDiffFiles(path: string, filter: string): string[] {
+  const files = new Set<string>();
   try {
-    const output = execSync(
+    // Tracked files changed since HEAD
+    const tracked = execSync(
       `git diff --name-only --diff-filter=${filter} HEAD -- "data/${path}"`,
       { encoding: "utf-8", cwd: ROOT_DIR },
     ).trim();
-    if (!output) return [];
-    return output.split("\n");
+    if (tracked) tracked.split("\n").forEach((f) => files.add(f));
   } catch {
-    return [];
+    // ignore
   }
+  if (filter.includes("A")) {
+    try {
+      // Untracked new files (not yet staged)
+      const untracked = execSync(
+        `git ls-files --others --exclude-standard "data/${path}"`,
+        { encoding: "utf-8", cwd: ROOT_DIR },
+      ).trim();
+      if (untracked) untracked.split("\n").forEach((f) => files.add(f));
+    } catch {
+      // ignore
+    }
+  }
+  return [...files];
 }
 
 function extractSlug(filePath: string, subdir: string): string {

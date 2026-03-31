@@ -113,7 +113,7 @@ export function getFeaturedAnnouncements(): AnnouncementEntry[] {
   if (!data) return [];
   const today = new Date().toISOString().slice(0, 10);
   return data.entries.filter(
-    (e) => e.featured && (!e.expiresAt || e.expiresAt > today),
+    (e) => e.featured && (!e.expiresAt || e.expiresAt >= today),
   );
 }
 
