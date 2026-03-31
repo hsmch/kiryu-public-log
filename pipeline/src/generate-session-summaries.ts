@@ -267,6 +267,14 @@ function main() {
   const tags = loadTags();
   const slugs = getAllSessionSlugs();
 
+  // タグエントリを slug でグループ化（O(n) の前処理で O(n×m) のフィルタリングを回避）
+  const tagsBySlug = new Map<string, TagEntry[]>();
+  for (const entry of tags?.entries ?? []) {
+    const arr = tagsBySlug.get(entry.sessionSlug) ?? [];
+    arr.push(entry);
+    tagsBySlug.set(entry.sessionSlug, arr);
+  }
+
   let generated = 0;
   let skipped = 0;
 
@@ -280,12 +288,19 @@ function main() {
 
     const voting = loadVoting(slug);
     const questions = loadQuestions(slug);
-    const tagEntries = tags?.entries.filter((e) => e.sessionSlug === slug) ?? [];
+    const tagEntries = tagsBySlug.get(slug) ?? [];
 
     const summary = generateSummary(slug, session, voting, questions, tagEntries);
 
     // Validate with schema
-    const validated = sessionSummarySchema.parse(summary);
+    let validated: z.infer<typeof sessionSummarySchema>;
+    try {
+      validated = sessionSummarySchema.parse(summary);
+    } catch (e) {
+      console.error(`  [error] ${slug}: schema validation failed: ${e}`);
+      skipped++;
+      continue;
+    }
 
     const outputPath = resolve(OUTPUT_DIR, `${slug}.json`);
 
