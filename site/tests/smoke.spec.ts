@@ -100,6 +100,16 @@ test.describe('Participate page (/participate)', () => {
   });
 });
 
+test.describe('Updates page (/updates)', () => {
+  test('returns 200 and has expected heading', async ({ page }) => {
+    const response = await page.goto('/updates');
+    expect(response?.status()).toBe(200);
+
+    const heading = page.locator('h1');
+    await expect(heading).toContainText('更新情報');
+  });
+});
+
 test.describe('RSS feed (/rss.xml)', () => {
   test('returns 200 with XML content', async ({ request }) => {
     const response = await request.get('/rss.xml');

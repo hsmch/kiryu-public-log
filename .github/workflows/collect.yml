@@ -71,6 +71,10 @@ jobs:
         working-directory: pipeline
         run: npm run generate:summaries
 
+      - name: Generate announcements
+        working-directory: pipeline
+        run: npm run generate:announcements
+
       - name: Validate data quality
         working-directory: pipeline
         run: npm run validate

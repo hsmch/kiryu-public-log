@@ -39,6 +39,7 @@ paths:
 | `/finance` | `finance.astro` | 予算・財政ダッシュボード |
 | `/analysis` | `analysis.astro` | 投票パターン分析（SVG ヒートマップ） |
 | `/topics/[tag]` | `topics/[tag].astro` | テーマ別タイムライン |
+| `/updates` | `updates.astro` | 更新情報・お知らせ一覧 |
 | `/search` | `search.astro` | pagefind 検索 |
 | `/schedule` | `schedule.astro` | 議会カレンダー |
 | `/rss.xml` | `rss.xml.ts` | RSS フィード |

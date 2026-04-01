@@ -17,6 +17,7 @@
     "analyze:voting": "tsx src/analyze-voting-patterns.ts",
     "generate:summaries": "tsx src/generate-session-summaries.ts",
     "scrape:minutes": "tsx src/scrape-minutes.ts",
+    "generate:announcements": "tsx src/generate-announcements.ts",
     "validate": "tsx src/validate-data.ts"
   },
   "devDependencies": {
