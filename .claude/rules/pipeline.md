@@ -46,6 +46,18 @@ paths:
 - number: `第N回` → N、なし → 0
 - type: `teireikai`（定例会）/ `rinjikai`（臨時会）
 
+## スクリプト実行順序
+
+スクリプト間に依存関係がある。以下の順序を守ること:
+1. scrape: members, sessions, updates, finance, schedule, population（順不同）
+2. scrape: voting（sessions/ のデータに依存）
+3. scrape: questions, minutes
+4. generate: tags（sessions/ + questions/ を読む）
+5. generate: summaries（sessions/ + voting/ + questions/ + tags.json を読む）
+6. analyze: voting（voting/ + council-members.json + tags.json を読む）
+7. generate: announcements（sessions/ を読む）
+8. validate（全データの最終検証）
+
 ## 金額単位
 
 - **基金** (`funds.json`): 円（整数そのまま）

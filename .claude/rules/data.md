@@ -45,6 +45,14 @@ data/
 - `entries[].type`: `"bill"` または `"question"`
 - `entries[].tags`: 1-3 個のカテゴリ配列
 
+## 投票値
+
+`"賛成"`, `"反対"`, `"欠席"`, `"議長"`, `"退席"` の5種のみ
+
+## 議員参照
+
+`memberName` の完全一致で紐付け（IDではなく名前ベース）
+
 ## スキーマ定義
 
 全データのスキーマは `pipeline/src/schemas.ts` で Zod により定義。

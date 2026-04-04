@@ -1,19 +1,42 @@
-# CLAUDE.md - Kiryu Public Log プロジェクトコンテキスト
+# CLAUDE.md - Kiryu Public Log (KPL)
 
-## プロジェクト概要
+桐生市の市政・議会の公開情報を自動収集・構造化し公開する中立的アーカイブサイト。
+リポジトリ: hsmch/kiryu-public-log / URL: kiryu.co（仮: kiryu-public-log.pages.dev）
 
-- **サービス名**: Kiryu Public Log（略称: KPL）
-- **URL**: kiryu.co（本番未移行。現在は https://kiryu-public-log.pages.dev/ で仮公開中）
-- **リポジトリ**: hsmch/kiryu-public-log
-- **運営**: 細道（hsmch） - 個人事業主の事業の一つとして運営
-- **目的**: 桐生市の市政・議会の公開情報を自動収集・構造化し、市民にわかりやすく公開する中立的なアーカイブサイト
+## コマンド
 
-## 設計方針
+### サイト開発
+```
+npm --prefix site install        # 依存インストール
+npm --prefix site run dev        # 開発サーバー起動
+npm --prefix site run build      # 本番ビルド
+npm --prefix site run test:e2e   # E2Eテスト (Playwright)
+```
 
-- 更新はなるべく自動化し、人手をかけない運用を目指す
-- AI要約には「AI要約」であることを明示し、原文リンクを必ず併記する
-- 中立的なアーカイブとして、情報の加工は最小限にとどめる
-- 公式情報への入り口となる位置づけ（サイト内で完結させない）
+### パイプライン
+```
+npm --prefix pipeline install
+npm --prefix pipeline run scrape:members      # 議員名簿
+npm --prefix pipeline run scrape:sessions     # 議案
+npm --prefix pipeline run scrape:voting       # 投票記録
+npm --prefix pipeline run scrape:questions    # 一般質問
+npm --prefix pipeline run scrape:updates      # 新着情報
+npm --prefix pipeline run scrape:finance      # 財政データ
+npm --prefix pipeline run scrape:schedule     # 議会日程
+npm --prefix pipeline run scrape:population   # 人口推移
+npm --prefix pipeline run scrape:budget-history # 予算経年
+npm --prefix pipeline run scrape:minutes      # 議事録
+npm --prefix pipeline run generate:tags       # AIタグ生成（ANTHROPIC_API_KEY必要）
+npm --prefix pipeline run generate:summaries  # 会期要約生成
+npm --prefix pipeline run generate:announcements # お知らせ生成
+npm --prefix pipeline run analyze:voting      # 投票パターン分析
+npm --prefix pipeline run validate            # データバリデーション
+```
+
+### データフロー
+```
+pipeline(scrape) → data/*.json → site(build) → Cloudflare Pages
+```
 
 ## 技術スタック
 
@@ -27,7 +50,6 @@
 ## リポジトリ構成
 
 ```
-hsmch/kiryu-public-log/
 ├── site/          # Astro 静的サイト
 ├── pipeline/      # スクレイパー・データ収集パイプライン
 ├── data/          # 構造化された JSON データ
@@ -37,37 +59,16 @@ hsmch/kiryu-public-log/
 └── .claude/rules/ # パス条件付き Claude ルール
 ```
 
-## データソース
+## 設計上の注意
 
-桐生市公式サイト (city.kiryu.lg.jp) から以下を収集:
+- AI要約には「AI要約」であることを明示し、原文リンクを必ず併記する
+- 中立的なアーカイブとして、情報の加工は最小限にとどめる
+- 環境変数: `ANTHROPIC_API_KEY` のみ（タグ生成・要約生成用、未設定時はルールベースにフォールバック）
 
-| データ | 件数 | 更新頻度 |
-|--------|------|----------|
-| 議員名簿 | 22名 | 選挙・役職改選時 |
-| 定例会・臨時会の議案 | 68会期分 | 年4回定例会 + 臨時会 |
-| 議員別投票記録 | 46会期分 | 定例会ごと |
-| 一般質問 | 43会期分 | 定例会ごと |
-| 予算・財政 | R03-R05経年 + 当年度 | 年1-2回 |
-| 人口推移 | 1920-2020 | 国勢調査 |
-| 新着情報・日程 | 随時 | 毎日自動チェック |
-
-## サイト構成
-
-| パス | 概要 |
-|------|------|
-| `/` | トップ（データハイライト、最新の動き） |
-| `/sessions/[slug]` | 定例会詳細（議案一覧・投票マトリクス） |
-| `/council/[slug]` | 議員詳細（投票記録・質問一覧） |
-| `/finance` | 予算・財政ダッシュボード |
-| `/analysis` | 投票パターン分析（ヒートマップ） |
-| `/topics/[tag]` | テーマ別タイムライン |
-| `/updates` | 更新情報・お知らせ一覧 |
-| `/search` | サイト内検索（pagefind） |
-| `/about` | サイト趣旨・運営者情報 |
-| `/guide` | ガイド |
-| `/participate` | 市政参加ガイド |
-| `/schedule` | 議会カレンダー |
-| `/rss.xml` | RSS フィード |
+詳細な技術ガイド・Gotchasは `.claude/rules/` のConditional Rulesを参照（該当パスの編集時に自動ロード）:
+- `site.md` — Astro/Tailwind v4/pagefind/Chart.js の注意点、ページ一覧
+- `pipeline.md` — スクレイパー共通パターン、タグ生成、HTML パース、スラグ形式
+- `data.md` — ディレクトリ構成、命名規則、共通フィールド、スキーマ定義
 
 ## Git ワークフロー
 
@@ -85,10 +86,3 @@ hsmch/kiryu-public-log/
 ### Git コマンドの実行ルール
 
 - **git コマンドは常にリポジトリルートで実行する**（`cd` でサブディレクトリに移動しない）
-
-## 運用コスト
-
-- ホスティング（Cloudflare Pages）: 無料
-- ドメイン: 年数千円
-- Claude API（タグ分類）: 月数百円
-- GitHub Actions: 無料枠内
