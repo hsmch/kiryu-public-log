@@ -1,7 +1,7 @@
 # CLAUDE.md - Kiryu Public Log (KPL)
 
 桐生市の市政・議会の公開情報を自動収集・構造化し公開する中立的アーカイブサイト。
-リポジトリ: hsmch/kiryu-public-log / URL: kiryu.co（仮: kiryu-public-log.pages.dev）
+リポジトリ: hsmch/kiryu-public-log / URL: https://kiryu.co
 
 ## コマンド
 
@@ -35,7 +35,7 @@ npm --prefix pipeline run validate            # データバリデーション
 
 ### データフロー
 ```
-pipeline(scrape) → data/*.json → site(build) → Cloudflare Pages
+pipeline(scrape) → data/**/*.json → site(build) → Cloudflare Pages
 ```
 
 ## 技術スタック
@@ -63,7 +63,7 @@ pipeline(scrape) → data/*.json → site(build) → Cloudflare Pages
 
 - AI要約には「AI要約」であることを明示し、原文リンクを必ず併記する
 - 中立的なアーカイブとして、情報の加工は最小限にとどめる
-- 環境変数: `ANTHROPIC_API_KEY` のみ（タグ生成・要約生成用、未設定時はルールベースにフォールバック）
+- 環境変数: `ANTHROPIC_API_KEY` のみ（タグ生成用、未設定時はルールベースにフォールバック）
 
 詳細な技術ガイド・Gotchasは `.claude/rules/` のConditional Rulesを参照（該当パスの編集時に自動ロード）:
 - `site.md` — Astro/Tailwind v4/pagefind/Chart.js の注意点、ページ一覧
