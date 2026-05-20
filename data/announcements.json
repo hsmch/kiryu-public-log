@@ -1,6 +1,60 @@
 {
   "entries": [
     {
+      "id": "auto-session-r8-1-rinjikai",
+      "date": "2026-05-20",
+      "title": "令和8年第1回臨時会の議案データを追加しました",
+      "content": "令和8年第1回臨時会の議案一覧を公開しました。",
+      "url": "/sessions/r8-1-rinjikai",
+      "type": "update",
+      "featured": false
+    },
+    {
+      "id": "auto-session-r8-1-teireikai",
+      "date": "2026-05-20",
+      "title": "令和8年第1回定例会の議案データを追加しました",
+      "content": "令和8年第1回定例会の議案一覧を公開しました。",
+      "url": "/sessions/r8-1-teireikai",
+      "type": "update",
+      "featured": false
+    },
+    {
+      "id": "auto-voting-r8-1-rinjikai",
+      "date": "2026-05-20",
+      "title": "令和8年第1回臨時会の投票記録を追加しました",
+      "content": "令和8年第1回臨時会の議員別投票記録を公開しました。",
+      "url": "/sessions/r8-1-rinjikai",
+      "type": "update",
+      "featured": false
+    },
+    {
+      "id": "auto-voting-r8-1-teireikai",
+      "date": "2026-05-20",
+      "title": "令和8年第1回定例会の投票記録を追加しました",
+      "content": "令和8年第1回定例会の議員別投票記録を公開しました。",
+      "url": "/sessions/r8-1-teireikai",
+      "type": "update",
+      "featured": false
+    },
+    {
+      "id": "auto-questions-r8-1-teireikai",
+      "date": "2026-05-20",
+      "title": "令和8年第1回定例会の一般質問を追加しました",
+      "content": "令和8年第1回定例会の一般質問データを公開しました。",
+      "url": "/sessions/r8-1-teireikai",
+      "type": "update",
+      "featured": false
+    },
+    {
+      "id": "auto-finance-2026-05-20",
+      "date": "2026-05-20",
+      "title": "財政データ（基金残高）を更新しました",
+      "content": "財政ダッシュボードのデータを最新の情報に更新しました。",
+      "url": "/finance",
+      "type": "update",
+      "featured": false
+    },
+    {
       "id": "2026-03-14-updates-page",
       "date": "2026-03-14",
       "title": "更新情報・お知らせページを追加しました",

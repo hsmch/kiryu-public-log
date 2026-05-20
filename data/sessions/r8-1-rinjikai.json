@@ -1,0 +1,37 @@
+{
+  "session": "令和8年第1回臨時会",
+  "sourceUrls": [
+    "https://www.city.kiryu.lg.jp/shigikai/honkaigi/gian/giketsu/1026524/1026527.html"
+  ],
+  "scrapedAt": "2026-05-20T21:32:03.291Z",
+  "dates": [
+    "令和8年1月27日"
+  ],
+  "bills": [
+    {
+      "number": "報告第1号",
+      "title": "専決処分（令和7年度桐生市一般会計補正予算（第7号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第2号",
+      "title": "専決処分（令和7年度桐生市一般会計補正予算（第8号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "報告第3号",
+      "title": "専決処分（令和7年度桐生市一般会計補正予算（第9号））の承認を求めるについて",
+      "result": "承認",
+      "category": "市長提出議案"
+    },
+    {
+      "number": "議案第1号",
+      "title": "令和7年度桐生市一般会計補正予算（第10号）",
+      "result": "原案可決",
+      "category": "市長提出議案"
+    }
+  ],
+  "votingRecordPdfUrl": "https://www.city.kiryu.lg.jp/_res/projects/default_project/_page_/001/026/527/r8r1giketsukekka.pdf"
+}
