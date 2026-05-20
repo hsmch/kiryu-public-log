@@ -1,0 +1,19 @@
+{
+  "sessionId": "r8-1-rinjikai",
+  "sessionName": "令和8年第1回臨時会",
+  "generatedAt": "2026-05-20T21:35:17.527Z",
+  "totalBills": 4,
+  "billsByCategory": {
+    "市長提出議案": 4
+  },
+  "results": {
+    "可決等": 4
+  },
+  "unanimousCount": 4,
+  "splitCount": 0,
+  "splitBills": [],
+  "topThemes": [
+    "財政"
+  ],
+  "questions": []
+}

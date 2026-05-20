@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-10T21:23:37.383Z",
+  "generatedAt": "2026-05-20T21:35:16.360Z",
   "method": "claude-api",
   "entries": [
     {
@@ -15909,6 +15909,564 @@
       "billTitle": "選択的夫婦別姓制度をただちに導入するための国会審議を求める意見書の提出についての請願"
     },
     {
+      "type": "bill",
+      "sessionSlug": "r8-1-rinjikai",
+      "session": "令和8年第1回臨時会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "報告第1号",
+      "billTitle": "専決処分（令和7年度桐生市一般会計補正予算（第7号））の承認を求めるについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-rinjikai",
+      "session": "令和8年第1回臨時会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "報告第2号",
+      "billTitle": "専決処分（令和7年度桐生市一般会計補正予算（第8号））の承認を求めるについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-rinjikai",
+      "session": "令和8年第1回臨時会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "報告第3号",
+      "billTitle": "専決処分（令和7年度桐生市一般会計補正予算（第9号））の承認を求めるについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-rinjikai",
+      "session": "令和8年第1回臨時会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議案第1号",
+      "billTitle": "令和7年度桐生市一般会計補正予算（第10号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "人事・組織"
+      ],
+      "billNumber": "議案第2号",
+      "billTitle": "職員の旅費に関する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "人事・組織"
+      ],
+      "billNumber": "議案第3号",
+      "billTitle": "桐生市事務分掌条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "人事・組織"
+      ],
+      "billNumber": "議案第4号",
+      "billTitle": "一般職の職員の給与に関する条例等の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "人事・組織"
+      ],
+      "billNumber": "議案第5号",
+      "billTitle": "特別職の職員で常勤のものの給与に関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "防災・安全"
+      ],
+      "billNumber": "議案第6号",
+      "billTitle": "桐生市火災予防条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "財政"
+      ],
+      "billNumber": "議案第7号",
+      "billTitle": "桐生市庁舎整備基金条例を廃止する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "産業・観光"
+      ],
+      "billNumber": "議案第8号",
+      "billTitle": "桐生市小口資金融資促進条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "環境"
+      ],
+      "billNumber": "議案第9号",
+      "billTitle": "桐生市森林等の火入れに関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例"
+      ],
+      "billNumber": "議案第10号",
+      "billTitle": "地方自治法の一部を改正する法律の施行に伴う関係条例の整理に関する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "都市基盤"
+      ],
+      "billNumber": "議案第11号",
+      "billTitle": "桐生市水道事業給水条例及び桐生市下水道条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "都市基盤"
+      ],
+      "billNumber": "議案第12号",
+      "billTitle": "桐生市下水道条例及び桐生市農業集落排水処理施設の管理に関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "産業・観光"
+      ],
+      "billNumber": "議案第13号",
+      "billTitle": "桐生広域林業会館の設置及び管理に関する条例を廃止する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "都市基盤"
+      ],
+      "billNumber": "議案第14号",
+      "billTitle": "市道路線の廃止及び認定について"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "子育て"
+      ],
+      "billNumber": "議案第15号",
+      "billTitle": "桐生市特定乳児等通園支援事業の運営に関する基準を定める条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "子育て"
+      ],
+      "billNumber": "議案第16号",
+      "billTitle": "桐生市子どものための教育・保育の利用者負担額等に関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "教育"
+      ],
+      "billNumber": "議案第17号",
+      "billTitle": "桐生市体育施設の設置及び管理に関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第18号",
+      "billTitle": "桐生市国民健康保険税条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第19号",
+      "billTitle": "桐生市介護保険条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例"
+      ],
+      "billNumber": "議案第20号",
+      "billTitle": "桐生市印鑑条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例"
+      ],
+      "billNumber": "議案第21号",
+      "billTitle": "桐生市斎場条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "まちづくり"
+      ],
+      "billNumber": "議案第22号",
+      "billTitle": "桐生市男女共同参画計画（令和8年度～令和12年度版）の策定について"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "その他"
+      ],
+      "billNumber": "議案第23号",
+      "billTitle": "損害賠償に係る和解及び損害賠償の額を定めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議案第24号",
+      "billTitle": "令和7年度桐生市一般会計補正予算（第11号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第25号",
+      "billTitle": "令和7年度桐生市国民健康保険事業特別会計補正予算（第3号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第26号",
+      "billTitle": "令和7年度桐生市介護保険事業特別会計補正予算（第4号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議案第27号",
+      "billTitle": "令和7年度桐生市新里温水プール事業特別会計補正予算（第1号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議案第28号",
+      "billTitle": "令和7年度桐生市発電事業特別会計補正予算（第1号）"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議案第29号",
+      "billTitle": "令和8年度桐生市一般会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第30号",
+      "billTitle": "令和8年度桐生市国民健康保険事業特別会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第31号",
+      "billTitle": "令和8年度桐生市介護保険事業特別会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "産業・観光"
+      ],
+      "billNumber": "議案第32号",
+      "billTitle": "令和8年度桐生市新里温水プール事業特別会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "環境"
+      ],
+      "billNumber": "議案第33号",
+      "billTitle": "令和8年度桐生市発電事業特別会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "福祉・医療"
+      ],
+      "billNumber": "議案第34号",
+      "billTitle": "令和8年度桐生市後期高齢者医療事業特別会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "都市基盤"
+      ],
+      "billNumber": "議案第35号",
+      "billTitle": "令和8年度桐生市水道事業会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "都市基盤"
+      ],
+      "billNumber": "議案第36号",
+      "billTitle": "令和8年度桐生市下水道事業会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政",
+        "都市基盤"
+      ],
+      "billNumber": "議案第37号",
+      "billTitle": "令和8年度桐生市農業集落排水事業会計予算"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "議案第38号",
+      "billTitle": "監査委員の選任につき同意を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "諮問第1号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "諮問第2号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "諮問第3号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "諮問第4号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "人事・組織"
+      ],
+      "billNumber": "諮問第5号",
+      "billTitle": "人権擁護委員候補者の推薦につき意見を求めることについて"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例",
+        "議会運営"
+      ],
+      "billNumber": "議第1号議案",
+      "billTitle": "議会の議員の議員報酬及び費用弁償等に関する条例の一部を改正する条例案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "議第2号議案",
+      "billTitle": "地方財政の充実・強化に関する意見書案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育"
+      ],
+      "billNumber": "議第3号議案",
+      "billTitle": "「カリキュラム・オーバーロード」の改善を求める意見書案"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "子育て",
+        "教育"
+      ],
+      "billNumber": "請願第13号",
+      "billTitle": "桐生市の小学校給食費の無償化を求める請願"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "その他"
+      ],
+      "billNumber": "請願第14号",
+      "billTitle": "選択的夫婦別姓制度をただちに導入するための国会審議を求める意見書の提出についての請願"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "billNumber": "請願第15号",
+      "billTitle": "地方財政の充実・強化に関する請願"
+    },
+    {
+      "type": "bill",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育"
+      ],
+      "billNumber": "請願第16号",
+      "billTitle": "「カリキュラム・オーバーロード」の改善を求める意見書採択の請願"
+    },
+    {
       "type": "question",
       "sessionSlug": "h27-2-teireikai",
       "session": "平成27年第2回定例会",
@@ -29449,6 +30007,390 @@
       ],
       "memberName": "福島賢一",
       "itemTitle": "下水道事業について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "近藤芽衣",
+      "itemTitle": "桐生厚生総合病院について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "環境",
+        "都市基盤"
+      ],
+      "memberName": "近藤芽衣",
+      "itemTitle": "桐生市における森林と水資源の保全について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "デジタル化",
+        "議会運営"
+      ],
+      "memberName": "丹羽孝志",
+      "itemTitle": "投票支援カードについて"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "産業・観光"
+      ],
+      "memberName": "丹羽孝志",
+      "itemTitle": "魅力ある職場の推進について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "子育て",
+        "教育"
+      ],
+      "memberName": "歌代公司",
+      "itemTitle": "放課後児童クラブへの保護者の意見反映について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "小島強",
+      "itemTitle": "おとなの健康（検（健）診事業）について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "小島強",
+      "itemTitle": "桐生市社会福祉協議会の介護事業について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全"
+      ],
+      "memberName": "河原井始",
+      "itemTitle": "道路交通法の改正（自転車）"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全",
+        "教育"
+      ],
+      "memberName": "河原井始",
+      "itemTitle": "中高生に対する自転車安全点検（現状と課題）"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "河原井始",
+      "itemTitle": "桐生厚生総合病院"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全",
+        "福祉・医療"
+      ],
+      "memberName": "辻正男",
+      "itemTitle": "AEDについて"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全"
+      ],
+      "memberName": "辻正男",
+      "itemTitle": "災害対策用飲料水について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育",
+        "産業・観光"
+      ],
+      "memberName": "園田基博",
+      "itemTitle": "音都への道　その壱"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全",
+        "福祉・医療"
+      ],
+      "memberName": "園田基博",
+      "itemTitle": "犯罪被害者に対する支援"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "渡辺恒",
+      "itemTitle": "生活保護行政の改善と国賠事件の和解について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "その他"
+      ],
+      "memberName": "渡辺恒",
+      "itemTitle": "自衛隊への18歳、"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "その他"
+      ],
+      "memberName": "渡辺恒",
+      "itemTitle": "歳市民の名簿による提供について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "条例"
+      ],
+      "memberName": "渡辺恒",
+      "itemTitle": "排外主義と人権について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "議会運営"
+      ],
+      "memberName": "福島賢一",
+      "itemTitle": "「市民の声アンケート調査」について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "財政"
+      ],
+      "memberName": "福島賢一",
+      "itemTitle": "「暫定税率」廃止について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "まちづくり",
+        "教育"
+      ],
+      "memberName": "佐藤光好",
+      "itemTitle": "教育センター裏側校舎に美術館・博物館の設置提案について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "環境",
+        "財政"
+      ],
+      "memberName": "岡部純朗",
+      "itemTitle": "「クビアカツヤカミキリ」について令和8年度予算で各部局に計上されている項目について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "都市基盤",
+        "財政"
+      ],
+      "memberName": "岡部純朗",
+      "itemTitle": "市有施設の維持補修について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "都市基盤"
+      ],
+      "memberName": "岡部純朗",
+      "itemTitle": "交通安全協会隣接倉庫について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "議会運営"
+      ],
+      "memberName": "岡部純朗",
+      "itemTitle": "議会答弁について私の感じた点について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "環境"
+      ],
+      "memberName": "久保田裕一",
+      "itemTitle": "「前橋市、桐生市、伊勢崎市、みどり市及び玉村町ごみ処理の広域化に関する基本合意書」の締結について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "環境",
+        "産業・観光"
+      ],
+      "memberName": "久保田裕一",
+      "itemTitle": "桐生市清掃センターの将来像について"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "子育て",
+        "教育"
+      ],
+      "memberName": "山之内肇",
+      "itemTitle": "経済的な事情に関わらず、こどもたちが多様な学びや体験を得られる仕組みの構築"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育",
+        "子育て"
+      ],
+      "memberName": "山之内肇",
+      "itemTitle": "「意義ある」学校給食の無償化を実現するために"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "その他"
+      ],
+      "memberName": "周藤雅彦",
+      "itemTitle": "市民消費者相談"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全"
+      ],
+      "memberName": "周藤雅彦",
+      "itemTitle": "災害時に伴う体制"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "環境"
+      ],
+      "memberName": "飯島英規",
+      "itemTitle": "複合発酵、微生物群が最大限に働き究極の発酵は究極の水に至る"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "防災・安全"
+      ],
+      "memberName": "北川久人",
+      "itemTitle": "防犯カメラ"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育"
+      ],
+      "memberName": "北川久人",
+      "itemTitle": "プール開放期間の延長"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "福祉・医療"
+      ],
+      "memberName": "関口直久",
+      "itemTitle": "桐生市生活保護業務健全化計画"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "教育"
+      ],
+      "memberName": "関口直久",
+      "itemTitle": "学校統廃合問題"
+    },
+    {
+      "type": "question",
+      "sessionSlug": "r8-1-teireikai",
+      "session": "令和8年第1回定例会",
+      "tags": [
+        "都市基盤",
+        "財政"
+      ],
+      "memberName": "関口直久",
+      "itemTitle": "市庁舎について"
     }
   ],
   "model": "claude-haiku-4-5-20251001"
