@@ -1,46 +1,46 @@
 {
   "sourceUrl": "https://www.city.kiryu.lg.jp/shisei/zaisei/1007004.html",
-  "scrapedAt": "2026-03-10T21:22:55.375Z",
-  "asOf": "令和7年3月31日",
+  "scrapedAt": "2026-09-18T21:04:34.585Z",
+  "asOf": "令和8年3月31日",
   "funds": [
     {
       "name": "財政調整基金",
-      "balance": 4507054762,
+      "balance": 4511521274,
       "category": "一般会計"
     },
     {
       "name": "減債基金",
-      "balance": 978834399,
+      "balance": 1024517149,
       "category": "一般会計"
     },
     {
       "name": "社会福祉施設等運営基金",
-      "balance": 1201828048,
+      "balance": 1420590048,
       "category": "一般会計"
     },
     {
       "name": "庁舎整備基金",
-      "balance": 255572979,
+      "balance": 0,
       "category": "一般会計"
     },
     {
       "name": "まちづくり基金",
-      "balance": 1329808137,
+      "balance": 1315169330,
       "category": "一般会計"
     },
     {
       "name": "福祉基金",
-      "balance": 108392619,
+      "balance": 104896811,
       "category": "一般会計"
     },
     {
       "name": "桐生厚生総合病院の管理運営に係る基金",
-      "balance": 6411933,
+      "balance": 6938433,
       "category": "一般会計"
     },
     {
       "name": "清掃センター管理運営基金",
-      "balance": 1100873640,
+      "balance": 1261744333,
       "category": "一般会計"
     },
     {
@@ -55,67 +55,67 @@
     },
     {
       "name": "文化振興基金",
-      "balance": 8949978,
+      "balance": 9839478,
       "category": "一般会計"
     },
     {
       "name": "新里町ふるさとづくり基金",
-      "balance": 11371303,
+      "balance": 11394553,
       "category": "一般会計"
     },
     {
       "name": "新里町道路整備基金",
-      "balance": 59346367,
+      "balance": 35334367,
       "category": "一般会計"
     },
     {
       "name": "新里町教育賞基金",
-      "balance": 5546439,
+      "balance": 5567109,
       "category": "一般会計"
     },
     {
       "name": "新里町今泉文庫基金",
-      "balance": 20275719,
+      "balance": 20288219,
       "category": "一般会計"
     },
     {
       "name": "黒保根町ふるさとづくり基金",
-      "balance": 110597494,
+      "balance": 108902994,
       "category": "一般会計"
     },
     {
       "name": "黒保根町ふるさと水と土保全対策基金",
-      "balance": 10090297,
+      "balance": 10116797,
       "category": "一般会計"
     },
     {
       "name": "子ども基金",
-      "balance": 223637434,
+      "balance": 128918434,
       "category": "一般会計"
     },
     {
       "name": "森林環境整備基金",
-      "balance": 122189522,
+      "balance": 135695507,
       "category": "一般会計"
     },
     {
       "name": "まち・ひと・しごと創生基金",
-      "balance": 50705896,
+      "balance": 13661000,
       "category": "一般会計"
     },
     {
       "name": "トシオシルバー就学援助基金",
-      "balance": 34805977,
+      "balance": 28935877,
       "category": "一般会計"
     },
     {
       "name": "電子地域通貨基金",
-      "balance": 80385447,
+      "balance": 104897239,
       "category": "一般会計"
     },
     {
       "name": "地域振興基金",
-      "balance": 2640195000,
+      "balance": 2640767000,
       "category": "一般会計"
     },
     {
@@ -135,21 +135,21 @@
     },
     {
       "name": "国民健康保険基金",
-      "balance": 696952376,
+      "balance": 613023243,
       "category": "特別会計等"
     },
     {
       "name": "介護保険給付準備基金",
-      "balance": 2084604394,
+      "balance": 1999571979,
       "category": "特別会計等"
     },
     {
       "name": "新里温水プール事業基金",
-      "balance": 23315022,
+      "balance": 27715022,
       "category": "特別会計等"
     }
   ],
-  "generalTotal": 12901206237,
-  "specialTotal": 3235321792,
-  "grandTotal": 16136528029
+  "generalTotal": 12934028799,
+  "specialTotal": 3070760244,
+  "grandTotal": 16004789043
 }
