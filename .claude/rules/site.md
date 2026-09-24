@@ -8,7 +8,7 @@ paths:
 ## アーキテクチャ
 
 - Astro 5 + Cloudflare Pages（ほぼ全ページを `export const prerender = true` で静的生成し、`/search` は SSR）
-- Tailwind CSS v4（`@tailwindcss/vite` プラグイン経由、`global.css` は `@import "tailwindcss"` ＋ nav-link / card-interactive / mobile-menu の少量カスタム CSS）
+- Tailwind CSS v4（`@tailwindcss/vite` プラグイン経由、`global.css` は `@import "tailwindcss"` ＋ `@theme` の幅トークン `--container-site`（`max-w-site`、1152px）と nav-link / card-interactive / mobile-menu の少量カスタム CSS）
 - pagefind: ビルド後に `npx pagefind --site dist --glob '**/*.html'` で自動インデックス生成
 
 ## データ読み込み

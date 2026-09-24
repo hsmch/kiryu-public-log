@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* サイト全体の本文幅。ヘッダー・フッター・各ページの max-w-site がこの値を参照する。
+   散文ページ（about / guide / participate）は読みやすさのため max-w-3xl のまま */
+@theme {
+  --container-site: 72rem; /* 1152px */
+}
+
 /* Nav link underline animation */
 .nav-link {
   position: relative;
