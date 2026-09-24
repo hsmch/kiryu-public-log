@@ -8,6 +8,7 @@
 
 Kiryu Public Log（KPL）は、桐生市が公開している議会・市政情報を収集・構造化し、市民が簡単にアクセスできる形で提供するプロジェクトです。
 
+- 市の運営を「決める・お金・実行・人・関わる」の 5 分類で整理（未構造化の要素は公式ページへの入口を掲載）
 - 議案・採決結果を一覧で確認
 - 議員ごとの投票履歴・活動記録を横断的に閲覧
 - 投票パターン分析（会派結束度・ヒートマップ）
@@ -88,6 +89,7 @@ npm run validate
 | `ci.yml` | PR 作成時 | サイトビルド + スモークテスト / データバリデーション |
 | Copilot code review | PR 作成時 | GitHub Copilot による自動コードレビュー（Ruleset） |
 | `deploy.yml` | main push 時 | サイトビルド → Cloudflare Pages デプロイ |
+| `auto-pr.yml` | `claude/**` push 時 | claude-code-action のブランチに PR を自動作成（feature/fix は手動） |
 
 ### Git Workflow
 

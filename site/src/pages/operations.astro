@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EntryPoints from '../components/EntryPoints.astro';
+
+export const prerender = true;
+---
+
+<Layout
+  title="実行 - Kiryu Public Log"
+  description="桐生市が決めたことをどう実行しているか。入札・契約、監査、計画、第三者委員会の公式ページへの入口"
+  path="/operations"
+>
+  <div class="mx-auto max-w-site px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-900">実行</h1>
+    <p class="mt-2 text-sm text-gray-500">
+      市が決めたことを、どう実行しているか。入札・契約、監査、計画、第三者委員会
+    </p>
+
+    <div class="mt-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+      この分類はまだ公式ページへの入口だけで、このサイト上で構造化したデータはありません。
+      今後、入札結果から順に自動収集を検討しています。
+    </div>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold text-gray-800">ここで分かること</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700">
+        <li>議会で議決された予算や契約が、実際にどの事業者と、いくらで契約されたか（入札・契約）</li>
+        <li>お金の使い方や事務が適正だったかを、監査委員や第三者委員会がどう点検したか（監査・点検）</li>
+        <li>市が何年先まで何をする計画で、その進捗がどうなっているか（計画）</li>
+        <li>市長が記者会見で何を発信しているか（執行部の発信）</li>
+      </ul>
+    </section>
+
+    <EntryPoints category="operations" heading="公式サイトの入口" />
+
+    <p class="mt-12 text-sm text-gray-500">
+      議会で決まったことは
+      <a href="/sessions" class="text-blue-600 underline hover:text-blue-800">決める</a>、
+      予算・決算は
+      <a href="/finance" class="text-blue-600 underline hover:text-blue-800">お金</a>
+      をご覧ください。
+    </p>
+  </div>
+</Layout>

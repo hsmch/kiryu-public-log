@@ -8,7 +8,7 @@ paths:
 ## アーキテクチャ
 
 - Astro 5 + Cloudflare Pages（ほぼ全ページを `export const prerender = true` で静的生成し、`/search` は SSR）
-- Tailwind CSS v4（`@tailwindcss/vite` プラグイン経由、`global.css` は `@import "tailwindcss"` のみ）
+- Tailwind CSS v4（`@tailwindcss/vite` プラグイン経由、`global.css` は `@import "tailwindcss"` ＋ `@theme` の幅トークン `--container-site`（`max-w-site`、1152px）と nav-link / card-interactive / mobile-menu の少量カスタム CSS）
 - pagefind: ビルド後に `npx pagefind --site dist --glob '**/*.html'` で自動インデックス生成
 
 ## データ読み込み
@@ -33,13 +33,17 @@ paths:
 
 | パス | ファイル | 概要 |
 |------|----------|------|
-| `/` | `index.astro` | トップ（onboarding バナー、データハイライト） |
+| `/` | `index.astro` | トップ（運営の5分類の入口、最近の動き） |
 | `/sessions/[slug]` | `sessions/[slug].astro` | 定例会詳細（議案テーブル、投票マトリクス） |
 | `/council/[slug]` | `council/[slug].astro` | 議員詳細 |
 | `/finance` | `finance.astro` | 予算・財政ダッシュボード |
+| `/operations` | `operations.astro` | 実行（入札・監査・計画の公式ページへの入口。`EntryPoints` コンポーネント） |
 | `/analysis` | `analysis.astro` | 投票パターン分析（SVG ヒートマップ） |
 | `/topics/[tag]` | `topics/[tag].astro` | テーマ別タイムライン |
 | `/updates` | `updates.astro` | 更新情報・お知らせ一覧 |
 | `/search` | `search.astro` | pagefind 検索 |
 | `/schedule` | `schedule.astro` | 議会カレンダー |
+| `/guide` | `guide.astro` | 議会の仕組みガイド（用語集） |
+| `/participate` | `participate.astro` | 市政に関わるには（傍聴・パブコメ・請願・情報公開） |
+| `/about` | `about.astro` | このサイトについて |
 | `/rss.xml` | `rss.xml.ts` | RSS フィード |

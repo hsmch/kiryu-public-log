@@ -1,0 +1,88 @@
+{
+  "description": "市の運営を見るための公式ページへの入口。KPL が構造化していない情報も、ここから公式ページへたどれる。手動管理",
+  "checkedAt": "2026-09-24",
+  "categories": {
+    "decide": {
+      "title": "決める",
+      "groups": [
+        {
+          "links": [
+            { "label": "桐生市議会", "url": "https://www.city.kiryu.lg.jp/shigikai/index.html", "note": "議案・日程・議員名簿の公式ページ" },
+            { "label": "会議録検索システム", "url": "https://ssp.kaigiroku.net/tenant/kiryu/SpTop.html", "note": "本会議・委員会の会議録全文" },
+            { "label": "例規・条例", "url": "https://www.city.kiryu.lg.jp/shisei/reiki/index.html", "note": "現行の条例・規則" },
+            { "label": "教育委員会 定例会・臨時会会議録", "url": "https://www.city.kiryu.lg.jp/shisei/iinkai/1016468/index.html", "note": "教育委員会の会議録" }
+          ]
+        }
+      ]
+    },
+    "money": {
+      "title": "お金",
+      "groups": [
+        {
+          "links": [
+            { "label": "予算・決算", "url": "https://www.city.kiryu.lg.jp/shisei/zaisei/1006758/index.html", "note": "当初予算・補正予算・決算の資料" },
+            { "label": "主な財政指標", "url": "https://www.city.kiryu.lg.jp/shisei/zaisei/1006761/index.html", "note": "経常収支比率・実質公債費比率など" }
+          ]
+        }
+      ]
+    },
+    "operations": {
+      "title": "実行",
+      "groups": [
+        {
+          "title": "入札・契約",
+          "links": [
+            { "label": "入札情報", "url": "https://www.city.kiryu.lg.jp/sangyou/nyusatsu/index.html", "note": "入札の公告・結果、公募型プロポーザル" },
+            { "label": "新本庁舎整備", "url": "https://www.city.kiryu.lg.jp/shisei/1017216/index.html", "note": "庁舎建設の基本計画と各契約の締結" }
+          ]
+        },
+        {
+          "title": "監査・点検",
+          "links": [
+            { "label": "監査等の結果", "url": "https://www.city.kiryu.lg.jp/shisei/kansa/1006547/index.html", "note": "監査委員による定期監査・決算審査の結果" },
+            { "label": "入札等不正行為に関する再発防止対策第三者委員会", "url": "https://www.city.kiryu.lg.jp/shisei/jinji/1023559/1025992/index.html", "note": "入札妨害事件を受けた第三者委員会の資料" }
+          ]
+        },
+        {
+          "title": "計画",
+          "links": [
+            { "label": "計画", "url": "https://www.city.kiryu.lg.jp/shisei/keikaku/index.html", "note": "総合計画と分野別の各計画" },
+            { "label": "市長公約の推進", "url": "https://www.city.kiryu.lg.jp/shisei/keikaku/1016023/index.html", "note": "公約の進捗状況" }
+          ]
+        },
+        {
+          "title": "執行部の発信",
+          "links": [
+            { "label": "市長記者会見", "url": "https://www.city.kiryu.lg.jp/shisei/koho/kishakaiken/index.html", "note": "定例記者会見の資料" }
+          ]
+        }
+      ]
+    },
+    "people": {
+      "title": "人",
+      "groups": [
+        {
+          "links": [
+            { "label": "議員名簿（公式）", "url": "https://www.city.kiryu.lg.jp/shigikai/about/1003765.html", "note": "議席番号・会派・委員会" },
+            { "label": "行政組織機構", "url": "https://www.city.kiryu.lg.jp/shisei/soshiki/1002960.html", "note": "市役所の部・課の構成" },
+            { "label": "歴代市長", "url": "https://www.city.kiryu.lg.jp/shisei/profile/1002954.html", "note": "" },
+            { "label": "市長及び市議会議員選挙の執行状況", "url": "https://www.city.kiryu.lg.jp/shisei/senkyo/giin/index.html", "note": "投票率・得票数" },
+            { "label": "市長の資産等の公開", "url": "https://www.city.kiryu.lg.jp/shisei/gyouseiseido/shisankoukai/index.html", "note": "" }
+          ]
+        }
+      ]
+    },
+    "participate": {
+      "title": "関わる",
+      "groups": [
+        {
+          "links": [
+            { "label": "意見提出手続（パブリックコメント）", "url": "https://www.city.kiryu.lg.jp/shisei/koho/publiccomment/index.html", "note": "募集中の案件と過去の結果" },
+            { "label": "情報公開制度", "url": "https://www.city.kiryu.lg.jp/shisei/gyouseiseido/1003232.html", "note": "情報公開請求の手続き" },
+            { "label": "問い合わせ・御意見", "url": "https://www.city.kiryu.lg.jp/shisei/koho/toiawase/index.html", "note": "市への意見・提言の窓口" }
+          ]
+        }
+      ]
+    }
+  }
+}

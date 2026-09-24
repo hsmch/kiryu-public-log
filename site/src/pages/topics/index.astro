@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getTagCounts, getTags, getEntriesByTag } from '../../lib/data';
+import { getTagCounts, getTags, getEntriesByTag, compareSessionSlugs } from '../../lib/data';
 
 export const prerender = true;
 
@@ -33,7 +33,7 @@ const tagInfos: TagInfo[] = tagCounts.map(({ tag, count }) => {
   const entries = getEntriesByTag(tag);
 
   // 最新セッションを取得
-  const sorted = [...entries].sort((a, b) => b.sessionSlug.localeCompare(a.sessionSlug));
+  const sorted = [...entries].sort((a, b) => compareSessionSlugs(b.sessionSlug, a.sessionSlug));
   const lastSession = sorted.length > 0 ? sorted[0].session : '';
 
   // 年度別にカウント
@@ -57,8 +57,8 @@ const sparkH = 20;
 ---
 
 <Layout title="テーマ別 - Kiryu Public Log" description="桐生市議会の議案・一般質問をテーマごとに分類" path="/topics">
-  <div class="mx-auto max-w-4xl px-4 py-8">
-    <h1 class="text-4xl font-bold text-gray-900"><span class="heading-emoji">🏷️</span>テーマ別</h1>
+  <div class="mx-auto max-w-site px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-900">テーマ別</h1>
     <p class="mt-2 text-sm text-gray-500">
       議案や一般質問をテーマごとに分類しています
     </p>
