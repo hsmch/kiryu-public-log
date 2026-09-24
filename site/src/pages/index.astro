@@ -5,6 +5,7 @@ import {
   getAllSessions,
   getSessionSummary,
   getSplitBillCountForSession,
+  getVotingForSession,
   getCouncilMembers,
   getPopulation,
   getBudget,
@@ -19,7 +20,13 @@ const sessions = getAllSessions();
 const latest = sessions[0] ?? null;
 const latestSummary = latest ? getSessionSummary(latest.slug) : null;
 const latestBillCount = latestSummary?.totalBills ?? latest?.data.bills.length ?? 0;
-const latestSplitCount = latestSummary?.splitCount ?? (latest ? getSplitBillCountForSession(latest.slug) : 0);
+// 議員別賛否の記録は定例会終了後しばらく公開されないため、無い間は分裂数を出さない
+// （sessions/[slug].astro の hasVotingSummary と同じ判定）
+const latestVoting = latest ? getVotingForSession(latest.slug) : null;
+const hasLatestVoting = !!latestVoting && latestVoting.records.length > 0;
+const latestSplitCount = hasLatestVoting
+  ? (latestSummary?.splitCount ?? getSplitBillCountForSession(latest!.slug))
+  : null;
 
 // お金
 const population = getPopulation();
@@ -60,7 +67,11 @@ const hasRecent = featuredAnnouncements.length > 0 || recentUpdates.length > 0;
     <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
       <CategoryBlock id="sessions" title="決める" description="議会で何が決まったか" href="/sessions" linkLabel="議案・採決を見る">
         {latest && <p class="font-medium text-gray-900">{latest.data.session}</p>}
-        {latest && <p class="text-gray-600">議案 {latestBillCount} 件・賛否分裂 {latestSplitCount} 件</p>}
+        {latest && (
+          <p class="text-gray-600">
+            議案 {latestBillCount} 件・{latestSplitCount !== null ? `賛否分裂 ${latestSplitCount} 件` : '賛否記録は未公開'}
+          </p>
+        )}
       </CategoryBlock>
 
       <CategoryBlock id="finance" title="お金" description="予算・財政と人口" href="/finance" linkLabel="予算・財政を見る">
