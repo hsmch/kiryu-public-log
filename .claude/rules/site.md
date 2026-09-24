@@ -43,4 +43,7 @@ paths:
 | `/updates` | `updates.astro` | 更新情報・お知らせ一覧 |
 | `/search` | `search.astro` | pagefind 検索 |
 | `/schedule` | `schedule.astro` | 議会カレンダー |
+| `/guide` | `guide.astro` | 議会の仕組みガイド（用語集） |
+| `/participate` | `participate.astro` | 市政に関わるには（傍聴・パブコメ・請願・情報公開） |
+| `/about` | `about.astro` | このサイトについて |
 | `/rss.xml` | `rss.xml.ts` | RSS フィード |
