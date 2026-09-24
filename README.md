@@ -89,6 +89,7 @@ npm run validate
 | `ci.yml` | PR 作成時 | サイトビルド + スモークテスト / データバリデーション |
 | Copilot code review | PR 作成時 | GitHub Copilot による自動コードレビュー（Ruleset） |
 | `deploy.yml` | main push 時 | サイトビルド → Cloudflare Pages デプロイ |
+| `auto-pr.yml` | `claude/**` push 時 | claude-code-action のブランチに PR を自動作成（feature/fix は手動） |
 
 ### Git Workflow
 

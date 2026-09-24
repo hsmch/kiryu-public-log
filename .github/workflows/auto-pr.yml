@@ -1,10 +1,11 @@
 name: Auto PR
 
+# claude-code-action が push する claude/** ブランチだけを対象にする。
+# feature/** や fix/** はローカルで作業する人が PR を手動で作るため、
+# ここで自動作成すると競合して PR が重複する（#53/#54、#79/#80）。
 on:
   push:
     branches:
-      - 'feature/**'
-      - 'fix/**'
       - 'claude/**'
 
 permissions:
