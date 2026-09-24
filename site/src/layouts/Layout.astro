@@ -12,15 +12,24 @@ const SITE_URL = 'https://kiryu.co';
 
 const {
   title = 'Kiryu Public Log',
-  description = '桐生市の市政・議会の公開情報をわかりやすく整理してお届けするアーカイブサイト',
+  description = '桐生市の運営（決める・お金・実行・人・関わる）を公開情報から見るアーカイブサイト',
   path = '',
 } = Astro.props;
 
 const canonicalUrl = `${SITE_URL}${path}`;
+
+// 市の運営を要素で切った5分類（対等に並列）。ラベルは暫定
+const categories = [
+  { href: '/sessions', label: '決める', description: '議会で何が決まったか。議案・採決・一般質問', sub: [{ href: '/topics', label: '分野別' }, { href: '/analysis', label: '投票分析' }, { href: '/schedule', label: '議会カレンダー' }] },
+  { href: '/finance', label: 'お金', description: '予算・財政指標・基金と人口', sub: [] },
+  { href: '/operations', label: '実行', description: '入札・契約、監査、計画への入口', sub: [] },
+  { href: '/council', label: '人', description: '議員ごとの投票行動と一般質問', sub: [{ href: '/analysis', label: '投票分析' }] },
+  { href: '/participate', label: '関わる', description: '傍聴・パブコメ・請願・情報公開', sub: [{ href: '/guide', label: '議会の仕組みガイド' }] },
+];
 ---
 
 <!doctype html>
-<html lang="ja" class="no-js">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,7 +59,6 @@ const canonicalUrl = `${SITE_URL}${path}`;
 
     <!-- Page transitions -->
     <ClientRouter />
-    <script is:inline>document.documentElement.classList.remove('no-js');</script>
   </head>
   <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
     <header class="border-b border-gray-200 bg-white">
@@ -58,68 +66,52 @@ const canonicalUrl = `${SITE_URL}${path}`;
         <a href="/" class="text-lg font-bold tracking-tight text-gray-900 no-underline">
           Kiryu Public Log
         </a>
-        <nav class="hidden md:flex gap-4 text-sm">
-          <a href="/council" class="nav-link text-gray-600 hover:text-gray-900">議員一覧</a>
-          <a href="/sessions" class="nav-link text-gray-600 hover:text-gray-900">議案・採決</a>
-          <a href="/analysis" class="nav-link text-gray-600 hover:text-gray-900">投票分析</a>
-          <a href="/finance" class="nav-link text-gray-600 hover:text-gray-900">まちの数字</a>
-          <a href="/topics" class="nav-link text-gray-600 hover:text-gray-900">テーマ別</a>
-          <a href="/updates" class="nav-link text-gray-600 hover:text-gray-900">更新情報</a>
-          <a href="/search" class="nav-link text-gray-600 hover:text-gray-900">検索</a>
-          <a href="/guide" class="nav-link text-gray-600 hover:text-gray-900">ガイド</a>
-          <a href="/about" class="nav-link text-gray-600 hover:text-gray-900">about</a>
-        </nav>
-        <button
-          id="menu-toggle"
-          class="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="メニューを開く"
-        >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="flex items-center gap-1">
+          <nav class="hidden md:flex gap-4 text-sm mr-2">
+            {categories.map((c) => (
+              <a href={c.href} class="nav-link text-gray-600 hover:text-gray-900">{c.label}</a>
+            ))}
+          </nav>
+          <a href="/search" class="p-2 text-gray-600 hover:text-gray-900" aria-label="検索">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+          </a>
+          <button
+            id="menu-toggle"
+            class="md:hidden p-2 -mr-2 text-gray-600 hover:text-gray-900"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="メニューを開く"
+          >
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
       <nav id="mobile-menu" class="mobile-menu-enter md:hidden border-t border-gray-100" inert>
         <div class="mx-auto max-w-4xl px-4 py-3 flex flex-col gap-1 text-sm">
-          <a href="/council" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">議員一覧</span>
-            <span class="block text-xs text-gray-400">桐生市議会22名の活動記録</span>
-          </a>
-          <a href="/sessions" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">議案・採決</span>
-            <span class="block text-xs text-gray-400">定例会ごとの議案と採決結果</span>
-          </a>
-          <a href="/analysis" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">投票分析</span>
-            <span class="block text-xs text-gray-400">議員間の投票一致率・会派結束度</span>
-          </a>
-          <a href="/finance" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">まちの数字</span>
-            <span class="block text-xs text-gray-400">人口・財政・予算データ</span>
-          </a>
-          <a href="/topics" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">テーマ別</span>
-            <span class="block text-xs text-gray-400">議案・質問をテーマで横断整理</span>
-          </a>
-          <a href="/updates" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">更新情報</span>
-            <span class="block text-xs text-gray-400">サイトの更新・お知らせ</span>
-          </a>
+          {categories.map((c) => (
+            <div class="py-2">
+              <a href={c.href} class="block text-gray-600 hover:text-gray-900">
+                <span class="font-medium">{c.label}</span>
+                <span class="block text-xs text-gray-400">{c.description}</span>
+              </a>
+              {c.sub.length > 0 && (
+                <p class="mt-1 flex flex-wrap gap-3 text-xs">
+                  {c.sub.map((s) => (
+                    <a href={s.href} class="text-blue-600 hover:text-blue-800">{s.label}</a>
+                  ))}
+                </p>
+              )}
+            </div>
+          ))}
           <a href="/search" class="text-gray-600 hover:text-gray-900 py-2">
             <span class="font-medium">検索</span>
             <span class="block text-xs text-gray-400">サイト内全文検索</span>
-          </a>
-          <a href="/guide" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">ガイド</span>
-            <span class="block text-xs text-gray-400">議会の仕組み・用語解説</span>
-          </a>
-          <a href="/about" class="text-gray-600 hover:text-gray-900 py-2">
-            <span class="font-medium">about</span>
-            <span class="block text-xs text-gray-400">このサイトについて</span>
           </a>
         </div>
       </nav>
@@ -167,35 +159,6 @@ const canonicalUrl = `${SITE_URL}${path}`;
       <slot />
     </main>
 
-    <script>
-      let scrollRevealObserver: IntersectionObserver | null = null;
-      function initScrollReveal() {
-        scrollRevealObserver?.disconnect();
-        scrollRevealObserver = null;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
-            el.classList.add('is-visible');
-          });
-          return;
-        }
-        scrollRevealObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                scrollRevealObserver?.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-        document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
-          scrollRevealObserver!.observe(el);
-        });
-      }
-      document.addEventListener('astro:page-load', initScrollReveal);
-    </script>
-
     <footer class="mt-auto border-t border-gray-200 bg-white">
       <div class="mx-auto max-w-4xl px-4 py-6 text-center text-sm text-gray-500">
         <p>
@@ -214,12 +177,12 @@ const canonicalUrl = `${SITE_URL}${path}`;
           </a>
           をご確認ください。
         </p>
-        <p class="mt-2 flex justify-center gap-4">
+        <p class="mt-2 flex flex-wrap justify-center gap-4">
           <a href="/about" class="text-blue-600 underline hover:text-blue-800">このサイトについて</a>
           <a href="/guide" class="text-blue-600 underline hover:text-blue-800">議会の仕組みガイド</a>
-          <a href="/participate" class="text-blue-600 underline hover:text-blue-800">市政に関わるには</a>
-          <a href="https://github.com/hsmch/kiryu-public-log" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="/updates" class="text-blue-600 underline hover:text-blue-800">更新情報</a>
           <a href="/rss.xml" class="text-blue-600 underline hover:text-blue-800">RSS</a>
+          <a href="https://github.com/hsmch/kiryu-public-log" class="text-blue-600 underline hover:text-blue-800" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </div>
     </footer>

@@ -13,19 +13,35 @@ test.describe('Top page', () => {
     await expect(heading).toContainText('Kiryu Public Log');
   });
 
-  test('has navigation question cards', async ({ page }) => {
+  test('has five category blocks', async ({ page }) => {
     await page.goto('/');
-    // The top page has question-style navigation cards linking to key pages
-    const navCards = page.locator('a[href="/finance"], a[href="/sessions"], a[href="/council"], a[href="/analysis"], a[href="/topics"]');
-    await expect(navCards.first()).toBeVisible();
-    expect(await navCards.count()).toBeGreaterThanOrEqual(3);
+    // The top page shows the five categories side by side, each linking to its landing page
+    const blocks = page.locator('main [data-category]');
+    expect(await blocks.count()).toBe(5);
+    for (const href of ['/sessions', '/finance', '/operations', '/council', '/participate']) {
+      await expect(page.locator(`main a[href="${href}"]`).first()).toBeVisible();
+    }
   });
 
-  test('has numeric summary section', async ({ page }) => {
+  test('sessions block shows latest session figures', async ({ page }) => {
     await page.goto('/');
-    // Summary cards showing member count, session count, bill count
-    const summaryCards = page.locator('.grid .text-3xl');
-    expect(await summaryCards.count()).toBeGreaterThanOrEqual(1);
+    // The 決める block shows the latest session name and its bill count
+    const sessionsBlock = page.locator('main [data-category="sessions"]');
+    await expect(sessionsBlock).toContainText('件');
+  });
+});
+
+test.describe('Operations page (/operations)', () => {
+  test('returns 200 and lists official entry points', async ({ page }) => {
+    const response = await page.goto('/operations');
+    expect(response?.status()).toBe(200);
+
+    const heading = page.locator('h1');
+    await expect(heading).toContainText('実行');
+
+    // Entry-point links to the official city site
+    const links = page.locator('[data-entry-points="operations"] a[href^="https://"]');
+    expect(await links.count()).toBeGreaterThanOrEqual(3);
   });
 });
 

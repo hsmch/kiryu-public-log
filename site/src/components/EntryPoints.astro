@@ -1,0 +1,45 @@
+---
+/**
+ * 公式サイトへの入口リンク一覧。
+ * KPL が構造化していない情報も、ここから桐生市公式サイトの該当ページへたどれる。
+ * データは data/entry-points.json（手動管理）。
+ */
+import { getEntryPointCategory } from '../lib/data';
+
+interface Props {
+  category: string;
+  heading?: string;
+}
+
+const { category, heading = '公式サイトで見る' } = Astro.props;
+const data = getEntryPointCategory(category);
+---
+
+{data && (
+  <section class="mt-12" data-entry-points={category}>
+    <h2 class="text-2xl font-semibold text-gray-800">{heading}</h2>
+    <p class="mt-1 text-sm text-gray-500">
+      このサイトで構造化していない情報も含め、桐生市公式サイトの該当ページへの入口です。
+    </p>
+    {data.groups.map((group) => (
+      <div class="mt-4">
+        {group.title && <h3 class="text-sm font-semibold text-gray-700">{group.title}</h3>}
+        <ul class="mt-2 grid gap-2 sm:grid-cols-2">
+          {group.links.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block rounded-lg border border-gray-200 bg-white px-4 py-3 card-interactive hover:border-blue-300"
+              >
+                <span class="block text-sm font-medium text-gray-900">{link.label}</span>
+                {link.note && <span class="mt-0.5 block text-xs text-gray-500">{link.note}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+)}

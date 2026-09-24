@@ -757,3 +757,44 @@ export function getGlossaryMap(): Map<string, GlossaryEntry> {
   _glossaryMapCache = map;
   return map;
 }
+
+// ===== Entry points（公式サイトへの入口、手動管理: data/entry-points.json） =====
+
+export interface EntryPointLink {
+  label: string;
+  url: string;
+  note?: string;
+}
+
+export interface EntryPointGroup {
+  title?: string;
+  links: EntryPointLink[];
+}
+
+export interface EntryPointCategory {
+  title: string;
+  groups: EntryPointGroup[];
+}
+
+export interface EntryPointsData {
+  description: string;
+  checkedAt: string;
+  categories: Record<string, EntryPointCategory>;
+}
+
+let _entryPointsCache: EntryPointsData | null = null;
+
+export function getEntryPoints(): EntryPointsData | null {
+  if (_entryPointsCache) return _entryPointsCache;
+  try {
+    const raw = readFileSync(resolve(DATA_DIR, "entry-points.json"), "utf-8");
+    _entryPointsCache = JSON.parse(raw) as EntryPointsData;
+    return _entryPointsCache;
+  } catch {
+    return null;
+  }
+}
+
+export function getEntryPointCategory(key: string): EntryPointCategory | null {
+  return getEntryPoints()?.categories[key] ?? null;
+}
