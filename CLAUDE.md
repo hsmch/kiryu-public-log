@@ -75,6 +75,7 @@ hsmch/kiryu-public-log/
 - **main**: 本番ブランチ。直接 push しない。変更は必ず PR 経由でマージ
 - **feature/xxx**: main から作成する作業ブランチ
 - **auto/data-update**: GitHub Actions がデータ更新 PR を自動作成
+- **claude/xxx**: claude-code-action が作成するブランチ。push 時に `.github/workflows/auto-pr.yml` が PR を自動作成する。feature/fix ブランチの PR は手動で作成する（自動作成と競合して重複するため対象外）
 
 ### ブランチ命名規則
 
