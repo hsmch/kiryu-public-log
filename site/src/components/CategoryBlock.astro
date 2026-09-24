@@ -1,0 +1,27 @@
+---
+/**
+ * トップページの分類ブロック。5 分類を対等に並べるため、
+ * 見た目と情報量（見出し・1 行説明・本文 2 行・リンク 1 本）を揃える。
+ * データ取得は呼び出し側で行い、本文は slot で渡す。
+ */
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  linkLabel?: string;
+}
+
+const { id, title, description, href, linkLabel = 'もっと見る' } = Astro.props;
+---
+
+<section data-category={id} class="flex flex-col rounded-lg border border-gray-200 bg-white p-4">
+  <h2 class="text-base font-semibold text-gray-900">
+    <a href={href} class="hover:text-blue-700">{title}</a>
+  </h2>
+  <p class="mt-1 text-xs text-gray-500">{description}</p>
+  <div class="mt-3 flex-1 space-y-1 text-sm">
+    <slot />
+  </div>
+  <a href={href} class="mt-3 text-sm text-blue-600 hover:text-blue-800">{linkLabel}</a>
+</section>
