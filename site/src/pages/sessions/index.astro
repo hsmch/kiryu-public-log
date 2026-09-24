@@ -42,8 +42,9 @@ function sessionNumLabel(slug: string): string {
       {yearKeyToLabel([...byYear.keys()].at(-1) ?? '')}〜{yearKeyToLabel([...byYear.keys()][0] ?? '')}の定例会・臨時会の議案議決結果
     </p>
     <p class="mt-2 flex flex-wrap gap-3 text-sm">
-      <a href="/schedule" class="text-blue-600 underline hover:text-blue-800">議会カレンダー</a>
+      <a href="/topics" class="text-blue-600 underline hover:text-blue-800">分野別に見る</a>
       <a href="/analysis" class="text-blue-600 underline hover:text-blue-800">投票パターン分析</a>
+      <a href="/schedule" class="text-blue-600 underline hover:text-blue-800">議会カレンダー</a>
     </p>
 
     {[...byYear.entries()].map(([yearKey, yearSessions]) => (

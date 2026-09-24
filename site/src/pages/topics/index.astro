@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getTagCounts, getTags, getEntriesByTag } from '../../lib/data';
+import { getTagCounts, getTags, getEntriesByTag, compareSessionSlugs } from '../../lib/data';
 
 export const prerender = true;
 
@@ -33,7 +33,7 @@ const tagInfos: TagInfo[] = tagCounts.map(({ tag, count }) => {
   const entries = getEntriesByTag(tag);
 
   // 最新セッションを取得
-  const sorted = [...entries].sort((a, b) => b.sessionSlug.localeCompare(a.sessionSlug));
+  const sorted = [...entries].sort((a, b) => compareSessionSlugs(b.sessionSlug, a.sessionSlug));
   const lastSession = sorted.length > 0 ? sorted[0].session : '';
 
   // 年度別にカウント

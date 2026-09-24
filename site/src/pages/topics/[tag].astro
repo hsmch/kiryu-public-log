@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getAllTagNames, getEntriesByTag, getBillResult, getRelatedTags, getTags, getVotingForSession } from '../../lib/data';
+import { getAllTagNames, getEntriesByTag, getBillResult, getRelatedTags, getTags, getVotingForSession, compareSessionSlugs } from '../../lib/data';
 import type { TagEntry } from '../../lib/data';
 
 export const prerender = true;
@@ -109,7 +109,7 @@ const yearGroups = [...yearSessionMap.entries()]
   .map(([year, sessions]) => ({
     year,
     sortKey: fiscalYearSortKey(sessions[0].sessionSlug),
-    sessions: sessions.sort((a, b) => b.sessionSlug.localeCompare(a.sessionSlug)),
+    sessions: sessions.sort((a, b) => compareSessionSlugs(b.sessionSlug, a.sessionSlug)),
   }))
   .sort((a, b) => b.sortKey.localeCompare(a.sortKey));
 

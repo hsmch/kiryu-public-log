@@ -56,7 +56,7 @@ export function getAllSessions(): { slug: string; data: SessionData }[] {
         data: JSON.parse(raw) as SessionData,
       };
     })
-    .sort((a, b) => b.slug.localeCompare(a.slug));
+    .sort((a, b) => compareSessionSlugs(b.slug, a.slug));
 }
 
 export interface UpdateEntry {
@@ -212,7 +212,7 @@ export function getQuestionsForMember(
     }
   }
 
-  return results.sort((a, b) => b.slug.localeCompare(a.slug));
+  return results.sort((a, b) => compareSessionSlugs(b.slug, a.slug));
 }
 
 // --- Population ---
@@ -432,7 +432,7 @@ export function getVotingForMember(memberName: string): {
   }
 
   const sorted = results.sort((a, b) =>
-    b.sessionSlug.localeCompare(a.sessionSlug),
+    compareSessionSlugs(b.sessionSlug, a.sessionSlug),
   );
   const votable = sorted.filter((r) => r.vote !== "議長");
 
@@ -589,7 +589,7 @@ export function getSplitBillsForSession(slug: string): SplitBill[] {
 }
 
 export function getRecentSplitBills(limit = 10): SplitBill[] {
-  const slugs = getAllVotingSlugs().sort((a, b) => b.localeCompare(a));
+  const slugs = getAllVotingSlugs().sort((a, b) => compareSessionSlugs(b, a));
   const results: SplitBill[] = [];
   for (const slug of slugs) {
     results.push(...getSplitBillsForSession(slug));
@@ -756,6 +756,29 @@ export function getGlossaryMap(): Map<string, GlossaryEntry> {
   _glossaryMapSource = entries;
   _glossaryMapCache = map;
   return map;
+}
+
+// ===== Session slug ordering =====
+
+/**
+ * 会期スラグ（例: r8-2-teireikai, h28-1-rinjikai）を年号・年・回で数値比較する（昇順）。
+ * 文字列比較だと令和10年（r10-）が令和9年（r9-）より前に並んでしまうため。
+ * 同じ年・回の臨時会と定例会は文字列順（rinjikai < teireikai）にフォールバックする。
+ */
+export function compareSessionSlugs(a: string, b: string): number {
+  const ka = sessionSlugKey(a);
+  const kb = sessionSlugKey(b);
+  for (let i = 0; i < ka.length; i++) {
+    if (ka[i] !== kb[i]) return ka[i] < kb[i] ? -1 : 1;
+  }
+  return a.localeCompare(b);
+}
+
+function sessionSlugKey(slug: string): number[] {
+  const m = slug.match(/^([hr])(\d+)-(\d+)-/);
+  if (!m) return [0, 0, 0];
+  const era = m[1] === "r" ? 2 : 1; // 平成 < 令和
+  return [era, parseInt(m[2], 10), parseInt(m[3], 10)];
 }
 
 // ===== Entry points（公式サイトへの入口、手動管理: data/entry-points.json） =====
