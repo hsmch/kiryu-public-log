@@ -1,6 +1,15 @@
 {
   "entries": [
     {
+      "id": "auto-finance-2026-09-26",
+      "date": "2026-09-26",
+      "title": "財政データ（基金残高）を更新しました",
+      "content": "財政ダッシュボードのデータを最新の情報に更新しました。",
+      "url": "/finance",
+      "type": "update",
+      "featured": false
+    },
+    {
       "id": "auto-session-r8-1-rinjikai",
       "date": "2026-09-23",
       "title": "令和8年第1回臨時会の議案データを追加しました",
